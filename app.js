@@ -86,7 +86,7 @@
 
     const venues = D.venues.map((x) => `
       <button class="venue ${x.name === state.venue ? "is-active" : ""}" data-venue="${x.name}">
-        <span class="v-jp">${x.name}</span><span class="v-en">${x.en}</span>
+        <span class="v-jp">${x.name}</span>
       </button>`).join("");
     const dists = list.map((x) => {
       const lp2 = loopOf(x);
@@ -99,7 +99,7 @@
       : "";
     const wet = state.going === "重";
     const pills = [
-      lp.tag ? `<span class="pill pill-loop">${lp.tag}</span>` : "",
+      lp.tag ? `<span class="pill pill-loop ${lp.tag === "内回り" ? "li" : lp.tag === "外回り" ? "lo" : ""}">${lp.tag}</span>` : "",
       wet ? `<span class="pill pill-wet">☂ 重・不良</span>` : "",
       startPill,
       `<span class="pill">${v.turn}</span>`,

@@ -188,15 +188,16 @@ b, strong { font-weight: 700; color: var(--strong); }
 .scroller::-webkit-scrollbar { display: none; }
 .venue {
   flex: 0 0 auto; scroll-snap-align: start;
-  min-width: 74px; padding: 10px 12px; border-radius: calc(var(--radius) - 4px);
+  /* 漢字だけ・全部同じ幅 */
+  width: 60px; padding: 9px 0; border-radius: calc(var(--radius) - 6px);
   background: var(--surface); border: 1px solid var(--line);
-  text-align: left; transition: transform .15s, background .2s, border-color .2s;
+  text-align: center; transition: transform .15s, background .2s, border-color .2s;
 }
 .venue:active { transform: scale(0.97); }
 .venue .v-jp { font-weight: 700; font-size: 16px; display: block; }
 .venue .v-en { font-family: var(--num); font-size: 9.5px; letter-spacing: 0.16em; color: var(--faint); }
 .venue.is-active { background: var(--accent-soft); border-color: var(--accent); }
-.venue.is-active .v-en { color: var(--accent); }
+.venue.is-active .v-jp { color: var(--accent); }
 
 .row2 { display: flex; gap: 10px; align-items: center; margin-top: 12px; }
 .seg { display: inline-flex; background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 3px; flex: 0 0 auto; }
@@ -330,9 +331,12 @@ b, strong { font-weight: 700; color: var(--strong); }
 
 /* ---------- 内回り・外回り ---------- */
 .dist small.li, .dist small.lo { display: inline-block; font-size: 9.5px; font-weight: 700; padding: 0 4px; border-radius: 4px; margin-left: 3px; vertical-align: 1px; line-height: 15px; }
+/* 金色はお気に入り専用。内回り＝青、外回り＝紫 */
 .dist small.li { background: var(--us-soft); color: var(--us); }
-.dist small.lo { background: var(--gold-soft); color: var(--gold); }
-.pill-loop { background: var(--gold); color: var(--on-accent); border-color: var(--gold); font-weight: 700; }
+.dist small.lo { background: var(--eu-soft); color: var(--eu); }
+.pill-loop { background: var(--glass2); color: var(--hero-text); border: 1px solid var(--line2); font-weight: 700; }
+.pill-loop.li { border-color: var(--us); color: var(--us); }
+.pill-loop.lo { border-color: var(--eu); color: var(--eu); }
 
 /* ---------- 馬場・お気に入り ---------- */
 .row3 { display: flex; align-items: center; gap: 10px; margin-top: 10px; }
