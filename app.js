@@ -232,6 +232,7 @@
           </div>
         </section>
 
+        ${state.secHintDone ? "" : `<p class="sechint"><span>↔ 下の見出しは<b>長押しして左右に動かす</b>と並べ替えられます（左端がいちばん上）</span><button data-sechint aria-label="案内を閉じる">×</button></p>`}
         <nav class="secnav" aria-label="このページの見出し"></nav>
         ${wet ? renderWet(c) : ""}
         ${renderMap(v, c)}
@@ -325,6 +326,7 @@
         delete state.secOrder; save(); placeSecs(ordered([])); renderSecReset(); toast("元の順番に戻しました");
       });
     }
+    $view.querySelector("[data-sechint]")?.addEventListener("click", () => { state.secHintDone = true; save(); $view.querySelector(".sechint")?.remove(); });
     let dragged = false;
     nav.querySelectorAll("[data-go-sec]").forEach((b) => {
       b.onclick = () => {
@@ -373,6 +375,7 @@
           const names = [...nav.querySelectorAll("[data-nm]")].map((x) => x.dataset.nm);
           const same = names.join() === ordered([]).map((s) => s.nm).join();
           if (same) delete state.secOrder; else state.secOrder = names;
+          state.secHintDone = true; $view.querySelector(".sechint")?.remove();
           save(); placeSecs(ordered(names)); renderSecReset();
           toast(same ? "元の順番です" : names[0] === b.dataset.nm ? `「${names[0]}」をいちばん上にしました` : "順番を保存しました");
           setTimeout(() => { dragged = false; }, 50);

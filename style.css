@@ -480,6 +480,9 @@ a.sire { text-decoration: underline; text-decoration-color: color-mix(in srgb, v
 .secnav button.lifted { position: relative; z-index: 2; transition: none; border-color: var(--accent); color: var(--accent); background: var(--accent-soft); box-shadow: 0 6px 18px rgba(0,0,0,.35); scale: 1.08; }
 .secnav.dragging { overflow-x: hidden; }
 .secnav button.secreset { color: var(--muted); border-style: dashed; font-weight: 600; }
+.sechint { display: flex; align-items: center; gap: 6px; margin: 12px 0 -4px; font-size: 11px; color: var(--muted); line-height: 1.4; }
+.sechint b { color: var(--text2); font-weight: 700; }
+.sechint button { margin-left: auto; flex: 0 0 auto; width: 22px; height: 22px; border-radius: 50%; border: 1px solid var(--line2); color: var(--muted); background: transparent; font-size: 12px; line-height: 1; }
 /* 今週の開催・重賞 */
 .week { margin: 0 0 12px; padding: 10px 12px; border-radius: 14px; background: var(--glass); border: 1px solid var(--line); }
 .week-h { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
