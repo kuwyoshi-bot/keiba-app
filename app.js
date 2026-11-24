@@ -839,7 +839,15 @@
       p["所属"] ? `<span class="pill">${esc(p["所属"])}</span>` : "",
       p["減量"] ? `<span class="pill jgen">減量 ${esc(p["減量"])}</span>` : "",
     ].join("");
-    return chips ? `<div class="pills" style="margin:0 0 10px">${chips}</div>` : "";
+    // 家族（兄弟・親子）：アプリに載っている騎手の名前は、押すとその騎手のページへ
+    const names = D.jockeys.map((x) => x.name).filter((n) => n !== j.name).sort((a, b) => b.length - a.length);
+    const linkNames = (t) => {
+      let h = esc(t);
+      names.forEach((n) => { if (h.includes(n)) h = h.split(n).join(`\u0000${n}\u0001`); });
+      return h.replace(/\u0000([^\u0001]+)\u0001/g, (_, n) => `<a href="#jockey/${n}">${n}</a>`);
+    };
+    const fam = (p["家族"] || []).map((f) => `<p class="jfam"><span class="k">家族</span><span>${linkNames(f.text)}</span></p>`).join("");
+    return (chips ? `<div class="pills" style="margin:0 0 10px">${chips}</div>` : "") + fam;
   };
   function jRepCard(j, notes) {
     const p = pf(j);
