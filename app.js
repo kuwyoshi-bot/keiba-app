@@ -824,6 +824,7 @@
     const p = pf(j);
     return [
       p["状態"] ? `<span class="jout">${esc(p["状態"].replace(/（.*$/, ""))}</span>` : "",
+      j.lead ? `<span class="jlead t-${j.lead.tier}">${j.lead.tier}・今年${j.lead.rank}位</span>` : "",
       (p["異名"] || [])[0] ? `<b>${esc(p["異名"][0].text)}</b>` : p["短く"] ? `<b>${esc(p["短く"])}</b>` : "",
       p["型"] ? esc(p["型"]) : "",
       p["所属"] ? esc(p["所属"].replace(/（.*$/, "")) : "",
@@ -834,6 +835,7 @@
     const p = pf(j);
     const chips = [
       p["状態"] ? `<span class="pill jout-pill">${esc(p["状態"])}</span>` : "",
+      j.lead ? `<span class="pill jlead-pill t-${j.lead.tier}">${j.lead.tier}：${j.lead.year}年 ${j.lead.rank}位（${j.lead.wins}勝）</span>` : "",
       ...(p["異名"] || []).map((a) => `<span class="pill jnick">「${esc(a.text)}」</span>`),
       p["型"] ? `<span class="pill pill-lean ${p["型"] === "先行寄り" ? "fw" : p["型"] === "差し寄り" ? "cl" : ""}">${esc(p["型"])}</span>` : "",
       p["所属"] ? `<span class="pill">${esc(p["所属"])}</span>` : "",
