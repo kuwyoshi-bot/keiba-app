@@ -508,19 +508,41 @@
     if (!list.length) return "";
     list.sort((a, b) => b.r.p - a.r.p);
     const avg = D.courseAvg[k];
-    const one = ({ s, r }) => `
-      <a class="srow${isFew(r) ? " few" : ""}" href="${sireHref(s.name)}">
-        <span class="srow-n"><span class="sire t-${s.type}">${s.name}</span><span class="srow-l">${labels(r)}${state.going === "重" ? wetBadge(wetFor(s.name, k)) : ""}</span></span>
+    // 一押し：騎手と同じ考え方。種牡馬の「ふだん」は、同じ距離帯（芝短・ダ中など）での複勝率
+    const bandKey = (c.surface === "芝" ? "芝" : "ダ") + (c.surface === "芝"
+      ? (c.dist <= 1400 ? "短" : c.dist <= 1800 ? "マ" : c.dist <= 2200 ? "中" : "長")
+      : (c.dist <= 1400 ? "短" : c.dist <= 1900 ? "中" : "長"));
+    let pick = null;
+    for (const x of list) {
+      const r = x.r, band = (x.s.bands || {})[bandKey];
+      if (r.n < 30) continue;
+      const a = Math.min(r.p / avg, 2);
+      const b = band && band[2] ? r.p / band[2] : 1;
+      const cc = (r.f / 85 + Math.min(r.t, 300) / 170) / 2;
+      const score = 1 + (0.35 * a + 0.35 * b + 0.3 * cc - 1) * (r.n / (r.n + 60));
+      if (!pick || score > pick.score) pick = { x, score, b };
+    }
+    if (pick && pick.score < 1.05) pick = null;
+    if (pick) { list.splice(list.indexOf(pick.x), 1); list.unshift(pick.x); }
+    const one = (x) => {
+      const { s, r } = x;
+      const isPick = pick && pick.x === x;
+      return `
+      <a class="srow${isFew(r) ? " few" : ""}${isPick ? " pick" : ""}" href="${sireHref(s.name)}">
+        <span class="srow-n">${isPick ? '<span class="pickmark">一押し</span>' : ""}<span class="sire t-${s.type}">${s.name}</span><span class="srow-l">${labels(r)}${state.going === "重" ? wetBadge(wetFor(s.name, k)) : ""}</span></span>
         <span class="srow-p num">${r.p}<small>%</small></span>
         <span class="srow-d">${r.n}走・単回${r.t}／複回${r.f}</span>
+        ${isPick ? `<span class="pickwhy">複勝率はコース平均の${(r.p / avg).toFixed(1)}倍、この距離帯でのふだんの${pick.b.toFixed(1)}倍。複勝回収率${r.f}%</span>` : ""}
       </a>`;
+    };
     // 多すぎると見にくいので、上の8頭だけ出して残りはたたむ
     const top = list.slice(0, 8).map(one).join("");
     const rest = list.slice(8);
     return `<section class="card"><div class="card-h"><span class="ico" style="background:var(--eu-soft);color:var(--eu)">種</span><h2>このコースの種牡馬</h2><span class="en">Sires here</span></div>
       <p class="note" style="margin:0 0 8px">図鑑の種牡馬のうち、このコースで20走以上あるもの（複勝率の高い順）。コース平均は <b class="num">${avg}%</b>。タップで図鑑へ。</p>
       <div class="srows">${top}</div>
-      ${rest.length ? `<details class="more"><summary>もっと見る（あと${rest.length}頭）</summary><div class="srows">${rest.map(one).join("")}</div></details>` : ""}</section>`;
+      ${rest.length ? `<details class="more"><summary>もっと見る（あと${rest.length}頭）</summary><div class="srows">${rest.map(one).join("")}</div></details>` : ""}
+      ${pick ? '<p class="note"><b>一押し</b>：複勝率（コース平均と比べて）・その種牡馬のふだん（同じ距離帯）の何倍・回収率を合わせて、いちばん点の高い種牡馬（30走以上）。過去5年の集計で、今日のオッズの妙味ではない。</p>' : ""}</section>`;
   }
 
   function renderPoints(c) {
