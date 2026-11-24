@@ -621,17 +621,38 @@
   const notesFor = (pred) => (D.jockeyNotes || []).filter(pred);
   const noteHtml = (n, showCourse) => `<div class="sn-l"><span class="tg rep">評判</span><span>${showCourse ? `<b>${esc(n.k.includes("|") ? cname(n.k) : n.k)}</b>：` : `<a class="jname" href="${jockHref(n.name)}">${esc(n.name)}</a>：`}${esc(n.text)}<span class="muted small">（${esc(n.src)}）</span></span></div>`;
 
+  // 一押しの騎手：複勝率（コース平均と比べて）・ふだんの何倍・回収率を合わせた点数がいちばん高い人。
+  // 騎乗数が少ないと点数を割り引く（たまたまの当たりで上に来ないように）。30騎乗未満は対象外
+  function jPick(jc) {
+    let best = null;
+    for (const r of jc.rows) {
+      if (r.n < 30 || !JOCK[r.j]) continue;
+      const a = Math.min(r.p / jc.avg, 2);                           // コース平均の何倍来るか（トップ騎手ばかりにならないよう2倍で頭打ち）
+      const b = jLift(r);                                            // ふだんの何倍走るか
+      const c = (r.f / 85 + Math.min(r.t, 300) / 170) / 2;          // 回収率（単勝の大穴は300%で頭打ち）
+      const raw = 0.35 * a + 0.35 * b + 0.3 * c;
+      const score = 1 + (raw - 1) * (r.n / (r.n + 60));
+      if (!best || score > best.score) best = { r, score };
+    }
+    return best && best.score >= 1.05 ? best : null;
+  }
+
   function renderJockeyCard(c) {
     const k = ckey(c);
     const jc = (D.jockeyCourse || {})[k];
     if (!jc || !jc.rows.length) return "";
     const regulars = new Set(jc.rows.slice().sort((a, b) => b.n - a.n).slice(0, 2).map((r) => r.j));
-    const rows = jc.rows.map((r) => {
+    const pick = jPick(jc);
+    // 一押しをいちばん上に
+    const ordered = pick ? [pick.r, ...jc.rows.filter((r) => r !== pick.r)] : jc.rows;
+    const rows = ordered.map((r) => {
       const j = JOCK[r.j];
-      return `<a class="srow${isFew(r) ? " few" : ""}" href="${jockHref(j.name)}">
-        <span class="srow-n"><b>${esc(j.name)}</b>${j.prof && j.prof["状態"] ? `<span class="lab out">${esc(j.prof["状態"].replace(/（.*$/, ""))}</span>` : ""}<span class="srow-l">${jLabels(r, jc.avg, regulars.has(r.j))}</span></span>
+      const isPick = pick && r === pick.r;
+      return `<a class="srow${isFew(r) ? " few" : ""}${isPick ? " pick" : ""}" href="${jockHref(j.name)}">
+        <span class="srow-n">${isPick ? '<span class="pickmark">一押し</span>' : ""}<b>${esc(j.name)}</b>${j.prof && j.prof["状態"] ? `<span class="lab out">${esc(j.prof["状態"].replace(/（.*$/, ""))}</span>` : ""}<span class="srow-l">${jLabels(r, jc.avg, regulars.has(r.j))}</span></span>
         <span class="srow-p num">${r.p}<small>%</small></span>
         <span class="srow-d">${r.n}騎乗・ふだん${j.p}%・単回${r.t}／複回${r.f}</span>
+        ${isPick ? `<span class="pickwhy">複勝率はコース平均の${(r.p / jc.avg).toFixed(1)}倍、ふだんの${jLift(r).toFixed(1)}倍。複勝回収率${r.f}%</span>` : ""}
       </a>`;
     }).join("");
     // そのコースの評判と、その競馬場全体の評判
@@ -641,6 +662,7 @@
       <div class="srows">${rows}</div>
       ${notes ? `<div class="jnotes">${notes}</div>` : ""}
       <p class="note">「ふだん」はその騎手の5年間・88コース合計の複勝率。強い馬に乗る騎手は複勝率が高く出るので、<b>ふだんより何倍走るか</b>のほうが「そのコースが上手いか」に近い。</p>
+      <p class="note"><b>一押し</b>：複勝率（コース平均と比べて）・ふだんの何倍・回収率を合わせて、いちばん点の高い騎手（30騎乗以上）。騎乗数が少ないほど割り引いている。過去5年の集計で、今日のオッズの妙味ではない。</p>
     </section>`;
   }
 
