@@ -1356,11 +1356,26 @@
     }
     go(a.getAttribute("href"));
   });
+  // 一番上へ「シュッ」と戻す（0.35秒、最後にゆっくり止まる）。途中で指が触れたら止める
+  function swooshTop() {
+    const y0 = window.scrollY; if (y0 < 2) return;
+    const t0 = performance.now(), dur = 350;
+    let stopped = false;
+    const stop = () => { stopped = true; };
+    window.addEventListener("touchstart", stop, { passive: true, once: true });
+    const step = (now) => {
+      if (stopped) return;
+      const k = Math.min(1, (now - t0) / dur);
+      window.scrollTo(0, y0 * Math.pow(1 - k, 3));
+      if (k < 1) requestAnimationFrame(step); else window.removeEventListener("touchstart", stop);
+    };
+    requestAnimationFrame(step);
+  }
   // 下のタブ：別のタブへは前に見ていた位置で開く。いま開いているタブの一覧をもう一度押すと一番上へ
   document.querySelectorAll(".tab").forEach((t) => t.onclick = () => {
     depth = 0;
     const to = "#" + t.dataset.tab;
-    if (curHash() === to) { scrollMem[to] = 0; restoreScroll(0); return; }
+    if (curHash() === to) { scrollMem[to] = 0; clearInterval(restoreTimer); swooshTop(); return; }
     go(to, true);
   });
 
