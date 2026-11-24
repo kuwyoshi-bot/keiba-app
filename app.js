@@ -207,6 +207,7 @@
         ${renderSires(c)}
         ${renderTypes(c)}
         ${renderRace(c)}
+        ${renderJockeyCard(c)}
         ${renderPeople(c)}
         ${wet ? "" : renderRain(c)}
         ${renderTrack(v, c)}
@@ -246,7 +247,7 @@
     $view.querySelectorAll("[data-label]").forEach((b) => b.onclick = () => { state.label = b.dataset.label; save(); renderCourse(); });
     // 見出しボタン：画面にあるカードの見出しから作る
     const SEC = [["重・不良のとき", "☂ 雨"], ["スタートからゴールまで", "構図"], ["注目ポイント", "注目"], ["このコースの種牡馬", "種牡馬"],
-      ["父の型と複勝率", "父の型"], ["枠・人気・展開", "枠・展開"], ["騎手と母父", "騎手・母父"], ["雨の日（重・不良）", "雨の日"], ["競馬場のクセ", "競馬場"]];
+      ["父の型と複勝率", "父の型"], ["枠・人気・展開", "枠・展開"], ["このコースの騎手", "騎手"], ["母父（このコース）", "母父"], ["雨の日（重・不良）", "雨の日"], ["競馬場のクセ", "競馬場"]];
     const navBtns = [];
     const bs = $view.querySelector("#course > .bs");
     $view.querySelectorAll("#course > section.card, #course > .bs").forEach((el, i) => {
@@ -590,12 +591,138 @@
 
   function renderPeople(c) {
     const e = c.extra;
-    if (!e || (!e.jockey && !e.damsire)) return "";
-    return `<section class="card"><div class="card-h"><span class="ico" style="background:var(--gold-soft);color:var(--gold)">人</span><h2>騎手と母父</h2><span class="en">Jockey & damsire</span></div>
+    if (!e || !e.damsire) return "";
+    return `<section class="card"><div class="card-h"><span class="ico" style="background:var(--gold-soft);color:var(--gold)">母</span><h2>母父（このコース）</h2><span class="en">Damsire</span></div>
       <div class="kv">
-        <div class="r"><span class="k">騎手</span><span>${e.jockey ? rich(e.jockey.split("／妙味 ")[0]) : "—"}${e.jockey && e.jockey.includes("妙味") ? `<br><span class="muted small">人気のわりに来る：</span>${rich(e.jockey.split("／妙味 ")[1])}` : ""}</span></div>
-        <div class="r"><span class="k">母父</span><span>${e.damsire ? rich(e.damsire) : "—"}</span></div>
+        <div class="r"><span class="k">母父</span><span>${rich(e.damsire)}</span></div>
       </div></section>`;
+  }
+
+  // ---------- 騎手 ----------
+  const JOCK = D.jockeys || [];
+  const JBY = Object.fromEntries(JOCK.map((j, i) => [j.name, i]));
+  const jockHref = (n) => "#jockey/" + n;
+  // 騎手のコース成績に付ける印。「ふだん」＝その騎手の88コース合計の複勝率
+  const jLift = (r) => (JOCK[r.j] && JOCK[r.j].p ? r.p / JOCK[r.j].p : 0);
+  const jLabels = (r, avg, regular) => [
+    r.n >= 20 && r.p >= avg * 1.2 ? '<span class="lab good">よく来る</span>' : "",
+    r.n >= 20 && jLift(r) >= 1.3 ? `<span class="lab lift">ふだんの${jLift(r).toFixed(1)}倍</span>` : "",
+    regular ? '<span class="lab reg">常連</span>' : "",
+    isValue({ ...r, avg }) ? '<span class="lab value">妙味</span>' : "",
+    isFew(r) ? `<span class="lab few">参考・${r.n}騎乗</span>` : "",
+  ].join("");
+  const notesFor = (pred) => (D.jockeyNotes || []).filter(pred);
+  const noteHtml = (n, showCourse) => `<div class="sn-l"><span class="tg rep">評判</span><span>${showCourse ? `<b>${esc(n.k === "全体" ? "全体" : cname(n.k))}</b>：` : `<a class="jname" href="${jockHref(n.name)}">${esc(n.name)}</a>：`}${esc(n.text)}<span class="muted small">（${esc(n.src)}）</span></span></div>`;
+
+  function renderJockeyCard(c) {
+    const k = ckey(c);
+    const jc = (D.jockeyCourse || {})[k];
+    if (!jc || !jc.rows.length) return "";
+    const regulars = new Set(jc.rows.slice().sort((a, b) => b.n - a.n).slice(0, 2).map((r) => r.j));
+    const rows = jc.rows.map((r) => {
+      const j = JOCK[r.j];
+      return `<a class="srow${isFew(r) ? " few" : ""}" href="${jockHref(j.name)}">
+        <span class="srow-n"><b>${esc(j.name)}</b><span class="srow-l">${jLabels(r, jc.avg, regulars.has(r.j))}</span></span>
+        <span class="srow-p num">${r.p}<small>%</small></span>
+        <span class="srow-d">${r.n}騎乗・ふだん${j.p}%・単回${r.t}／複回${r.f}</span>
+      </a>`;
+    }).join("");
+    const notes = notesFor((n) => n.k === k).map((n) => noteHtml(n, false)).join("");
+    return `<section class="card"><div class="card-h"><span class="ico" style="background:var(--gold-soft);color:var(--gold)">騎</span><h2>このコースの騎手</h2><span class="en">Jockeys</span></div>
+      <p class="note" style="margin:0 0 8px">20騎乗以上の騎手から、複勝率の高い人・騎乗数の多い人（常連）・ふだんよりこのコースで走る人を選んだ。コース平均は <b class="num">${jc.avg}%</b>。</p>
+      <div class="srows">${rows}</div>
+      ${notes ? `<div class="jnotes">${notes}</div>` : ""}
+      <p class="note">「ふだん」はその騎手の5年間・88コース合計の複勝率。強い馬に乗る騎手は複勝率が高く出るので、<b>ふだんより何倍走るか</b>のほうが「そのコースが上手いか」に近い。</p>
+    </section>`;
+  }
+
+  // 騎手ごとに、選ばれているコースを集める
+  function jockeyCourses(i) {
+    const out = [];
+    for (const [k, jc] of Object.entries(D.jockeyCourse || {})) {
+      const r = jc.rows.find((x) => x.j === i);
+      if (r) out.push({ ...r, k, avg: jc.avg, regular: jc.rows.slice().sort((a, b) => b.n - a.n).slice(0, 2).some((x) => x.j === i) });
+    }
+    return out;
+  }
+
+  function renderJockeys() {
+    const sort = state.jsort === "p" ? "p" : "n";
+    const list = JOCK.map((j, i) => ({ j, i, best: jockeyCourses(i).filter((r) => r.n >= 30).sort((a, b) => jLift(b) - jLift(a))[0] }))
+      .sort((a, b) => (sort === "p" ? b.j.p - a.j.p : b.j.n - a.j.n));
+    const cards = list.map(({ j, best }) => `
+      <a class="zcard jcard" href="${jockHref(j.name)}" data-q="${esc(j.name)}" style="--c:var(--gold)">
+        <span class="zc-line">${j.n}騎乗・複勝率 ${j.p}%</span>
+        <span class="zc-name">${esc(j.name)}</span>
+        <span class="zc-kw">${best ? `<span class="kw">得意 ${esc(cname(best.k))}</span>` : ""}</span>
+      </a>`).join("");
+    $view.innerHTML = `
+      <div class="fade">
+        <div class="page-h"><h1>騎手</h1><p>5年間・88コースの成績から。いまは数字だけの騎手図鑑（理屈はこれから）。</p></div>
+        <section class="card">
+          <div class="zbar">
+            <div class="zsearch"><input id="jq" type="search" placeholder="名前で探す" autocomplete="off"></div>
+            <div class="seg zview">
+              <button data-js="n" class="${sort === "n" ? "is-active" : ""}">騎乗数</button>
+              <button data-js="p" class="${sort === "p" ? "is-active" : ""}">複勝率</button>
+            </div>
+          </div>
+          <div class="zgrid">${cards}</div>
+          <p class="empty jnone" hidden>見つからない</p>
+        </section>
+        <p class="foot">数字：スマート出馬表 5年集計（2021.11〜2026.11）。アプリの88コースの合計なので、JRA全体の数字より少し小さい</p>
+      </div>`;
+    $view.querySelectorAll("[data-js]").forEach((b) => b.onclick = () => { state.jsort = b.dataset.js; save(); renderJockeys(); });
+    const toKata = (s) => s.replace(/[ぁ-ゖ]/g, (ch) => String.fromCharCode(ch.charCodeAt(0) + 0x60));
+    const qi = $view.querySelector("#jq");
+    qi.value = ui.jq || "";
+    const apply = () => {
+      ui.jq = qi.value; const q = toKata(qi.value.trim()); let hits = 0;
+      $view.querySelectorAll(".jcard").forEach((el) => { const ok = !q || el.dataset.q.includes(q) || el.dataset.q.includes(qi.value.trim()); el.hidden = !ok; if (ok) hits++; });
+      $view.querySelector(".jnone").hidden = hits > 0;
+    };
+    qi.oninput = apply; if (qi.value) apply();
+  }
+
+  function renderJockey(name) {
+    const i = JBY[name];
+    const j = JOCK[i];
+    if (!j) { $view.innerHTML = `<div class="fade"><p class="empty">「${esc(name)}」はまだ載っていない。</p></div>`; return; }
+    const cs = jockeyCourses(i);
+    const row = (r) => `
+      <a class="crow${isFew(r) ? " few" : ""}" href="#course" data-course="${esc(r.k)}">
+        <span class="crow-k">${esc(cname(r.k))}<span class="crow-l">${jLabels(r, r.avg, r.regular)}</span></span>
+        <span class="crow-p num">${r.p}<small>%</small></span>
+        <span class="crow-d">${r.n}騎乗・平均${r.avg}%・単回${r.t}／複回${r.f}</span>
+      </a>`;
+    const lift = cs.filter((r) => r.n >= 20 && jLift(r) >= 1.15).sort((a, b) => jLift(b) - jLift(a)).slice(0, 8);
+    const regular = cs.filter((r) => r.regular).sort((a, b) => b.n - a.n);
+    const value = cs.filter((r) => isValue(r)).sort((a, b) => b.f - a.f).slice(0, 6);
+    const notes = notesFor((n) => n.name === j.name).map((n) => noteHtml(n, true)).join("");
+    const sec = (title, note, arr) => arr.length ? `<h4 class="sub">${title}</h4>${note ? `<p class="note" style="margin:-4px 0 6px">${note}</p>` : ""}<div class="crows">${arr.map(row).join("")}</div>` : "";
+    $view.innerHTML = `
+      <div class="fade">
+        <section class="shero" style="--c:var(--gold)">
+          <div class="shero-en">JOCKEY</div>
+          <h1>${esc(j.name)}</h1>
+          <div class="jstats">
+            <div><span>騎乗</span><b class="num">${j.n}</b></div>
+            <div><span>勝率</span><b class="num">${j.w}%</b></div>
+            <div><span>複勝率</span><b class="num">${j.p}%</b></div>
+            <div><span>単回／複回</span><b class="num">${j.t}／${j.f}</b></div>
+          </div>
+          <p class="note" style="margin:8px 0 0">5年間・88コースの合計＝この騎手の「ふだん」</p>
+        </section>
+        ${notes ? `<section class="card"><div class="card-h"><span class="tg rep big">評判</span><h2>言われていること（主観）</h2><span class="en">Reputation</span></div>${notes}<p class="note">数字ではなく評判。下の数字と比べて、評判どおりか確かめる。</p></section>` : ""}
+        <section class="card fx"><div class="card-h"><span class="tg f big">数字</span><h2>コースごとの成績</h2><span class="en">Data</span></div>
+          ${sec("ふだんより走るコース", "この騎手のふだんの複勝率と比べて、何倍走っているか（＝そのコースが上手い可能性）", lift)}
+          ${sec("常連のコース", "そのコースで騎乗数が多い（上位2人）。依頼が集まるのは、得意と見られている証拠でもある", regular)}
+          ${sec("人気のわりに来たコース", "過去の回収率が高い（＝妙味）。今日のオッズの妙味ではない", value)}
+          ${!lift.length && !regular.length && !value.length ? '<p class="note">目立つコースはまだない。</p>' : ""}
+          <p class="note">各コースで「複勝率の高い人・常連・ふだんより走る人」に選ばれた所だけが出る。</p>
+        </section>
+        <p class="foot">数字：スマート出馬表 5年集計（2021.11〜2026.11）</p>
+      </div>`;
   }
 
   function renderRain(c) {
@@ -899,19 +1026,21 @@
   }
   function back() {
     if (depth > 0) { depth--; history.back(); }
-    else go(/^#sire|^#lesson/.test(curHash()) ? "#blood" : "#course");
+    else go(/^#sire|^#lesson/.test(curHash()) ? "#blood" : /^#jockey\//.test(curHash()) ? "#jockeys" : "#course");
   }
 
   function render() {
     const h = curHash().slice(1);
     const [r, arg] = [h.split("/")[0], h.slice(h.indexOf("/") + 1)];
-    const tab = r === "course" || !r ? "course" : "blood";
+    const tab = r === "jockeys" || r === "jockey" ? "jockeys" : r === "course" || !r ? "course" : "blood";
     document.querySelectorAll(".tab").forEach((t) => t.classList.toggle("is-active", t.dataset.tab === tab));
-    // 図鑑・レッスンのページでは、上の帯に「戻る」を出す
-    document.querySelector(".topbar")?.classList.toggle("sub", r === "sire" || r === "lesson");
+    // 図鑑・レッスン・騎手のページでは、上の帯に「戻る」を出す
+    document.querySelector(".topbar")?.classList.toggle("sub", r === "sire" || r === "lesson" || r === "jockey");
     if (r === "sire") renderSire(arg);
     else if (r === "lesson") renderLesson(+arg);
     else if (r === "blood") renderBlood();
+    else if (r === "jockeys") renderJockeys();
+    else if (r === "jockey") renderJockey(arg);
     else renderCourse();
     state.route = h || "course"; save();
     const y = scrollMem[curHash()];

@@ -637,3 +637,15 @@ a.sire { text-decoration: underline; text-decoration-color: color-mix(in srgb, v
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; transition: none !important; }
 }
+
+/* ---------- 騎手 ---------- */
+.lab.lift { background: var(--accent-soft); color: var(--accent); border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent); }
+.lab.reg { background: var(--glass2); color: var(--text); }
+.tg.rep { background: var(--eu-soft); color: var(--eu); }
+.jnotes { display: grid; gap: 6px; margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--line2); }
+.jname { font-weight: 700; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--line2); }
+.jstats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; margin-top: 6px; }
+.jstats div { display: grid; gap: 1px; padding: 8px; border-radius: 10px; background: var(--glass); border: 1px solid var(--line); }
+.jstats span { font-size: 10.5px; color: var(--muted); }
+.jstats b { font-size: 16px; }
+.tab { min-width: 70px; padding: 7px 12px; }
