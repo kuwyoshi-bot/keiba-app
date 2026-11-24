@@ -9,18 +9,47 @@
     get(k, d) { try { const v = localStorage.getItem("turfnote:" + k); return v ? JSON.parse(v) : d; } catch { return d; } },
     set(k, v) { try { localStorage.setItem("turfnote:" + k, JSON.stringify(v)); } catch {} },
   };
-  const state = Object.assign({ tab: "course", venue: "東京", surface: "芝", label: "芝1600", skin: "midnight" }, store.get("state", {}));
+  const state = Object.assign({ route: "course", venue: "東京", surface: "芝", label: "芝1600", skin: "midnight", zukan: "all" }, store.get("state", {}));
   const save = () => store.set("state", state);
 
   // ---------- helpers ----------
   const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
-  const sireNames = Object.keys(D.sireType).sort((a, b) => b.length - a.length);
-  const sireRe = new RegExp("(" + sireNames.map((n) => n.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|") + ")", "g");
-  const rich = (s) =>
-    esc(s)
-      .replace(/\*\*(.+?)\*\*/g, "<b>$1</b>")
-      .replace(sireRe, (m) => `<span class="sire t-${D.sireType[m]}">${m}</span>`)
+  const SIRE = Object.fromEntries((D.sires || []).map((s) => [s.name, s]));
+  const reEsc = (n) => n.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const sireNames = [...new Set([...Object.keys(D.sireType), ...Object.keys(SIRE)])].sort((a, b) => b.length - a.length);
+  const sireRe = new RegExp("(" + sireNames.map(reEsc).join("|") + ")", "g");
+  // 名前はそのまま入れる（%で符号化すると、数字の%を飾る処理とぶつかる）
+  const sireHref = (n) => "#sire/" + n;
+  const sireTag = (m) => SIRE[m]
+    ? `<a class="sire t-${D.sireType[m]}" href="${sireHref(m)}">${m}</a>`
+    : `<span class="sire t-${D.sireType[m] || ""}">${m}</span>`;
+  // 図鑑・レッスンの中だけ、型や系統の言葉をレッスンへのリンクにする
+  const TERMS = [
+    [/(日本型|米国型|欧州型)/g, 2],
+    [/(ディープ系|[PTDL]サンデー系)/g, 3],
+    [/(根幹距離|非根幹距離)/g, 4],
+  ];
+  const rich = (s, opt = {}) => {
+    let h = esc(s).replace(/\*\*(.+?)\*\*/g, "<b>$1</b>");
+    if (opt.terms) TERMS.forEach(([re, n]) => { h = h.replace(re, `<a class="term" href="#lesson/${n}">$1</a>`); });
+    h = h.replace(/\[\[(\d+)\]\]/g, (_, n) => { const l = D.lessons.find((x) => x.n === +n); return `<a class="term" href="#lesson/${n}">レッスン${n}${l ? "「" + esc(l.title) + "」" : ""}</a>`; });
+    return h
+      .replace(sireRe, sireTag)
       .replace(/(\d+(?:\.\d+)?%)/g, '<span class="num">$1</span>');
+  };
+  const ckey = (c) => `${c.venue}|${c.label}`;
+  const cname = (k) => { const [v, l] = k.split("|"); return `${v} ${l.replace(/^ダ/, "ダ").replace(/外$/, "外")}`; };
+  // 「よく来る」（複勝率＝結果）と「妙味」（過去の回収率）を分けて判定する
+  const isGood = (r) => r.n >= 20 && r.p >= r.avg * 1.2;
+  const isValue = (r) => r.n >= 20 && r.p >= r.avg * 0.85 && (r.f >= 100 || (r.t >= 120 && r.f >= 90));
+  const isWeak = (r) => r.n >= 20 && r.p <= r.avg * 0.75;
+  const labels = (r) => [
+    isGood(r) ? '<span class="lab good">よく来る</span>' : "",
+    isValue(r) ? '<span class="lab value">妙味</span>' : "",
+    isWeak(r) ? '<span class="lab weak">来ていない</span>' : "",
+  ].join("");
+  const factLine = (r) => `<span class="num">${r.n}</span>走・複勝率 <b class="num">${r.p}%</b><span class="muted">（平均${r.avg}%）</span>・単回<span class="num">${r.t}</span>／複回<span class="num">${r.f}</span>`;
+  const rowFor = (name, k) => (SIRE[name]?.rows || []).find((r) => r.k === k);
   const coursesOf = (v, s) => D.courses.filter((c) => c.venue === v && c.surface === s);
   const find = () => D.courses.find((c) => c.venue === state.venue && c.label === state.label);
   const venueInfo = (v) => D.venues.find((x) => x.name === v);
@@ -93,6 +122,7 @@
 
         ${renderBuyAvoid(c)}
         ${renderPoints(c)}
+        ${renderSires(c)}
         ${renderTypes(c)}
         ${renderRace(c)}
         ${renderPeople(c)}
@@ -108,14 +138,56 @@
     const actd = $view.querySelector(".dist.is-active"); if (actd) actd.scrollIntoView({ inline: "center", block: "nearest" });
   }
 
+  // 買い・消しの項目に出てくる種牡馬について、このコースの数字と理屈を1行ずつ添える
+  function sireNotes(text, k, buy) {
+    // 「母父〇〇」は母の父としての話なので、父としての数字は出さない
+    const names = [...new Set(text.match(sireRe) || [])].filter((n) => SIRE[n] && !text.includes("母父" + n));
+    return names.map((n) => {
+      const s = SIRE[n];
+      const r = rowFor(n, k);
+      const fact = r ? `<div class="sn-l"><span class="tg f">数字</span><span>${labels(r)} ${factLine(r)}</span></div>` : "";
+      const why = buy ? `<div class="sn-l"><span class="tg w">理屈</span><span>${esc(s.tagline)}</span></div>` : "";
+      if (!fact && !why) return "";
+      return `<div class="sn"><div class="sn-n">${sireTag(n)}<span class="sn-go">図鑑 ›</span></div>${fact}${why}</div>`;
+    }).join("");
+  }
+
   function renderBuyAvoid(c) {
     if (!c.buy && !c.avoid) return "";
-    const li = (arr, mk) => (arr || []).map((x) => `<li><span class="mk">${mk}</span><span>${rich(x)}</span></li>`).join("") || `<li class="empty">特になし</li>`;
+    const k = ckey(c);
+    const li = (arr, mk, buy) => (arr || []).map((x) => `<li><span class="mk">${mk}</span><div class="li-b"><span>${rich(x)}</span>${sireNotes(x, k, buy)}</div></li>`).join("") || `<li class="empty">特になし</li>`;
     return `
       <div class="bs">
-        <section class="card buy"><div class="card-h"><span class="ico">◎</span><h2>買い</h2><span class="en">Buy</span></div><ul class="list">${li(c.buy, "✓")}</ul></section>
-        <section class="card avoid"><div class="card-h"><span class="ico">✕</span><h2>消し</h2><span class="en">Fade</span></div><ul class="list">${li(c.avoid, "✕")}</ul></section>
-      </div>`;
+        <section class="card buy"><div class="card-h"><span class="ico">◎</span><h2>買い</h2><span class="en">Buy</span></div><ul class="list">${li(c.buy, "✓", true)}</ul></section>
+        <section class="card avoid"><div class="card-h"><span class="ico">✕</span><h2>消し</h2><span class="en">Fade</span></div><ul class="list">${li(c.avoid, "✕", false)}</ul></section>
+      </div>
+      ${legend()}`;
+  }
+
+  function legend() {
+    return `<div class="legend">
+      <div><span class="lab good">よく来る</span>複勝率がコース平均の1.2倍以上（結果）</div>
+      <div><span class="lab value">妙味</span>人気のわりに来た（過去の回収率が高い）</div>
+      <div class="muted">どちらも過去5年の集計で、<b>今日のオッズの妙味ではない</b>。人気になっていれば妙味は消えている。<a class="term" href="#lesson/8">レッスン8</a></div>
+    </div>`;
+  }
+
+  // このコースで目立つ種牡馬（図鑑の50頭から）
+  function renderSires(c) {
+    const k = ckey(c);
+    const list = Object.values(SIRE).map((s) => ({ s, r: rowFor(s.name, k) })).filter((x) => x.r && x.r.n >= 20);
+    if (!list.length) return "";
+    list.sort((a, b) => b.r.p - a.r.p);
+    const avg = D.courseAvg[k];
+    const rows = list.map(({ s, r }) => `
+      <a class="srow" href="${sireHref(s.name)}">
+        <span class="srow-n"><span class="sire t-${s.type}">${s.name}</span><span class="srow-l">${labels(r)}</span></span>
+        <span class="srow-p num">${r.p}<small>%</small></span>
+        <span class="srow-d">${r.n}走・単回${r.t}／複回${r.f}</span>
+      </a>`).join("");
+    return `<section class="card"><div class="card-h"><span class="ico" style="background:var(--eu-soft);color:var(--eu)">種</span><h2>このコースの種牡馬</h2><span class="en">Sires here</span></div>
+      <p class="note" style="margin:0 0 8px">図鑑の種牡馬のうち、このコースで20走以上あるもの（複勝率の高い順）。コース平均は <b class="num">${avg}%</b>。タップで図鑑へ。</p>
+      <div class="srows">${rows}</div></section>`;
   }
 
   function renderPoints(c) {
@@ -145,7 +217,7 @@
       </div>`).join("");
     return `<section class="card"><div class="card-h"><span class="ico" style="background:var(--eu-soft);color:var(--eu)">父</span><h2>父の型と複勝率</h2><span class="en">Sire type</span></div>
       <div class="types">${bars}</div>
-      <p class="note">5年・<span class="num">${c.types.runs.toLocaleString()}</span>走。日本型＝サンデー系（瞬発力）、米国型＝スピードの持続、欧州型＝スタミナと馬力。</p></section>`;
+      <p class="note">5年・<span class="num">${c.types.runs.toLocaleString()}</span>走。日本型＝サンデー系（瞬発力）、米国型＝スピードの持続、欧州型＝スタミナと馬力。<a class="term" href="#lesson/2">レッスン2</a></p></section>`;
   }
 
   function renderRace(c) {
@@ -207,7 +279,7 @@
         <div class="r"><span class="k">浮上</span><span>${c.heavy.up ? rich(c.heavy.up) : "—"}</span></div>
         <div class="r"><span class="k">沈む</span><span>${c.heavy.down ? rich(c.heavy.down) : "—"}</span></div>
       </div>
-      <p class="note">ふだんと比べた「3着以内に入る割合」の倍率。回数が少ないので参考程度。</p></section>`;
+      <p class="note">ふだんと比べた「3着以内に入る割合」の倍率。回数が少ないので参考程度。芝とダートで逆になる理由は<a class="term" href="#lesson/7">レッスン7</a></p></section>`;
   }
 
   function renderTrack(v, c) {
@@ -220,33 +292,199 @@
       </div></section>`;
   }
 
-  // ---------- blood view ----------
-  function renderBlood() {
-    const by = { 日: [], 米: [], 欧: [] };
-    Object.entries(D.sireType).forEach(([n, t]) => by[t] && by[t].push(n));
-    const desc = {
-      日: ["JAPAN", "サンデーサイレンス系だけ。直線で一気に加速する瞬発力。東京の芝2000など、大きなコースの中距離で強い。"],
-      米: ["AMERICA", "スピードを長く保つ力。速いペースが得意で、ダートの1800mまでと短距離で強い。"],
-      欧: ["EUROPE", "スタミナと馬力。時計のかかる馬場や長い距離が得意。いまは芝のマイル前後でも主役（ロードカナロア、エピファネイア、モーリス）。"],
-    };
-    const cards = ["日", "米", "欧"].map((t) => `
-      <div class="tcard" style="--c:${TYPE_COLOR[t]}">
-        <h3>${TYPE_NAME[t]}<span class="en">${desc[t][0]}</span></h3>
-        <p>${desc[t][1]}</p>
-        <div class="chips">${by[t].map((n) => `<span class="chip">${n}</span>`).join("")}</div>
-      </div>`).join("");
-    const hg = D.heavyGlobal.map((h) => `
-      <div class="row"><div>${rich(h.sire)} <span class="muted small">— ${esc(h.trend.replace(/★/g, "").trim())}</span></div><div class="w">${esc(h.where)}</div></div>`).join("");
+  // ---------- blood home（レッスンの目次＋種牡馬図鑑） ----------
+  const TYPE_EN = { 日: "JAPAN", 米: "AMERICA", 欧: "EUROPE" };
+  const TYPE_SHORT = {
+    日: "サンデー系だけ。直線で一気に加速する瞬発力",
+    欧: "スタミナと馬力。時計のかかる馬場や長い距離。いまは芝マイルの主役も",
+    米: "スピードの持続。ダートの1800mまでと、芝の短距離",
+  };
+
+  function renderBloodHome() {
+    const ls = D.lessons.map((l) => `
+      <a class="lrow" href="#lesson/${l.n}">
+        <span class="ln num">${String(l.n).padStart(2, "0")}</span>
+        <span class="lt"><b>${esc(l.title)}</b><span>${esc(l.summary)}</span></span>
+        <span class="chev">›</span>
+      </a>`).join("");
+    const f = state.zukan;
+    const filters = [["all", "全部"], ["日", "日本型"], ["欧", "欧州型"], ["米", "米国型"]]
+      .map(([id, nm]) => `<button data-z="${id}" class="${f === id ? "is-active" : ""}">${nm}</button>`).join("");
+    const groups = ["日", "欧", "米"].filter((t) => f === "all" || f === t).map((t) => {
+      const list = D.sires.filter((s) => s.type === t);
+      // 系統ごとにまとめる（データの並び順を保つ）
+      const lines = [...new Set(list.map((s) => s.line))];
+      const body = lines.map((ln) => `
+        <div class="zline"><span>${esc(ln)}</span></div>
+        ${list.filter((s) => s.line === ln).map((s) => `
+          <a class="zrow" href="${sireHref(s.name)}">
+            <span class="zn">${esc(s.name)}${s.rows ? "" : '<small class="muted">（祖先）</small>'}</span>
+            <span class="zt">${esc(s.tagline)}</span>
+            <span class="chev">›</span>
+          </a>`).join("")}`).join("");
+      return `<section class="zgroup" style="--c:${TYPE_COLOR[t]}">
+        <div class="zhead"><h3>${TYPE_NAME[t]}<span class="en">${TYPE_EN[t]}</span></h3><p>${TYPE_SHORT[t]}</p></div>
+        ${body}
+      </section>`;
+    }).join("");
     $view.innerHTML = `
       <div class="fade">
-        <div class="page-h"><h1>血統の3つの型</h1><p>亀谷敬正さんの「血統ビーム」の分類。型は系統ではなく種牡馬ごとに決まる。</p></div>
-        <div class="typecards">${cards}</div>
-        <section class="card rain"><div class="card-h"><span class="ico">☂</span><h2>雨で浮上・沈む種牡馬</h2><span class="en">Wet track</span></div>
-          <p class="note" style="margin:0 0 10px">芝の重は時計がかかりパワー勝負。ダートの重は砂が締まって時計が速くなる。</p>
-          <div class="hg">${hg}</div></section>
-        <p class="foot">出典：血統ビーム公式サイト（k-beam.com）、スマート出馬表の出馬表、うまめし</p>
+        <div class="page-h"><h1>血統</h1><p>レッスンで考え方を学び、図鑑で種牡馬を引く。土台は亀谷敬正さんの「血統ビーム」の分類。</p></div>
+        <section class="card"><div class="card-h"><span class="ico" style="background:var(--accent-soft);color:var(--accent)">学</span><h2>レッスン</h2><span class="en">Lessons</span></div>
+          <div class="lrows">${ls}</div></section>
+        <section class="card"><div class="card-h"><span class="ico" style="background:var(--eu-soft);color:var(--eu)">図</span><h2>種牡馬図鑑</h2><span class="en">${D.sires.length} sires</span></div>
+          <div class="seg zseg">${filters}</div>
+          ${groups}
+        </section>
+        <p class="foot">型・系統：血統ビーム公式サイト、スマート出馬表の出馬表<br>数字：スマート出馬表 5年集計（2021.11〜2026.11）</p>
+      </div>`;
+    $view.querySelectorAll("[data-z]").forEach((b) => b.onclick = () => { state.zukan = b.dataset.z; save(); renderBloodHome(); });
+  }
+
+  // ---------- sire page ----------
+  const BAND_NAME = { 芝短: "芝 〜1400", 芝マ: "芝 1500〜1800", 芝中: "芝 2000〜2200", 芝長: "芝 2300〜", ダ短: "ダ 〜1400", ダ中: "ダ 1500〜1900", ダ長: "ダ 2000〜" };
+  const nameLink = (n) => {
+    if (!n) return "—";
+    const base = n.replace(/（.*$/, "");
+    const rest = n.slice(base.length);
+    return SIRE[base] ? `${sireTag(base)}<span class="muted small">${esc(rest)}</span>` : `<span>${esc(base)}</span><span class="muted small">${esc(rest)}</span>`;
+  };
+
+  function renderSire(name) {
+    const s = SIRE[name];
+    if (!s) { $view.innerHTML = `<div class="fade">${backBtn()}<p class="empty">「${esc(name)}」は図鑑にありません。</p></div>`; return; }
+    const father = SIRE[s.sire];
+    const tree = `
+      <div class="tree">
+        ${father && father.sire ? `<div class="tr"><span class="k">父の父</span><span>${nameLink(father.sire)}</span></div>` : ""}
+        <div class="tr"><span class="k">父</span><span>${nameLink(s.sire)}</span></div>
+        <div class="tr me"><span class="k">この馬</span><span><b>${esc(s.name)}</b></span></div>
+        <div class="tr"><span class="k">子</span><span>${s.children.length ? `<span class="chips">${s.children.map((c) => `<a class="chip" href="${sireHref(c)}">${esc(c)}</a>`).join("")}</span>` : '<span class="muted small">図鑑に載っている子はいない</span>'}</span></div>
+        <div class="tr dam"><span class="k"><a class="term" href="#lesson/1">母父</a></span><span>${nameLink(s.damsire)}</span></div>
+      </div>`;
+
+    const reasons = (arr) => arr.map((x) => `
+      <div class="rs"><div class="rs-c">${rich(x.cond, { terms: true })}</div>${x.why ? `<div class="rs-w"><span class="tg w">なぜ</span><span>${rich(x.why, { terms: true })}</span></div>` : ""}</div>`).join("");
+    const theory = `<section class="card ip"><div class="card-h"><span class="tg w big">理屈</span><h2>解釈：どんな馬か</h2><span class="en">Why</span></div>
+      ${s.desc ? `<p class="desc">${rich(s.desc, { terms: true })}</p>` : ""}
+      ${s.good.length ? `<h4 class="sub good">得意</h4>${reasons(s.good)}` : ""}
+      ${s.bad.length ? `<h4 class="sub bad">苦手</h4>${reasons(s.bad)}` : ""}
+      ${s.notes.length ? `<h4 class="sub">ほかに</h4>${s.notes.map((n) => `<p class="desc">${rich(n, { terms: true })}</p>`).join("")}` : ""}
+    </section>`;
+
+    let facts = "";
+    if (s.rows) {
+      const bands = Object.keys(BAND_NAME).filter((b) => s.bands[b]).map((b) => {
+        const [n, w, p, t, fu] = s.bands[b];
+        const avg = D.bandAvg[b];
+        const cls = p >= avg * 1.15 ? "hi" : p <= avg * 0.85 ? "lo" : "";
+        return `<div class="bband ${cls}">
+          <span class="bn">${BAND_NAME[b]}</span>
+          <div class="btrack"><div class="bfill" style="width:${Math.min(p / 50, 1) * 100}%"></div><i class="bavg" style="left:${(avg / 50) * 100}%"></i></div>
+          <span class="bv num">${p}%</span>
+          <span class="bd">${n}走・勝率${w}%・単回${t}／複回${fu}</span>
+        </div>`;
+      }).join("");
+      // 「得」「妙」「苦」は集計のときに選んだ行。買い／消しやコース上位から来た行（買・主）も、条件に合えば足す
+      const extra = (r) => r.tag === "買" || r.tag === "主";
+      const pick = {
+        得: (r) => r.tag === "得" || (extra(r) && isGood(r)),
+        妙: (r) => r.tag === "妙" || (extra(r) && !isGood(r) && isValue(r)),
+        苦: (r) => r.tag === "苦" || (extra(r) && isWeak(r)),
+      };
+      const sorter = { 得: (a, b) => b.p / b.avg - a.p / a.avg, 妙: (a, b) => b.f - a.f, 苦: (a, b) => a.p / a.avg - b.p / b.avg };
+      const table = (tag, title, note) => {
+        const rows = s.rows.filter(pick[tag]).sort(sorter[tag]).slice(0, 8);
+        if (!rows.length) return "";
+        return `<h4 class="sub">${title}</h4>${note ? `<p class="note" style="margin:-4px 0 6px">${note}</p>` : ""}
+          <div class="crows">${rows.map((r) => `
+            <a class="crow" href="#course" data-course="${esc(r.k)}">
+              <span class="crow-k">${esc(cname(r.k))}<span class="crow-l">${labels(r)}</span></span>
+              <span class="crow-p num">${r.p}<small>%</small></span>
+              <span class="crow-d">${r.n}走・平均${r.avg}%・単回${r.t}／複回${r.f}</span>
+            </a>`).join("")}</div>`;
+      };
+      facts = `<section class="card fx"><div class="card-h"><span class="tg f big">数字</span><h2>事実：5年間の成績</h2><span class="en">Data</span></div>
+        <h4 class="sub" style="margin-top:0">距離ごとの複勝率</h4>
+        <p class="note" style="margin:-4px 0 8px">棒の縦線は、その距離帯全体の平均。<span class="hi-t">緑</span>は平均より高く、<span class="lo-t">赤</span>は低い</p>
+        <div class="bbands">${bands}</div>
+        ${table("得", "よく来るコース", "複勝率がコース平均より高い順（＝結果）")}
+        ${table("妙", "人気のわりに来たコース", "過去の回収率が高い（＝妙味）。今日のオッズの妙味ではない")}
+        ${table("苦", "来ていないコース", "")}
+        <p class="note">複勝率＝3着以内に入った割合。単回・複回＝単勝・複勝の回収率（100%超で、買い続けたらプラス）。<a class="term" href="#lesson/8">レッスン8</a></p>
+      </section>`;
+    } else {
+      facts = `<section class="card fx"><div class="card-h"><span class="tg f big">数字</span><h2>事実</h2><span class="en">Data</span></div>
+        <p class="note" style="margin:0">本人の産駒はいまほとんど走っていないので、成績は載せていない。子どもたちのページを見てほしい。</p></section>`;
+    }
+
+    const wet = s.wet || [];
+    const up = wet.filter((w) => w.d === "up"), down = wet.filter((w) => w.d === "down");
+    const wetList = (arr) => arr.map((w) => `<a class="wchip" href="#course" data-course="${esc(w.k)}">${esc(cname(w.k))} <b class="num">${esc(w.x)}</b></a>`).join("");
+    const rain = (s.rain || wet.length) ? `<section class="card rain"><div class="card-h"><span class="ico">☂</span><h2>雨の日（重・不良）</h2><span class="en">Wet track</span></div>
+      ${wet.length ? `<div class="sn-l" style="margin-bottom:8px"><span class="tg f">数字</span><span class="muted small">ふだんと比べた「3着以内に入る割合」の倍率</span></div>
+        ${up.length ? `<div class="wrow"><span class="k up">浮上</span><div class="wchips">${wetList(up)}</div></div>` : ""}
+        ${down.length ? `<div class="wrow"><span class="k down">沈む</span><div class="wchips">${wetList(down)}</div></div>` : ""}` : ""}
+      ${s.rain ? `<div class="sn-l" style="margin-top:10px"><span class="tg w">理屈</span><span>${rich(s.rain, { terms: true })}</span></div>` : ""}
+      <p class="note">芝の重とダートの重は逆になる。<a class="term" href="#lesson/7">レッスン7</a></p>
+    </section>` : "";
+
+    $view.innerHTML = `
+      <div class="fade">
+        ${backBtn()}
+        <section class="shero" style="--c:${TYPE_COLOR[s.type]}">
+          <div class="shero-en">${TYPE_EN[s.type]} TYPE SIRE</div>
+          <h1>${esc(s.name)}</h1>
+          <div class="pills">
+            <a class="pill ptype" href="#lesson/2">${TYPE_NAME[s.type]}${s.typeSure ? "" : "（推定）"}</a>
+            <a class="pill" href="#lesson/3">${esc(s.line)}${s.lineGuess ? "（推定）" : ""}</a>
+            ${s.big && s.big !== s.line ? `<span class="pill">${esc(s.big)}</span>` : ""}
+          </div>
+          <p class="tagline">${rich(s.tagline)}</p>
+        </section>
+        <section class="card"><div class="card-h"><span class="ico">系</span><h2>血のつながり</h2><span class="en">Family</span></div>${tree}</section>
+        ${theory}
+        ${facts}
+        ${rain}
+        <p class="foot">数字：スマート出馬表 5年集計（2021.11〜2026.11）。雨：同じ集計の重・不良<br>理屈は一般的な考え方と亀谷敬正さんの公開情報をもとにした自分用の解釈。「推定」は未確認</p>
       </div>`;
   }
+
+  // ---------- lesson page ----------
+  function renderLesson(n) {
+    const l = D.lessons.find((x) => x.n === n);
+    if (!l) { go("#blood"); return; }
+    const body = l.blocks.map((b) => {
+      if (b.t === "h") return `<h3 class="lh">${esc(b.text)}</h3>`;
+      if (b.t === "p") return `<p>${rich(b.text)}</p>`;
+      if (b.t === "ul") return `<ul class="lul">${b.items.map((i) => `<li class="${i.sub ? "sub" : ""}">${rich(i.text)}</li>`).join("")}</ul>`;
+      return "";
+    }).join("");
+    const ex = l.blocks.filter((b) => b.t === "ex").map((b) => `
+      <div class="ex">
+        <a class="ex-k" href="#course" data-course="${esc(b.k)}">${esc(cname(b.k))}<span class="chev">›</span></a>
+        <span class="ex-t">${rich(b.text)}</span>
+      </div>`).join("");
+    const prev = D.lessons.find((x) => x.n === n - 1), next = D.lessons.find((x) => x.n === n + 1);
+    $view.innerHTML = `
+      <div class="fade">
+        ${backBtn()}
+        <section class="lhero">
+          <div class="lnum num">LESSON ${String(n).padStart(2, "0")}<span>${esc(l.en)}</span></div>
+          <h1>${esc(l.title)}</h1>
+          <p>${esc(l.summary)}</p>
+        </section>
+        <article class="card lbody">${body}</article>
+        ${ex ? `<section class="card"><div class="card-h"><span class="ico" style="background:var(--accent-soft);color:var(--accent)">例</span><h2>実際のコースで見る</h2><span class="en">Examples</span></div>
+          <div class="exs">${ex}</div><p class="note">数字はスマート出馬表の5年集計。タップでそのコースの画面へ。</p></section>` : ""}
+        <nav class="lnav">
+          ${prev ? `<a href="#lesson/${prev.n}" class="lprev"><span>‹ ${String(prev.n).padStart(2, "0")}</span>${esc(prev.title)}</a>` : "<span></span>"}
+          ${next ? `<a href="#lesson/${next.n}" class="lnext"><span>${String(next.n).padStart(2, "0")} ›</span>${esc(next.title)}</a>` : "<span></span>"}
+        </nav>
+      </div>`;
+  }
+
+  const backBtn = () => `<button class="back" data-back>‹ 戻る</button>`;
 
   // ---------- skins ----------
   const SKINS = [
@@ -269,33 +507,56 @@
   };
   applySkin();
 
-  // ---------- insight view (未使用) ----------
-  function renderInsight() {
-    const ins = [
-      ["01", "芝は内枠、ダートは外枠", "最初のコーナーが近いほど内枠が有利。函館芝1800は内31%・外20%、中京芝1200は8枠が12%。芝スタートのダート（東京ダ1600、中山ダ1200など）は外枠。"],
-      ["02", "新潟芝1000直線は外枠がすべて", "1枠の複勝率5%、8枠37%。荒れる（1番人気級でも56%）。"],
-      ["03", "小回りダートの短距離は逃げ", "函館ダ1000は逃げの複勝率69%、小倉ダ1000は64%、札幌ダ1000は60%。"],
-      ["04", "芝マイルは欧州型、芝2000〜2400は日本型", "東京芝1600は欧25%・日21%。京都芝2200外は日30%・欧20%。"],
-      ["05", "ダートの米国型は1800mまで", "阪神ダ1800は米27%。2000mを超えると欧州型や日本型が逆転（東京ダ2100は欧23%・米18%）。"],
-      ["06", "シニスターミニスター", "阪神・京都・福島のダ1700〜1800で軒並みトップ。阪神ダ1800は241走で複勝率39%。"],
-      ["07", "キズナは人気のわりに走る", "阪神芝2000（単勝回収率253%）、福島芝2000（208%）、中京ダ1800（132%）。ただし阪神の芝の重では沈む。"],
-      ["08", "堅いコースと荒れるコース", "堅い：函館芝1800・東京芝2000（1番人気級の複勝率86〜87%）。荒れる：新潟芝1000直線・中山ダ2400・新潟芝2000外。"],
-    ];
-    $view.innerHTML = `
-      <div class="fade">
-        <div class="page-h"><h1>全体の傾向</h1><p>全10場・約90コースを見渡してわかったこと。</p></div>
-        <div class="insight">${ins.map(([n, h, p]) => `<div class="ins"><div class="n">${n}</div><h3>${esc(h)}</h3><p>${rich(p)}</p></div>`).join("")}</div>
-        <p class="foot">数字は2021年11月〜2026年11月の集計（脚質のみ2023年〜）。</p>
-      </div>`;
+  // ---------- routing（#course / #blood / #sire/名前 / #lesson/番号） ----------
+  // iPhoneのホーム画面版には戻るボタンがないので、画面の中に「戻る」を置く。
+  const scrollMem = {};
+  let depth = 0;
+  const curHash = () => { try { return decodeURIComponent(location.hash || "#course"); } catch { return location.hash; } };
+  function go(hash) {
+    if (hash === curHash()) { render(); return; }
+    scrollMem[curHash()] = window.scrollY;
+    delete scrollMem[hash];
+    depth++;
+    location.hash = hash;
+  }
+  function back() {
+    if (depth > 0) { depth--; history.back(); }
+    else go(/^#sire|^#lesson/.test(curHash()) ? "#blood" : "#course");
   }
 
-  // ---------- tabs ----------
   function render() {
-    document.querySelectorAll(".tab").forEach((t) => t.classList.toggle("is-active", t.dataset.tab === state.tab));
-    if (state.tab === "blood") renderBlood();
-    else { state.tab = "course"; renderCourse(); }
+    const h = curHash().slice(1);
+    const [r, arg] = [h.split("/")[0], h.slice(h.indexOf("/") + 1)];
+    const tab = r === "course" || !r ? "course" : "blood";
+    document.querySelectorAll(".tab").forEach((t) => t.classList.toggle("is-active", t.dataset.tab === tab));
+    if (r === "sire") renderSire(arg);
+    else if (r === "lesson") renderLesson(+arg);
+    else if (r === "blood") renderBlood();
+    else renderCourse();
+    state.route = h || "course"; save();
+    const y = scrollMem[curHash()];
+    window.scrollTo({ top: y || 0 });
   }
-  document.querySelectorAll(".tab").forEach((t) => t.onclick = () => { state.tab = t.dataset.tab; save(); render(); window.scrollTo({ top: 0 }); });
+  const renderBlood = renderBloodHome;
+
+  window.addEventListener("hashchange", render);
+  // リンクのタップをまとめて受ける（コースへのリンクは、選んでいるコースを切り替えてから移る）
+  document.addEventListener("click", (e) => {
+    const b = e.target.closest("[data-back]");
+    if (b) { e.preventDefault(); back(); return; }
+    const a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+    e.preventDefault();
+    const ck = a.dataset.course;
+    if (ck) {
+      const [v, l] = ck.split("|");
+      state.venue = v; state.label = l; state.surface = l.startsWith("芝") ? "芝" : "ダート"; save();
+    }
+    go(a.getAttribute("href"));
+  });
+  document.querySelectorAll(".tab").forEach((t) => t.onclick = () => { depth = 0; go("#" + t.dataset.tab); });
+
+  if (!location.hash && state.route) history.replaceState(null, "", "#" + state.route);
   render();
 
   if ("serviceWorker" in navigator && location.protocol.startsWith("http") && !window.TURFNOTE_NO_SW) {
