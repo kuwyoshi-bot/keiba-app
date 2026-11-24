@@ -896,7 +896,7 @@
       </a>`).join("");
     $view.innerHTML = `
       <div class="fade">
-        <div class="page-h"><h1>騎手</h1><p>5年間・88コースの成績と、評判（主観）。主な45人には所属・型・得意・弱点・ネタを入れた。</p></div>
+        <div class="page-h"><h1>騎手</h1></div>
         <section class="card">
           <div class="zbar">
             <div class="zsearch"><input id="jq" type="search" placeholder="名前で探す" autocomplete="off"></div>
@@ -1048,7 +1048,7 @@
       ${body}`;
     $view.innerHTML = `
       <div class="fade">
-        <div class="page-h"><h1>血統</h1><p>レッスンで考え方を学び、図鑑で種牡馬を引く。土台は亀谷敬正さんの「血統ビーム」の分類。</p></div>
+        <div class="page-h"><h1>血統</h1></div>
         <details class="card lessons-box"${state.lessonsOpen === false ? "" : " open"}><summary class="card-h"><span class="ico" style="background:var(--accent-soft);color:var(--accent)">学</span><h2>レッスン</h2><span class="foldhint"><i class="h-open">タップで折りたたみ</i><i class="h-closed">タップで開く</i></span><span class="fold">▾</span></summary>
           <div class="lrows">${ls}</div></details>
         <section class="card"><div class="card-h"><span class="ico" style="background:var(--eu-soft);color:var(--eu)">図</span><h2>種牡馬図鑑</h2><span class="en">${D.sires.length} sires</span></div>
