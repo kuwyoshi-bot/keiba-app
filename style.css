@@ -660,3 +660,14 @@ details.more[open] > summary { color: var(--muted); }
 .tab .ti-course { --m: url(img/tab-course.png); }
 .tab .ti-blood { --m: url(img/tab-blood.png); }
 .tab .ti-jockey { --m: url(img/tab-jockey.png); width: 32px; }
+.pill-lean { font-weight: 700; }
+.pill-lean.fw { border-color: var(--us); color: var(--us); }
+.pill-lean.cl { border-color: var(--jp); color: var(--jp); }
+.pill-lean.strong.fw { background: var(--us); color: var(--bg); }
+.pill-lean.strong.cl { background: var(--jp); color: var(--bg); }
+.jtagline { font-size: 11.5px; color: var(--text2); line-height: 1.45; }
+.jtagline b { color: var(--gold); }
+.pill.jnick { border-color: var(--gold); color: var(--gold); font-weight: 700; }
+.pill.jgen { border-color: var(--eu); color: var(--eu); }
+.jrep .sub:first-child { margin-top: 0; }
+.jrep .sn-l { margin-bottom: 6px; }

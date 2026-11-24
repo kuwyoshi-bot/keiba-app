@@ -139,7 +139,15 @@ window.KEIBA_DATA = {
    },
    "start": "向正面",
    "corner": "3コーナー",
-   "toCorner": "約370m"
+   "toCorner": "約370m",
+   "lean": {
+    "side": "先行寄り",
+    "strong": false,
+    "lead": 28,
+    "late": 28,
+    "d": -7.1,
+    "nige": null
+   }
   },
   {
    "venue": "東京",
@@ -179,7 +187,15 @@ window.KEIBA_DATA = {
    },
    "start": "2コーナー出口のポケット",
    "corner": "3コーナー",
-   "toCorner": "約570m"
+   "toCorner": "約570m",
+   "lean": {
+    "side": "互角",
+    "strong": false,
+    "lead": 26,
+    "late": 35,
+    "d": 1.9,
+    "nige": null
+   }
   },
   {
    "venue": "東京",
@@ -196,7 +212,7 @@ window.KEIBA_DATA = {
     "damsire": "ルーラーシップ（複41% 回45%/86%）"
    },
    "buy": [
-    "末脚型（41%）",
+    "差し型（41%）",
     "モーリス・ロードカナロア・キズナ",
     "7枠",
     "人気馬（堅い）"
@@ -219,7 +235,15 @@ window.KEIBA_DATA = {
    },
    "start": "1〜2コーナー間のポケット",
    "corner": "3コーナー（2コーナーは緩く、ほぼ直進）",
-   "toCorner": "約770m"
+   "toCorner": "約770m",
+   "lean": {
+    "side": "差し寄り",
+    "strong": false,
+    "lead": 26,
+    "late": 41,
+    "d": 7.9,
+    "nige": null
+   }
   },
   {
    "venue": "東京",
@@ -238,7 +262,7 @@ window.KEIBA_DATA = {
    "buy": [
     "1枠（30%）",
     "キタサンブラック",
-    "末脚型（42%）",
+    "差し型（42%）",
     "人気馬（堅い 86%）"
    ],
    "avoid": [
@@ -255,7 +279,15 @@ window.KEIBA_DATA = {
    },
    "start": "1コーナー奥のポケット",
    "corner": "2コーナー",
-   "toCorner": "❓ 図からは約260m、民間サイトは約100〜130m（ポケットの合流位置の解釈で差）"
+   "toCorner": "❓ 図からは約260m、民間サイトは約100〜130m（ポケットの合流位置の解釈で差）",
+   "lean": {
+    "side": "差し寄り",
+    "strong": false,
+    "lead": 28,
+    "late": 42,
+    "d": 6.9,
+    "nige": null
+   }
   },
   {
    "venue": "東京",
@@ -274,7 +306,7 @@ window.KEIBA_DATA = {
    "buy": [
     "ドゥラメンテ",
     "父欧州型",
-    "末脚型（42%）",
+    "差し型（42%）",
     "母父クロフネ"
    ],
    "avoid": [
@@ -296,7 +328,15 @@ window.KEIBA_DATA = {
    },
    "start": "スタンド前",
    "corner": "1コーナー",
-   "toCorner": "約360m"
+   "toCorner": "約360m",
+   "lean": {
+    "side": "差し寄り",
+    "strong": false,
+    "lead": 26,
+    "late": 42,
+    "d": 8.9,
+    "nige": null
+   }
   },
   {
    "venue": "東京",
@@ -352,7 +392,15 @@ window.KEIBA_DATA = {
    "corner": "3コーナー",
    "toCorner": "約360m",
    "turfStart": false,
-   "startNote": "ダートからスタート"
+   "startNote": "ダートからスタート",
+   "lean": {
+    "side": "先行寄り",
+    "strong": false,
+    "lead": 28,
+    "late": 27,
+    "d": -8.1,
+    "nige": 44
+   }
   },
   {
    "venue": "東京",
@@ -393,7 +441,15 @@ window.KEIBA_DATA = {
    "corner": "3コーナー",
    "toCorner": "約460m",
    "turfStart": false,
-   "startNote": "ダートからスタート"
+   "startNote": "ダートからスタート",
+   "lean": {
+    "side": "互角",
+    "strong": false,
+    "lead": 26,
+    "late": 30,
+    "d": -3.1,
+    "nige": null
+   }
   },
   {
    "venue": "東京",
@@ -435,7 +491,15 @@ window.KEIBA_DATA = {
    "corner": "3コーナー",
    "toCorner": "約660m",
    "turfStart": true,
-   "startNote": "2コーナー奥の芝からスタート。ダートに入るまで芝を約150m走る"
+   "startNote": "2コーナー奥の芝からスタート。ダートに入るまで芝を約150m走る",
+   "lean": {
+    "side": "互角",
+    "strong": false,
+    "lead": 28,
+    "late": 32,
+    "d": -3.1,
+    "nige": null
+   }
   },
   {
    "venue": "東京",
@@ -477,7 +541,15 @@ window.KEIBA_DATA = {
    "corner": "1コーナー",
    "toCorner": "約260m",
    "turfStart": false,
-   "startNote": "ダートからスタート"
+   "startNote": "ダートからスタート",
+   "lean": {
+    "side": "互角",
+    "strong": false,
+    "lead": 25,
+    "late": 33,
+    "d": 0.9,
+    "nige": null
+   }
   },
   {
    "venue": "中山",
@@ -512,7 +584,15 @@ window.KEIBA_DATA = {
    },
    "start": "外回りの2コーナー付近",
    "corner": "3コーナー",
-   "toCorner": "約280m"
+   "toCorner": "約280m",
+   "lean": {
+    "side": "先行寄り",
+    "strong": false,
+    "lead": 28,
+    "late": 30,
+    "d": -5.1,
+    "nige": 52
+   }
   },
   {
    "venue": "中山",
@@ -551,7 +631,15 @@ window.KEIBA_DATA = {
    },
    "start": "1コーナー奥のポケット",
    "corner": "2コーナー",
-   "toCorner": "約80m（すぐコーナー）"
+   "toCorner": "約80m（すぐコーナー）",
+   "lean": {
+    "side": "互角",
+    "strong": false,
+    "lead": 28,
+    "late": 36,
+    "d": 0.9,
+    "nige": null
+   }
   },
   {
    "venue": "中山",
@@ -592,7 +680,15 @@ window.KEIBA_DATA = {
    },
    "start": "スタンド前",
    "corner": "1コーナー",
-   "toCorner": "約210m"
+   "toCorner": "約210m",
+   "lean": {
+    "side": "互角",
+    "strong": false,
+    "lead": 26,
+    "late": 35,
+    "d": 1.9,
+    "nige": null
+   }
   },
   {
    "venue": "中山",
@@ -632,7 +728,15 @@ window.KEIBA_DATA = {
    },
    "start": "4コーナー奥（スタンド前の右端）",
    "corner": "1コーナー",
-   "toCorner": "約410m"
+   "toCorner": "約410m",
+   "lean": {
+    "side": "互角",
+    "strong": false,
+    "lead": 24,
+    "late": 34,
+    "d": 2.9,
+    "nige": null
+   }
   },
   {
    "venue": "中山",
@@ -650,7 +754,7 @@ window.KEIBA_DATA = {
    },
    "buy": [
     "父日本型",
-    "末脚型（41%）",
+    "差し型（41%）",
     "シルバーステート"
    ],
    "avoid": [
@@ -668,7 +772,15 @@ window.KEIBA_DATA = {
    },
    "start": "4コーナー出口付近",
    "corner": "1コーナー",
-   "toCorner": "約440m"
+   "toCorner": "約440m",
+   "lean": {
+    "side": "差し寄り",
+    "strong": false,
+    "lead": 25,
+    "late": 41,
+    "d": 8.9,
+    "nige": null
+   }
   },
   {
    "venue": "中山",
@@ -685,7 +797,7 @@ window.KEIBA_DATA = {
     "damsire": ""
    },
    "buy": [
-    "末脚型（47%）",
+    "差し型（47%）",
     "ハーツクライ",
     "5枠"
    ],
@@ -703,7 +815,15 @@ window.KEIBA_DATA = {
    },
    "start": "外回りの3コーナー手前（内回りで1周）",
    "corner": "3コーナー",
-   "toCorner": "約50m（すぐコーナー）"
+   "toCorner": "約50m（すぐコーナー）",
+   "lean": {
+    "side": "差し寄り",
+    "strong": false,
+    "lead": 30,
+    "late": 47,
+    "d": 9.9,
+    "nige": null
+   }
   },
   {
    "venue": "中山",
@@ -745,7 +865,15 @@ window.KEIBA_DATA = {
    "corner": "3コーナー",
    "toCorner": "約510m",
    "turfStart": true,
-   "startNote": "2コーナー奥の芝からスタート"
+   "startNote": "2コーナー奥の芝からスタート",
+   "lean": {
+    "side": "先行寄り",
+    "strong": false,
+    "lead": 28,
+    "late": 29,
+    "d": -6.1,
+    "nige": 49
+   }
   },
   {
    "venue": "中山",
@@ -786,7 +914,15 @@ window.KEIBA_DATA = {
    "corner": "1コーナー",
    "toCorner": "約380m",
    "turfStart": false,
-   "startNote": "ダートからスタート"
+   "startNote": "ダートからスタート",
+   "lean": {
+    "side": "互角",
+    "strong": false,
+    "lead": 30,
+    "late": 35,
+    "d": -2.1,
+    "nige": null
+   }
   },
   {
    "venue": "中山",
@@ -821,7 +957,15 @@ window.KEIBA_DATA = {
    "corner": "3コーナー",
    "toCorner": "約210m",
    "turfStart": false,
-   "startNote": "ダートからスタート"
+   "startNote": "ダートからスタート",
+   "lean": {
+    "side": "差し寄り",
+    "strong": false,
+    "lead": 23,
+    "late": 36,
+    "d": 5.9,
+    "nige": null
+   }
   },
   {
    "venue": "阪神",
@@ -858,7 +1002,15 @@ window.KEIBA_DATA = {
    },
    "start": "向正面",
    "corner": "3コーナー",
-   "toCorner": "約260m"
+   "toCorner": "約260m",
+   "lean": {
+    "side": "先行寄り",
+    "strong": true,
+    "lead": 29,
+    "late": 34,
+    "d": -2.1,
+    "nige": 70
+   }
   },
   {
    "venue": "阪神",
@@ -896,7 +1048,15 @@ window.KEIBA_DATA = {
    },
    "start": "2コーナー出口",
    "corner": "3コーナー",
-   "toCorner": "約460m"
+   "toCorner": "約460m",
+   "lean": {
+    "side": "互角",
+    "strong": false,
+    "lead": 22,
+    "late": 28,
+    "d": -1.1,
+    "nige": null
+   }
   },
   {
    "venue": "阪神",
@@ -937,7 +1097,15 @@ window.KEIBA_DATA = {
    },
    "start": "向正面の半ば",
    "corner": "3コーナー",
-   "toCorner": "約470m"
+   "toCorner": "約470m",
+   "lean": {
+    "side": "互角",
+    "strong": false,
+    "lead": 22,
+    "late": 31,
+    "d": 1.9,
+    "nige": null
+   }
   },
   {
    "venue": "阪神",
@@ -973,7 +1141,15 @@ window.KEIBA_DATA = {
    },
    "start": "2コーナー奥のポケット",
    "corner": "3コーナー",
-   "toCorner": "約670m"
+   "toCorner": "約670m",
+   "lean": {
+    "side": "互角",
+    "strong": false,
+    "lead": 27,
+    "late": 37,
+    "d": 2.9,
+    "nige": null
+   }
   },
   {
    "venue": "阪神",
@@ -1014,7 +1190,15 @@ window.KEIBA_DATA = {
    },
    "start": "スタンド前",
    "corner": "1コーナー",
-   "toCorner": "約350m"
+   "toCorner": "約350m",
+   "lean": {
+    "side": "互角",
+    "strong": false,
+    "lead": 31,
+    "late": 40,
+    "d": 1.9,
+    "nige": 48
+   }
   },
   {
    "venue": "阪神",
@@ -1034,7 +1218,7 @@ window.KEIBA_DATA = {
     "父欧州型",
     "エピファネイア",
     "3枠",
-    "末脚型"
+    "差し型"
    ],
    "avoid": [
     "父米国型（8%）",
@@ -1051,7 +1235,15 @@ window.KEIBA_DATA = {
    },
    "start": "4コーナー寄り",
    "corner": "1コーナー",
-   "toCorner": "約550m"
+   "toCorner": "約550m",
+   "lean": {
+    "side": "差し寄り",
+    "strong": true,
+    "lead": 22,
+    "late": 41,
+    "d": 11.9,
+    "nige": null
+   }
   },
   {
    "venue": "阪神",
@@ -1090,7 +1282,15 @@ window.KEIBA_DATA = {
    },
    "start": "スタンド前",
    "corner": "1コーナー",
-   "toCorner": "約350m"
+   "toCorner": "約350m",
+   "lean": {
+    "side": "互角",
+    "strong": false,
+    "lead": 35,
+    "late": 43,
+    "d": 0.9,
+    "nige": null
+   }
   },
   {
    "venue": "阪神",
@@ -1127,7 +1327,15 @@ window.KEIBA_DATA = {
    "corner": "3コーナー",
    "toCorner": "約340m",
    "turfStart": false,
-   "startNote": "ダートからスタート"
+   "startNote": "ダートからスタート",
+   "lean": {
+    "side": "互角",
+    "strong": false,
+    "lead": 28,
+    "late": 33,
+    "d": -2.1,
+    "nige": null
+   }
   },
   {
    "venue": "阪神",
@@ -1167,7 +1375,15 @@ window.KEIBA_DATA = {
    "corner": "3コーナー",
    "toCorner": "約540m",
    "turfStart": true,
-   "startNote": "2コーナー奥の芝からスタート"
+   "startNote": "2コーナー奥の芝からスタート",
+   "lean": {
+    "side": "互角",
+    "strong": false,
+    "lead": 26,
+    "late": 33,
+    "d": -0.1,
+    "nige": null
+   }
   },
   {
    "venue": "阪神",
@@ -1208,7 +1424,15 @@ window.KEIBA_DATA = {
    "corner": "1コーナー",
    "toCorner": "約310m",
    "turfStart": false,
-   "startNote": "ダートからスタート"
+   "startNote": "ダートからスタート",
+   "lean": {
+    "side": "互角",
+    "strong": false,
+    "lead": 32,
+    "late": 39,
+    "d": -0.1,
+    "nige": null
+   }
   },
   {
    "venue": "阪神",
@@ -1245,7 +1469,15 @@ window.KEIBA_DATA = {
    "corner": "1コーナー",
    "toCorner": "約510m",
    "turfStart": true,
-   "startNote": "4コーナー寄りの芝からスタート"
+   "startNote": "4コーナー寄りの芝からスタート",
+   "lean": {
+    "side": "互角",
+    "strong": false,
+    "lead": 28,
+    "late": 36,
+    "d": 0.9,
+    "nige": null
+   }
   },
   {
    "venue": "京都",
@@ -1280,7 +1512,15 @@ window.KEIBA_DATA = {
    },
    "start": "向正面",
    "corner": "3コーナー",
-   "toCorner": "約300m"
+   "toCorner": "約300m",
+   "lean": {
+    "side": "先行寄り",
+    "strong": true,
+    "lead": 27,
+    "late": 24,
+    "d": -10.1,
+    "nige": 45
+   }
   },
   {
    "venue": "京都",
@@ -1317,7 +1557,15 @@ window.KEIBA_DATA = {
    },
    "start": "2コーナー出口",
    "corner": "3コーナー",
-   "toCorner": "約500m"
+   "toCorner": "約500m",
+   "lean": {
+    "side": "互角",
+    "strong": false,
+    "lead": 31,
+    "late": 34,
+    "d": -4.1,
+    "nige": null
+   }
   },
   {
    "venue": "京都",
@@ -1352,7 +1600,15 @@ window.KEIBA_DATA = {
    },
    "start": "向正面",
    "corner": "3コーナー",
-   "toCorner": "約510m"
+   "toCorner": "約510m",
+   "lean": {
+    "side": "先行寄り",
+    "strong": false,
+    "lead": 28,
+    "late": 30,
+    "d": -5.1,
+    "nige": null
+   }
   },
   {
    "venue": "京都",
@@ -1370,7 +1626,7 @@ window.KEIBA_DATA = {
    },
    "buy": [
     "ロベルト系（エピファネイア）",
-    "末脚型（43%）",
+    "差し型（43%）",
     "8枠"
    ],
    "avoid": [
@@ -1391,7 +1647,15 @@ window.KEIBA_DATA = {
    },
    "start": "2コーナー奥の引き込み線",
    "corner": "3コーナー",
-   "toCorner": "約700m"
+   "toCorner": "約700m",
+   "lean": {
+    "side": "差し寄り",
+    "strong": false,
+    "lead": 28,
+    "late": 43,
+    "d": 7.9,
+    "nige": null
+   }
   },
   {
    "venue": "京都",
@@ -1426,7 +1690,15 @@ window.KEIBA_DATA = {
    },
    "start": "2コーナー奥の引き込み線",
    "corner": "3コーナー",
-   "toCorner": "約710m"
+   "toCorner": "約710m",
+   "lean": {
+    "side": "互角",
+    "strong": false,
+    "lead": 24,
+    "late": 33,
+    "d": 1.9,
+    "nige": null
+   }
   },
   {
    "venue": "京都",
@@ -1462,7 +1734,15 @@ window.KEIBA_DATA = {
    },
    "start": "2コーナー奥の引き込み線",
    "corner": "3コーナー",
-   "toCorner": "約910m"
+   "toCorner": "約910m",
+   "lean": {
+    "side": "互角",
+    "strong": false,
+    "lead": 32,
+    "late": 39,
+    "d": -0.1,
+    "nige": null
+   }
   },
   {
    "venue": "京都",
@@ -1480,7 +1760,7 @@ window.KEIBA_DATA = {
    },
    "buy": [
     "キタサンブラック",
-    "末脚型（44%）",
+    "差し型（44%）",
     "4枠",
     "川田将雅"
    ],
@@ -1502,7 +1782,15 @@ window.KEIBA_DATA = {
    },
    "start": "スタンド前",
    "corner": "1コーナー",
-   "toCorner": "約270m"
+   "toCorner": "約270m",
+   "lean": {
+    "side": "差し寄り",
+    "strong": false,
+    "lead": 29,
+    "late": 44,
+    "d": 7.9,
+    "nige": 46
+   }
   },
   {
    "venue": "京都",
@@ -1538,7 +1826,15 @@ window.KEIBA_DATA = {
    },
    "start": "4コーナー出口付近",
    "corner": "1コーナー",
-   "toCorner": "約400m"
+   "toCorner": "約400m",
+   "lean": {
+    "side": "互角",
+    "strong": false,
+    "lead": 35,
+    "late": 40,
+    "d": -2.1,
+    "nige": null
+   }
   },
   {
    "venue": "京都",
@@ -1573,7 +1869,15 @@ window.KEIBA_DATA = {
    },
    "start": "4コーナー奥のポケット",
    "corner": "1コーナー",
-   "toCorner": "約600m"
+   "toCorner": "約600m",
+   "lean": {
+    "side": "差し寄り",
+    "strong": false,
+    "lead": 25,
+    "late": 40,
+    "d": 7.9,
+    "nige": null
+   }
   },
   {
    "venue": "京都",
@@ -1614,7 +1918,15 @@ window.KEIBA_DATA = {
    "corner": "3コーナー",
    "toCorner": "約400m",
    "turfStart": false,
-   "startNote": "ダートからスタート"
+   "startNote": "ダートからスタート",
+   "lean": {
+    "side": "互角",
+    "strong": false,
+    "lead": 26,
+    "late": 30,
+    "d": -3.1,
+    "nige": null
+   }
   },
   {
    "venue": "京都",
@@ -1651,7 +1963,15 @@ window.KEIBA_DATA = {
    "corner": "3コーナー",
    "toCorner": "約600m",
    "turfStart": true,
-   "startNote": "2コーナー奥の芝からスタート"
+   "startNote": "2コーナー奥の芝からスタート",
+   "lean": {
+    "side": "互角",
+    "strong": false,
+    "lead": 23,
+    "late": 31,
+    "d": 0.9,
+    "nige": null
+   }
   },
   {
    "venue": "京都",
@@ -1693,7 +2013,15 @@ window.KEIBA_DATA = {
    "corner": "1コーナー",
    "toCorner": "約280m",
    "turfStart": false,
-   "startNote": "ダートからスタート"
+   "startNote": "ダートからスタート",
+   "lean": {
+    "side": "互角",
+    "strong": false,
+    "lead": 32,
+    "late": 37,
+    "d": -2.1,
+    "nige": 49
+   }
   },
   {
    "venue": "京都",
@@ -1729,7 +2057,15 @@ window.KEIBA_DATA = {
    "corner": "1コーナー",
    "toCorner": "約380m",
    "turfStart": false,
-   "startNote": "ダートからスタート"
+   "startNote": "ダートからスタート",
+   "lean": {
+    "side": "互角",
+    "strong": false,
+    "lead": 32,
+    "late": 37,
+    "d": -2.1,
+    "nige": null
+   }
   },
   {
    "venue": "中京",
@@ -1763,7 +2099,15 @@ window.KEIBA_DATA = {
     "best": "欧"
    },
    "corner": "3コーナー",
-   "toCorner": "315m（民間サイト）"
+   "toCorner": "315m（民間サイト）",
+   "lean": {
+    "side": "先行寄り",
+    "strong": false,
+    "lead": 27,
+    "late": 27,
+    "d": -7.1,
+    "nige": null
+   }
   },
   {
    "venue": "中京",
@@ -1797,7 +2141,15 @@ window.KEIBA_DATA = {
     "best": "欧"
    },
    "corner": "3コーナー",
-   "toCorner": "500m以上（民間サイト）"
+   "toCorner": "500m以上（民間サイト）",
+   "lean": {
+    "side": "互角",
+    "strong": false,
+    "lead": 24,
+    "late": 30,
+    "d": -1.1,
+    "nige": null
+   }
   },
   {
    "venue": "中京",
@@ -1834,7 +2186,15 @@ window.KEIBA_DATA = {
     "best": "日"
    },
    "corner": "2コーナー（引き込み線から、すぐコーナー）",
-   "toCorner": "—（民間サイト）"
+   "toCorner": "—（民間サイト）",
+   "lean": {
+    "side": "互角",
+    "strong": false,
+    "lead": 26,
+    "late": 35,
+    "d": 1.9,
+    "nige": null
+   }
   },
   {
    "venue": "中京",
@@ -1872,7 +2232,15 @@ window.KEIBA_DATA = {
     "best": "日"
    },
    "corner": "1コーナー",
-   "toCorner": "314m（民間サイト）"
+   "toCorner": "314m（民間サイト）",
+   "lean": {
+    "side": "互角",
+    "strong": false,
+    "lead": 32,
+    "late": 35,
+    "d": -4.1,
+    "nige": null
+   }
   },
   {
    "venue": "中京",
@@ -1906,7 +2274,15 @@ window.KEIBA_DATA = {
     "best": "欧"
    },
    "corner": "1コーナー",
-   "toCorner": "514m（民間サイト）"
+   "toCorner": "514m（民間サイト）",
+   "lean": {
+    "side": "差し寄り",
+    "strong": false,
+    "lead": 22,
+    "late": 38,
+    "d": 8.9,
+    "nige": null
+   }
   },
   {
    "venue": "中京",
@@ -1941,7 +2317,15 @@ window.KEIBA_DATA = {
    "corner": "3コーナー",
    "toCorner": "407m（民間サイト）",
    "turfStart": false,
-   "startNote": "ダートからスタート"
+   "startNote": "ダートからスタート",
+   "lean": {
+    "side": "先行寄り",
+    "strong": false,
+    "lead": 29,
+    "late": 30,
+    "d": -6.1,
+    "nige": null
+   }
   },
   {
    "venue": "中京",
@@ -1980,7 +2364,15 @@ window.KEIBA_DATA = {
    "corner": "3コーナー",
    "toCorner": "600m以上（民間サイト）",
    "turfStart": true,
-   "startNote": "芝からスタート。約200m弱でダートに入る"
+   "startNote": "芝からスタート。約200m弱でダートに入る",
+   "lean": {
+    "side": "先行寄り",
+    "strong": false,
+    "lead": 28,
+    "late": 30,
+    "d": -5.1,
+    "nige": null
+   }
   },
   {
    "venue": "中京",
@@ -2018,7 +2410,15 @@ window.KEIBA_DATA = {
     "best": "日"
    },
    "turfStart": false,
-   "startNote": "ダートからスタート"
+   "startNote": "ダートからスタート",
+   "lean": {
+    "side": "互角",
+    "strong": false,
+    "lead": 31,
+    "late": 36,
+    "d": -2.1,
+    "nige": null
+   }
   },
   {
    "venue": "中京",
@@ -2052,7 +2452,15 @@ window.KEIBA_DATA = {
     "best": "米"
    },
    "turfStart": false,
-   "startNote": "ダートからスタート"
+   "startNote": "ダートからスタート",
+   "lean": {
+    "side": "互角",
+    "strong": false,
+    "lead": 30,
+    "late": 36,
+    "d": -1.1,
+    "nige": null
+   }
   },
   {
    "venue": "新潟",
@@ -2091,7 +2499,15 @@ window.KEIBA_DATA = {
    },
    "start": "—",
    "corner": "コーナーなし",
-   "toCorner": "—"
+   "toCorner": "—",
+   "lean": {
+    "side": "先行寄り",
+    "strong": false,
+    "lead": 23,
+    "late": 22,
+    "d": -8.1,
+    "nige": null
+   }
   },
   {
    "venue": "新潟",
@@ -2126,7 +2542,15 @@ window.KEIBA_DATA = {
    },
    "start": "2コーナー出口",
    "corner": "3コーナー",
-   "toCorner": "約450m"
+   "toCorner": "約450m",
+   "lean": {
+    "side": "先行寄り",
+    "strong": false,
+    "lead": 24,
+    "late": 26,
+    "d": -5.1,
+    "nige": null
+   }
   },
   {
    "venue": "新潟",
@@ -2161,7 +2585,15 @@ window.KEIBA_DATA = {
    },
    "start": "2コーナー奥のポケット",
    "corner": "3コーナー",
-   "toCorner": "約650m"
+   "toCorner": "約650m",
+   "lean": {
+    "side": "互角",
+    "strong": false,
+    "lead": 22,
+    "late": 29,
+    "d": -0.1,
+    "nige": 48
+   }
   },
   {
    "venue": "新潟",
@@ -2195,7 +2627,15 @@ window.KEIBA_DATA = {
    },
    "start": "向正面",
    "corner": "3コーナー",
-   "toCorner": "約550m"
+   "toCorner": "約550m",
+   "lean": {
+    "side": "互角",
+    "strong": false,
+    "lead": 25,
+    "late": 30,
+    "d": -2.1,
+    "nige": null
+   }
   },
   {
    "venue": "新潟",
@@ -2230,7 +2670,15 @@ window.KEIBA_DATA = {
    },
    "start": "2コーナー奥",
    "corner": "3コーナー",
-   "toCorner": "約750m"
+   "toCorner": "約750m",
+   "lean": {
+    "side": "互角",
+    "strong": false,
+    "lead": 24,
+    "late": 34,
+    "d": 2.9,
+    "nige": null
+   }
   },
   {
    "venue": "新潟",
@@ -2268,7 +2716,15 @@ window.KEIBA_DATA = {
    },
    "start": "4コーナー寄り",
    "corner": "1コーナー",
-   "toCorner": "約430m"
+   "toCorner": "約430m",
+   "lean": {
+    "side": "互角",
+    "strong": false,
+    "lead": 26,
+    "late": 30,
+    "d": -3.1,
+    "nige": null
+   }
   },
   {
    "venue": "新潟",
@@ -2303,7 +2759,15 @@ window.KEIBA_DATA = {
    },
    "start": "1〜2コーナー奥のポケット",
    "corner": "3コーナー",
-   "toCorner": "約950m"
+   "toCorner": "約950m",
+   "lean": {
+    "side": "互角",
+    "strong": false,
+    "lead": 26,
+    "late": 32,
+    "d": -1.1,
+    "nige": null
+   }
   },
   {
    "venue": "新潟",
@@ -2329,7 +2793,15 @@ window.KEIBA_DATA = {
    },
    "start": "4コーナー奥",
    "corner": "1コーナー",
-   "toCorner": "約630m"
+   "toCorner": "約630m",
+   "lean": {
+    "side": "互角",
+    "strong": false,
+    "lead": 27,
+    "late": 32,
+    "d": -2.1,
+    "nige": null
+   }
   },
   {
    "venue": "新潟",
@@ -2385,7 +2857,15 @@ window.KEIBA_DATA = {
    "corner": "3コーナー",
    "toCorner": "約530m",
    "turfStart": true,
-   "startNote": "2コーナー奥の芝からスタート"
+   "startNote": "2コーナー奥の芝からスタート",
+   "lean": {
+    "side": "先行寄り",
+    "strong": false,
+    "lead": 32,
+    "late": 33,
+    "d": -6.1,
+    "nige": 55
+   }
   },
   {
    "venue": "新潟",
@@ -2426,7 +2906,15 @@ window.KEIBA_DATA = {
    "corner": "1コーナー",
    "toCorner": "約390m",
    "turfStart": false,
-   "startNote": "ダートからスタート"
+   "startNote": "ダートからスタート",
+   "lean": {
+    "side": "互角",
+    "strong": false,
+    "lead": 29,
+    "late": 35,
+    "d": -1.1,
+    "nige": null
+   }
   },
   {
    "venue": "札幌",
@@ -2460,7 +2948,15 @@ window.KEIBA_DATA = {
    },
    "start": "2コーナー付近",
    "corner": "3コーナー",
-   "toCorner": "約430m"
+   "toCorner": "約430m",
+   "lean": {
+    "side": "互角",
+    "strong": false,
+    "lead": 26,
+    "late": 30,
+    "d": -3.1,
+    "nige": null
+   }
   },
   {
    "venue": "札幌",
@@ -2494,7 +2990,15 @@ window.KEIBA_DATA = {
    },
    "start": "1コーナー奥のポケット",
    "corner": "2コーナー",
-   "toCorner": "約160m"
+   "toCorner": "約160m",
+   "lean": {
+    "side": "互角",
+    "strong": false,
+    "lead": 29,
+    "late": 34,
+    "d": -2.1,
+    "nige": null
+   }
   },
   {
    "venue": "札幌",
@@ -2530,7 +3034,15 @@ window.KEIBA_DATA = {
    },
    "start": "スタンド前",
    "corner": "1コーナー",
-   "toCorner": "約210m"
+   "toCorner": "約210m",
+   "lean": {
+    "side": "先行寄り",
+    "strong": false,
+    "lead": 34,
+    "late": 41,
+    "d": -0.1,
+    "nige": 55
+   }
   },
   {
    "venue": "札幌",
@@ -2568,7 +3080,15 @@ window.KEIBA_DATA = {
    },
    "start": "4コーナー奥のポケット",
    "corner": "1コーナー",
-   "toCorner": "約410m"
+   "toCorner": "約410m",
+   "lean": {
+    "side": "互角",
+    "strong": false,
+    "lead": 28,
+    "late": 32,
+    "d": -3.1,
+    "nige": null
+   }
   },
   {
    "venue": "札幌",
@@ -2594,7 +3114,15 @@ window.KEIBA_DATA = {
    },
    "start": "向正面",
    "corner": "3コーナー",
-   "toCorner": "約190m"
+   "toCorner": "約190m",
+   "lean": {
+    "side": "差し寄り",
+    "strong": true,
+    "lead": 22,
+    "late": 43,
+    "d": 13.9,
+    "nige": null
+   }
   },
   {
    "venue": "札幌",
@@ -2631,7 +3159,15 @@ window.KEIBA_DATA = {
    "corner": "3コーナー",
    "toCorner": "約300m",
    "turfStart": false,
-   "startNote": "ダートからスタート"
+   "startNote": "ダートからスタート",
+   "lean": {
+    "side": "先行寄り",
+    "strong": true,
+    "lead": 32,
+    "late": 44,
+    "d": 4.9,
+    "nige": 60
+   }
   },
   {
    "venue": "札幌",
@@ -2674,7 +3210,15 @@ window.KEIBA_DATA = {
    "corner": "1コーナー",
    "toCorner": "約260m",
    "turfStart": false,
-   "startNote": "ダートからスタート"
+   "startNote": "ダートからスタート",
+   "lean": {
+    "side": "差し寄り",
+    "strong": false,
+    "lead": 23,
+    "late": 39,
+    "d": 8.9,
+    "nige": null
+   }
   },
   {
    "venue": "函館",
@@ -2714,7 +3258,15 @@ window.KEIBA_DATA = {
    },
    "start": "2コーナー奥のポケット",
    "corner": "3コーナー",
-   "toCorner": "約500m"
+   "toCorner": "約500m",
+   "lean": {
+    "side": "先行寄り",
+    "strong": true,
+    "lead": 30,
+    "late": 27,
+    "d": -10.1,
+    "nige": 54
+   }
   },
   {
    "venue": "函館",
@@ -2749,7 +3301,15 @@ window.KEIBA_DATA = {
    },
    "start": "スタンド前",
    "corner": "1コーナー",
-   "toCorner": "約280m"
+   "toCorner": "約280m",
+   "lean": {
+    "side": "先行寄り",
+    "strong": false,
+    "lead": 28,
+    "late": 27,
+    "d": -8.1,
+    "nige": null
+   }
   },
   {
    "venue": "函館",
@@ -2785,7 +3345,15 @@ window.KEIBA_DATA = {
    },
    "start": "4コーナー奥のポケット",
    "corner": "1コーナー",
-   "toCorner": "約480m"
+   "toCorner": "約480m",
+   "lean": {
+    "side": "差し寄り",
+    "strong": false,
+    "lead": 24,
+    "late": 38,
+    "d": 6.9,
+    "nige": null
+   }
   },
   {
    "venue": "函館",
@@ -2811,7 +3379,15 @@ window.KEIBA_DATA = {
    },
    "start": "向正面",
    "corner": "3コーナー",
-   "toCorner": "約270m"
+   "toCorner": "約270m",
+   "lean": {
+    "side": "互角",
+    "strong": false,
+    "lead": 30,
+    "late": 40,
+    "d": 2.9,
+    "nige": null
+   }
   },
   {
    "venue": "函館",
@@ -2848,7 +3424,15 @@ window.KEIBA_DATA = {
    "corner": "3コーナー",
    "toCorner": "約370m",
    "turfStart": false,
-   "startNote": "ダートからスタート"
+   "startNote": "ダートからスタート",
+   "lean": {
+    "side": "先行寄り",
+    "strong": true,
+    "lead": 36,
+    "late": 36,
+    "d": -7.1,
+    "nige": 69
+   }
   },
   {
    "venue": "函館",
@@ -2885,7 +3469,15 @@ window.KEIBA_DATA = {
    "corner": "1コーナー",
    "toCorner": "約340m",
    "turfStart": false,
-   "startNote": "ダートからスタート"
+   "startNote": "ダートからスタート",
+   "lean": {
+    "side": "先行寄り",
+    "strong": false,
+    "lead": 33,
+    "late": 40,
+    "d": -0.1,
+    "nige": 55
+   }
   },
   {
    "venue": "福島",
@@ -2919,7 +3511,15 @@ window.KEIBA_DATA = {
    },
    "start": "2コーナー奥のポケット",
    "corner": "3コーナー",
-   "toCorner": "約430m"
+   "toCorner": "約430m",
+   "lean": {
+    "side": "先行寄り",
+    "strong": false,
+    "lead": 26,
+    "late": 26,
+    "d": -7.1,
+    "nige": null
+   }
   },
   {
    "venue": "福島",
@@ -2958,7 +3558,15 @@ window.KEIBA_DATA = {
    },
    "start": "スタンド前",
    "corner": "1コーナー",
-   "toCorner": "約300m"
+   "toCorner": "約300m",
+   "lean": {
+    "side": "互角",
+    "strong": false,
+    "lead": 26,
+    "late": 30,
+    "d": -3.1,
+    "nige": null
+   }
   },
   {
    "venue": "福島",
@@ -2977,7 +3585,7 @@ window.KEIBA_DATA = {
    "buy": [
     "**キズナ**",
     "父日本型",
-    "末脚型（42%）"
+    "差し型（42%）"
    ],
    "avoid": [
     "父米国型（12%）",
@@ -2994,7 +3602,15 @@ window.KEIBA_DATA = {
    },
    "start": "4コーナー奥のポケット",
    "corner": "1コーナー",
-   "toCorner": "約500m"
+   "toCorner": "約500m",
+   "lean": {
+    "side": "差し寄り",
+    "strong": true,
+    "lead": 21,
+    "late": 42,
+    "d": 13.9,
+    "nige": null
+   }
   },
   {
    "venue": "福島",
@@ -3028,7 +3644,15 @@ window.KEIBA_DATA = {
    },
    "start": "向正面",
    "corner": "3コーナー",
-   "toCorner": "約230m"
+   "toCorner": "約230m",
+   "lean": {
+    "side": "差し寄り",
+    "strong": false,
+    "lead": 21,
+    "late": 35,
+    "d": 6.9,
+    "nige": null
+   }
   },
   {
    "venue": "福島",
@@ -3065,7 +3689,15 @@ window.KEIBA_DATA = {
    "corner": "3コーナー",
    "toCorner": "約490m",
    "turfStart": true,
-   "startNote": "2コーナー奥の芝からスタート"
+   "startNote": "2コーナー奥の芝からスタート",
+   "lean": {
+    "side": "先行寄り",
+    "strong": true,
+    "lead": 31,
+    "late": 27,
+    "d": -11.1,
+    "nige": 59
+   }
   },
   {
    "venue": "福島",
@@ -3108,7 +3740,15 @@ window.KEIBA_DATA = {
    "corner": "1コーナー",
    "toCorner": "約340m",
    "turfStart": false,
-   "startNote": "ダートからスタート"
+   "startNote": "ダートからスタート",
+   "lean": {
+    "side": "先行寄り",
+    "strong": false,
+    "lead": 29,
+    "late": 31,
+    "d": -5.1,
+    "nige": 56
+   }
   },
   {
    "venue": "小倉",
@@ -3147,7 +3787,15 @@ window.KEIBA_DATA = {
    },
    "start": "2コーナー寄りのポケット",
    "corner": "3コーナー",
-   "toCorner": "約480m"
+   "toCorner": "約480m",
+   "lean": {
+    "side": "互角",
+    "strong": false,
+    "lead": 23,
+    "late": 27,
+    "d": -3.1,
+    "nige": null
+   }
   },
   {
    "venue": "小倉",
@@ -3186,7 +3834,15 @@ window.KEIBA_DATA = {
    },
    "start": "スタンド前",
    "corner": "1コーナー",
-   "toCorner": "約250m"
+   "toCorner": "約250m",
+   "lean": {
+    "side": "互角",
+    "strong": false,
+    "lead": 26,
+    "late": 38,
+    "d": 4.9,
+    "nige": 51
+   }
   },
   {
    "venue": "小倉",
@@ -3204,7 +3860,7 @@ window.KEIBA_DATA = {
    },
    "buy": [
     "**エピファネイア**（ロベルト系）",
-    "末脚型（46%）",
+    "差し型（46%）",
     "3枠"
    ],
    "avoid": [
@@ -3222,7 +3878,15 @@ window.KEIBA_DATA = {
    },
    "start": "4コーナー奥のポケット",
    "corner": "1コーナー",
-   "toCorner": "約450m"
+   "toCorner": "約450m",
+   "lean": {
+    "side": "差し寄り",
+    "strong": true,
+    "lead": 22,
+    "late": 46,
+    "d": 16.9,
+    "nige": null
+   }
   },
   {
    "venue": "小倉",
@@ -3257,7 +3921,15 @@ window.KEIBA_DATA = {
    },
    "start": "向正面",
    "corner": "3コーナー",
-   "toCorner": "約260m"
+   "toCorner": "約260m",
+   "lean": {
+    "side": "差し寄り",
+    "strong": true,
+    "lead": 23,
+    "late": 41,
+    "d": 10.9,
+    "nige": null
+   }
   },
   {
    "venue": "小倉",
@@ -3280,7 +3952,7 @@ window.KEIBA_DATA = {
     "父も母父も米国型"
    ],
    "avoid": [
-    "末脚型（26%）"
+    "差し型（26%）"
    ],
    "types": {
     "runs": 1889,
@@ -3295,7 +3967,15 @@ window.KEIBA_DATA = {
    "corner": "3コーナー",
    "toCorner": "約370m",
    "turfStart": false,
-   "startNote": "ダートからスタート"
+   "startNote": "ダートからスタート",
+   "lean": {
+    "side": "先行寄り",
+    "strong": true,
+    "lead": 34,
+    "late": 26,
+    "d": -15.1,
+    "nige": 64
+   }
   },
   {
    "venue": "小倉",
@@ -3336,7 +4016,15 @@ window.KEIBA_DATA = {
    "corner": "1コーナー",
    "toCorner": "約350m",
    "turfStart": false,
-   "startNote": "ダートからスタート"
+   "startNote": "ダートからスタート",
+   "lean": {
+    "side": "先行寄り",
+    "strong": false,
+    "lead": 29,
+    "late": 30,
+    "d": -6.1,
+    "nige": 59
+   }
   }
  ],
  "sireType": {
@@ -19686,7 +20374,72 @@ window.KEIBA_DATA = {
    "w": 8,
    "p": 27,
    "t": 74,
-   "f": 74
+   "f": 74,
+   "prof": {
+    "所属": "美浦（フリー）",
+    "異名": [
+     {
+      "text": "北のルメール",
+      "src": "自分のメモ"
+     }
+    ],
+    "得意": [
+     {
+      "text": "函館出身。北海道とローカルでよく来る。2025年に函館リーディング",
+      "src": "北海道新聞 2025"
+     }
+    ]
+   },
+   "venue": {
+    "芝": [
+     2447,
+     29
+    ],
+    "ダ": [
+     1977,
+     26
+    ],
+    "東京": [
+     372,
+     15
+    ],
+    "中山": [
+     1197,
+     20
+    ],
+    "阪神": [
+     32,
+     16
+    ],
+    "京都": [
+     96,
+     19
+    ],
+    "中京": [
+     49,
+     29
+    ],
+    "新潟": [
+     456,
+     34
+    ],
+    "札幌": [
+     640,
+     33
+    ],
+    "函館": [
+     583,
+     32
+    ],
+    "福島": [
+     429,
+     32
+    ],
+    "小倉": [
+     570,
+     31
+    ]
+   }
   },
   {
    "name": "松山弘平",
@@ -19694,7 +20447,63 @@ window.KEIBA_DATA = {
    "w": 15,
    "p": 37,
    "t": 83,
-   "f": 78
+   "f": 78,
+   "prof": {
+    "所属": "栗東（フリー）",
+    "型": "先行寄り",
+    "得意": [
+     {
+      "text": "逃げる回数が多い騎手。2023年の逃げ勝利は2位",
+      "src": "SPAIA・JRA-VAN"
+     },
+     {
+      "text": "2025年の重賞7勝は、すべて1番人気以外。人気薄で大きいところを勝つ",
+      "src": "競馬チャンネル 2025"
+     }
+    ]
+   },
+   "venue": {
+    "芝": [
+     2128,
+     34
+    ],
+    "ダ": [
+     2059,
+     39
+    ],
+    "東京": [
+     465,
+     31
+    ],
+    "中山": [
+     196,
+     26
+    ],
+    "阪神": [
+     1118,
+     38
+    ],
+    "京都": [
+     986,
+     39
+    ],
+    "中京": [
+     837,
+     37
+    ],
+    "新潟": [
+     116,
+     30
+    ],
+    "札幌": [
+     83,
+     33
+    ],
+    "小倉": [
+     373,
+     40
+    ]
+   }
   },
   {
    "name": "鮫島克駿",
@@ -19702,7 +20511,72 @@ window.KEIBA_DATA = {
    "w": 9,
    "p": 29,
    "t": 76,
-   "f": 80
+   "f": 80,
+   "prof": {
+    "所属": "栗東（フリー）",
+    "異名": [
+     {
+      "text": "令和の千直マイスター",
+      "src": "SPREAD"
+     }
+    ],
+    "得意": [
+     {
+      "text": "千直の巧者。外枠ならさらに良い",
+      "src": "SPREAD・デイリー 2020"
+     },
+     {
+      "text": "2024年の冬の小倉でリーディング",
+      "src": "デイリー 2024"
+     }
+    ]
+   },
+   "venue": {
+    "芝": [
+     2067,
+     28
+    ],
+    "ダ": [
+     1961,
+     29
+    ],
+    "東京": [
+     225,
+     22
+    ],
+    "中山": [
+     127,
+     23
+    ],
+    "阪神": [
+     979,
+     29
+    ],
+    "京都": [
+     827,
+     25
+    ],
+    "中京": [
+     624,
+     28
+    ],
+    "札幌": [
+     431,
+     30
+    ],
+    "函館": [
+     418,
+     32
+    ],
+    "福島": [
+     67,
+     45
+    ],
+    "小倉": [
+     308,
+     35
+    ]
+   }
   },
   {
    "name": "岩田望来",
@@ -19710,7 +20584,58 @@ window.KEIBA_DATA = {
    "w": 14,
    "p": 35,
    "t": 94,
-   "f": 82
+   "f": 82,
+   "prof": {
+    "所属": "栗東（フリー）",
+    "得意": [
+     {
+      "text": "重賞は伏兵（人気薄）で勝つことが目立つ",
+      "src": "競馬チャンネル"
+     }
+    ]
+   },
+   "venue": {
+    "芝": [
+     1887,
+     37
+    ],
+    "ダ": [
+     1981,
+     34
+    ],
+    "東京": [
+     388,
+     25
+    ],
+    "中山": [
+     204,
+     33
+    ],
+    "阪神": [
+     1273,
+     39
+    ],
+    "京都": [
+     1020,
+     36
+    ],
+    "中京": [
+     684,
+     35
+    ],
+    "新潟": [
+     105,
+     36
+    ],
+    "札幌": [
+     55,
+     40
+    ],
+    "小倉": [
+     115,
+     24
+    ]
+   }
   },
   {
    "name": "横山武史",
@@ -19718,7 +20643,59 @@ window.KEIBA_DATA = {
    "w": 15,
    "p": 39,
    "t": 70,
-   "f": 75
+   "f": 75,
+   "prof": {
+    "所属": "美浦（鈴木伸尋）",
+    "型": "先行寄り",
+    "得意": [
+     {
+      "text": "積極的に前に行く。2023年の逃げ勝利は3位",
+      "src": "SPAIA 2023"
+     }
+    ]
+   },
+   "venue": {
+    "芝": [
+     2072,
+     40
+    ],
+    "ダ": [
+     1771,
+     38
+    ],
+    "東京": [
+     1295,
+     35
+    ],
+    "中山": [
+     1262,
+     40
+    ],
+    "阪神": [
+     132,
+     30
+    ],
+    "京都": [
+     64,
+     23
+    ],
+    "中京": [
+     110,
+     35
+    ],
+    "札幌": [
+     509,
+     44
+    ],
+    "函館": [
+     415,
+     46
+    ],
+    "福島": [
+     36,
+     42
+    ]
+   }
   },
   {
    "name": "幸英明",
@@ -19726,7 +20703,60 @@ window.KEIBA_DATA = {
    "w": 6,
    "p": 21,
    "t": 67,
-   "f": 70
+   "f": 70,
+   "prof": {
+    "所属": "栗東（フリー）",
+    "異名": [
+     {
+      "text": "鉄人",
+      "src": "デイリー 2025"
+     }
+    ],
+    "ネタ": [
+     {
+      "text": "JRAの年間騎乗回数の最多記録を持つ。通算騎乗は武豊に次ぐ2万4000回超。骨折しても「カルシウムを取っているので大丈夫」",
+      "src": "デイリー 2024・2025"
+     }
+    ]
+   },
+   "venue": {
+    "芝": [
+     1784,
+     20
+    ],
+    "ダ": [
+     2018,
+     22
+    ],
+    "東京": [
+     72,
+     13
+    ],
+    "中山": [
+     32,
+     16
+    ],
+    "阪神": [
+     1130,
+     21
+    ],
+    "京都": [
+     1043,
+     20
+    ],
+    "中京": [
+     870,
+     22
+    ],
+    "新潟": [
+     63,
+     21
+    ],
+    "小倉": [
+     573,
+     23
+    ]
+   }
   },
   {
    "name": "戸崎圭太",
@@ -19734,7 +20764,60 @@ window.KEIBA_DATA = {
    "w": 16,
    "p": 41,
    "t": 73,
-   "f": 79
+   "f": 79,
+   "prof": {
+    "所属": "美浦（田島俊明）",
+    "得意": [
+     {
+      "text": "「特徴がないのが特徴」。癖が少なく、馬の適性だけ見れば買いやすい。馬の気持ちを尊重する乗り方",
+      "src": "競馬チャンネル"
+     }
+    ],
+    "ネタ": [
+     {
+      "text": "人気馬で負けると「戸崎のせい」と言われがち。そこからの卒業がテーマのコラムがある",
+      "src": "競馬チャンネル"
+     }
+    ]
+   },
+   "venue": {
+    "芝": [
+     2099,
+     41
+    ],
+    "ダ": [
+     1702,
+     40
+    ],
+    "東京": [
+     1514,
+     40
+    ],
+    "中山": [
+     1263,
+     40
+    ],
+    "阪神": [
+     80,
+     29
+    ],
+    "京都": [
+     116,
+     30
+    ],
+    "中京": [
+     69,
+     36
+    ],
+    "新潟": [
+     395,
+     42
+    ],
+    "福島": [
+     338,
+     53
+    ]
+   }
   },
   {
    "name": "坂井瑠星",
@@ -19742,7 +20825,67 @@ window.KEIBA_DATA = {
    "w": 15,
    "p": 38,
    "t": 71,
-   "f": 78
+   "f": 78,
+   "prof": {
+    "所属": "栗東（矢作芳人）",
+    "型": "先行寄り",
+    "得意": [
+     {
+      "text": "勝ち星の大半が逃げ・先行（435勝のうち334勝）。研究熱心で、位置取りに表れる",
+      "src": "競馬チャンネル"
+     },
+     {
+      "text": "2023年は逃げての勝利が全騎手でいちばん多かった",
+      "src": "SPAIA 2023"
+     }
+    ]
+   },
+   "venue": {
+    "芝": [
+     1835,
+     36
+    ],
+    "ダ": [
+     1751,
+     39
+    ],
+    "東京": [
+     364,
+     31
+    ],
+    "中山": [
+     183,
+     32
+    ],
+    "阪神": [
+     998,
+     39
+    ],
+    "京都": [
+     848,
+     38
+    ],
+    "中京": [
+     678,
+     39
+    ],
+    "新潟": [
+     161,
+     37
+    ],
+    "札幌": [
+     46,
+     30
+    ],
+    "福島": [
+     62,
+     44
+    ],
+    "小倉": [
+     228,
+     41
+    ]
+   }
   },
   {
    "name": "西村淳也",
@@ -19750,7 +20893,60 @@ window.KEIBA_DATA = {
    "w": 11,
    "p": 31,
    "t": 78,
-   "f": 86
+   "f": 86,
+   "prof": {
+    "所属": "栗東（フリー）"
+   },
+   "venue": {
+    "芝": [
+     1820,
+     34
+    ],
+    "ダ": [
+     1722,
+     29
+    ],
+    "東京": [
+     199,
+     24
+    ],
+    "中山": [
+     196,
+     23
+    ],
+    "阪神": [
+     684,
+     28
+    ],
+    "京都": [
+     903,
+     33
+    ],
+    "中京": [
+     651,
+     34
+    ],
+    "新潟": [
+     177,
+     37
+    ],
+    "札幌": [
+     56,
+     25
+    ],
+    "函館": [
+     38,
+     37
+    ],
+    "福島": [
+     146,
+     34
+    ],
+    "小倉": [
+     492,
+     34
+    ]
+   }
   },
   {
    "name": "菅原明良",
@@ -19758,7 +20954,60 @@ window.KEIBA_DATA = {
    "w": 8,
    "p": 27,
    "t": 71,
-   "f": 82
+   "f": 82,
+   "prof": {
+    "所属": "美浦（フリー）",
+    "得意": [
+     {
+      "text": "差し脚も、イン突きもある（2022年新潟記念の豪快な差し、2024年大阪杯のイン突き）",
+      "src": "東スポ"
+     }
+    ],
+    "ネタ": [
+     {
+      "text": "2026年にオーストラリアで武者修行。「現状に満足していない」",
+      "src": "デイリー 2026"
+     }
+    ]
+   },
+   "venue": {
+    "芝": [
+     1696,
+     27
+    ],
+    "ダ": [
+     1748,
+     26
+    ],
+    "東京": [
+     1383,
+     25
+    ],
+    "中山": [
+     1223,
+     26
+    ],
+    "阪神": [
+     53,
+     30
+    ],
+    "京都": [
+     69,
+     17
+    ],
+    "中京": [
+     83,
+     29
+    ],
+    "新潟": [
+     315,
+     32
+    ],
+    "福島": [
+     297,
+     32
+    ]
+   }
   },
   {
    "name": "佐々木大輔",
@@ -19766,7 +21015,56 @@ window.KEIBA_DATA = {
    "w": 8,
    "p": 25,
    "t": 86,
-   "f": 78
+   "f": 78,
+   "prof": {
+    "所属": "美浦（菊川正達）"
+   },
+   "venue": {
+    "芝": [
+     1758,
+     27
+    ],
+    "ダ": [
+     1610,
+     23
+    ],
+    "東京": [
+     635,
+     18
+    ],
+    "中山": [
+     716,
+     22
+    ],
+    "京都": [
+     60,
+     23
+    ],
+    "中京": [
+     178,
+     24
+    ],
+    "新潟": [
+     359,
+     26
+    ],
+    "札幌": [
+     432,
+     29
+    ],
+    "函館": [
+     435,
+     33
+    ],
+    "福島": [
+     246,
+     23
+    ],
+    "小倉": [
+     289,
+     27
+    ]
+   }
   },
   {
    "name": "団野大成",
@@ -19774,7 +21072,52 @@ window.KEIBA_DATA = {
    "w": 8,
    "p": 26,
    "t": 72,
-   "f": 80
+   "f": 80,
+   "prof": {
+    "所属": "栗東（斉藤崇史）"
+   },
+   "venue": {
+    "芝": [
+     1564,
+     26
+    ],
+    "ダ": [
+     1655,
+     25
+    ],
+    "東京": [
+     139,
+     29
+    ],
+    "中山": [
+     103,
+     20
+    ],
+    "阪神": [
+     803,
+     25
+    ],
+    "京都": [
+     939,
+     25
+    ],
+    "中京": [
+     699,
+     25
+    ],
+    "新潟": [
+     106,
+     32
+    ],
+    "福島": [
+     47,
+     38
+    ],
+    "小倉": [
+     383,
+     27
+    ]
+   }
   },
   {
    "name": "原優介",
@@ -19782,7 +21125,44 @@ window.KEIBA_DATA = {
    "w": 4,
    "p": 13,
    "t": 84,
-   "f": 72
+   "f": 72,
+   "prof": {
+    "所属": "美浦（青木孝文）"
+   },
+   "venue": {
+    "芝": [
+     1334,
+     10
+    ],
+    "ダ": [
+     1765,
+     16
+    ],
+    "東京": [
+     1039,
+     14
+    ],
+    "中山": [
+     894,
+     13
+    ],
+    "中京": [
+     100,
+     11
+    ],
+    "新潟": [
+     481,
+     16
+    ],
+    "福島": [
+     447,
+     14
+    ],
+    "小倉": [
+     102,
+     10
+    ]
+   }
   },
   {
    "name": "菊沢一樹",
@@ -19790,7 +21170,56 @@ window.KEIBA_DATA = {
    "w": 4,
    "p": 16,
    "t": 94,
-   "f": 79
+   "f": 79,
+   "prof": {
+    "所属": "美浦（フリー）",
+    "異名": [
+     {
+      "text": "千直マイスター",
+      "src": "自分のメモ"
+     }
+    ],
+    "得意": [
+     {
+      "text": "新潟千直の成績がずば抜けている。思い切って攻める乗り方",
+      "src": "競馬ラボ 2026"
+     }
+    ]
+   },
+   "venue": {
+    "芝": [
+     1461,
+     17
+    ],
+    "ダ": [
+     1606,
+     16
+    ],
+    "東京": [
+     425,
+     12
+    ],
+    "中山": [
+     747,
+     12
+    ],
+    "中京": [
+     71,
+     15
+    ],
+    "新潟": [
+     833,
+     20
+    ],
+    "福島": [
+     683,
+     18
+    ],
+    "小倉": [
+     268,
+     19
+    ]
+   }
   },
   {
    "name": "津村明秀",
@@ -19798,7 +21227,36 @@ window.KEIBA_DATA = {
    "w": 8,
    "p": 26,
    "t": 93,
-   "f": 81
+   "f": 81,
+   "prof": {
+    "所属": "美浦（フリー）"
+   },
+   "venue": {
+    "芝": [
+     1648,
+     28
+    ],
+    "ダ": [
+     1376,
+     24
+    ],
+    "東京": [
+     1186,
+     23
+    ],
+    "中山": [
+     1074,
+     26
+    ],
+    "新潟": [
+     422,
+     35
+    ],
+    "福島": [
+     267,
+     29
+    ]
+   }
   },
   {
    "name": "ルメール",
@@ -19806,7 +21264,70 @@ window.KEIBA_DATA = {
    "w": 26,
    "p": 57,
    "t": 71,
-   "f": 82
+   "f": 82,
+   "prof": {
+    "所属": "栗東（フリー）",
+    "異名": [
+     {
+      "text": "ルメール様",
+      "src": "競馬チャンネル"
+     }
+    ],
+    "得意": [
+     {
+      "text": "東京芝2400は「聖地」。馬を我慢させて、直線で一気に弾けさせるのが抜群にうまい",
+      "src": "競馬チャンネル"
+     },
+     {
+      "text": "東京以外の中距離以上の外回りは、人気でも回収率が上がりやすい（阪神芝2400外など）",
+      "src": "競馬チャンネル"
+     }
+    ],
+    "弱点": [
+     {
+      "text": "いつも過剰に人気するので、漫然と買うと回収率は低いと言われる（単勝75%・複勝81%）",
+      "src": "競馬チャンネル"
+     }
+    ]
+   },
+   "venue": {
+    "芝": [
+     1836,
+     59
+    ],
+    "ダ": [
+     1114,
+     53
+    ],
+    "東京": [
+     1278,
+     62
+    ],
+    "中山": [
+     690,
+     56
+    ],
+    "阪神": [
+     269,
+     48
+    ],
+    "京都": [
+     209,
+     53
+    ],
+    "中京": [
+     141,
+     42
+    ],
+    "新潟": [
+     157,
+     62
+    ],
+    "札幌": [
+     163,
+     44
+    ]
+   }
   },
   {
    "name": "三浦皇成",
@@ -19814,7 +21335,48 @@ window.KEIBA_DATA = {
    "w": 9,
    "p": 29,
    "t": 78,
-   "f": 75
+   "f": 75,
+   "prof": {
+    "所属": "美浦（フリー）"
+   },
+   "venue": {
+    "芝": [
+     1508,
+     27
+    ],
+    "ダ": [
+     1432,
+     31
+    ],
+    "東京": [
+     1102,
+     28
+    ],
+    "中山": [
+     975,
+     29
+    ],
+    "阪神": [
+     32,
+     19
+    ],
+    "京都": [
+     58,
+     21
+    ],
+    "中京": [
+     123,
+     23
+    ],
+    "新潟": [
+     368,
+     31
+    ],
+    "福島": [
+     266,
+     38
+    ]
+   }
   },
   {
    "name": "木幡巧也",
@@ -19822,7 +21384,36 @@ window.KEIBA_DATA = {
    "w": 4,
    "p": 14,
    "t": 71,
-   "f": 76
+   "f": 76,
+   "prof": {
+    "所属": "美浦（牧光二）"
+   },
+   "venue": {
+    "芝": [
+     1219,
+     12
+    ],
+    "ダ": [
+     1688,
+     16
+    ],
+    "東京": [
+     1300,
+     12
+    ],
+    "中山": [
+     1027,
+     15
+    ],
+    "新潟": [
+     285,
+     15
+    ],
+    "福島": [
+     272,
+     19
+    ]
+   }
   },
   {
    "name": "和田竜二",
@@ -19830,7 +21421,50 @@ window.KEIBA_DATA = {
    "w": 5,
    "p": 22,
    "t": 57,
-   "f": 72
+   "f": 72,
+   "prof": {
+    "所属": "栗東（フリー）",
+    "得意": [
+     {
+      "text": "小倉記念で人気薄でも一発がある",
+      "src": "SPREAD"
+     }
+    ]
+   },
+   "venue": {
+    "芝": [
+     1346,
+     23
+    ],
+    "ダ": [
+     1512,
+     21
+    ],
+    "東京": [
+     43,
+     16
+    ],
+    "阪神": [
+     1108,
+     22
+    ],
+    "京都": [
+     705,
+     20
+    ],
+    "中京": [
+     569,
+     23
+    ],
+    "新潟": [
+     68,
+     28
+    ],
+    "小倉": [
+     301,
+     23
+    ]
+   }
   },
   {
    "name": "横山和生",
@@ -19838,7 +21472,68 @@ window.KEIBA_DATA = {
    "w": 12,
    "p": 31,
    "t": 94,
-   "f": 79
+   "f": 79,
+   "prof": {
+    "所属": "美浦（フリー）",
+    "得意": [
+     {
+      "text": "中山巧者。単勝回収率が100%を超えていた（2021〜23年）",
+      "src": "SPREAD"
+     },
+     {
+      "text": "2026年の札幌リーディング",
+      "src": "デイリー 2026"
+     }
+    ],
+    "弱点": [
+     {
+      "text": "ダートで逃げると、人気を裏切りやすいと言われる",
+      "src": "SPREAD"
+     }
+    ]
+   },
+   "venue": {
+    "芝": [
+     1451,
+     31
+    ],
+    "ダ": [
+     1359,
+     32
+    ],
+    "東京": [
+     867,
+     27
+    ],
+    "中山": [
+     865,
+     29
+    ],
+    "阪神": [
+     114,
+     32
+    ],
+    "京都": [
+     117,
+     42
+    ],
+    "中京": [
+     46,
+     35
+    ],
+    "札幌": [
+     353,
+     39
+    ],
+    "函館": [
+     350,
+     33
+    ],
+    "小倉": [
+     80,
+     40
+    ]
+   }
   },
   {
    "name": "斎藤新",
@@ -19846,7 +21541,60 @@ window.KEIBA_DATA = {
    "w": 7,
    "p": 21,
    "t": 94,
-   "f": 79
+   "f": 79,
+   "prof": {
+    "所属": "栗東（フリー）"
+   },
+   "venue": {
+    "芝": [
+     1551,
+     19
+    ],
+    "ダ": [
+     1252,
+     23
+    ],
+    "東京": [
+     75,
+     20
+    ],
+    "中山": [
+     209,
+     19
+    ],
+    "阪神": [
+     235,
+     15
+    ],
+    "京都": [
+     231,
+     16
+    ],
+    "中京": [
+     358,
+     18
+    ],
+    "新潟": [
+     407,
+     23
+    ],
+    "札幌": [
+     309,
+     25
+    ],
+    "函館": [
+     273,
+     23
+    ],
+    "福島": [
+     356,
+     24
+    ],
+    "小倉": [
+     350,
+     19
+    ]
+   }
   },
   {
    "name": "武豊",
@@ -19854,7 +21602,60 @@ window.KEIBA_DATA = {
    "w": 14,
    "p": 37,
    "t": 74,
-   "f": 76
+   "f": 76,
+   "prof": {
+    "所属": "栗東（フリー）",
+    "異名": [
+     {
+      "text": "レジェンド",
+      "src": "一般"
+     }
+    ],
+    "ネタ": [
+     {
+      "text": "遅咲き。57歳の今が全盛期（2026年に安田記念・宝塚記念を勝ち、JRA最年長G1勝利を更新。通算5000勝も達成）",
+      "src": "自分のメモ・デイリー 2026"
+     }
+    ]
+   },
+   "venue": {
+    "芝": [
+     1599,
+     35
+    ],
+    "ダ": [
+     1155,
+     41
+    ],
+    "東京": [
+     299,
+     33
+    ],
+    "中山": [
+     153,
+     31
+    ],
+    "阪神": [
+     637,
+     37
+    ],
+    "京都": [
+     633,
+     38
+    ],
+    "中京": [
+     316,
+     37
+    ],
+    "札幌": [
+     366,
+     37
+    ],
+    "函館": [
+     320,
+     42
+    ]
+   }
   },
   {
    "name": "松若風馬",
@@ -19862,7 +21663,48 @@ window.KEIBA_DATA = {
    "w": 6,
    "p": 20,
    "t": 89,
-   "f": 88
+   "f": 88,
+   "prof": {
+    "所属": "栗東（フリー）"
+   },
+   "venue": {
+    "芝": [
+     1359,
+     20
+    ],
+    "ダ": [
+     1390,
+     21
+    ],
+    "東京": [
+     34,
+     15
+    ],
+    "阪神": [
+     827,
+     18
+    ],
+    "京都": [
+     751,
+     17
+    ],
+    "中京": [
+     516,
+     25
+    ],
+    "新潟": [
+     39,
+     31
+    ],
+    "福島": [
+     62,
+     24
+    ],
+    "小倉": [
+     498,
+     23
+    ]
+   }
   },
   {
    "name": "田口貫太",
@@ -19870,7 +21712,40 @@ window.KEIBA_DATA = {
    "w": 6,
    "p": 20,
    "t": 77,
-   "f": 76
+   "f": 76,
+   "prof": {
+    "所属": "栗東（大橋勇樹）"
+   },
+   "venue": {
+    "芝": [
+     1182,
+     17
+    ],
+    "ダ": [
+     1558,
+     22
+    ],
+    "阪神": [
+     803,
+     19
+    ],
+    "京都": [
+     1304,
+     20
+    ],
+    "中京": [
+     319,
+     16
+    ],
+    "新潟": [
+     39,
+     31
+    ],
+    "小倉": [
+     248,
+     21
+    ]
+   }
   },
   {
    "name": "小沢大仁",
@@ -19878,7 +21753,52 @@ window.KEIBA_DATA = {
    "w": 5,
    "p": 15,
    "t": 89,
-   "f": 70
+   "f": 70,
+   "prof": {
+    "所属": "栗東（フリー）"
+   },
+   "venue": {
+    "芝": [
+     1305,
+     14
+    ],
+    "ダ": [
+     1428,
+     16
+    ],
+    "阪神": [
+     397,
+     11
+    ],
+    "京都": [
+     285,
+     12
+    ],
+    "中京": [
+     636,
+     12
+    ],
+    "新潟": [
+     296,
+     19
+    ],
+    "札幌": [
+     150,
+     19
+    ],
+    "函館": [
+     135,
+     17
+    ],
+    "福島": [
+     299,
+     18
+    ],
+    "小倉": [
+     520,
+     18
+    ]
+   }
   },
   {
    "name": "大野拓弥",
@@ -19886,7 +21806,44 @@ window.KEIBA_DATA = {
    "w": 6,
    "p": 19,
    "t": 68,
-   "f": 72
+   "f": 72,
+   "prof": {
+    "所属": "美浦（フリー）"
+   },
+   "venue": {
+    "芝": [
+     1279,
+     20
+    ],
+    "ダ": [
+     1390,
+     19
+    ],
+    "東京": [
+     1045,
+     18
+    ],
+    "中山": [
+     1034,
+     19
+    ],
+    "新潟": [
+     260,
+     20
+    ],
+    "札幌": [
+     71,
+     20
+    ],
+    "函館": [
+     75,
+     25
+    ],
+    "福島": [
+     158,
+     22
+    ]
+   }
   },
   {
    "name": "菱田裕二",
@@ -19894,7 +21851,56 @@ window.KEIBA_DATA = {
    "w": 6,
    "p": 20,
    "t": 65,
-   "f": 74
+   "f": 74,
+   "prof": {
+    "所属": "栗東（岡田稲男）"
+   },
+   "venue": {
+    "芝": [
+     1321,
+     19
+    ],
+    "ダ": [
+     1288,
+     22
+    ],
+    "東京": [
+     34,
+     18
+    ],
+    "阪神": [
+     535,
+     22
+    ],
+    "京都": [
+     480,
+     16
+    ],
+    "中京": [
+     440,
+     16
+    ],
+    "新潟": [
+     249,
+     28
+    ],
+    "札幌": [
+     210,
+     20
+    ],
+    "函館": [
+     182,
+     20
+    ],
+    "福島": [
+     141,
+     31
+    ],
+    "小倉": [
+     317,
+     21
+    ]
+   }
   },
   {
    "name": "永島まなみ",
@@ -19902,7 +21908,51 @@ window.KEIBA_DATA = {
    "w": 5,
    "p": 15,
    "t": 69,
-   "f": 59
+   "f": 59,
+   "prof": {
+    "所属": "栗東（高橋康之）",
+    "減量": "◇2kg",
+    "得意": [
+     {
+      "text": "小倉で狙いたい若手。減量が減っても成績が落ちにくい",
+      "src": "競馬チャンネル"
+     }
+    ]
+   },
+   "venue": {
+    "芝": [
+     1178,
+     14
+    ],
+    "ダ": [
+     1335,
+     15
+    ],
+    "阪神": [
+     357,
+     10
+    ],
+    "京都": [
+     257,
+     12
+    ],
+    "中京": [
+     677,
+     13
+    ],
+    "新潟": [
+     371,
+     19
+    ],
+    "福島": [
+     313,
+     24
+    ],
+    "小倉": [
+     521,
+     16
+    ]
+   }
   },
   {
    "name": "川田将雅",
@@ -19910,7 +21960,72 @@ window.KEIBA_DATA = {
    "w": 26,
    "p": 57,
    "t": 77,
-   "f": 84
+   "f": 84,
+   "prof": {
+    "所属": "栗東（フリー）",
+    "得意": [
+     {
+      "text": "結果で応える日本人のエース。1番人気での信頼度が高い",
+      "src": "競馬チャンネル・JRA-VAN"
+     },
+     {
+      "text": "中内田充正厩舎とのコンビは、1番人気で複勝率7割",
+      "src": "JRA-VAN 2020〜24"
+     }
+    ],
+    "弱点": [
+     {
+      "text": "人気になるので、配当の妙味は小さいと言われる",
+      "src": "JRA-VAN"
+     },
+     {
+      "text": "新潟千直では、人気ほど走れないことが多いと言われる",
+      "src": "SPREAD"
+     }
+    ]
+   },
+   "venue": {
+    "芝": [
+     1440,
+     58
+    ],
+    "ダ": [
+     1050,
+     57
+    ],
+    "東京": [
+     331,
+     56
+    ],
+    "中山": [
+     118,
+     42
+    ],
+    "阪神": [
+     638,
+     58
+    ],
+    "京都": [
+     565,
+     56
+    ],
+    "中京": [
+     525,
+     62
+    ],
+    "新潟": [
+     98,
+     61
+    ],
+    "札幌": [
+     55,
+     49
+    ],
+    "小倉": [
+     160,
+     59
+    ]
+   }
   },
   {
    "name": "石川裕紀人",
@@ -19918,7 +22033,42 @@ window.KEIBA_DATA = {
    "w": 6,
    "p": 20,
    "t": 85,
-   "f": 83
+   "f": 83,
+   "prof": {
+    "所属": "美浦（相沢郁）",
+    "得意": [
+     {
+      "text": "中山ダ1800で、人気薄の一発がある",
+      "src": "SPAIA"
+     }
+    ]
+   },
+   "venue": {
+    "芝": [
+     1268,
+     21
+    ],
+    "ダ": [
+     1188,
+     19
+    ],
+    "東京": [
+     954,
+     18
+    ],
+    "中山": [
+     829,
+     22
+    ],
+    "新潟": [
+     316,
+     16
+    ],
+    "福島": [
+     283,
+     24
+    ]
+   }
   },
   {
    "name": "横山琉人",
@@ -19926,7 +22076,52 @@ window.KEIBA_DATA = {
    "w": 5,
    "p": 15,
    "t": 94,
-   "f": 66
+   "f": 66,
+   "prof": {
+    "所属": "美浦（相沢郁）"
+   },
+   "venue": {
+    "芝": [
+     1143,
+     14
+    ],
+    "ダ": [
+     1250,
+     16
+    ],
+    "東京": [
+     326,
+     10
+    ],
+    "中山": [
+     664,
+     15
+    ],
+    "中京": [
+     41,
+     22
+    ],
+    "新潟": [
+     426,
+     18
+    ],
+    "札幌": [
+     223,
+     10
+    ],
+    "函館": [
+     220,
+     17
+    ],
+    "福島": [
+     395,
+     16
+    ],
+    "小倉": [
+     81,
+     19
+    ]
+   }
   },
   {
    "name": "丸山元気",
@@ -19934,7 +22129,62 @@ window.KEIBA_DATA = {
    "w": 5,
    "p": 21,
    "t": 46,
-   "f": 80
+   "f": 80,
+   "prof": {
+    "所属": "美浦（フリー）",
+    "得意": [
+     {
+      "text": "中山ダ1200は、人気薄で勝つので単勝回収率が目立つ",
+      "src": "SPAIA"
+     }
+    ]
+   },
+   "venue": {
+    "芝": [
+     1362,
+     21
+    ],
+    "ダ": [
+     1011,
+     21
+    ],
+    "東京": [
+     247,
+     14
+    ],
+    "中山": [
+     414,
+     19
+    ],
+    "阪神": [
+     36,
+     11
+    ],
+    "中京": [
+     251,
+     20
+    ],
+    "新潟": [
+     533,
+     26
+    ],
+    "札幌": [
+     89,
+     12
+    ],
+    "函館": [
+     81,
+     17
+    ],
+    "福島": [
+     420,
+     25
+    ],
+    "小倉": [
+     286,
+     23
+    ]
+   }
   },
   {
    "name": "富田暁",
@@ -19942,7 +22192,52 @@ window.KEIBA_DATA = {
    "w": 6,
    "p": 19,
    "t": 71,
-   "f": 71
+   "f": 71,
+   "prof": {
+    "所属": "栗東（フリー）"
+   },
+   "venue": {
+    "芝": [
+     1187,
+     19
+    ],
+    "ダ": [
+     1162,
+     19
+    ],
+    "阪神": [
+     451,
+     17
+    ],
+    "京都": [
+     262,
+     16
+    ],
+    "中京": [
+     467,
+     19
+    ],
+    "新潟": [
+     272,
+     22
+    ],
+    "札幌": [
+     134,
+     16
+    ],
+    "函館": [
+     134,
+     17
+    ],
+    "福島": [
+     180,
+     24
+    ],
+    "小倉": [
+     435,
+     19
+    ]
+   }
   },
   {
    "name": "田辺裕信",
@@ -19950,7 +22245,47 @@ window.KEIBA_DATA = {
    "w": 10,
    "p": 31,
    "t": 93,
-   "f": 84
+   "f": 84,
+   "prof": {
+    "所属": "美浦（フリー）",
+    "型": "差し寄り",
+    "得意": [
+     {
+      "text": "芝の追い込みで安定して来る（追い込みの勝率5.5%）",
+      "src": "競馬チャンネル"
+     },
+     {
+      "text": "中山ダ1800は、勝率と回収率のバランスがいい",
+      "src": "SPAIA"
+     }
+    ]
+   },
+   "venue": {
+    "芝": [
+     1155,
+     31
+    ],
+    "ダ": [
+     1160,
+     30
+    ],
+    "東京": [
+     1001,
+     28
+    ],
+    "中山": [
+     875,
+     30
+    ],
+    "新潟": [
+     204,
+     35
+    ],
+    "福島": [
+     185,
+     39
+    ]
+   }
   },
   {
    "name": "岩田康誠",
@@ -19958,7 +22293,74 @@ window.KEIBA_DATA = {
    "w": 8,
    "p": 23,
    "t": 83,
-   "f": 79
+   "f": 79,
+   "prof": {
+    "所属": "栗東（フリー）",
+    "異名": [
+     {
+      "text": "イン突き",
+      "src": "一般"
+     }
+    ],
+    "得意": [
+     {
+      "text": "内ラチ沿いをすくう「イン突き」が代名詞。2026年のオーシャンSも会心のイン突きで勝った",
+      "src": "東スポ・ゲーム「ウイニングポスト」"
+     }
+    ],
+    "ネタ": [
+     {
+      "text": "父子で現役。息子は岩田望来",
+      "src": "一般"
+     }
+    ]
+   },
+   "venue": {
+    "芝": [
+     1151,
+     23
+    ],
+    "ダ": [
+     1162,
+     24
+    ],
+    "東京": [
+     408,
+     18
+    ],
+    "中山": [
+     301,
+     28
+    ],
+    "阪神": [
+     432,
+     27
+    ],
+    "京都": [
+     357,
+     22
+    ],
+    "中京": [
+     261,
+     24
+    ],
+    "新潟": [
+     167,
+     23
+    ],
+    "札幌": [
+     94,
+     21
+    ],
+    "函館": [
+     212,
+     20
+    ],
+    "小倉": [
+     71,
+     27
+    ]
+   }
   },
   {
    "name": "内田博幸",
@@ -19966,7 +22368,36 @@ window.KEIBA_DATA = {
    "w": 4,
    "p": 16,
    "t": 54,
-   "f": 61
+   "f": 61,
+   "prof": {
+    "所属": "美浦"
+   },
+   "venue": {
+    "芝": [
+     865,
+     14
+    ],
+    "ダ": [
+     1428,
+     17
+    ],
+    "東京": [
+     969,
+     14
+    ],
+    "中山": [
+     879,
+     18
+    ],
+    "新潟": [
+     204,
+     13
+    ],
+    "福島": [
+     208,
+     16
+    ]
+   }
   },
   {
    "name": "北村友一",
@@ -19974,7 +22405,62 @@ window.KEIBA_DATA = {
    "w": 10,
    "p": 28,
    "t": 73,
-   "f": 76
+   "f": 76,
+   "prof": {
+    "所属": "栗東（フリー）",
+    "ネタ": [
+     {
+      "text": "2026年、クロワデュノールで大阪杯と天皇賞（春）を勝った",
+      "src": "競馬チャンネル 2026"
+     }
+    ]
+   },
+   "venue": {
+    "芝": [
+     1372,
+     29
+    ],
+    "ダ": [
+     919,
+     26
+    ],
+    "東京": [
+     96,
+     17
+    ],
+    "中山": [
+     46,
+     28
+    ],
+    "阪神": [
+     495,
+     28
+    ],
+    "京都": [
+     646,
+     27
+    ],
+    "中京": [
+     259,
+     25
+    ],
+    "新潟": [
+     104,
+     28
+    ],
+    "札幌": [
+     214,
+     33
+    ],
+    "函館": [
+     198,
+     31
+    ],
+    "小倉": [
+     220,
+     31
+    ]
+   }
   },
   {
    "name": "荻野極",
@@ -19982,7 +22468,52 @@ window.KEIBA_DATA = {
    "w": 9,
    "p": 24,
    "t": 105,
-   "f": 79
+   "f": 79,
+   "prof": {
+    "所属": "栗東（フリー）"
+   },
+   "venue": {
+    "芝": [
+     1288,
+     23
+    ],
+    "ダ": [
+     980,
+     26
+    ],
+    "東京": [
+     374,
+     26
+    ],
+    "中山": [
+     313,
+     27
+    ],
+    "阪神": [
+     169,
+     18
+    ],
+    "京都": [
+     120,
+     23
+    ],
+    "中京": [
+     269,
+     19
+    ],
+    "新潟": [
+     421,
+     30
+    ],
+    "福島": [
+     371,
+     26
+    ],
+    "小倉": [
+     221,
+     16
+    ]
+   }
   },
   {
    "name": "角田大和",
@@ -19990,7 +22521,52 @@ window.KEIBA_DATA = {
    "w": 6,
    "p": 19,
    "t": 85,
-   "f": 86
+   "f": 86,
+   "prof": {
+    "所属": "栗東（フリー）"
+   },
+   "venue": {
+    "芝": [
+     1052,
+     17
+    ],
+    "ダ": [
+     1192,
+     20
+    ],
+    "阪神": [
+     256,
+     13
+    ],
+    "京都": [
+     349,
+     17
+    ],
+    "中京": [
+     510,
+     17
+    ],
+    "新潟": [
+     192,
+     23
+    ],
+    "札幌": [
+     130,
+     20
+    ],
+    "函館": [
+     129,
+     25
+    ],
+    "福島": [
+     261,
+     24
+    ],
+    "小倉": [
+     392,
+     18
+    ]
+   }
   },
   {
    "name": "吉村誠之助",
@@ -19998,7 +22574,44 @@ window.KEIBA_DATA = {
    "w": 7,
    "p": 21,
    "t": 72,
-   "f": 71
+   "f": 71,
+   "prof": {
+    "所属": "栗東（清水久詞）"
+   },
+   "venue": {
+    "芝": [
+     1019,
+     21
+    ],
+    "ダ": [
+     1204,
+     22
+    ],
+    "東京": [
+     59,
+     20
+    ],
+    "阪神": [
+     595,
+     19
+    ],
+    "京都": [
+     918,
+     19
+    ],
+    "中京": [
+     421,
+     27
+    ],
+    "新潟": [
+     39,
+     28
+    ],
+    "小倉": [
+     187,
+     24
+    ]
+   }
   },
   {
    "name": "石橋脩",
@@ -20014,7 +22627,40 @@ window.KEIBA_DATA = {
    "w": 4,
    "p": 14,
    "t": 85,
-   "f": 72
+   "f": 72,
+   "prof": {
+    "所属": "栗東（フリー）"
+   },
+   "venue": {
+    "芝": [
+     901,
+     13
+    ],
+    "ダ": [
+     1276,
+     15
+    ],
+    "阪神": [
+     764,
+     13
+    ],
+    "京都": [
+     647,
+     14
+    ],
+    "中京": [
+     444,
+     13
+    ],
+    "新潟": [
+     57,
+     19
+    ],
+    "小倉": [
+     194,
+     16
+    ]
+   }
   },
   {
    "name": "M.デムーロ",
@@ -20022,7 +22668,64 @@ window.KEIBA_DATA = {
    "w": 9,
    "p": 29,
    "t": 69,
-   "f": 80
+   "f": 80,
+   "prof": {
+    "所属": "栗東（フリー）",
+    "得意": [
+     {
+      "text": "大舞台で落ち着いている。2017年はG1を6勝",
+      "src": "SPAIA"
+     }
+    ],
+    "弱点": [
+     {
+      "text": "出遅れが多いと言われる",
+      "src": "自分のメモ"
+     }
+    ]
+   },
+   "venue": {
+    "芝": [
+     1216,
+     30
+    ],
+    "ダ": [
+     943,
+     28
+    ],
+    "東京": [
+     454,
+     29
+    ],
+    "中山": [
+     343,
+     37
+    ],
+    "阪神": [
+     318,
+     26
+    ],
+    "京都": [
+     429,
+     25
+    ],
+    "中京": [
+     254,
+     28
+    ],
+    "新潟": [
+     142,
+     33
+    ],
+    "福島": [
+     112,
+     35
+    ],
+    "小倉": [
+     87,
+     17
+    ]
+   }
   },
   {
    "name": "吉田隼人",
@@ -20070,7 +22773,64 @@ window.KEIBA_DATA = {
    "w": 9,
    "p": 25,
    "t": 76,
-   "f": 74
+   "f": 74,
+   "prof": {
+    "所属": "栗東（フリー）",
+    "異名": [
+     {
+      "text": "グランプリ男（有馬記念4勝・宝塚記念3勝）",
+      "src": "一般"
+     }
+    ],
+    "得意": [
+     {
+      "text": "大一番に強い。気難しい馬をなだめて末脚を引き出すのがうまい",
+      "src": "Number・JBC"
+     },
+     {
+      "text": "北海道の芝短距離の重賞に強い",
+      "src": "SPREAD"
+     }
+    ]
+   },
+   "venue": {
+    "芝": [
+     1146,
+     27
+    ],
+    "ダ": [
+     842,
+     23
+    ],
+    "東京": [
+     141,
+     17
+    ],
+    "中山": [
+     60,
+     18
+    ],
+    "阪神": [
+     557,
+     25
+    ],
+    "京都": [
+     537,
+     26
+    ],
+    "中京": [
+     231,
+     30
+    ],
+    "札幌": [
+     245,
+     27
+    ],
+    "函館": [
+     187,
+     22
+    ]
+   }
   },
   {
    "name": "杉原誠人",
@@ -20110,7 +22870,58 @@ window.KEIBA_DATA = {
    "w": 11,
    "p": 29,
    "t": 89,
-   "f": 77
+   "f": 77,
+   "prof": {
+    "所属": "栗東（フリー）",
+    "得意": [
+     {
+      "text": "小倉記念で人気薄でも一発がある",
+      "src": "SPREAD"
+     }
+    ]
+   },
+   "venue": {
+    "芝": [
+     1135,
+     30
+    ],
+    "ダ": [
+     687,
+     26
+    ],
+    "東京": [
+     117,
+     23
+    ],
+    "中山": [
+     65,
+     37
+    ],
+    "阪神": [
+     357,
+     25
+    ],
+    "京都": [
+     396,
+     28
+    ],
+    "中京": [
+     220,
+     28
+    ],
+    "札幌": [
+     280,
+     31
+    ],
+    "函館": [
+     219,
+     32
+    ],
+    "小倉": [
+     148,
+     32
+    ]
+   }
   },
   {
    "name": "西塚洸二",
@@ -20158,7 +22969,73 @@ window.KEIBA_DATA = {
    "w": 11,
    "p": 29,
    "t": 74,
-   "f": 78
+   "f": 78,
+   "prof": {
+    "所属": "美浦（フリー）",
+    "型": "差し寄り",
+    "異名": [
+     {
+      "text": "ポツン",
+      "src": "競馬チャンネル"
+     }
+    ],
+    "得意": [
+     {
+      "text": "馬のリズムを最優先する。その結果、最後方にぽつんと構えることがある（＝ポツン）。それでも「意外と付き合いやすい」",
+      "src": "競馬チャンネル"
+     },
+     {
+      "text": "少頭数なら、いちかばちかの追い込みで買える",
+      "src": "競馬チャンネル"
+     },
+     {
+      "text": "中山ダ1200は、よく来るうえに回収率も悪くない",
+      "src": "SPAIA"
+     }
+    ]
+   },
+   "venue": {
+    "芝": [
+     926,
+     28
+    ],
+    "ダ": [
+     660,
+     31
+    ],
+    "東京": [
+     329,
+     29
+    ],
+    "中山": [
+     178,
+     29
+    ],
+    "阪神": [
+     371,
+     30
+    ],
+    "京都": [
+     212,
+     21
+    ],
+    "中京": [
+     269,
+     33
+    ],
+    "札幌": [
+     117,
+     35
+    ],
+    "福島": [
+     43,
+     28
+    ],
+    "小倉": [
+     47,
+     21
+    ]
+   }
   },
   {
    "name": "松本大輝",
@@ -20270,7 +23147,16 @@ window.KEIBA_DATA = {
    "w": 8,
    "p": 22,
    "t": 85,
-   "f": 79
+   "f": 79,
+   "prof": {
+    "所属": "美浦（鈴木伸尋）",
+    "得意": [
+     {
+      "text": "2026年の札幌で15勝、リーディング2位",
+      "src": "デイリー 2026"
+     }
+    ]
+   }
   },
   {
    "name": "河原田菜々",
@@ -20366,7 +23252,16 @@ window.KEIBA_DATA = {
    "w": 3,
    "p": 14,
    "t": 65,
-   "f": 82
+   "f": 82,
+   "prof": {
+    "所属": "美浦（手塚貴久）",
+    "得意": [
+     {
+      "text": "2026年の千直で13番人気を3着に。腕が話題になった",
+      "src": "スポーツ報知 2026"
+     }
+    ]
+   }
   },
   {
    "name": "鷲頭虎太",

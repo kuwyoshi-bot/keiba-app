@@ -78,6 +78,7 @@
     if (!TWO_LOOPS.includes(c.venue)) return "";
     return c.label.endsWith("外") ? "外回り" : "内回り";
   };
+  const leanText = (l) => (l.strong ? "かなり" : "") + l.side;
   const labelParts = (c) => ({ surf: c.surface === "芝" ? "芝" : "ダート", dist: c.dist, tag: loopOf(c) });
 
   // 画面だけで使う一時的な状態（保存しない）
@@ -140,6 +141,7 @@
     const wet = state.going === "重";
     const pills = [
       lp.tag ? `<span class="pill pill-loop ${lp.tag === "内回り" ? "li" : lp.tag === "外回り" ? "lo" : ""}">${lp.tag}</span>` : "",
+      c.lean ? `<span class="pill pill-lean ${c.lean.side === "先行寄り" ? "fw" : c.lean.side === "差し寄り" ? "cl" : ""}${c.lean.strong ? " strong" : ""}">${leanText(c.lean)}</span>` : "",
       wet ? `<span class="pill pill-wet">☂ 重・不良</span>` : "",
       startPill,
       `<span class="pill">${v.turn}</span>`,
@@ -563,7 +565,8 @@
     const favNote = (e.fav.match(/人気薄の単回\d+%/) || [""])[0];
     const sm = e.style.match(/(\d+)%\s*\/\s*(\d+)%/);
     const lead = sm ? +sm[1] : null, late = sm ? +sm[2] : null;
-    const styleTag = lead != null ? (late - lead >= 8 ? "末脚型が有利" : lead - late >= 4 ? "先行型が有利" : "差は小さい") : "";
+    // 判定は全コースの平均と比べたもの（build_data.py の lean）
+    const styleTag = c.lean ? leanText(c.lean) + (c.lean.nige ? `（逃げの複勝率${c.lean.nige}%）` : "") : "";
     const tot = (inn || 0) + (out || 0) || 1;
     const startStat = c.surface === "ダート" ? `
         <div class="stat wide ${c.turfStart ? "turfstart" : ""}">
@@ -586,7 +589,7 @@
           <div class="s-d">${esc(favNote ? favNote.replace("単回", "単勝回収率") : "")}${/走のみ/.test(e.fav) ? "（走数が少ない）" : ""}</div>
         </div>
         <div class="stat">
-          <div class="s-l">先行型 / 末脚型</div>
+          <div class="s-l">先行型 / 差し型 <span class="muted">（最近、前半が速かった馬 / 上がりが速かった馬）</span></div>
           <div class="s-v">${lead ?? "-"}<small>/</small> ${late ?? "-"}<small>%</small></div>
           <div class="s-d">${styleTag}</div>
         </div>
@@ -651,6 +654,62 @@
     return out;
   }
 
+
+  // ---------- 騎手のプロフィール（評判）と競馬場別の数字 ----------
+  const pf = (j) => j.prof || {};
+  const jTagLine = (j) => {
+    const p = pf(j);
+    return [
+      (p["異名"] || [])[0] ? `<b>${esc(p["異名"][0].text)}</b>` : "",
+      p["型"] ? esc(p["型"]) : "",
+      p["所属"] ? esc(p["所属"].replace(/（.*$/, "")) : "",
+      p["減量"] ? esc(p["減量"]) : "",
+    ].filter(Boolean).join("／");
+  };
+  const jChips = (j) => {
+    const p = pf(j);
+    const chips = [
+      ...(p["異名"] || []).map((a) => `<span class="pill jnick">「${esc(a.text)}」</span>`),
+      p["型"] ? `<span class="pill pill-lean ${p["型"] === "先行寄り" ? "fw" : p["型"] === "差し寄り" ? "cl" : ""}">${esc(p["型"])}</span>` : "",
+      p["所属"] ? `<span class="pill">${esc(p["所属"])}</span>` : "",
+      p["減量"] ? `<span class="pill jgen">減量 ${esc(p["減量"])}</span>` : "",
+    ].join("");
+    return chips ? `<div class="pills" style="margin:0 0 10px">${chips}</div>` : "";
+  };
+  function jRepCard(j, notes) {
+    const p = pf(j);
+    const block = (title, cls, arr) => arr && arr.length ? `<h4 class="sub ${cls}">${title}</h4>${arr.map((x) => `<div class="sn-l"><span class="tg rep">評判</span><span>${esc(x.text)}${x.src ? `<span class="muted small">（${esc(x.src)}）</span>` : ""}</span></div>`).join("")}` : "";
+    const body = block("得意", "good", p["得意"]) + block("弱点", "bad", p["弱点"]) + block("ネタ", "", p["ネタ"]) + (notes ? `<h4 class="sub">コースごとの評判</h4>${notes}` : "");
+    if (!body) return "";
+    return `<section class="card"><div class="card-h"><span class="tg rep big">評判</span><h2>言われていること（主観）</h2><span class="en">Reputation</span></div>
+      <div class="jrep">${body}</div>
+      <p class="note">数字ではなく評判。下の数字と比べて、評判どおりか確かめる。</p></section>`;
+  }
+  const VEN = ["東京", "中山", "阪神", "京都", "中京", "新潟", "札幌", "函館", "福島", "小倉"];
+  function jVenueCard(j) {
+    const g = j.venue;
+    if (!g) return "";
+    const bar = (key) => {
+      const v = g[key];
+      if (!v) return "";
+      const [n, p] = v;
+      const lift = j.p ? p / j.p : 0;
+      const cls = lift >= 1.15 ? "hi" : lift <= 0.85 ? "lo" : "";
+      return `<div class="bband ${cls}${n < 100 ? " few" : ""}">
+        <span class="bn">${key === "芝" ? "芝" : key === "ダ" ? "ダート" : key}</span>
+        <div class="btrack"><div class="bfill" style="width:${Math.min(lift / 2, 1) * 100}%"></div><i class="bavg" style="left:50%"></i></div>
+        <span class="bv num">${lift.toFixed(1)}倍</span>
+        <span class="bd">${n}騎乗・複勝率${p}%</span>
+      </div>`;
+    };
+    return `<section class="card fx"><div class="card-h"><span class="tg f big">数字</span><h2>競馬場別・芝ダート別</h2><span class="en">By course</span></div>
+      <p class="note" style="margin:0 0 8px">ふだん（複勝率${j.p}%）の何倍走っているか。縦線が1.0倍。<span class="hi-t">緑</span>は得意、<span class="lo-t">赤</span>は苦手の目安</p>
+      <h4 class="sub" style="margin-top:0">芝・ダート</h4><div class="bbands">${bar("芝")}${bar("ダ")}</div>
+      <h4 class="sub">競馬場</h4><div class="bbands">${VEN.map(bar).join("")}</div>
+      <p class="note">30騎乗未満の競馬場は出していない。100騎乗未満は薄く表示。</p>
+    </section>`;
+  }
+
   function renderJockeys() {
     const sort = state.jsort === "p" ? "p" : "n";
     const list = JOCK.map((j, i) => ({ j, i, best: jockeyCourses(i).filter((r) => r.n >= 30).sort((a, b) => jLift(b) - jLift(a))[0] }))
@@ -659,11 +718,12 @@
       <a class="zcard jcard" href="${jockHref(j.name)}" data-q="${esc(j.name)}" style="--c:var(--gold)">
         <span class="zc-line">${j.n}騎乗・複勝率 ${j.p}%</span>
         <span class="zc-name">${esc(j.name)}</span>
+        ${jTagLine(j) ? `<span class="jtagline">${jTagLine(j)}</span>` : ""}
         <span class="zc-kw">${best ? `<span class="kw">得意 ${esc(cname(best.k))}</span>` : ""}</span>
       </a>`).join("");
     $view.innerHTML = `
       <div class="fade">
-        <div class="page-h"><h1>騎手</h1><p>5年間・88コースの成績から。いまは数字だけの騎手図鑑（理屈はこれから）。</p></div>
+        <div class="page-h"><h1>騎手</h1><p>5年間・88コースの成績と、評判（主観）。主な45人には所属・型・得意・弱点・ネタを入れた。</p></div>
         <section class="card">
           <div class="zbar">
             <div class="zsearch"><input id="jq" type="search" placeholder="名前で探す" autocomplete="off"></div>
@@ -710,6 +770,7 @@
         <section class="shero" style="--c:var(--gold)">
           <div class="shero-en">JOCKEY</div>
           <h1>${esc(j.name)}</h1>
+          ${jChips(j)}
           <div class="jstats">
             <div><span>騎乗</span><b class="num">${j.n}</b></div>
             <div><span>勝率</span><b class="num">${j.w}%</b></div>
@@ -718,7 +779,8 @@
           </div>
           <p class="note" style="margin:8px 0 0">5年間・88コースの合計＝この騎手の「ふだん」</p>
         </section>
-        ${notes ? `<section class="card"><div class="card-h"><span class="tg rep big">評判</span><h2>言われていること（主観）</h2><span class="en">Reputation</span></div>${notes}<p class="note">数字ではなく評判。下の数字と比べて、評判どおりか確かめる。</p></section>` : ""}
+        ${jRepCard(j, notes)}
+        ${jVenueCard(j)}
         <section class="card fx"><div class="card-h"><span class="tg f big">数字</span><h2>コースごとの成績</h2><span class="en">Data</span></div>
           ${sec("ふだんより走るコース", "この騎手のふだんの複勝率と比べて、何倍走っているか（＝そのコースが上手い可能性）", lift)}
           ${sec("常連のコース", "そのコースで騎乗数が多い（上位2人）。依頼が集まるのは、得意と見られている証拠でもある", regular)}
