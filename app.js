@@ -1295,10 +1295,11 @@
   const scrollMem = {};
   let depth = 0;
   const curHash = () => { try { return decodeURIComponent(location.hash || "#course"); } catch { return location.hash; } };
-  function go(hash) {
+  if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+  function go(hash, keep) {
     if (hash === curHash()) { render(); return; }
     scrollMem[curHash()] = window.scrollY;
-    delete scrollMem[hash];
+    if (!keep) delete scrollMem[hash];
     depth++;
     location.hash = hash;
   }
@@ -1321,8 +1322,22 @@
     else if (r === "jockey") renderJockey(arg);
     else renderCourse();
     state.route = h || "course"; save();
-    const y = scrollMem[curHash()];
-    window.scrollTo({ top: y || 0 });
+    restoreScroll(scrollMem[curHash()] || 0);
+  }
+  // 画像の読み込み前はページが短く、目的の位置まで下がれないことがある。届くまで少しの間やり直す
+  let restoreTimer = 0;
+  function restoreScroll(y) {
+    clearInterval(restoreTimer);
+    window.scrollTo({ top: y });
+    if (!y) return;
+    const t0 = Date.now();
+    restoreTimer = setInterval(() => {
+      if (Math.abs(window.scrollY - y) < 2 || Date.now() - t0 > 1500) { clearInterval(restoreTimer); return; }
+      window.scrollTo({ top: y });
+    }, 50);
+    // 指で動かしたらやり直しをやめる
+    const stop = () => { clearInterval(restoreTimer); window.removeEventListener("touchstart", stop); window.removeEventListener("wheel", stop); };
+    window.addEventListener("touchstart", stop, { passive: true }); window.addEventListener("wheel", stop, { passive: true });
   }
   const renderBlood = renderBloodHome;
 
@@ -1341,7 +1356,13 @@
     }
     go(a.getAttribute("href"));
   });
-  document.querySelectorAll(".tab").forEach((t) => t.onclick = () => { depth = 0; go("#" + t.dataset.tab); });
+  // 下のタブ：別のタブへは前に見ていた位置で開く。いま開いているタブの一覧をもう一度押すと一番上へ
+  document.querySelectorAll(".tab").forEach((t) => t.onclick = () => {
+    depth = 0;
+    const to = "#" + t.dataset.tab;
+    if (curHash() === to) { scrollMem[to] = 0; restoreScroll(0); return; }
+    go(to, true);
+  });
 
   if (!location.hash && state.route) history.replaceState(null, "", "#" + state.route);
   render();
