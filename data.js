@@ -35949,7 +35949,7 @@ window.KEIBA_DATA = {
     "rides": 779,
     "year": 2026,
     "asof": "11/23",
-    "tier": "トップ"
+    "tier": "上位"
    },
    "venue": {
     "芝": [
@@ -36106,7 +36106,7 @@ window.KEIBA_DATA = {
     "rides": 719,
     "year": 2026,
     "asof": "11/23",
-    "tier": "トップ"
+    "tier": "上位"
    },
    "venue": {
     "芝": [
@@ -36181,7 +36181,7 @@ window.KEIBA_DATA = {
     "rides": 718,
     "year": 2026,
     "asof": "11/23",
-    "tier": "トップ"
+    "tier": "上位"
    },
    "venue": {
     "芝": [
@@ -36934,7 +36934,7 @@ window.KEIBA_DATA = {
     "rides": 541,
     "year": 2026,
     "asof": "11/23",
-    "tier": "トップ"
+    "tier": "上位"
    },
    "venue": {
     "芝": [
@@ -37699,7 +37699,7 @@ window.KEIBA_DATA = {
     "rides": 462,
     "year": 2026,
     "asof": "11/23",
-    "tier": "トップ"
+    "tier": "上位"
    },
    "venue": {
     "芝": [
