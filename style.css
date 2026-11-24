@@ -261,7 +261,7 @@ b, strong { font-weight: 700; color: var(--strong); }
 .pt .k.blood { color: var(--eu); }
 .pt .k.waku { color: var(--us); }
 .pt .k.style { color: var(--accent); }
-.pt .star { color: var(--gold); }
+.pt .star { color: var(--accent); }
 
 /* type bars */
 .types { display: grid; gap: 10px; }
@@ -341,6 +341,67 @@ b, strong { font-weight: 700; color: var(--strong); }
 .pill-loop.li { border-color: var(--us); color: var(--us); }
 .pill-loop.lo { border-color: var(--eu); color: var(--eu); }
 
+/* ---------- 図鑑の一覧（カード・検索・系統図） ---------- */
+.zbar { display: flex; gap: 8px; align-items: center; margin-bottom: 10px; }
+.zsearch { flex: 1; min-width: 0; }
+.zsearch input { width: 100%; height: 36px; border-radius: 999px; border: 1px solid var(--line2); background: var(--glass); color: var(--text); padding: 0 14px; font: inherit; font-size: 14px; outline: none; -webkit-appearance: none; }
+.zsearch input:focus { border-color: var(--accent); }
+.zview { flex: 0 0 auto; }
+.zgroup2 { margin-top: 16px; }
+.zgroup2 .zhead { padding-left: 10px; border-left: 3px solid var(--c); margin-bottom: 8px; }
+.zgrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.zcard { position: relative; display: grid; gap: 3px; padding: 11px 12px 12px; border-radius: 14px; border: 1px solid var(--line); background: var(--glass); overflow: hidden; min-width: 0; }
+.zcard::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 3px; background: var(--c); opacity: .9; }
+.zcard:active { transform: scale(.98); }
+.zc-line { font-size: 10.5px; color: var(--c); font-weight: 700; letter-spacing: .04em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.zc-name { font-weight: 700; font-size: 14.5px; line-height: 1.3; word-break: keep-all; overflow-wrap: anywhere; }
+.zc-kw { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 3px; }
+.kw { font-size: 10.5px; padding: 1px 7px; border-radius: 99px; background: var(--glass2); color: var(--text2); white-space: nowrap; }
+.tlegend { display: flex; gap: 12px; font-size: 11px; color: var(--muted); margin: 2px 0 8px; }
+.tlegend i { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 4px; vertical-align: 0; }
+.tree2, .tree2 ul { list-style: none; margin: 0; padding: 0; }
+.tree2 ul { margin-left: 14px; padding-left: 12px; border-left: 1.5px solid var(--line2); }
+.tree2 li { position: relative; }
+.tree2 ul > li::before { content: ""; position: absolute; left: -12px; top: 19px; width: 10px; border-top: 1.5px solid var(--line2); }
+.tree2 > li { margin-bottom: 6px; }
+.tnode { display: flex; align-items: baseline; gap: 8px; padding: 8px 4px; border-radius: 10px; min-width: 0; }
+.tnode i { flex: 0 0 auto; width: 8px; height: 8px; border-radius: 50%; background: var(--c); transform: translateY(-1px); }
+.tnode b { font-size: 14px; white-space: nowrap; }
+.tnode .tk { font-size: 11px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.tree2 > li > .tnode b { font-size: 15.5px; }
+.tree2 li.hit > .tnode { background: var(--accent-soft); }
+.tree2.flat { display: grid; grid-template-columns: minmax(0, 1fr); }
+[hidden] { display: none !important; }
+:root[data-skin="paddock"] .zcard, :root[data-skin="paddock"] .zsearch input { border-radius: 8px; }
+
+/* ---------- 今週の開催・お気に入りの編集 ---------- */
+.vhead { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+.meet-btn { font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 999px; border: 1px solid var(--line2); color: var(--text2); background: var(--glass); }
+.meet-btn.on { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+.scroller.meetrow .venue { flex: 1 1 0; width: auto; min-width: 64px; padding: 12px 0; }
+.scroller.meetrow .venue .v-jp { font-size: 18px; }
+.venue.more { color: var(--muted); }
+.venue.more .v-jp, .venue.more { font-size: 13px; font-weight: 700; }
+.meet-edit { padding: 12px; border-radius: var(--radius); border: 1px solid var(--accent); background: var(--accent-soft); }
+.meet-h { margin: 0 0 10px; font-size: 13px; font-weight: 700; }
+.meet-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px; }
+.meet-grid .venue { width: auto; }
+.venue.is-picked { background: var(--accent); border-color: var(--accent); }
+.venue.is-picked .v-jp { color: var(--on-accent); }
+.meet-btns { display: flex; gap: 8px; justify-content: flex-end; margin-top: 10px; }
+.btn, .btn-pri { padding: 7px 16px; border-radius: 999px; font-size: 13px; font-weight: 700; border: 1px solid var(--line2); background: var(--glass); color: var(--text); }
+.btn-pri { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
+.btn.danger { color: var(--red); border-color: color-mix(in srgb, var(--red) 45%, transparent); background: var(--red-soft); margin-right: auto; }
+.favedit { flex: 0 0 auto; font-size: 12px; font-weight: 700; color: var(--muted); padding: 4px 10px; border-radius: 999px; border: 1px solid var(--line2); }
+.favs.editing { display: block; padding: 10px 12px; border-radius: var(--radius); border: 1px dashed color-mix(in srgb, var(--gold) 50%, transparent); }
+.favs-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.fav.del b { margin-left: 6px; color: var(--red); font-size: 14px; }
+.toast { position: fixed; left: 50%; bottom: calc(96px + var(--safe-b)); transform: translate(-50%, 20px); z-index: 50; max-width: 88vw;
+  padding: 10px 16px; border-radius: 14px; background: var(--text); color: var(--bg); font-size: 13px; font-weight: 700; text-align: center;
+  width: max-content; opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s; }
+.toast.show { opacity: 1; transform: translate(-50%, 0); }
+:root[data-skin="paddock"] .meet-btn, :root[data-skin="paddock"] .btn, :root[data-skin="paddock"] .btn-pri, :root[data-skin="paddock"] .favedit { border-radius: 6px; }
+
 /* ---------- 馬場・お気に入り ---------- */
 .row3 { display: flex; align-items: center; gap: 10px; margin-top: 10px; }
 .seg.going button[data-g="重"].is-active { background: var(--us); color: var(--bg); }
@@ -356,9 +417,9 @@ b, strong { font-weight: 700; color: var(--strong); }
 .favs-s { flex: 1; min-width: 0; margin: 0 -16px 0 0; padding: 2px 16px 4px 0; }
 .fav { flex: 0 0 auto; padding: 5px 12px; border-radius: 999px; font-size: 12.5px; font-weight: 700; border: 1px solid color-mix(in srgb, var(--gold) 40%, transparent); background: var(--gold-soft); color: var(--text); }
 .fav.is-active { background: var(--gold); color: var(--on-accent); border-color: var(--gold); }
-.star { position: absolute; top: 12px; right: 12px; z-index: 2; width: 40px; height: 40px; border-radius: 50%; font-size: 20px; line-height: 1; display: grid; place-items: center;
+.favstar { position: absolute; top: 12px; right: 12px; z-index: 2; width: 40px; height: 40px; border-radius: 50%; font-size: 20px; line-height: 1; display: grid; place-items: center;
   background: var(--glass2); border: 1px solid var(--line2); color: var(--hero-text); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
-.star.on { color: var(--gold); border-color: var(--gold); background: var(--gold-soft); }
+.favstar.on { color: var(--gold); border-color: var(--gold); background: var(--gold-soft); }
 
 /* ---------- コースの構図 ---------- */
 .cmap { width: 100%; height: auto; display: block; overflow: visible; }

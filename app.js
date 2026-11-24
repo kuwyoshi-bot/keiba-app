@@ -80,6 +80,17 @@
   };
   const labelParts = (c) => ({ surf: c.surface === "芝" ? "芝" : "ダート", dist: c.dist, tag: loopOf(c) });
 
+  // 画面だけで使う一時的な状態（保存しない）
+  const ui = { meetEdit: false, meetDraft: [], showAll: false, favEdit: false };
+  // 画面の下に一言だけ出す
+  let toastTimer;
+  function toast(msg) {
+    let t = document.querySelector(".toast");
+    if (!t) { t = document.createElement("div"); t.className = "toast"; document.body.appendChild(t); }
+    t.textContent = msg; t.classList.add("show");
+    clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove("show"), 2200);
+  }
+
   // ---------- course view ----------
   function renderCourse() {
     ensureValid();
@@ -88,10 +99,35 @@
     const list = coursesOf(state.venue, state.surface);
     const lp = labelParts(c);
 
-    const venues = D.venues.map((x) => `
+    // 今週の開催（選んだ競馬場だけを並べ、ほかはたたむ）
+    const meet = state.meet || [];
+    const vbtn = (x) => `
       <button class="venue ${x.name === state.venue ? "is-active" : ""}" data-venue="${x.name}">
         <span class="v-jp">${x.name}</span>
-      </button>`).join("");
+      </button>`;
+    let venueBlock;
+    if (ui.meetEdit) {
+      venueBlock = `
+        <div class="meet-edit">
+          <p class="meet-h">今週の開催を選ぶ（いくつでも）</p>
+          <div class="meet-grid">${D.venues.map((x) => `<button class="venue ${ui.meetDraft.includes(x.name) ? "is-picked" : ""}" data-mpick="${x.name}"><span class="v-jp">${x.name}</span></button>`).join("")}</div>
+          <div class="meet-btns">
+            <button class="btn-pri" data-mok>決定</button>
+            ${meet.length ? '<button class="btn" data-mclear>解除</button>' : ""}
+            <button class="btn" data-mcancel>やめる</button>
+          </div>
+        </div>`;
+    } else {
+      const locked = meet.length > 0;
+      const shown = locked && !ui.showAll ? D.venues.filter((x) => meet.includes(x.name)) : D.venues;
+      const more = locked ? `<button class="venue more" data-more>${ui.showAll ? "閉じる" : "ほか ▸"}</button>` : "";
+      venueBlock = `
+        <div class="vhead">
+          <p class="label-sm" style="margin:0">${locked ? "今週の開催" : "競馬場"}</p>
+          <button class="meet-btn ${locked ? "on" : ""}" data-medit>${locked ? "開催を変える" : "今週の開催を選ぶ"}</button>
+        </div>
+        <div class="scroller ${locked && !ui.showAll ? "meetrow" : ""}">${shown.map(vbtn).join("")}${more}</div>`;
+    }
     const dists = list.map((x) => {
       const lp2 = loopOf(x);
       const t = lp2 === "外回り" ? '<small class="lo">外</small>' : lp2 === "内回り" ? '<small class="li">内</small>' : lp2 === "直線" ? "<small>直</small>" : "";
@@ -113,17 +149,26 @@
     const favs = state.favs || [];
     const key = ckey(c);
     const isFav = favs.includes(key);
-    const favRow = favs.length ? `
+    // ☆は付けるだけ。外すのは「編集」から（誤タップで消えないように）
+    if (!favs.length) ui.favEdit = false;
+    const favRow = !favs.length ? "" : ui.favEdit ? `
+        <div class="favs editing">
+          <div class="favs-chips">${favs.map((k) => `<button class="fav del" data-fdel="${esc(k)}">${esc(cname(k))}<b>×</b></button>`).join("")}</div>
+          <div class="meet-btns">
+            <button class="btn danger" data-fclear>全部外す</button>
+            <button class="btn-pri" data-fdone>完了</button>
+          </div>
+        </div>` : `
         <div class="favs">
           <span class="favs-l">★</span>
           <div class="scroller favs-s">${favs.map((k) => `<button class="fav ${k === key ? "is-active" : ""}" data-fav="${esc(k)}">${esc(cname(k))}</button>`).join("")}</div>
-        </div>` : "";
+          <button class="favedit" data-fedit>編集</button>
+        </div>`;
 
     $view.innerHTML = `
       <section class="picker">
         ${favRow}
-        <p class="label-sm">Racecourse</p>
-        <div class="scroller">${venues}</div>
+        ${venueBlock}
         <div class="row2">
           <div class="seg">
             <button data-s="芝" class="${state.surface === "芝" ? "is-active" : ""}">芝</button>
@@ -143,7 +188,7 @@
       <article class="fade ${wet ? "is-wet" : ""}" id="course">
         <section class="hero">
           <img src="img/${v.slug}-3d.jpg" alt="${v.name}競馬場の立体図（JRA）">
-          <button class="star ${isFav ? "on" : ""}" data-star aria-label="${isFav ? "お気に入りから外す" : "お気に入りに入れる"}">${isFav ? "★" : "☆"}</button>
+          <button class="favstar ${isFav ? "on" : ""}" data-star aria-label="${isFav ? "お気に入りに入っている" : "お気に入りに入れる"}">${isFav ? "★" : "☆"}</button>
           <div class="hero-in">
             <div class="hero-en">${v.en} RACECOURSE</div>
             <div class="hero-title">
@@ -176,9 +221,26 @@
     const star = $view.querySelector("[data-star]");
     if (star) star.onclick = () => {
       const f = state.favs || [];
-      state.favs = f.includes(key) ? f.filter((x) => x !== key) : [...f, key];
-      save(); renderCourse();
+      if (f.includes(key)) { toast("お気に入りから外すときは、いちばん上の★の列の「編集」から"); return; }
+      state.favs = [...f, key]; save(); renderCourse();
+      toast("★ お気に入りに入れました");
     };
+    const on = (sel, fn) => $view.querySelectorAll(sel).forEach((b) => b.onclick = () => fn(b));
+    on("[data-fedit]", () => { ui.favEdit = true; renderCourse(); });
+    on("[data-fdone]", () => { ui.favEdit = false; renderCourse(); });
+    on("[data-fdel]", (b) => { state.favs = (state.favs || []).filter((x) => x !== b.dataset.fdel); save(); renderCourse(); });
+    on("[data-fclear]", () => { if (confirm("お気に入りを全部外しますか？")) { state.favs = []; ui.favEdit = false; save(); renderCourse(); } });
+    on("[data-medit]", () => { ui.meetEdit = true; ui.meetDraft = [...(state.meet || [])]; renderCourse(); });
+    on("[data-mpick]", (b) => { const n = b.dataset.mpick; ui.meetDraft = ui.meetDraft.includes(n) ? ui.meetDraft.filter((x) => x !== n) : [...ui.meetDraft, n]; renderCourse(); });
+    on("[data-mok]", () => {
+      // 10場の並び順のまま保存。今のコースが外れたら、選んだ最初の競馬場へ
+      state.meet = D.venues.map((x) => x.name).filter((n) => ui.meetDraft.includes(n));
+      if (state.meet.length && !state.meet.includes(state.venue)) { state.venue = state.meet[0]; state.label = null; }
+      ui.meetEdit = false; ui.showAll = false; save(); renderCourse();
+    });
+    on("[data-mclear]", () => { state.meet = []; ui.meetEdit = false; ui.showAll = false; save(); renderCourse(); });
+    on("[data-mcancel]", () => { ui.meetEdit = false; renderCourse(); });
+    on("[data-more]", () => { ui.showAll = !ui.showAll; renderCourse(); });
     $view.querySelectorAll("[data-venue]").forEach((b) => b.onclick = () => { state.venue = b.dataset.venue; state.label = null; save(); renderCourse(); });
     $view.querySelectorAll("[data-s]").forEach((b) => b.onclick = () => { state.surface = b.dataset.s; state.label = null; save(); renderCourse(); });
     $view.querySelectorAll("[data-label]").forEach((b) => b.onclick = () => { state.label = b.dataset.label; save(); renderCourse(); });
@@ -572,37 +634,89 @@
         <span class="chev">›</span>
       </a>`).join("");
     const f = state.zukan;
+    const view = state.zview === "tree" ? "tree" : "card";
     const filters = [["all", "全部"], ["日", "日本型"], ["欧", "欧州型"], ["米", "米国型"]]
       .map(([id, nm]) => `<button data-z="${id}" class="${f === id ? "is-active" : ""}">${nm}</button>`).join("");
-    const groups = ["日", "欧", "米"].filter((t) => f === "all" || f === t).map((t) => {
-      const list = D.sires.filter((s) => s.type === t);
-      // 系統ごとにまとめる（データの並び順を保つ）
-      const lines = [...new Set(list.map((s) => s.line))];
-      const body = lines.map((ln) => `
-        <div class="zline"><span>${esc(ln)}</span></div>
-        ${list.filter((s) => s.line === ln).map((s) => `
-          <a class="zrow" href="${sireHref(s.name)}">
-            <span class="zn">${esc(s.name)}${s.rows ? "" : '<small class="muted">（祖先）</small>'}</span>
-            <span class="zt">${esc(s.tagline)}</span>
-            <span class="chev">›</span>
-          </a>`).join("")}`).join("");
-      return `<section class="zgroup" style="--c:${TYPE_COLOR[t]}">
-        <div class="zhead"><h3>${TYPE_NAME[t]}<span class="en">${TYPE_EN[t]}</span></h3><p>${TYPE_SHORT[t]}</p></div>
-        ${body}
-      </section>`;
-    }).join("");
+    const kwChips = (s) => (s.kw || []).map((k) => `<span class="kw">${esc(k)}</span>`).join("");
+    // カード：名前・系統・キーワード2つだけ。文章は図鑑のページに任せる
+    const card = (s) => `
+      <a class="zcard" href="${sireHref(s.name)}" data-q="${esc(s.name)}" style="--c:${TYPE_COLOR[s.type]}">
+        <span class="zc-line">${esc(s.line)}${s.rows ? "" : "・祖先"}</span>
+        <span class="zc-name">${esc(s.name)}</span>
+        <span class="zc-kw">${kwChips(s)}</span>
+      </a>`;
+    let body;
+    if (view === "card") {
+      body = ["日", "欧", "米"].filter((t) => f === "all" || f === t).map((t) => `
+        <section class="zgroup2" style="--c:${TYPE_COLOR[t]}">
+          <div class="zhead"><h3>${TYPE_NAME[t]}<span class="en">${TYPE_EN[t]}</span></h3><p>${TYPE_SHORT[t]}</p></div>
+          <div class="zgrid">${D.sires.filter((s) => s.type === t).map(card).join("")}</div>
+        </section>`).join("");
+    } else {
+      // 系統図：父→子を線でつなぐ。父が図鑑にいない馬を根にする
+      const kids = (n) => D.sires.filter((s) => s.sire === n);
+      const node = (s) => {
+        const ch = kids(s.name);
+        return `<li data-q="${esc(s.name)}"><a class="tnode" href="${sireHref(s.name)}" style="--c:${TYPE_COLOR[s.type]}"><i></i><b>${esc(s.name)}</b><span class="tk">${(s.kw || []).join("・")}</span></a>${ch.length ? `<ul>${ch.map(node).join("")}</ul>` : ""}</li>`;
+      };
+      const roots = D.sires.filter((s) => !SIRE[s.sire]);
+      const families = roots.filter((s) => kids(s.name).length);
+      const singles = roots.filter((s) => !kids(s.name).length);
+      body = `
+        <div class="tlegend"><span><i style="background:var(--jp)"></i>日本型</span><span><i style="background:var(--eu)"></i>欧州型</span><span><i style="background:var(--us)"></i>米国型</span></div>
+        <ul class="tree2">${families.map(node).join("")}</ul>
+        <h4 class="sub">父が図鑑にいない種牡馬</h4>
+        <ul class="tree2 flat">${singles.map((s) => `<li data-q="${esc(s.name)}"><a class="tnode" href="${sireHref(s.name)}" style="--c:${TYPE_COLOR[s.type]}"><i></i><b>${esc(s.name)}</b><span class="tk">父 ${esc((s.sire || "").replace(/（.*$/, ""))}</span></a></li>`).join("")}</ul>`;
+    }
+    const groups = `
+      <div class="zbar">
+        <div class="zsearch"><input id="zq" type="search" placeholder="名前で探す" autocomplete="off"></div>
+        <div class="seg zview">
+          <button data-zv="card" class="${view === "card" ? "is-active" : ""}">カード</button>
+          <button data-zv="tree" class="${view === "tree" ? "is-active" : ""}">系統図</button>
+        </div>
+      </div>
+      ${view === "card" ? `<div class="seg zseg">${filters}</div>` : ""}
+      <p class="empty znone" hidden>見つからない。図鑑にない種牡馬かもしれない</p>
+      ${body}`;
     $view.innerHTML = `
       <div class="fade">
         <div class="page-h"><h1>血統</h1><p>レッスンで考え方を学び、図鑑で種牡馬を引く。土台は亀谷敬正さんの「血統ビーム」の分類。</p></div>
         <section class="card"><div class="card-h"><span class="ico" style="background:var(--accent-soft);color:var(--accent)">学</span><h2>レッスン</h2><span class="en">Lessons</span></div>
           <div class="lrows">${ls}</div></section>
         <section class="card"><div class="card-h"><span class="ico" style="background:var(--eu-soft);color:var(--eu)">図</span><h2>種牡馬図鑑</h2><span class="en">${D.sires.length} sires</span></div>
-          <div class="seg zseg">${filters}</div>
           ${groups}
         </section>
         <p class="foot">型・系統：血統ビーム公式サイト、スマート出馬表の出馬表<br>数字：スマート出馬表 5年集計（2021.11〜2026.11）</p>
       </div>`;
     $view.querySelectorAll("[data-z]").forEach((b) => b.onclick = () => { state.zukan = b.dataset.z; save(); renderBloodHome(); });
+    $view.querySelectorAll("[data-zv]").forEach((b) => b.onclick = () => { state.zview = b.dataset.zv; save(); renderBloodHome(); });
+    // 検索：ひらがなもカタカナに直して、名前に含むものだけ残す（画面は作り直さず、隠すだけ）
+    const toKata = (s) => s.replace(/[ぁ-ゖ]/g, (c) => String.fromCharCode(c.charCodeAt(0) + 0x60));
+    const qi = $view.querySelector("#zq");
+    if (qi) {
+      qi.value = ui.zq || "";
+      const apply = () => {
+        ui.zq = qi.value;
+        const q = toKata(qi.value.trim());
+        let hits = 0;
+        $view.querySelectorAll(".zcard").forEach((el) => { const ok = !q || el.dataset.q.includes(q); el.hidden = !ok; if (ok) hits++; });
+        // 系統図：自分か子孫が当たれば残す
+        const walk = (li) => {
+          const childHit = [...li.querySelectorAll(":scope > ul > li")].map(walk).some(Boolean);
+          const self = !q || li.dataset.q.includes(q);
+          li.hidden = !(self || childHit);
+          li.classList.toggle("hit", !!q && self);
+          if (self) hits++;
+          return self || childHit;
+        };
+        $view.querySelectorAll(".tree2 > li").forEach(walk);
+        $view.querySelectorAll(".zgroup2").forEach((g) => { g.hidden = ![...g.querySelectorAll(".zcard")].some((c) => !c.hidden); });
+        const none = $view.querySelector(".znone"); if (none) none.hidden = hits > 0;
+      };
+      qi.oninput = apply;
+      if (qi.value) apply();
+    }
   }
 
   // ---------- sire page ----------
