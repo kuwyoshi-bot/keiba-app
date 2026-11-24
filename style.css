@@ -480,6 +480,42 @@ a.sire { text-decoration: underline; text-decoration-color: color-mix(in srgb, v
 .secnav button.lifted { position: relative; z-index: 2; transition: none; border-color: var(--accent); color: var(--accent); background: var(--accent-soft); box-shadow: 0 6px 18px rgba(0,0,0,.35); scale: 1.08; }
 .secnav.dragging { overflow-x: hidden; }
 .secnav button.secreset { color: var(--muted); border-style: dashed; font-weight: 600; }
+/* 今週の開催・重賞 */
+.week { margin: 0 0 12px; padding: 10px 12px; border-radius: 14px; background: var(--glass); border: 1px solid var(--line); }
+.week-h { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.week-t { font-size: 11px; font-weight: 800; letter-spacing: .08em; color: var(--accent); }
+.week-d { font-family: var(--num); font-size: 12px; color: var(--muted); }
+.week-v { display: flex; gap: 6px; margin-left: auto; }
+.week-v .wv { padding: 3px 12px; border-radius: 999px; font-size: 13px; font-weight: 800; border: 1px solid var(--line2); color: var(--text2); background: transparent; }
+.week-v .wv.is-active { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+.week-r { display: flex; gap: 6px; margin-top: 8px; }
+.week-r .wr { flex: 0 0 auto; display: flex; align-items: center; gap: 6px; padding: 5px 10px 5px 6px; border-radius: 10px; border: 1px solid var(--line2); background: var(--glass2); color: var(--text); text-align: left; }
+.week-r .wr.is-active { border-color: var(--accent); }
+.week-r .wr:disabled { opacity: .55; }
+.wr-n { font-size: 13px; font-weight: 700; }
+.wr-c { font-size: 11px; color: var(--muted); font-family: var(--num); }
+.gr { font-family: var(--num); font-size: 10px; font-weight: 800; padding: 2px 5px; border-radius: 5px; color: #fff; background: #777; }
+.gr.g1 { background: #2f6fd6; } .gr.g2 { background: #d64545; } .gr.g3 { background: #2f9a5a; }
+/* 血統表（4代） */
+.ped-head, .pgrid { display: grid; grid-template-columns: 0.95fr 1fr 1fr 1.1fr; gap: 2px; }
+.ped-head span { font-size: 10px; color: var(--faint); letter-spacing: .06em; padding: 0 4px 4px; }
+.pgrid { grid-template-rows: repeat(16, minmax(24px, auto)); border-radius: 10px; overflow: hidden; }
+.pc { display: flex; align-items: center; padding: 3px 5px; font-size: 11px; line-height: 1.25; min-width: 0; word-break: break-word; }
+.pc.m { background: rgba(80, 140, 230, .13); }
+.pc.f { background: rgba(230, 100, 140, .12); }
+.pc.g1 { font-size: 13.5px; font-weight: 800; }
+.pc.g2 { font-size: 12.5px; font-weight: 700; }
+.pc.g3 { font-size: 11.5px; }
+.pc.g4 { font-size: 10.5px; color: var(--text2); }
+.pc small { display: block; font-size: 9px; color: var(--faint); font-weight: 500; }
+.pc a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+.pc a i { display: block; font-style: normal; font-size: 9px; color: var(--muted); text-decoration: none; }
+.pc.x { box-shadow: inset 3px 0 0 #9b7be0; }
+.pcross .k { box-shadow: inset 3px 0 0 #9b7be0; }
+.pcross { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; margin-top: 10px; font-size: 12px; }
+.pcross .k { font-size: 11px; font-weight: 800; padding: 2px 7px; border-radius: 6px; background: var(--glass2); color: var(--text2); }
+.pcross .cx b { font-weight: 700; }
+.pz { color: var(--accent); font-weight: 700; }
 /* レッスン（折りたたみ） */
 details.lessons-box > summary { list-style: none; cursor: pointer; margin-bottom: 0; }
 details.lessons-box > summary::-webkit-details-marker { display: none; }

@@ -93,6 +93,25 @@
   }
 
   // ---------- course view ----------
+  // 今週の開催：今日以降でいちばん近い開催日から、続けて開催する日（土日・月曜の祝日など）をひとまとまりにする
+  function weekInfo() {
+    const S = D.schedule; if (!S) return null;
+    const pad = (n) => String(n).padStart(2, "0");
+    const t = new Date(); const q = new URLSearchParams(location.search).get("today");
+    const today = q || `${t.getFullYear()}-${pad(t.getMonth() + 1)}-${pad(t.getDate())}`;
+    const all = Object.keys(S.days).sort();
+    const i0 = all.findIndex((d) => d >= today); if (i0 < 0) return null;
+    const days = [all[i0]];
+    for (let i = i0 + 1; i < all.length; i++) {
+      const gap = (new Date(all[i]) - new Date(days[days.length - 1])) / 864e5;
+      if (gap > 2) break; days.push(all[i]);
+    }
+    const venues = D.venues.map((x) => x.name).filter((n) => days.some((d) => S.days[d].includes(n)));
+    const rank = { G1: 0, G2: 1, G3: 2 };
+    const races = S.races.filter((r) => days.includes(r.d)).sort((a, b) => (rank[a.g] ?? 3) - (rank[b.g] ?? 3) || a.d.localeCompare(b.d));
+    return { days, venues, races, isToday: days[0] === today };
+  }
+
   function renderCourse() {
     ensureValid();
     const v = venueInfo(state.venue);
@@ -167,8 +186,20 @@
           <button class="favedit" data-fedit>編集</button>
         </div>`;
 
+    // 今週の開催と重賞（JRAの日程から、今日の日付で決める。競馬場は自分で押して選ぶ）
+    const wk = weekInfo();
+    const wd = (iso) => { const d = new Date(iso + "T00:00:00"); return `${d.getMonth() + 1}/${d.getDate()}(${"日月火水木金土"[d.getDay()]})`; };
+    const weekRow = !wk ? "" : `
+        <div class="week">
+          <div class="week-h"><span class="week-t">${wk.isToday ? "今日から" : "今週"}</span><span class="week-d">${wk.days.map(wd).join("・")}</span>
+            <span class="week-v">${wk.venues.map((n) => `<button class="wv ${n === state.venue ? "is-active" : ""}" data-wv="${n}">${n}</button>`).join("")}</span></div>
+          ${wk.races.length ? `<div class="scroller week-r">${wk.races.map((r, i) => `<button class="wr ${r.label && r.venue === state.venue && r.label === state.label ? "is-active" : ""}" data-wr="${i}" ${r.label ? "" : "disabled"}>
+              <b class="gr ${r.g.toLowerCase()}">${r.g}</b><span class="wr-n">${esc(r.name)}</span><span class="wr-c">${r.venue}${r.s}${r.dist}</span></button>`).join("")}</div>` : ""}
+        </div>`;
+
     $view.innerHTML = `
       <section class="picker">
+        ${weekRow}
         ${favRow}
         ${venueBlock}
         <div class="row2">
@@ -245,6 +276,12 @@
     on("[data-mcancel]", () => { ui.meetEdit = false; renderCourse(); });
     on("[data-more]", () => { ui.showAll = !ui.showAll; renderCourse(); });
     $view.querySelectorAll("[data-venue]").forEach((b) => b.onclick = () => { state.venue = b.dataset.venue; state.label = null; save(); renderCourse(); });
+    $view.querySelectorAll("[data-wv]").forEach((b) => b.onclick = () => { state.venue = b.dataset.wv; state.label = null; save(); renderCourse(); });
+    $view.querySelectorAll("[data-wr]").forEach((b) => b.onclick = () => {
+      const r = wk.races[+b.dataset.wr]; if (!r || !r.label) return;
+      state.venue = r.venue; state.surface = r.s === "ダ" ? "ダート" : "芝"; state.label = r.label; save(); renderCourse();
+      window.scrollTo({ top: 0 });
+    });
     $view.querySelectorAll("[data-s]").forEach((b) => b.onclick = () => { state.surface = b.dataset.s; state.label = null; save(); renderCourse(); });
     $view.querySelectorAll("[data-label]").forEach((b) => b.onclick = () => { state.label = b.dataset.label; save(); renderCourse(); });
     // 見出しボタン：画面にあるカードの見出しから作る
@@ -1049,6 +1086,41 @@
     return SIRE[base] ? `${sireTag(base)}<span class="muted small">${esc(rest)}</span>` : `<span>${esc(base)}</span><span class="muted small">${esc(rest)}</span>`;
   };
 
+  // 血統表（4代）：左が親、右へ行くほど昔。上半分が父の血、下半分が母の血。図鑑に載っている馬は押すとそのページへ
+  function pedCard(name) {
+    const P = (D.pedigrees || {})[name];
+    if (!P) return "";
+    const alias = D.pedAlias || {};
+    const inZukan = (n) => SIRE[n] ? n : SIRE[alias[n]] ? alias[n] : null;
+    // 4代までに2回以上出てくる馬（クロス）。表記は「何代目×何代目」（父の側を先に）
+    const seen = {};
+    P.g.forEach((gen, gi) => gen.forEach((h, i) => {
+      const side = i < gen.length / 2 ? 0 : 1;
+      (seen[h.n] = seen[h.n] || []).push({ gen: gi + 1, side });
+    }));
+    const cross = Object.entries(seen).filter(([, a]) => a.length > 1)
+      .map(([n, a]) => ({ n, a: a.sort((x, y) => x.side - y.side || x.gen - y.gen), min: Math.min(...a.map((x) => x.gen)) }))
+      .sort((x, y) => x.min - y.min);
+    const crossSet = new Set(cross.map((c) => c.n));
+    const span = [8, 4, 2, 1];
+    const cells = [];
+    P.g.forEach((gen, gi) => gen.forEach((h, i) => {
+      const row = i * span[gi] + 1;
+      const male = i % 2 === 0;
+      const z = inZukan(h.n);
+      const label = `${esc(h.n)}${h.c ? `<small>${esc(h.c)}</small>` : ""}`;
+      const inner = z ? `<a href="${sireHref(z)}">${label}${z !== h.n ? `<i>${esc(z)}</i>` : ""}</a>` : `<span>${label}</span>`;
+      cells.push(`<div class="pc g${gi + 1} ${male ? "m" : "f"}${z ? " z" : ""}${crossSet.has(h.n) ? " x" : ""}" style="grid-column:${gi + 1};grid-row:${row} / span ${span[gi]}">${inner}</div>`);
+    }));
+    const crossTxt = cross.length ? `<div class="pcross"><span class="k">クロス</span>${cross.map((c) => `<span class="cx"><b>${esc(c.n)}</b> ${c.a.map((x) => x.gen).join("×")}</span>`).join("")}</div>` : "";
+    return `<section class="card ped"><div class="card-h"><span class="ico">表</span><h2>血統表（4代）</h2><span class="en">Pedigree</span></div>
+      <div class="ped-head"><span>父・母</span><span>祖父母</span><span>曾祖父母</span><span>その親</span></div>
+      <div class="pgrid">${cells.join("")}</div>
+      ${crossTxt}
+      <p class="note">上半分が父の血、下半分が母の血。<span class="pz">色の濃い名前</span>は図鑑に載っていて、押すとそのページへ。${cross.length ? "クロスは、同じ馬が2回以上出てくること（数字はこの馬から数えて何代前か）。" : ""}出典：netkeiba 5代血統表</p>
+    </section>`;
+  }
+
   function renderSire(name) {
     const s = SIRE[name];
     if (!s) { $view.innerHTML = `<div class="fade">${backBtn()}<p class="empty">「${esc(name)}」は図鑑にありません。</p></div>`; return; }
@@ -1142,6 +1214,7 @@
           <p class="tagline">${rich(s.tagline)}</p>
         </section>
         <section class="card"><div class="card-h"><span class="ico">系</span><h2>血のつながり</h2><span class="en">Family</span></div>${tree}</section>
+        ${pedCard(s.name)}
         ${theory}
         ${facts}
         ${rain}
