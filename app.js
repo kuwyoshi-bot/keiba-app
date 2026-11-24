@@ -232,7 +232,7 @@
           </div>
         </section>
 
-        ${state.secHintDone ? "" : `<p class="sechint"><span>↔ 下の見出しは<b>長押しして左右に動かす</b>と並べ替えられます（左端がいちばん上）</span><button data-sechint aria-label="案内を閉じる">×</button></p>`}
+        <p class="sechint">↔ 長押しで並べ替え</p>
         <nav class="secnav" aria-label="このページの見出し"></nav>
         ${wet ? renderWet(c) : ""}
         ${renderMap(v, c)}
@@ -326,7 +326,6 @@
         delete state.secOrder; save(); placeSecs(ordered([])); renderSecReset(); toast("元の順番に戻しました");
       });
     }
-    $view.querySelector("[data-sechint]")?.addEventListener("click", () => { state.secHintDone = true; save(); $view.querySelector(".sechint")?.remove(); });
     let dragged = false;
     nav.querySelectorAll("[data-go-sec]").forEach((b) => {
       b.onclick = () => {
@@ -375,7 +374,6 @@
           const names = [...nav.querySelectorAll("[data-nm]")].map((x) => x.dataset.nm);
           const same = names.join() === ordered([]).map((s) => s.nm).join();
           if (same) delete state.secOrder; else state.secOrder = names;
-          state.secHintDone = true; $view.querySelector(".sechint")?.remove();
           save(); placeSecs(ordered(names)); renderSecReset();
           toast(same ? "元の順番です" : names[0] === b.dataset.nm ? `「${names[0]}」をいちばん上にしました` : "順番を保存しました");
           setTimeout(() => { dragged = false; }, 50);
@@ -1051,7 +1049,7 @@
     $view.innerHTML = `
       <div class="fade">
         <div class="page-h"><h1>血統</h1><p>レッスンで考え方を学び、図鑑で種牡馬を引く。土台は亀谷敬正さんの「血統ビーム」の分類。</p></div>
-        <details class="card lessons-box"${state.lessonsOpen === false ? "" : " open"}><summary class="card-h"><span class="ico" style="background:var(--accent-soft);color:var(--accent)">学</span><h2>レッスン</h2><span class="en">Lessons ${D.lessons.length}</span><span class="fold">▾</span></summary>
+        <details class="card lessons-box"${state.lessonsOpen === false ? "" : " open"}><summary class="card-h"><span class="ico" style="background:var(--accent-soft);color:var(--accent)">学</span><h2>レッスン</h2><span class="foldhint"><i class="h-open">タップで折りたたみ</i><i class="h-closed">タップで開く</i></span><span class="fold">▾</span></summary>
           <div class="lrows">${ls}</div></details>
         <section class="card"><div class="card-h"><span class="ico" style="background:var(--eu-soft);color:var(--eu)">図</span><h2>種牡馬図鑑</h2><span class="en">${D.sires.length} sires</span></div>
           ${groups}

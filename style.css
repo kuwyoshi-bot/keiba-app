@@ -174,7 +174,7 @@ b, strong { font-weight: 700; color: var(--strong); }
   border-bottom: 1px solid var(--line);
 }
 .brand { display: flex; align-items: center; gap: 10px; }
-.brand-mark { width: 30px; height: 30px; color: var(--accent); flex: 0 0 auto; }
+.brand-mark { width: 36px; height: 36px; border-radius: 9px; flex: 0 0 auto; display: block; }
 .brand-name { font-family: var(--display); font-weight: 700; font-size: 19px; letter-spacing: 0.04em; line-height: 1.1; }
 .brand-sub { font-size: 11px; color: var(--muted); letter-spacing: 0.08em; }
 .skin-btn {
@@ -480,9 +480,7 @@ a.sire { text-decoration: underline; text-decoration-color: color-mix(in srgb, v
 .secnav button.lifted { position: relative; z-index: 2; transition: none; border-color: var(--accent); color: var(--accent); background: var(--accent-soft); box-shadow: 0 6px 18px rgba(0,0,0,.35); scale: 1.08; }
 .secnav.dragging { overflow-x: hidden; }
 .secnav button.secreset { color: var(--muted); border-style: dashed; font-weight: 600; }
-.sechint { display: flex; align-items: center; gap: 6px; margin: 12px 0 -4px; font-size: 11px; color: var(--muted); line-height: 1.4; }
-.sechint b { color: var(--text2); font-weight: 700; }
-.sechint button { margin-left: auto; flex: 0 0 auto; width: 22px; height: 22px; border-radius: 50%; border: 1px solid var(--line2); color: var(--muted); background: transparent; font-size: 12px; line-height: 1; }
+.sechint { margin: 10px 2px -6px; font-size: 10px; color: var(--faint); line-height: 1.3; text-align: right; }
 /* 今年のリーディング：トップ・上位・中堅・下位 */
 .jlead { font-weight: 700; }
 .jlead.t-トップ, .jlead-pill.t-トップ { color: #2f6fd6; }
@@ -534,6 +532,10 @@ a.sire { text-decoration: underline; text-decoration-color: color-mix(in srgb, v
 details.lessons-box > summary { list-style: none; cursor: pointer; margin-bottom: 0; }
 details.lessons-box > summary::-webkit-details-marker { display: none; }
 details.lessons-box[open] > summary { margin-bottom: 12px; }
+details.lessons-box .foldhint { margin-left: auto; font-size: 10px; color: var(--faint); }
+details.lessons-box .foldhint i { font-style: normal; }
+details.lessons-box .h-open, details.lessons-box[open] .h-closed { display: none; }
+details.lessons-box[open] .h-open { display: inline; }
 details.lessons-box .fold { color: var(--muted); font-size: 13px; transition: transform .2s; transform: rotate(-90deg); }
 details.lessons-box[open] .fold { transform: none; }
 [data-sec] { scroll-margin-top: calc(env(safe-area-inset-top, 0px) + 112px); }
