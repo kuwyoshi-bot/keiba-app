@@ -250,7 +250,7 @@
     // 見出しボタン：画面にあるカードの見出しから作る
     const SEC = [["重・不良のとき", "☂ 雨"], ["スタートからゴールまで", "構図"], ["注目ポイント", "注目"], ["このコースの種牡馬", "種牡馬"],
       ["父の型と複勝率", "父の型"], ["枠・人気・展開", "枠・展開"], ["このコースの騎手", "騎手"], ["母父（このコース）", "母父"], ["雨の日（重・不良）", "雨の日"], ["競馬場のクセ", "競馬場"]];
-    const navBtns = [];
+    const secs = [];
     const bs = $view.querySelector("#course > .bs");
     $view.querySelectorAll("#course > section.card, #course > .bs").forEach((el, i) => {
       let nm = null;
@@ -258,14 +258,93 @@
       else { const h = el.querySelector(".card-h h2")?.textContent || ""; const hit = SEC.find(([t]) => h.includes(t)); nm = hit && hit[1]; }
       if (!nm) return;
       el.dataset.sec = String(i);
-      navBtns.push(`<button data-go-sec="${i}">${nm}</button>`);
+      secs.push({ el, nm, i });
     });
+    // 並び順：保存した順（state.secOrder）を先に、残りは元の順。カードの場所（枠）は変えず、中身を入れ替える
+    const ordered = (names) => {
+      const pos = (s) => { const k = names.indexOf(s.nm); return k < 0 ? 1000 + s.i : k; };
+      return [...secs].sort((a, b) => pos(a) - pos(b));
+    };
+    const placeSecs = (list) => {
+      const marks = secs.map((s) => { const m = document.createComment(""); s.el.before(m); return m; });
+      marks.forEach((m, k) => { m.replaceWith(list[k].el); });
+    };
+    const order = state.secOrder || [];
+    if (order.length) placeSecs(ordered(order));
     const nav = $view.querySelector(".secnav");
-    nav.innerHTML = navBtns.join("");
-    nav.querySelectorAll("[data-go-sec]").forEach((b) => b.onclick = () => {
-      nav.querySelectorAll("button").forEach((x) => x.classList.toggle("on", x === b));
-      $view.querySelector(`[data-sec="${b.dataset.goSec}"]`)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    nav.innerHTML = ordered(order).map((s) => `<button data-go-sec="${s.i}" data-nm="${s.nm}">${s.nm}</button>`).join("")
+      + (order.length ? `<button class="secreset" data-secreset>↺ 元の順</button>` : "");
+    nav.querySelector("[data-secreset]")?.addEventListener("click", () => {
+      delete state.secOrder; save(); placeSecs(ordered([])); renderSecReset(); toast("元の順番に戻しました");
     });
+    function renderSecReset() {
+      // 元の順のボタンを並べ直す（画面を作り直さずに）
+      const chips = ordered(state.secOrder || []).map((s) => nav.querySelector(`[data-nm="${s.nm}"]`));
+      chips.forEach((b) => nav.appendChild(b));
+      const r = nav.querySelector("[data-secreset]");
+      if (state.secOrder && !r) nav.insertAdjacentHTML("beforeend", `<button class="secreset" data-secreset>↺ 元の順</button>`);
+      if (!state.secOrder && r) r.remove();
+      nav.querySelector("[data-secreset]")?.addEventListener("click", () => {
+        delete state.secOrder; save(); placeSecs(ordered([])); renderSecReset(); toast("元の順番に戻しました");
+      });
+    }
+    let dragged = false;
+    nav.querySelectorAll("[data-go-sec]").forEach((b) => {
+      b.onclick = () => {
+        if (dragged) { dragged = false; return; }
+        nav.querySelectorAll("button").forEach((x) => x.classList.toggle("on", x === b));
+        $view.querySelector(`[data-sec="${b.dataset.goSec}"]`)?.scrollIntoView({ behavior: "smooth", block: "start" });
+      };
+      b.oncontextmenu = (e) => e.preventDefault();
+      // 長押し（0.3秒）で持ち上げ → 左右に動かす → 離すと並び替え。指がすぐ動いたら横スクロールとみなす
+      b.addEventListener("pointerdown", (e) => {
+        if (e.button && e.button !== 0) return;
+        const x0 = e.clientX, y0 = e.clientY;
+        let lifted = false, grab = 0, px = x0;
+        const place = () => {
+          b.style.transform = "";
+          const left = b.getBoundingClientRect().left;
+          b.style.transform = `translateX(${px - grab - left}px)`;
+        };
+        const timer = setTimeout(() => {
+          lifted = true; dragged = true;
+          grab = x0 - b.getBoundingClientRect().left;
+          b.classList.add("lifted"); nav.classList.add("dragging");
+          try { b.setPointerCapture(e.pointerId); } catch (_) {}
+          navigator.vibrate?.(10);
+        }, 300);
+        const move = (ev) => {
+          if (!lifted) {
+            if (Math.abs(ev.clientX - x0) > 8 || Math.abs(ev.clientY - y0) > 8) end(null);
+            return;
+          }
+          px = ev.clientX;
+          // 端に近づいたら横に送る
+          const nr = nav.getBoundingClientRect();
+          if (px < nr.left + 28) nav.scrollLeft -= 8; else if (px > nr.right - 28) nav.scrollLeft += 8;
+          const mid = px - grab + b.offsetWidth / 2;
+          const prev = b.previousElementSibling, next = b.nextElementSibling;
+          if (prev && prev.dataset.nm) { const r = prev.getBoundingClientRect(); if (mid < r.left + r.width / 2) nav.insertBefore(b, prev); }
+          if (next && next.dataset.nm) { const r = next.getBoundingClientRect(); if (mid > r.left + r.width / 2) nav.insertBefore(next, b); }
+          place();
+        };
+        const end = (ev) => {
+          clearTimeout(timer);
+          b.removeEventListener("pointermove", move); b.removeEventListener("pointerup", end); b.removeEventListener("pointercancel", end);
+          if (!lifted) return;
+          b.classList.remove("lifted"); nav.classList.remove("dragging"); b.style.transform = "";
+          const names = [...nav.querySelectorAll("[data-nm]")].map((x) => x.dataset.nm);
+          const same = names.join() === ordered([]).map((s) => s.nm).join();
+          if (same) delete state.secOrder; else state.secOrder = names;
+          save(); placeSecs(ordered(names)); renderSecReset();
+          toast(same ? "元の順番です" : names[0] === b.dataset.nm ? `「${names[0]}」をいちばん上にしました` : "順番を保存しました");
+          setTimeout(() => { dragged = false; }, 50);
+        };
+        b.addEventListener("pointermove", move); b.addEventListener("pointerup", end); b.addEventListener("pointercancel", end);
+      });
+    });
+    // 持ち上げている間は、画面のスクロールを止める（iPhone）
+    nav.addEventListener("touchmove", (e) => { if (nav.classList.contains("dragging")) e.preventDefault(); }, { passive: false });
     const act = $view.querySelector(".venue.is-active"); if (act) act.scrollIntoView({ inline: "center", block: "nearest" });
     const actd = $view.querySelector(".dist.is-active"); if (actd) actd.scrollIntoView({ inline: "center", block: "nearest" });
   }
@@ -922,13 +1001,15 @@
     $view.innerHTML = `
       <div class="fade">
         <div class="page-h"><h1>血統</h1><p>レッスンで考え方を学び、図鑑で種牡馬を引く。土台は亀谷敬正さんの「血統ビーム」の分類。</p></div>
-        <section class="card"><div class="card-h"><span class="ico" style="background:var(--accent-soft);color:var(--accent)">学</span><h2>レッスン</h2><span class="en">Lessons</span></div>
-          <div class="lrows">${ls}</div></section>
+        <details class="card lessons-box"${state.lessonsOpen === false ? "" : " open"}><summary class="card-h"><span class="ico" style="background:var(--accent-soft);color:var(--accent)">学</span><h2>レッスン</h2><span class="en">Lessons ${D.lessons.length}</span><span class="fold">▾</span></summary>
+          <div class="lrows">${ls}</div></details>
         <section class="card"><div class="card-h"><span class="ico" style="background:var(--eu-soft);color:var(--eu)">図</span><h2>種牡馬図鑑</h2><span class="en">${D.sires.length} sires</span></div>
           ${groups}
         </section>
         <p class="foot">型・系統：血統ビーム公式サイト、スマート出馬表の出馬表<br>数字：スマート出馬表 5年集計（2021.11〜2026.11）</p>
       </div>`;
+    const lb = $view.querySelector(".lessons-box");
+    if (lb) lb.addEventListener("toggle", () => { state.lessonsOpen = lb.open; save(); });
     $view.querySelectorAll("[data-z]").forEach((b) => b.onclick = () => { state.zukan = b.dataset.z; save(); renderBloodHome(); });
     $view.querySelectorAll("[data-zv]").forEach((b) => b.onclick = () => { state.zview = b.dataset.zv; save(); renderBloodHome(); });
     // 検索：ひらがなもカタカナに直して、名前に含むものだけ残す（画面は作り直さず、隠すだけ）
