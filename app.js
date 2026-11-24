@@ -629,7 +629,7 @@
     const rows = jc.rows.map((r) => {
       const j = JOCK[r.j];
       return `<a class="srow${isFew(r) ? " few" : ""}" href="${jockHref(j.name)}">
-        <span class="srow-n"><b>${esc(j.name)}</b><span class="srow-l">${jLabels(r, jc.avg, regulars.has(r.j))}</span></span>
+        <span class="srow-n"><b>${esc(j.name)}</b>${j.prof && j.prof["状態"] ? `<span class="lab out">${esc(j.prof["状態"].replace(/（.*$/, ""))}</span>` : ""}<span class="srow-l">${jLabels(r, jc.avg, regulars.has(r.j))}</span></span>
         <span class="srow-p num">${r.p}<small>%</small></span>
         <span class="srow-d">${r.n}騎乗・ふだん${j.p}%・単回${r.t}／複回${r.f}</span>
       </a>`;
@@ -660,6 +660,7 @@
   const jTagLine = (j) => {
     const p = pf(j);
     return [
+      p["状態"] ? `<span class="jout">${esc(p["状態"].replace(/（.*$/, ""))}</span>` : "",
       (p["異名"] || [])[0] ? `<b>${esc(p["異名"][0].text)}</b>` : "",
       p["型"] ? esc(p["型"]) : "",
       p["所属"] ? esc(p["所属"].replace(/（.*$/, "")) : "",
@@ -669,6 +670,7 @@
   const jChips = (j) => {
     const p = pf(j);
     const chips = [
+      p["状態"] ? `<span class="pill jout-pill">${esc(p["状態"])}</span>` : "",
       ...(p["異名"] || []).map((a) => `<span class="pill jnick">「${esc(a.text)}」</span>`),
       p["型"] ? `<span class="pill pill-lean ${p["型"] === "先行寄り" ? "fw" : p["型"] === "差し寄り" ? "cl" : ""}">${esc(p["型"])}</span>` : "",
       p["所属"] ? `<span class="pill">${esc(p["所属"])}</span>` : "",

@@ -671,3 +671,6 @@ details.more[open] > summary { color: var(--muted); }
 .pill.jgen { border-color: var(--eu); color: var(--eu); }
 .jrep .sub:first-child { margin-top: 0; }
 .jrep .sn-l { margin-bottom: 6px; }
+.jout { color: var(--red); font-weight: 700; }
+.pill.jout-pill { border-color: var(--red); color: var(--red); font-weight: 700; }
+.lab.out { background: var(--red-soft); color: var(--red); }
