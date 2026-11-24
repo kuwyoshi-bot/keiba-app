@@ -97,14 +97,27 @@
     const startPill = c.surface === "ダート"
       ? (c.turfStart ? `<span class="pill pill-turf">芝スタート</span>` : `<span class="pill">ダートスタート</span>`)
       : "";
+    const wet = state.going === "重";
     const pills = [
       lp.tag ? `<span class="pill pill-loop">${lp.tag}</span>` : "",
+      wet ? `<span class="pill pill-wet">☂ 重・不良</span>` : "",
       startPill,
       `<span class="pill">${v.turn}</span>`,
     ].join("");
 
+    // お気に入り（★を付けたコースを上にまとめる）
+    const favs = state.favs || [];
+    const key = ckey(c);
+    const isFav = favs.includes(key);
+    const favRow = favs.length ? `
+        <div class="favs">
+          <span class="favs-l">★</span>
+          <div class="scroller favs-s">${favs.map((k) => `<button class="fav ${k === key ? "is-active" : ""}" data-fav="${esc(k)}">${esc(cname(k))}</button>`).join("")}</div>
+        </div>` : "";
+
     $view.innerHTML = `
       <section class="picker">
+        ${favRow}
         <p class="label-sm">Racecourse</p>
         <div class="scroller">${venues}</div>
         <div class="row2">
@@ -114,11 +127,19 @@
           </div>
           <div class="scroller dists">${dists}</div>
         </div>
+        <div class="row3">
+          <span class="label-sm" style="margin:0">馬場</span>
+          <div class="seg going">
+            <button data-g="良" class="${!wet ? "is-active" : ""}">良</button>
+            <button data-g="重" class="${wet ? "is-active" : ""}">☂ 重・不良</button>
+          </div>
+        </div>
       </section>
 
-      <article class="fade" id="course">
+      <article class="fade ${wet ? "is-wet" : ""}" id="course">
         <section class="hero">
           <img src="img/${v.slug}-3d.jpg" alt="${v.name}競馬場の立体図（JRA）">
+          <button class="star ${isFav ? "on" : ""}" data-star aria-label="${isFav ? "お気に入りから外す" : "お気に入りに入れる"}">${isFav ? "★" : "☆"}</button>
           <div class="hero-in">
             <div class="hero-en">${v.en} RACECOURSE</div>
             <div class="hero-title">
@@ -129,6 +150,7 @@
           </div>
         </section>
 
+        ${wet ? renderWet(c) : ""}
         ${renderMap(v, c)}
         ${renderBuyAvoid(c)}
         ${renderPoints(c)}
@@ -136,11 +158,22 @@
         ${renderTypes(c)}
         ${renderRace(c)}
         ${renderPeople(c)}
-        ${renderRain(c)}
+        ${wet ? "" : renderRain(c)}
         ${renderTrack(v, c)}
         <p class="foot">血統・枠・人気・騎手・母父：スマート出馬表 5年集計（2021.11〜2026.11）<br>脚質：うまめし（2023年〜）／コース図：JRA<br>自分用のメモ。数字は過去の集計で、走数が少ないものは参考程度。</p>
       </article>`;
 
+    $view.querySelectorAll("[data-g]").forEach((b) => b.onclick = () => { state.going = b.dataset.g; save(); renderCourse(); });
+    $view.querySelectorAll("[data-fav]").forEach((b) => b.onclick = () => {
+      const [fv, fl] = b.dataset.fav.split("|");
+      state.venue = fv; state.label = fl; state.surface = fl.startsWith("芝") ? "芝" : "ダート"; save(); renderCourse();
+    });
+    const star = $view.querySelector("[data-star]");
+    if (star) star.onclick = () => {
+      const f = state.favs || [];
+      state.favs = f.includes(key) ? f.filter((x) => x !== key) : [...f, key];
+      save(); renderCourse();
+    };
     $view.querySelectorAll("[data-venue]").forEach((b) => b.onclick = () => { state.venue = b.dataset.venue; state.label = null; save(); renderCourse(); });
     $view.querySelectorAll("[data-s]").forEach((b) => b.onclick = () => { state.surface = b.dataset.s; state.label = null; save(); renderCourse(); });
     $view.querySelectorAll("[data-label]").forEach((b) => b.onclick = () => { state.label = b.dataset.label; save(); renderCourse(); });
@@ -276,6 +309,38 @@
     </section>`;
   }
 
+  // ---------- 重・不良のとき ----------
+  const wetFor = (name, k) => (SIRE[name]?.wet || []).find((w) => w.k === k);
+  const wetBadge = (w) => !w ? "" : w.d === "up"
+    ? `<span class="lab wetup">☂↑ ${esc(w.x)}</span>`
+    : `<span class="lab wetdown">☂↓ ${esc(w.x)}</span>`;
+  // 図鑑の「雨」の文から、理由（→の右）だけを取り出す
+  const wetWhy = (s) => { const t = s?.rain || ""; const i = t.indexOf("→"); return i >= 0 ? t.slice(i + 1).trim() : ""; };
+
+  function renderWet(c) {
+    const k = ckey(c);
+    const turf = c.surface === "芝";
+    const principle = turf
+      ? "芝は水を含んで走りにくくなり、時計がかかる。直線のキレより、最後まで止まらない<b>馬力とスタミナ</b>の勝負になる"
+      : "ダートは砂が締まって脚抜きがよくなり、時計が速くなる。前に行く<b>スピード</b>がそのまま生きる。スタミナ型は持ち味が消えやすい";
+    const names = (txt) => [...new Set((txt || "").match(sireRe) || [])].filter((n) => SIRE[n]);
+    const whyList = (txt) => names(txt).map((n) => { const w = wetWhy(SIRE[n]); return w ? `<div class="sn-l"><span class="tg w">理屈</span><span>${sireTag(n)}：${rich(w)}</span></div>` : ""; }).join("");
+    const body = c.heavy ? `
+      <div class="kv">
+        <div class="r"><span class="k up">浮上</span><span>${c.heavy.up ? rich(c.heavy.up) : "—"}</span></div>
+        <div class="r"><span class="k down">沈む</span><span>${c.heavy.down ? rich(c.heavy.down) : "—"}</span></div>
+      </div>
+      <div class="wet-why">${whyList(c.heavy.up)}${whyList(c.heavy.down)}</div>`
+      : `<p class="note" style="margin:0 0 8px">このコースは重・不良のレースが少なく、目立って浮上・沈む種牡馬は見つからなかった。どのコースでも雨で動きやすい種牡馬：</p>
+      <div class="hg">${D.heavyGlobal.map((h) => `<div class="row"><div>${rich(h.sire)} <span class="muted small">— ${esc(h.trend.replace(/[★⚠]/g, "").replace(/\*\*/g, "").trim())}</span></div></div>`).join("")}</div>`;
+    return `<section class="card rain wetcard"><div class="card-h"><span class="ico">☂</span><h2>重・不良のとき</h2><span class="en">Wet track</span></div>
+      <div class="sn-l" style="margin-bottom:10px"><span class="tg w">理屈</span><span>${principle}</span></div>
+      ${c.heavy ? `<div class="sn-l" style="margin-bottom:6px"><span class="tg f">数字</span><span class="muted small">ふだん（良）と比べた「3着以内に入る割合」の倍率</span></div>` : ""}
+      ${body}
+      <p class="note">重・不良のレースは数が少ないので参考程度。芝とダートで逆になる理由は<a class="term" href="#lesson/7">レッスン7</a></p>
+    </section>`;
+  }
+
   // 買い・消しの項目に出てくる種牡馬について、このコースの数字と理屈を1行ずつ添える
   function sireNotes(text, k, buy) {
     // 「母父〇〇」は母の父としての話なので、父としての数字は出さない
@@ -286,7 +351,8 @@
       const fact = r ? `<div class="sn-l"><span class="tg f">数字</span><span>${labels(r)} ${factLine(r)}</span></div>` : "";
       const why = buy ? `<div class="sn-l"><span class="tg w">理屈</span><span>${esc(s.tagline)}</span></div>` : "";
       if (!fact && !why) return "";
-      return `<div class="sn"><div class="sn-n">${sireTag(n)}<span class="sn-go">図鑑 ›</span></div>${fact}${why}</div>`;
+      const wb = state.going === "重" ? wetBadge(wetFor(n, k)) : "";
+      return `<div class="sn"><div class="sn-n"><span>${sireTag(n)} ${wb}</span><span class="sn-go">図鑑 ›</span></div>${fact}${why}</div>`;
     }).join("");
   }
 
@@ -319,7 +385,7 @@
     const avg = D.courseAvg[k];
     const rows = list.map(({ s, r }) => `
       <a class="srow" href="${sireHref(s.name)}">
-        <span class="srow-n"><span class="sire t-${s.type}">${s.name}</span><span class="srow-l">${labels(r)}</span></span>
+        <span class="srow-n"><span class="sire t-${s.type}">${s.name}</span><span class="srow-l">${labels(r)}${state.going === "重" ? wetBadge(wetFor(s.name, k)) : ""}</span></span>
         <span class="srow-p num">${r.p}<small>%</small></span>
         <span class="srow-d">${r.n}走・単回${r.t}／複回${r.f}</span>
       </a>`).join("");

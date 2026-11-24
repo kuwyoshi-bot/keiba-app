@@ -334,6 +334,25 @@ b, strong { font-weight: 700; color: var(--strong); }
 .dist small.lo { background: var(--gold-soft); color: var(--gold); }
 .pill-loop { background: var(--gold); color: var(--on-accent); border-color: var(--gold); font-weight: 700; }
 
+/* ---------- 馬場・お気に入り ---------- */
+.row3 { display: flex; align-items: center; gap: 10px; margin-top: 10px; }
+.seg.going button[data-g="重"].is-active { background: var(--us); color: var(--bg); }
+.pill-wet { background: var(--us); color: var(--bg); border-color: var(--us); font-weight: 700; }
+.lab.wetup { background: var(--us-soft); color: var(--us); }
+.lab.wetdown { background: var(--red-soft); color: var(--red); }
+.wetcard .kv .k.up { color: var(--accent); font-weight: 700; }
+.wetcard .kv .k.down { color: var(--red); font-weight: 700; }
+.wet-why { display: grid; gap: 6px; margin-top: 10px; }
+.is-wet .hero { border-color: color-mix(in srgb, var(--us) 45%, transparent); }
+.favs { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+.favs-l { color: var(--gold); font-size: 15px; flex: 0 0 auto; }
+.favs-s { flex: 1; min-width: 0; margin: 0 -16px 0 0; padding: 2px 16px 4px 0; }
+.fav { flex: 0 0 auto; padding: 5px 12px; border-radius: 999px; font-size: 12.5px; font-weight: 700; border: 1px solid color-mix(in srgb, var(--gold) 40%, transparent); background: var(--gold-soft); color: var(--text); }
+.fav.is-active { background: var(--gold); color: var(--on-accent); border-color: var(--gold); }
+.star { position: absolute; top: 12px; right: 12px; z-index: 2; width: 40px; height: 40px; border-radius: 50%; font-size: 20px; line-height: 1; display: grid; place-items: center;
+  background: var(--glass2); border: 1px solid var(--line2); color: var(--hero-text); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+.star.on { color: var(--gold); border-color: var(--gold); background: var(--gold-soft); }
+
 /* ---------- コースの構図 ---------- */
 .cmap { width: 100%; height: auto; display: block; overflow: visible; }
 .cm-track { fill: none; stroke: var(--glass2); stroke-width: 16; stroke-linejoin: round; }
