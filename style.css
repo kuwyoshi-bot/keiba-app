@@ -362,7 +362,14 @@ b, strong { font-weight: 700; color: var(--strong); }
 .cm-track { fill: none; stroke: var(--glass2); stroke-width: 16; stroke-linejoin: round; }
 .cm-rail { fill: none; stroke: var(--line2); stroke-width: 1; stroke-dasharray: 3 4; }
 .cm-run { fill: none; stroke: var(--accent); stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+.cm-run.dirt { stroke: var(--dirt); }
 .cm-arrow { fill: var(--on-accent); stroke: var(--accent); stroke-width: 1.5; }
+.cm-arrow.dirt { stroke: var(--dirt); fill: var(--bg); }
+.cm-other { fill: none; stroke-width: 6; opacity: .35; }
+.cm-other.turf { stroke: var(--accent); }
+.cm-other.dirt { stroke: var(--dirt); }
+.cm-chute-bg { stroke: var(--glass2); stroke-width: 16; stroke-linecap: round; }
+.cm-turf { font-size: 10.5px; font-weight: 700; fill: var(--accent); }
 .cm-cn { font-family: var(--num); font-size: 10.5px; font-weight: 700; fill: var(--faint); text-anchor: middle; }
 .cm-cn.on { fill: var(--gold); font-size: 12px; }
 .cm-goal { stroke: var(--red); stroke-width: 3; stroke-linecap: round; }
@@ -394,6 +401,19 @@ a.sire { text-decoration: underline; text-decoration-color: color-mix(in srgb, v
 .lab.good { background: var(--accent-soft); color: var(--accent); }
 .lab.value { background: var(--gold-soft); color: var(--gold); border: 1px dashed color-mix(in srgb, var(--gold) 55%, transparent); }
 .lab.weak { background: var(--red-soft); color: var(--red); }
+.lab.few { background: transparent; color: var(--muted); border: 1px dashed var(--line2); }
+.srow.few .srow-p, .crow.few .crow-p, .bband.few .bv { opacity: .5; }
+.srow.few .srow-n .sire, .crow.few .crow-k { opacity: .75; }
+.bband.few .bfill { opacity: .45; }
+
+/* コース画面の見出しボタン（押すとその場所へ） */
+.secnav { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 57px); z-index: 15; margin: 12px -16px 0; padding: 8px 16px;
+  display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; background: var(--bar); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
+.secnav::-webkit-scrollbar { display: none; }
+.secnav button { flex: 0 0 auto; padding: 4px 11px; border-radius: 999px; font-size: 12.5px; font-weight: 700; border: 1px solid var(--line2); color: var(--text2); background: var(--glass); }
+.secnav button.on { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+[data-sec] { scroll-margin-top: calc(env(safe-area-inset-top, 0px) + 112px); }
+:root[data-skin="paddock"] .secnav button { border-radius: 6px; }
 
 /* 買い・消しの中の種牡馬メモ */
 .li-b { min-width: 0; flex: 1; display: grid; gap: 6px; }

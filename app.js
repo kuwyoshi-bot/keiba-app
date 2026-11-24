@@ -52,7 +52,11 @@
     isGood(r) ? '<span class="lab good">よく来る</span>' : "",
     isValue(r) ? '<span class="lab value">妙味</span>' : "",
     isWeak(r) ? '<span class="lab weak">来ていない</span>' : "",
+    isFew(r) ? `<span class="lab few">参考・${r.n}走</span>` : "",
   ].join("");
+  // 走数が少ない数字は「参考」。たまたまの当たり外れで大きく動くので、見た目でも薄くする
+  const FEW = 50;
+  const isFew = (r) => r.n < FEW;
   const factLine = (r) => `<span class="num">${r.n}</span>走・複勝率 <b class="num">${r.p}%</b><span class="muted">（平均${r.avg}%）</span>・単回<span class="num">${r.t}</span>／複回<span class="num">${r.f}</span>`;
   const rowFor = (name, k) => (SIRE[name]?.rows || []).find((r) => r.k === k);
   const coursesOf = (v, s) => D.courses.filter((c) => c.venue === v && c.surface === s);
@@ -150,6 +154,7 @@
           </div>
         </section>
 
+        <nav class="secnav" aria-label="このページの見出し"></nav>
         ${wet ? renderWet(c) : ""}
         ${renderMap(v, c)}
         ${renderBuyAvoid(c)}
@@ -177,6 +182,25 @@
     $view.querySelectorAll("[data-venue]").forEach((b) => b.onclick = () => { state.venue = b.dataset.venue; state.label = null; save(); renderCourse(); });
     $view.querySelectorAll("[data-s]").forEach((b) => b.onclick = () => { state.surface = b.dataset.s; state.label = null; save(); renderCourse(); });
     $view.querySelectorAll("[data-label]").forEach((b) => b.onclick = () => { state.label = b.dataset.label; save(); renderCourse(); });
+    // 見出しボタン：画面にあるカードの見出しから作る
+    const SEC = [["重・不良のとき", "☂ 雨"], ["スタートからゴールまで", "構図"], ["注目ポイント", "注目"], ["このコースの種牡馬", "種牡馬"],
+      ["父の型と複勝率", "父の型"], ["枠・人気・展開", "枠・展開"], ["騎手と母父", "騎手・母父"], ["雨の日（重・不良）", "雨の日"], ["競馬場のクセ", "競馬場"]];
+    const navBtns = [];
+    const bs = $view.querySelector("#course > .bs");
+    $view.querySelectorAll("#course > section.card, #course > .bs").forEach((el, i) => {
+      let nm = null;
+      if (el === bs) nm = "買い・消し";
+      else { const h = el.querySelector(".card-h h2")?.textContent || ""; const hit = SEC.find(([t]) => h.includes(t)); nm = hit && hit[1]; }
+      if (!nm) return;
+      el.dataset.sec = String(i);
+      navBtns.push(`<button data-go-sec="${i}">${nm}</button>`);
+    });
+    const nav = $view.querySelector(".secnav");
+    nav.innerHTML = navBtns.join("");
+    nav.querySelectorAll("[data-go-sec]").forEach((b) => b.onclick = () => {
+      nav.querySelectorAll("button").forEach((x) => x.classList.toggle("on", x === b));
+      $view.querySelector(`[data-sec="${b.dataset.goSec}"]`)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
     const act = $view.querySelector(".venue.is-active"); if (act) act.scrollIntoView({ inline: "center", block: "nearest" });
     const actd = $view.querySelector(".dist.is-active"); if (actd) actd.scrollIntoView({ inline: "center", block: "nearest" });
   }
@@ -227,37 +251,62 @@
       const a = S - H, half = Math.PI * r;
       const ent = { 1: a, 2: a + half / 2, 3: a + half + S, 4: a + half + S + half / 2 };
       const mx = (x) => (left ? W - x : x);
-      const pt = (s0) => {
+      // dr：コースの線を内外にずらす（ダートの外側に芝、芝の内側にダートを薄く描く）
+      const pt = (s0, dr = 0) => {
         let s = ((s0 % L) + L) % L, x, y;
-        if (s < a) { x = xg - s * k; y = cy + R; }
-        else if (s < a + half) { const t = Math.PI / 2 + (s - a) / r; x = cxL + R * Math.cos(t); y = cy + R * Math.sin(t); }
-        else if (s < a + half + S) { x = cxL + (s - a - half) * k; y = cy - R; }
-        else if (s < L - H) { const t = -Math.PI / 2 + (s - a - half - S) / r; x = cxR + R * Math.cos(t); y = cy + R * Math.sin(t); }
-        else { x = cxR - (s - (L - H)) * k; y = cy + R; }
+        const Rr = R + dr;
+        if (s < a) { x = xg - s * k; y = cy + Rr; }
+        else if (s < a + half) { const t = Math.PI / 2 + (s - a) / r; x = cxL + Rr * Math.cos(t); y = cy + Rr * Math.sin(t); }
+        else if (s < a + half + S) { x = cxL + (s - a - half) * k; y = cy - Rr; }
+        else if (s < L - H) { const t = -Math.PI / 2 + (s - a - half - S) / r; x = cxR + Rr * Math.cos(t); y = cy + Rr * Math.sin(t); }
+        else { x = cxR - (s - (L - H)) * k; y = cy + Rr; }
         return [mx(x), y];
       };
+      const P = (p) => p[0].toFixed(1) + " " + p[1].toFixed(1);
+      const loopPath = (dr) => { const q = []; for (let s = 0; s <= L; s += 8) q.push(pt(s, dr)); return q.map((p, i) => (i ? "L" : "M") + P(p)).join("") + "Z"; };
+
       // スタートの位置：「最初のコーナーまで◯m」が分かればそこから逆算。分からなければ距離から計算
+      // ポケット・引き込み線・芝スタートは、コースから外に飛び出した「まっすぐの線」の先にスタートがある
       const D = c.dist;
-      let sStart = ((-D % L) + L) % L;
       const cn = +((c.corner || "").match(/^(\d)コーナー/) || [])[1];
       const T = +(((c.toCorner || "").match(/(\d+)m/) || [])[1]);
-      if (cn && T) sStart = (((ent[cn] - T) % L) + L) % L;
-      const toGoal = (L - sStart) % L;
-      const laps = Math.max(0, Math.round((D - toGoal) / L));
+      const off = /ポケット|引き込み|奥|\*\*芝\*\*/.test(c.start || "") || !!c.turfStart;
+      let sJoin = ((-D % L) + L) % L, chute = 0;
+      if (cn && T) {
+        const straightBefore = cn === 1 || cn === 3 ? S : 0;   // そのコーナーの手前にある直線の長さ
+        let onLoop;
+        if (straightBefore === 0) { chute = off ? T : 0; onLoop = T - chute; }
+        else if (off) {
+          // ポケットはその直線をまっすぐ後ろへ延ばした先にある。直線の始まりでコースに合流させ、外に飛び出して見えるようにする
+          onLoop = Math.min(T, straightBefore * 0.95);
+          chute = Math.max(T - onLoop, 140, r * 1.6);
+        } else { onLoop = Math.min(T, straightBefore); chute = T - onLoop; }
+        sJoin = (((ent[cn] - onLoop) % L) + L) % L;
+      }
+      const J = pt(sJoin), J2 = pt(sJoin + 4);
+      const dl = Math.hypot(J2[0] - J[0], J2[1] - J[1]) || 1;
+      const dir = [(J2[0] - J[0]) / dl, (J2[1] - J[1]) / dl];
+      const sp = [J[0] - dir[0] * chute * k, J[1] - dir[1] * chute * k];   // スタート地点
+      const toGoal = (L - sJoin) % L;
+      const laps = Math.max(0, Math.round((D - chute - toGoal) / L));
       const run = toGoal + laps * L;
       if (laps > 0) lapNote = `コースを${laps === 1 ? "1周" : laps + "周"}以上回る（スタートの前を一度通る）`;
-      const path = [];
-      for (let t = 0; t <= run; t += 8) path.push(pt(sStart + t));
-      path.push(pt(L));
-      const d = path.map((p, i) => (i ? "L" : "M") + p[0].toFixed(1) + " " + p[1].toFixed(1)).join("");
-      const loopD = []; for (let s = 0; s <= L; s += 8) loopD.push(pt(s));
-      const ld = loopD.map((p, i) => (i ? "L" : "M") + p[0].toFixed(1) + " " + p[1].toFixed(1)).join("") + "Z";
+      const pts = [];
+      for (let t = 0; t <= run; t += 8) pts.push(pt(sJoin + t));
+      pts.push(pt(L));
+      const d = pts.map((p, i) => (i ? "L" : "M") + P(p)).join("");
+      const ld = loopPath(0);
+      const other = c.surface === "芝" ? loopPath(-13) : loopPath(13);   // もう一方のコース（薄く）
       // 進む向きの矢印
       const arrows = [0.3, 0.6, 0.85].map((f) => {
-        const s = sStart + run * f, p = pt(s), q = pt(s + 6);
+        const s = sJoin + run * f, p = pt(s), q = pt(s + 6);
         const ang = (Math.atan2(q[1] - p[1], q[0] - p[0]) * 180) / Math.PI;
-        return `<polygon points="-5,-5 5,0 -5,5" transform="translate(${p[0].toFixed(1)} ${p[1].toFixed(1)}) rotate(${ang.toFixed(0)})" class="cm-arrow"/>`;
+        return `<polygon points="-5,-5 5,0 -5,5" transform="translate(${P(p)}) rotate(${ang.toFixed(0)})" class="cm-arrow${c.surface === "芝" ? "" : " dirt"}"/>`;
       }).join("");
+      // コースから飛び出したスタートの線（ポケット・引き込み線・芝スタート）
+      const chuteSvg = chute > 0 ? `
+        <line x1="${sp[0].toFixed(1)}" y1="${sp[1].toFixed(1)}" x2="${J[0].toFixed(1)}" y2="${J[1].toFixed(1)}" class="cm-chute-bg"/>
+        <line x1="${sp[0].toFixed(1)}" y1="${sp[1].toFixed(1)}" x2="${J[0].toFixed(1)}" y2="${J[1].toFixed(1)}" class="cm-run${c.turfStart || c.surface === "芝" ? "" : " dirt"}"/>` : "";
       // コーナーの番号（外側に置く）
       const cl = [1, 2, 3, 4].map((n) => {
         const s = ent[n] + half / 4;
@@ -266,7 +315,7 @@
         const dx = p[0] - cx, dy = p[1] - cy, len = Math.hypot(dx, dy) || 1;
         return `<text x="${(p[0] + (dx / len) * 13).toFixed(1)}" y="${(p[1] + (dy / len) * 13 + 4).toFixed(1)}" class="cm-cn${n === cn ? " on" : ""}">${n}</text>`;
       }).join("");
-      const sp = pt(sStart), gp = pt(0);
+      const gp = pt(0);
       const goalY = cy + R;
       // 坂
       let slope = "";
@@ -277,20 +326,30 @@
         const p = pt(ent[3] + half / 4);
         slope = `<g transform="translate(${p[0].toFixed(1)} ${(p[1] - 20).toFixed(1)})"><rect x="-13" y="-8" width="26" height="16" rx="8" class="cm-slope"/><text y="4" class="cm-st">丘</text></g>`;
       }
-      const hgt = Math.ceil(cy + R + 40);
-      const startLblY = sp[1] < cy ? sp[1] - 14 : sp[1] + 24;
-      svg = `<svg viewBox="0 0 ${W} ${hgt}" class="cmap" role="img" aria-label="スタートからゴールまでの模式図">
+      // スタートの文字は、コースの中心から離れる向きに置く
+      const ccx = W / 2, vx = sp[0] - ccx, vy = sp[1] - cy, vl = Math.hypot(vx, vy) || 1;
+      // 上半分なら印の上、下半分なら印の下に書く（横に書くと印と重なる）
+      const lx = sp[0] + (vx / vl) * 6, ly = vy < 0 ? sp[1] - 15 : sp[1] + 25;
+      const turfLbl = "";
+      // 図の大きさは、描いたものがすべて入るように決める
+      const xs = [26 - 22, W - 26 + 22, sp[0] - 34, sp[0] + 34, lx - 40, lx + 40];
+      const ys = [cy - R - 24, goalY + 40, sp[1] - 16, sp[1] + 16, ly - 14, ly + 6];
+      const x0 = Math.min(...xs), x1 = Math.max(...xs), y0 = Math.min(...ys), y1 = Math.max(...ys);
+      svg = `<svg viewBox="${x0.toFixed(0)} ${y0.toFixed(0)} ${(x1 - x0).toFixed(0)} ${(y1 - y0).toFixed(0)}" class="cmap" role="img" aria-label="スタートからゴールまでの模式図">
+        <path d="${other}" class="cm-other ${c.surface === "芝" ? "dirt" : "turf"}"/>
         <path d="${ld}" class="cm-track"/>
         <path d="${ld}" class="cm-rail"/>
-        <path d="${d}" class="cm-run"/>
+        ${chuteSvg}
+        <path d="${d}" class="cm-run${c.surface === "芝" ? "" : " dirt"}"/>
         ${arrows}
+        ${turfLbl}
         ${cl}
         <line x1="${gp[0].toFixed(1)}" y1="${(goalY - 11).toFixed(1)}" x2="${gp[0].toFixed(1)}" y2="${(goalY + 11).toFixed(1)}" class="cm-goal"/>
         <text x="${gp[0].toFixed(1)}" y="${(goalY + 30).toFixed(1)}" class="cm-lbl" text-anchor="middle">ゴール</text>
         ${slope}
         <circle cx="${sp[0].toFixed(1)}" cy="${sp[1].toFixed(1)}" r="9" class="cm-start${c.turfStart ? " turf" : ""}"/>
         <text x="${sp[0].toFixed(1)}" y="${(sp[1] + 4).toFixed(1)}" class="cm-s">S</text>
-        <text x="${sp[0].toFixed(1)}" y="${startLblY.toFixed(1)}" class="cm-lbl" text-anchor="middle">スタート</text>
+        <text x="${lx.toFixed(1)}" y="${ly.toFixed(1)}" class="cm-lbl" text-anchor="middle">スタート${c.turfStart ? "（芝）" : ""}</text>
         <text x="${W / 2}" y="${(cy + 4).toFixed(1)}" class="cm-mid" text-anchor="middle">${v.turn}${loop ? "・" + loop : ""}</text>
       </svg>`;
     } else return "";
@@ -305,7 +364,7 @@
         <div class="st"><span class="n">${c.corner && !/なし/.test(c.corner) ? 3 : 2}</span><div><b>最後の直線</b>：<b class="num">${lastStraight}</b>${SLOPE[c.venue] ? "。ゴール前に坂" : c.venue === "京都" ? "。3コーナーに丘（上って下る）" : "。平坦に近い"}</div></div>
         ${lapNote ? `<div class="st"><span class="n">!</span><div>${lapNote}</div></div>` : ""}
       </div>
-      <p class="note">形は楕円に単純化した模式図（長さの比はだいたい）。スタートの位置は「最初のコーナーまでの距離」から逆算。</p>
+      <p class="note">形は楕円に単純化した模式図（長さの比はだいたい）。スタートの位置は「最初のコーナーまでの距離」から逆算。ポケットや引き込み線からのスタートは、コースから飛び出した線で描いている。${c.surface === "芝" ? "内側の薄い線はダートコース" : "外側の薄い緑は芝コース"}。</p>
     </section>`;
   }
 
@@ -372,6 +431,7 @@
     return `<div class="legend">
       <div><span class="lab good">よく来る</span>複勝率がコース平均の1.2倍以上（結果）</div>
       <div><span class="lab value">妙味</span>人気のわりに来た（過去の回収率が高い）</div>
+      <div><span class="lab few">参考</span>${FEW}走未満。数が少なく、たまたまで大きく動くので薄く表示</div>
       <div class="muted">どちらも過去5年の集計で、<b>今日のオッズの妙味ではない</b>。人気になっていれば妙味は消えている。<a class="term" href="#lesson/8">レッスン8</a></div>
     </div>`;
   }
@@ -384,7 +444,7 @@
     list.sort((a, b) => b.r.p - a.r.p);
     const avg = D.courseAvg[k];
     const rows = list.map(({ s, r }) => `
-      <a class="srow" href="${sireHref(s.name)}">
+      <a class="srow${isFew(r) ? " few" : ""}" href="${sireHref(s.name)}">
         <span class="srow-n"><span class="sire t-${s.type}">${s.name}</span><span class="srow-l">${labels(r)}${state.going === "重" ? wetBadge(wetFor(s.name, k)) : ""}</span></span>
         <span class="srow-p num">${r.p}<small>%</small></span>
         <span class="srow-d">${r.n}走・単回${r.t}／複回${r.f}</span>
@@ -582,7 +642,7 @@
         const [n, w, p, t, fu] = s.bands[b];
         const avg = D.bandAvg[b];
         const cls = p >= avg * 1.15 ? "hi" : p <= avg * 0.85 ? "lo" : "";
-        return `<div class="bband ${cls}">
+        return `<div class="bband ${cls}${n < 100 ? " few" : ""}">
           <span class="bn">${BAND_NAME[b]}</span>
           <div class="btrack"><div class="bfill" style="width:${Math.min(p / 50, 1) * 100}%"></div><i class="bavg" style="left:${(avg / 50) * 100}%"></i></div>
           <span class="bv num">${p}%</span>
@@ -602,7 +662,7 @@
         if (!rows.length) return "";
         return `<h4 class="sub">${title}</h4>${note ? `<p class="note" style="margin:-4px 0 6px">${note}</p>` : ""}
           <div class="crows">${rows.map((r) => `
-            <a class="crow" href="#course" data-course="${esc(r.k)}">
+            <a class="crow${isFew(r) ? " few" : ""}" href="#course" data-course="${esc(r.k)}">
               <span class="crow-k">${esc(cname(r.k))}<span class="crow-l">${labels(r)}</span></span>
               <span class="crow-p num">${r.p}<small>%</small></span>
               <span class="crow-d">${r.n}走・平均${r.avg}%・単回${r.t}／複回${r.f}</span>
