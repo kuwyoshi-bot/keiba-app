@@ -653,3 +653,10 @@ details.more { margin-top: 6px; border-top: 1px solid var(--line); }
 details.more > summary { list-style: none; cursor: pointer; padding: 10px 0 4px; font-size: 13px; font-weight: 700; color: var(--accent); }
 details.more > summary::-webkit-details-marker { display: none; }
 details.more[open] > summary { color: var(--muted); }
+
+/* タブのアイコン（Gemini で作った絵の形を、文字の色で塗る。選んだ時やスキンで色が変わる） */
+.tab .ti { display: block; width: 30px; height: 24px; background: currentColor;
+  -webkit-mask: var(--m) center / contain no-repeat; mask: var(--m) center / contain no-repeat; }
+.tab .ti-course { --m: url(img/tab-course.png); }
+.tab .ti-blood { --m: url(img/tab-blood.png); }
+.tab .ti-jockey { --m: url(img/tab-jockey.png); width: 32px; }
