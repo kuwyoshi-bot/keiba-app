@@ -649,3 +649,7 @@ a.sire { text-decoration: underline; text-decoration-color: color-mix(in srgb, v
 .jstats span { font-size: 10.5px; color: var(--muted); }
 .jstats b { font-size: 16px; }
 .tab { min-width: 70px; padding: 7px 12px; }
+details.more { margin-top: 6px; border-top: 1px solid var(--line); }
+details.more > summary { list-style: none; cursor: pointer; padding: 10px 0 4px; font-size: 13px; font-weight: 700; color: var(--accent); }
+details.more > summary::-webkit-details-marker { display: none; }
+details.more[open] > summary { color: var(--muted); }

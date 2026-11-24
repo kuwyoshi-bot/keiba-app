@@ -499,22 +499,26 @@
     </div>`;
   }
 
-  // このコースで目立つ種牡馬（図鑑の50頭から）
+  // このコースで目立つ種牡馬（図鑑の種牡馬から）
   function renderSires(c) {
     const k = ckey(c);
     const list = Object.values(SIRE).map((s) => ({ s, r: rowFor(s.name, k) })).filter((x) => x.r && x.r.n >= 20);
     if (!list.length) return "";
     list.sort((a, b) => b.r.p - a.r.p);
     const avg = D.courseAvg[k];
-    const rows = list.map(({ s, r }) => `
+    const one = ({ s, r }) => `
       <a class="srow${isFew(r) ? " few" : ""}" href="${sireHref(s.name)}">
         <span class="srow-n"><span class="sire t-${s.type}">${s.name}</span><span class="srow-l">${labels(r)}${state.going === "重" ? wetBadge(wetFor(s.name, k)) : ""}</span></span>
         <span class="srow-p num">${r.p}<small>%</small></span>
         <span class="srow-d">${r.n}走・単回${r.t}／複回${r.f}</span>
-      </a>`).join("");
+      </a>`;
+    // 多すぎると見にくいので、上の8頭だけ出して残りはたたむ
+    const top = list.slice(0, 8).map(one).join("");
+    const rest = list.slice(8);
     return `<section class="card"><div class="card-h"><span class="ico" style="background:var(--eu-soft);color:var(--eu)">種</span><h2>このコースの種牡馬</h2><span class="en">Sires here</span></div>
       <p class="note" style="margin:0 0 8px">図鑑の種牡馬のうち、このコースで20走以上あるもの（複勝率の高い順）。コース平均は <b class="num">${avg}%</b>。タップで図鑑へ。</p>
-      <div class="srows">${rows}</div></section>`;
+      <div class="srows">${top}</div>
+      ${rest.length ? `<details class="more"><summary>もっと見る（あと${rest.length}頭）</summary><div class="srows">${rest.map(one).join("")}</div></details>` : ""}</section>`;
   }
 
   function renderPoints(c) {
@@ -612,7 +616,7 @@
     isFew(r) ? `<span class="lab few">参考・${r.n}騎乗</span>` : "",
   ].join("");
   const notesFor = (pred) => (D.jockeyNotes || []).filter(pred);
-  const noteHtml = (n, showCourse) => `<div class="sn-l"><span class="tg rep">評判</span><span>${showCourse ? `<b>${esc(n.k === "全体" ? "全体" : cname(n.k))}</b>：` : `<a class="jname" href="${jockHref(n.name)}">${esc(n.name)}</a>：`}${esc(n.text)}<span class="muted small">（${esc(n.src)}）</span></span></div>`;
+  const noteHtml = (n, showCourse) => `<div class="sn-l"><span class="tg rep">評判</span><span>${showCourse ? `<b>${esc(n.k.includes("|") ? cname(n.k) : n.k)}</b>：` : `<a class="jname" href="${jockHref(n.name)}">${esc(n.name)}</a>：`}${esc(n.text)}<span class="muted small">（${esc(n.src)}）</span></span></div>`;
 
   function renderJockeyCard(c) {
     const k = ckey(c);
@@ -627,7 +631,8 @@
         <span class="srow-d">${r.n}騎乗・ふだん${j.p}%・単回${r.t}／複回${r.f}</span>
       </a>`;
     }).join("");
-    const notes = notesFor((n) => n.k === k).map((n) => noteHtml(n, false)).join("");
+    // そのコースの評判と、その競馬場全体の評判
+    const notes = notesFor((n) => n.k === k || n.k === c.venue).map((n) => noteHtml(n, false)).join("");
     return `<section class="card"><div class="card-h"><span class="ico" style="background:var(--gold-soft);color:var(--gold)">騎</span><h2>このコースの騎手</h2><span class="en">Jockeys</span></div>
       <p class="note" style="margin:0 0 8px">20騎乗以上の騎手から、複勝率の高い人・騎乗数の多い人（常連）・ふだんよりこのコースで走る人を選んだ。コース平均は <b class="num">${jc.avg}%</b>。</p>
       <div class="srows">${rows}</div>
