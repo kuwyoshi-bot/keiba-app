@@ -161,8 +161,11 @@ b, strong { font-weight: 700; color: var(--strong); }
 
 /* ---------- top bar ---------- */
 .topbar {
-  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
-  margin: 0 calc(-1 * max(16px, env(safe-area-inset-left, 0px))); padding: 10px max(16px, env(safe-area-inset-right, 0px)) 10px max(16px, env(safe-area-inset-left, 0px));
+  /* iPhoneのホーム画面版では画面の一番上（時計の下）まで帯を伸ばす。
+     top をずらすと下の中身に帯が重なって「戻る」が隠れるので、top は0にして余白で逃がす */
+  position: sticky; top: 0; z-index: 20;
+  margin: 0 calc(-1 * max(16px, env(safe-area-inset-left, 0px)));
+  padding: calc(10px + env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) 10px max(16px, env(safe-area-inset-left, 0px));
   background: var(--bar);
   backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--line);
@@ -325,6 +328,34 @@ b, strong { font-weight: 700; color: var(--strong); }
 
 .foot { text-align: center; color: var(--faint); font-size: 11px; margin: 28px 0 0; line-height: 1.7; }
 
+/* ---------- 内回り・外回り ---------- */
+.dist small.li, .dist small.lo { display: inline-block; font-size: 9.5px; font-weight: 700; padding: 0 4px; border-radius: 4px; margin-left: 3px; vertical-align: 1px; line-height: 15px; }
+.dist small.li { background: var(--us-soft); color: var(--us); }
+.dist small.lo { background: var(--gold-soft); color: var(--gold); }
+.pill-loop { background: var(--gold); color: var(--on-accent); border-color: var(--gold); font-weight: 700; }
+
+/* ---------- コースの構図 ---------- */
+.cmap { width: 100%; height: auto; display: block; overflow: visible; }
+.cm-track { fill: none; stroke: var(--glass2); stroke-width: 16; stroke-linejoin: round; }
+.cm-rail { fill: none; stroke: var(--line2); stroke-width: 1; stroke-dasharray: 3 4; }
+.cm-run { fill: none; stroke: var(--accent); stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+.cm-arrow { fill: var(--on-accent); stroke: var(--accent); stroke-width: 1.5; }
+.cm-cn { font-family: var(--num); font-size: 10.5px; font-weight: 700; fill: var(--faint); text-anchor: middle; }
+.cm-cn.on { fill: var(--gold); font-size: 12px; }
+.cm-goal { stroke: var(--red); stroke-width: 3; stroke-linecap: round; }
+.cm-start { fill: var(--accent); stroke: var(--bg); stroke-width: 2; }
+.cm-start.turf { fill: var(--gold); }
+.cm-s { font-family: var(--num); font-size: 10px; font-weight: 700; fill: var(--on-accent); text-anchor: middle; }
+.cm-lbl { font-size: 11px; font-weight: 700; fill: var(--text); }
+.cm-dim { font-size: 11px; fill: var(--muted); }
+.cm-mid { font-size: 11px; fill: var(--faint); letter-spacing: .08em; }
+.cm-slope { fill: var(--dirt-soft); stroke: var(--dirt); stroke-width: 1; }
+.cm-st { font-size: 10px; font-weight: 700; fill: var(--dirt); text-anchor: middle; }
+.cm-steps { display: grid; gap: 7px; margin-top: 10px; font-size: 13.5px; }
+.cm-steps .st { display: flex; gap: 9px; align-items: flex-start; line-height: 1.55; }
+.cm-steps .n { flex: 0 0 auto; width: 20px; height: 20px; border-radius: 50%; display: grid; place-items: center; font-family: var(--num); font-size: 11px; font-weight: 700; background: var(--accent-soft); color: var(--accent); margin-top: 1px; }
+.cm-steps .lab { margin-left: 6px; }
+
 /* ---------- links ---------- */
 a { color: inherit; text-decoration: none; }
 a.sire { text-decoration: underline; text-decoration-color: color-mix(in srgb, var(--c, var(--muted)) 55%, transparent); text-underline-offset: 3px; text-decoration-thickness: 1.5px; }
@@ -380,7 +411,11 @@ a.sire { text-decoration: underline; text-decoration-color: color-mix(in srgb, v
 .zrow .chev { grid-column: 2; grid-row: 1 / span 2; align-self: center; }
 
 /* ---------- 図鑑のページ ---------- */
-.back { margin-top: 14px; padding: 6px 12px 6px 8px; border-radius: 999px; border: 1px solid var(--line2); background: var(--glass); font-size: 13px; color: var(--text2); }
+.topback { display: none; flex: 0 0 auto; align-items: center; gap: 2px; height: 34px; padding: 0 14px 0 10px; border-radius: 999px; border: 1px solid var(--line2); background: var(--glass2); font-size: 14px; font-weight: 700; color: var(--text); }
+.topback b { font-size: 20px; line-height: 1; margin-top: -2px; color: var(--accent); }
+.topbar.sub .topback { display: inline-flex; }
+.topbar.sub .brand-mark, .topbar.sub .brand-sub { display: none; }
+.topbar.sub .brand-name { font-size: 16px; }
 .shero { margin-top: 12px; border-radius: calc(var(--radius) + 6px); padding: 20px 18px 18px; border: 1px solid var(--line); position: relative; overflow: hidden;
   background: radial-gradient(500px 220px at 100% 0%, color-mix(in srgb, var(--c) 22%, transparent), transparent 70%), linear-gradient(180deg, var(--surface2), var(--surface)); }
 .shero::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 4px; background: var(--c); }
@@ -455,7 +490,7 @@ a.sire { text-decoration: underline; text-decoration-color: color-mix(in srgb, v
 .lnav a span { font-family: var(--num); font-size: 11px; color: var(--accent); font-weight: 500; }
 .lnav .lnext { text-align: right; }
 
-:root[data-skin="paddock"] .shero, :root[data-skin="paddock"] .lnav a, :root[data-skin="paddock"] .back { border-radius: 8px; }
+:root[data-skin="paddock"] .shero, :root[data-skin="paddock"] .lnav a, :root[data-skin="paddock"] .topback { border-radius: 8px; }
 :root[data-skin="paddock"] .fx { border-left-color: var(--us); }
 :root[data-skin="paddock"] .ip { border-left-color: var(--gold); }
 :root[data-skin="daylight"] .shero, :root[data-skin="daylight"] .lnav a { box-shadow: 0 1px 2px rgba(16,40,28,.06), 0 6px 18px rgba(16,40,28,.05); }

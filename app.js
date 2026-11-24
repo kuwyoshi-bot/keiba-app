@@ -61,10 +61,15 @@
     if (!list.find((c) => c.label === state.label)) state.label = list[0]?.label;
   }
 
-  const labelParts = (c) => {
-    const tag = c.label.endsWith("外") ? "外回り" : c.venue === "新潟" && c.label === "芝1000" ? "直線" : "";
-    return { surf: c.surface === "芝" ? "芝" : "ダート", dist: c.dist, tag };
+  // 芝に内回りと外回りの2つのコースがある競馬場。ここでは「外」と付いていない芝は内回り
+  const TWO_LOOPS = ["中山", "阪神", "京都", "新潟"];
+  const loopOf = (c) => {
+    if (c.surface !== "芝") return "";
+    if (c.venue === "新潟" && c.label === "芝1000") return "直線";
+    if (!TWO_LOOPS.includes(c.venue)) return "";
+    return c.label.endsWith("外") ? "外回り" : "内回り";
   };
+  const labelParts = (c) => ({ surf: c.surface === "芝" ? "芝" : "ダート", dist: c.dist, tag: loopOf(c) });
 
   // ---------- course view ----------
   function renderCourse() {
@@ -79,7 +84,8 @@
         <span class="v-jp">${x.name}</span><span class="v-en">${x.en}</span>
       </button>`).join("");
     const dists = list.map((x) => {
-      const t = x.label.endsWith("外") ? "<small>外</small>" : "";
+      const lp2 = loopOf(x);
+      const t = lp2 === "外回り" ? '<small class="lo">外</small>' : lp2 === "内回り" ? '<small class="li">内</small>' : lp2 === "直線" ? "<small>直</small>" : "";
       return `<button class="dist ${x.label === state.label ? "is-active" : ""}" data-label="${x.label}">${x.dist}${t}</button>`;
     }).join("");
 
@@ -87,10 +93,9 @@
       ? (c.turfStart ? `<span class="pill pill-turf">芝スタート</span>` : `<span class="pill">ダートスタート</span>`)
       : "";
     const pills = [
+      lp.tag ? `<span class="pill pill-loop">${lp.tag}</span>` : "",
       startPill,
       `<span class="pill">${v.turn}</span>`,
-      c.toCorner ? `<span class="pill">${esc(c.corner || "最初のコーナー")}まで <b>${esc(c.toCorner.replace(/^約/, "約 "))}</b></span>` : "",
-      c.start ? `<span class="pill">発走：${esc(c.start.replace(/\*/g, ""))}</span>` : "",
     ].join("");
 
     $view.innerHTML = `
@@ -114,12 +119,12 @@
             <div class="hero-title">
               <span class="surf ${lp.surf === "ダート" ? "dirt" : ""}">${lp.surf}</span>
               <span class="d">${lp.dist}<small>m</small></span>
-              ${lp.tag ? `<span class="tag">${lp.tag}</span>` : ""}
             </div>
             <div class="pills">${pills}</div>
           </div>
         </section>
 
+        ${renderMap(v, c)}
         ${renderBuyAvoid(c)}
         ${renderPoints(c)}
         ${renderSires(c)}
@@ -136,6 +141,134 @@
     $view.querySelectorAll("[data-label]").forEach((b) => b.onclick = () => { state.label = b.dataset.label; save(); renderCourse(); });
     const act = $view.querySelector(".venue.is-active"); if (act) act.scrollIntoView({ inline: "center", block: "nearest" });
     const actd = $view.querySelector(".dist.is-active"); if (actd) actd.scrollIntoView({ inline: "center", block: "nearest" });
+  }
+
+  // ---------- コースの構図（スタート→ゴールの模式図） ----------
+  // 1周の長さと最後の直線の長さ（m、JRAのコース紹介より。芝はAコース）
+  const LOOPS = {
+    東京: { 芝: [2083.1, 525.9], ダ: [1899, 501.6] },
+    中山: { 芝内: [1667.1, 310], 芝外: [1839.7, 310], ダ: [1493, 308] },
+    阪神: { 芝内: [1689, 356.5], 芝外: [2089, 473.6], ダ: [1517.6, 352.7] },
+    京都: { 芝内: [1782.8, 328.4], 芝外: [1894.3, 403.7], ダ: [1607.6, 329.1] },
+    中京: { 芝: [1705.9, 412.5], ダ: [1530, 410.7] },
+    新潟: { 芝内: [1623, 358.7], 芝外: [2223, 658.7], ダ: [1472.5, 353.9] },
+    札幌: { 芝: [1640.9, 266.1], ダ: [1487, 264.3] },
+    函館: { 芝: [1626.6, 262.1], ダ: [1475.8, 260.3] },
+    福島: { 芝: [1600, 292], ダ: [1444.6, 295.7] },
+    小倉: { 芝: [1615.1, 293], ダ: [1445.4, 291.3] },
+  };
+  // ゴール前の坂（ゴールまでの残り距離のあたり）。京都は3コーナーの丘
+  const SLOPE = { 東京: 400, 中山: 130, 阪神: 150, 中京: 340 };
+
+  function renderMap(v, c) {
+    const loop = loopOf(c);
+    const k0 = c.surface === "芝" ? (loop === "外回り" ? "芝外" : loop === "内回り" ? "芝内" : "芝") : "ダ";
+    const L0 = LOOPS[c.venue] && LOOPS[c.venue][k0];
+    const left = v.turn === "左回り";
+    const W = 340;
+    let svg = "", lapNote = "";
+    const accent = "var(--accent)";
+
+    if (loop === "直線") {
+      // 新潟芝1000：まっすぐ1本
+      svg = `<svg viewBox="0 0 ${W} 90" class="cmap" role="img" aria-label="直線1000mの図">
+        <rect x="20" y="30" width="300" height="26" rx="13" class="cm-track"/>
+        <line x1="34" y1="43" x2="300" y2="43" stroke="${accent}" stroke-width="6" stroke-linecap="round"/>
+        <polygon points="300,35 314,43 300,51" fill="${accent}"/>
+        <circle cx="34" cy="43" r="9" class="cm-start"/><text x="34" y="47" class="cm-s">S</text>
+        <line x1="314" y1="24" x2="314" y2="62" class="cm-goal"/><text x="314" y="80" class="cm-lbl" text-anchor="end">ゴール</text>
+        <text x="34" y="80" class="cm-lbl">スタート</text>
+        <text x="170" y="22" class="cm-dim" text-anchor="middle">1000m まっすぐ。コーナーなし</text>
+      </svg>`;
+    } else if (L0) {
+      const [L, H] = L0;
+      const S = H * 1.25;                    // 直線の長さ（両側とも同じにして単純化）
+      const r = (L - 2 * S) / (2 * Math.PI);  // コーナーの半径
+      const k = 288 / (S + 2 * r);            // 1mあたりのpx
+      const R = r * k, cy = 34 + R, cxL = 26 + R, cxR = cxL + S * k, xg = cxR - H * k;
+      const a = S - H, half = Math.PI * r;
+      const ent = { 1: a, 2: a + half / 2, 3: a + half + S, 4: a + half + S + half / 2 };
+      const mx = (x) => (left ? W - x : x);
+      const pt = (s0) => {
+        let s = ((s0 % L) + L) % L, x, y;
+        if (s < a) { x = xg - s * k; y = cy + R; }
+        else if (s < a + half) { const t = Math.PI / 2 + (s - a) / r; x = cxL + R * Math.cos(t); y = cy + R * Math.sin(t); }
+        else if (s < a + half + S) { x = cxL + (s - a - half) * k; y = cy - R; }
+        else if (s < L - H) { const t = -Math.PI / 2 + (s - a - half - S) / r; x = cxR + R * Math.cos(t); y = cy + R * Math.sin(t); }
+        else { x = cxR - (s - (L - H)) * k; y = cy + R; }
+        return [mx(x), y];
+      };
+      // スタートの位置：「最初のコーナーまで◯m」が分かればそこから逆算。分からなければ距離から計算
+      const D = c.dist;
+      let sStart = ((-D % L) + L) % L;
+      const cn = +((c.corner || "").match(/^(\d)コーナー/) || [])[1];
+      const T = +(((c.toCorner || "").match(/(\d+)m/) || [])[1]);
+      if (cn && T) sStart = (((ent[cn] - T) % L) + L) % L;
+      const toGoal = (L - sStart) % L;
+      const laps = Math.max(0, Math.round((D - toGoal) / L));
+      const run = toGoal + laps * L;
+      if (laps > 0) lapNote = `コースを${laps === 1 ? "1周" : laps + "周"}以上回る（スタートの前を一度通る）`;
+      const path = [];
+      for (let t = 0; t <= run; t += 8) path.push(pt(sStart + t));
+      path.push(pt(L));
+      const d = path.map((p, i) => (i ? "L" : "M") + p[0].toFixed(1) + " " + p[1].toFixed(1)).join("");
+      const loopD = []; for (let s = 0; s <= L; s += 8) loopD.push(pt(s));
+      const ld = loopD.map((p, i) => (i ? "L" : "M") + p[0].toFixed(1) + " " + p[1].toFixed(1)).join("") + "Z";
+      // 進む向きの矢印
+      const arrows = [0.3, 0.6, 0.85].map((f) => {
+        const s = sStart + run * f, p = pt(s), q = pt(s + 6);
+        const ang = (Math.atan2(q[1] - p[1], q[0] - p[0]) * 180) / Math.PI;
+        return `<polygon points="-5,-5 5,0 -5,5" transform="translate(${p[0].toFixed(1)} ${p[1].toFixed(1)}) rotate(${ang.toFixed(0)})" class="cm-arrow"/>`;
+      }).join("");
+      // コーナーの番号（外側に置く）
+      const cl = [1, 2, 3, 4].map((n) => {
+        const s = ent[n] + half / 4;
+        const p = pt(s);
+        const cx = mx(n <= 2 ? cxL : cxR);
+        const dx = p[0] - cx, dy = p[1] - cy, len = Math.hypot(dx, dy) || 1;
+        return `<text x="${(p[0] + (dx / len) * 13).toFixed(1)}" y="${(p[1] + (dy / len) * 13 + 4).toFixed(1)}" class="cm-cn${n === cn ? " on" : ""}">${n}</text>`;
+      }).join("");
+      const sp = pt(sStart), gp = pt(0);
+      const goalY = cy + R;
+      // 坂
+      let slope = "";
+      if (SLOPE[c.venue] && SLOPE[c.venue] < H) {
+        const p = pt(L - SLOPE[c.venue]);
+        slope = `<g transform="translate(${p[0].toFixed(1)} ${(goalY + 15).toFixed(1)})"><rect x="-13" y="-8" width="26" height="16" rx="8" class="cm-slope"/><text y="4" class="cm-st">坂</text></g>`;
+      } else if (c.venue === "京都") {
+        const p = pt(ent[3] + half / 4);
+        slope = `<g transform="translate(${p[0].toFixed(1)} ${(p[1] - 20).toFixed(1)})"><rect x="-13" y="-8" width="26" height="16" rx="8" class="cm-slope"/><text y="4" class="cm-st">丘</text></g>`;
+      }
+      const hgt = Math.ceil(cy + R + 40);
+      const startLblY = sp[1] < cy ? sp[1] - 14 : sp[1] + 24;
+      svg = `<svg viewBox="0 0 ${W} ${hgt}" class="cmap" role="img" aria-label="スタートからゴールまでの模式図">
+        <path d="${ld}" class="cm-track"/>
+        <path d="${ld}" class="cm-rail"/>
+        <path d="${d}" class="cm-run"/>
+        ${arrows}
+        ${cl}
+        <line x1="${gp[0].toFixed(1)}" y1="${(goalY - 11).toFixed(1)}" x2="${gp[0].toFixed(1)}" y2="${(goalY + 11).toFixed(1)}" class="cm-goal"/>
+        <text x="${gp[0].toFixed(1)}" y="${(goalY + 30).toFixed(1)}" class="cm-lbl" text-anchor="middle">ゴール</text>
+        ${slope}
+        <circle cx="${sp[0].toFixed(1)}" cy="${sp[1].toFixed(1)}" r="9" class="cm-start${c.turfStart ? " turf" : ""}"/>
+        <text x="${sp[0].toFixed(1)}" y="${(sp[1] + 4).toFixed(1)}" class="cm-s">S</text>
+        <text x="${sp[0].toFixed(1)}" y="${startLblY.toFixed(1)}" class="cm-lbl" text-anchor="middle">スタート</text>
+        <text x="${W / 2}" y="${(cy + 4).toFixed(1)}" class="cm-mid" text-anchor="middle">${v.turn}${loop ? "・" + loop : ""}</text>
+      </svg>`;
+    } else return "";
+
+    const lastStraight = L0 ? `${L0[1]}m` : "—";
+    const T = (c.toCorner || "").replace(/\*/g, "");
+    return `<section class="card cmapcard"><div class="card-h"><span class="ico" style="background:var(--accent-soft);color:var(--accent)">→</span><h2>スタートからゴールまで</h2><span class="en">Course map</span></div>
+      ${svg}
+      <div class="cm-steps">
+        <div class="st"><span class="n">1</span><div><b>スタート</b>：${esc((c.start || "—").replace(/\*\*/g, ""))}${c.turfStart ? '<span class="lab good">芝からスタート</span>' : ""}</div></div>
+        ${c.corner && !/なし/.test(c.corner) ? `<div class="st"><span class="n">2</span><div><b>最初のコーナー</b>：${esc(c.corner)}まで <b class="num">${esc(T || "—")}</b></div></div>` : ""}
+        <div class="st"><span class="n">${c.corner && !/なし/.test(c.corner) ? 3 : 2}</span><div><b>最後の直線</b>：<b class="num">${lastStraight}</b>${SLOPE[c.venue] ? "。ゴール前に坂" : c.venue === "京都" ? "。3コーナーに丘（上って下る）" : "。平坦に近い"}</div></div>
+        ${lapNote ? `<div class="st"><span class="n">!</span><div>${lapNote}</div></div>` : ""}
+      </div>
+      <p class="note">形は楕円に単純化した模式図（長さの比はだいたい）。スタートの位置は「最初のコーナーまでの距離」から逆算。</p>
+    </section>`;
   }
 
   // 買い・消しの項目に出てくる種牡馬について、このコースの数字と理屈を1行ずつ添える
@@ -484,7 +617,7 @@
       </div>`;
   }
 
-  const backBtn = () => `<button class="back" data-back>‹ 戻る</button>`;
+  const backBtn = () => "";  // 戻るボタンは上の帯に移した
 
   // ---------- skins ----------
   const SKINS = [
@@ -529,6 +662,8 @@
     const [r, arg] = [h.split("/")[0], h.slice(h.indexOf("/") + 1)];
     const tab = r === "course" || !r ? "course" : "blood";
     document.querySelectorAll(".tab").forEach((t) => t.classList.toggle("is-active", t.dataset.tab === tab));
+    // 図鑑・レッスンのページでは、上の帯に「戻る」を出す
+    document.querySelector(".topbar")?.classList.toggle("sub", r === "sire" || r === "lesson");
     if (r === "sire") renderSire(arg);
     else if (r === "lesson") renderLesson(+arg);
     else if (r === "blood") renderBlood();
