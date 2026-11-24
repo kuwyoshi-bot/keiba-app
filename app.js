@@ -347,7 +347,7 @@
         <line x1="${gp[0].toFixed(1)}" y1="${(goalY - 11).toFixed(1)}" x2="${gp[0].toFixed(1)}" y2="${(goalY + 11).toFixed(1)}" class="cm-goal"/>
         <text x="${gp[0].toFixed(1)}" y="${(goalY + 30).toFixed(1)}" class="cm-lbl" text-anchor="middle">ゴール</text>
         ${slope}
-        <circle cx="${sp[0].toFixed(1)}" cy="${sp[1].toFixed(1)}" r="9" class="cm-start${c.turfStart ? " turf" : ""}"/>
+        <circle cx="${sp[0].toFixed(1)}" cy="${sp[1].toFixed(1)}" r="9" class="cm-start${c.surface !== "芝" && !c.turfStart ? " dirt" : ""}"/>
         <text x="${sp[0].toFixed(1)}" y="${(sp[1] + 4).toFixed(1)}" class="cm-s">S</text>
         <text x="${lx.toFixed(1)}" y="${ly.toFixed(1)}" class="cm-lbl" text-anchor="middle">スタート${c.turfStart ? "（芝）" : ""}</text>
         <text x="${W / 2}" y="${(cy + 4).toFixed(1)}" class="cm-mid" text-anchor="middle">${v.turn}${loop ? "・" + loop : ""}</text>

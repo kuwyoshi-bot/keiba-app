@@ -28,6 +28,7 @@
   --eu: #c3a2ff;
   --eu-soft: rgba(195, 162, 255, 0.13);
   --dirt: #e9c99a;
+  --turf: #5ee6a8;
   --dirt-soft: rgba(233, 201, 154, 0.18);
   --bar: rgba(11, 15, 13, 0.86);
   --tabbar: rgba(22, 30, 26, 0.84);
@@ -75,6 +76,7 @@
   --eu: #7c55d6;
   --eu-soft: rgba(124, 85, 214, 0.10);
   --dirt: #9a6a2e;
+  --turf: #1f9a5c;
   --dirt-soft: rgba(154, 106, 46, 0.12);
   --bar: rgba(238, 242, 238, 0.88);
   --tabbar: rgba(255, 255, 255, 0.9);
@@ -117,6 +119,7 @@
   --eu: #b99bff;
   --eu-soft: rgba(185, 155, 255, 0.14);
   --dirt: #ffb86b;
+  --turf: #4fd18b;
   --dirt-soft: rgba(255, 184, 107, 0.16);
   --bar: rgba(12, 19, 48, 0.88);
   --tabbar: rgba(18, 27, 64, 0.9);
@@ -232,7 +235,7 @@ b, strong { font-weight: 700; color: var(--strong); }
 .pills { display: flex; flex-wrap: wrap; gap: 6px; }
 .pill { font-size: 12px; padding: 4px 10px; border-radius: 999px; background: var(--glass2); border: 1px solid var(--line2); backdrop-filter: blur(6px); }
 .pill b { font-family: var(--num); }
-.pill-turf { background: var(--accent); color: var(--on-accent); border-color: var(--accent); font-weight: 700; }
+.pill-turf { background: var(--turf); color: #08140e; border-color: var(--turf); font-weight: 700; }
 
 /* ---------- cards ---------- */
 .card { margin-top: 14px; background: linear-gradient(180deg, var(--surface2), var(--surface)); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px; }
@@ -361,20 +364,20 @@ b, strong { font-weight: 700; color: var(--strong); }
 .cmap { width: 100%; height: auto; display: block; overflow: visible; }
 .cm-track { fill: none; stroke: var(--glass2); stroke-width: 16; stroke-linejoin: round; }
 .cm-rail { fill: none; stroke: var(--line2); stroke-width: 1; stroke-dasharray: 3 4; }
-.cm-run { fill: none; stroke: var(--accent); stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+.cm-run { fill: none; stroke: var(--turf); stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
 .cm-run.dirt { stroke: var(--dirt); }
-.cm-arrow { fill: var(--on-accent); stroke: var(--accent); stroke-width: 1.5; }
+.cm-arrow { fill: var(--bg); stroke: var(--turf); stroke-width: 1.5; }
 .cm-arrow.dirt { stroke: var(--dirt); fill: var(--bg); }
 .cm-other { fill: none; stroke-width: 6; opacity: .35; }
-.cm-other.turf { stroke: var(--accent); }
+.cm-other.turf { stroke: var(--turf); }
 .cm-other.dirt { stroke: var(--dirt); }
 .cm-chute-bg { stroke: var(--glass2); stroke-width: 16; stroke-linecap: round; }
-.cm-turf { font-size: 10.5px; font-weight: 700; fill: var(--accent); }
+.cm-turf { font-size: 10.5px; font-weight: 700; fill: var(--turf); }
 .cm-cn { font-family: var(--num); font-size: 10.5px; font-weight: 700; fill: var(--faint); text-anchor: middle; }
-.cm-cn.on { fill: var(--gold); font-size: 12px; }
+.cm-cn.on { fill: var(--text); font-size: 12px; }
 .cm-goal { stroke: var(--red); stroke-width: 3; stroke-linecap: round; }
-.cm-start { fill: var(--accent); stroke: var(--bg); stroke-width: 2; }
-.cm-start.turf { fill: var(--gold); }
+.cm-start { fill: var(--turf); stroke: var(--bg); stroke-width: 2; }
+.cm-start.dirt { fill: var(--dirt); }
 .cm-s { font-family: var(--num); font-size: 10px; font-weight: 700; fill: var(--on-accent); text-anchor: middle; }
 .cm-lbl { font-size: 11px; font-weight: 700; fill: var(--text); }
 .cm-dim { font-size: 11px; fill: var(--muted); }

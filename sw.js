@@ -1,5 +1,5 @@
 // オフラインでも開けるように、アプリのファイルを保存しておく
-const CACHE = "turfnote-v9";
+const CACHE = "turfnote-v10";
 const FILES = [
   "./", "index.html", "style.css", "app.js", "data.js", "manifest.webmanifest", "icon.svg",
   "img/tokyo-3d.jpg", "img/nakayama-3d.jpg", "img/hanshin-3d.jpg", "img/kyoto-3d.jpg", "img/chukyo-3d.jpg",
