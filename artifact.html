@@ -1,0 +1,30 @@
+<title>Turf Note</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>window.TURFNOTE_NO_SW = true;</script>
+
+<div class="app">
+  <header class="topbar">
+    <div class="brand">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M8 25c-2.5-3-3.5-6.5-3-10.5C5.8 8.6 10.3 5 16 5s10.2 3.6 11 9.5c.5 4-.5 7.5-3 10.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="8.5" cy="17" r="1.6" fill="currentColor"/><circle cx="23.5" cy="17" r="1.6" fill="currentColor"/><circle cx="11" cy="10.5" r="1.6" fill="currentColor"/><circle cx="21" cy="10.5" r="1.6" fill="currentColor"/></svg>
+      <div>
+        <div class="brand-name">Turf Note</div>
+        <div class="brand-sub">コースから買い方を引く</div>
+      </div>
+      <button id="skin" class="skin-btn" aria-label="デザインを切り替える"><i></i><span>Midnight</span></button>
+    </div>
+  </header>
+
+  <main id="view"></main>
+
+  <nav class="tabbar" aria-label="メニュー">
+    <button class="tab is-active" data-tab="course"><svg viewBox="0 0 24 24"><path d="M4 18c0-6 3.6-11 8-11s8 5 8 11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>コース</span></button>
+    <button class="tab" data-tab="blood"><svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="18" cy="6" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="18" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.5 8l3.5 7.5M16.5 8L13 15.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>血統</span></button>
+  </nav>
+</div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
