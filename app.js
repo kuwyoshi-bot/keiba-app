@@ -38,7 +38,12 @@
       .replace(/(\d+(?:\.\d+)?%)/g, '<span class="num">$1</span>');
   };
   const ckey = (c) => `${c.venue}|${c.label}`;
-  const cname = (k) => { const [v, l] = k.split("|"); return `${v} ${l.replace(/^ダ/, "ダ").replace(/外$/, "外")}`; };
+  // コース名。内回りと外回りがある競馬場の芝は「内」「外」を必ず付ける（例：京都 芝1400内／京都 芝1400外）
+  const cname = (k) => {
+    const [v, l] = k.split("|");
+    const two = ["中山", "阪神", "京都", "新潟"].includes(v) && l.startsWith("芝") && !l.endsWith("外") && !(v === "新潟" && l === "芝1000");
+    return `${v} ${l}${two ? "内" : ""}`;
+  };
   // 「よく来る」（複勝率＝結果）と「妙味」（過去の回収率）を分けて判定する
   const isGood = (r) => r.n >= 20 && r.p >= r.avg * 1.2;
   const isValue = (r) => r.n >= 20 && r.p >= r.avg * 0.85 && (r.f >= 100 || (r.t >= 120 && r.f >= 90));
