@@ -1020,7 +1020,7 @@
     // カード：名前・系統・キーワード2つだけ。文章は図鑑のページに任せる
     const card = (s) => `
       <a class="zcard" href="${sireHref(s.name)}" data-q="${esc(s.name)}" style="--c:${TYPE_COLOR[s.type]}">
-        <span class="zc-line"><i class="btag" style="--pb:${bigLine(s).bg};--pf:${bigLine(s).fg}">${bigLine(s).tag}</i>${esc(s.line)}${s.rows ? "" : "・祖先"}</span>
+        <span class="zc-line"><i class="btag" style="--pb:${bigLine(s).bg};--pf:${bigLine(s).fg}">${bigLine(s).tag}</i>${esc(s.line)}${s.rows ? "" : s.mf ? "・母父" : "・祖先"}</span>
         <span class="zc-name">${esc(s.name)}</span>
         <span class="zc-kw">${kwChips(s)}</span>
       </a>`;
@@ -1166,10 +1166,8 @@
       ${s.notes.length ? `<h4 class="sub">ほかに</h4>${s.notes.map((n) => `<p class="desc">${rich(n, { terms: true })}</p>`).join("")}` : ""}
     </section>`;
 
-    let facts = "";
-    if (s.rows) {
-      const bands = Object.keys(BAND_NAME).filter((b) => s.bands[b]).map((b) => {
-        const [n, w, p, t, fu] = s.bands[b];
+    const bandBars = (B) => Object.keys(BAND_NAME).filter((b) => B[b]).map((b) => {
+        const [n, w, p, t, fu] = B[b];
         const avg = D.bandAvg[b];
         const cls = p >= avg * 1.15 ? "hi" : p <= avg * 0.85 ? "lo" : "";
         return `<div class="bband ${cls}${n < 100 ? " few" : ""}">
@@ -1179,6 +1177,15 @@
           <span class="bd">${n}走・勝率${w}%・単回${t}／複回${fu}</span>
         </div>`;
       }).join("");
+    const courseRows = (rows) => `<div class="crows">${rows.map((r) => `
+            <a class="crow${isFew(r) ? " few" : ""}" href="#course" data-course="${esc(r.k)}">
+              <span class="crow-k">${esc(cname(r.k))}<span class="crow-l">${labels(r)}</span></span>
+              <span class="crow-p num">${r.p}<small>%</small></span>
+              <span class="crow-d">${r.n}走・平均${r.avg}%・単回${r.t}／複回${r.f}</span>
+            </a>`).join("")}</div>`;
+    let facts = "";
+    if (s.rows) {
+      const bands = bandBars(s.bands);
       // 「得」「妙」「苦」は集計のときに選んだ行。買い／消しやコース上位から来た行（買・主）も、条件に合えば足す
       const extra = (r) => r.tag === "買" || r.tag === "主";
       const pick = {
@@ -1191,12 +1198,7 @@
         const rows = s.rows.filter(pick[tag]).sort(sorter[tag]).slice(0, 8);
         if (!rows.length) return "";
         return `<h4 class="sub">${title}</h4>${note ? `<p class="note" style="margin:-4px 0 6px">${note}</p>` : ""}
-          <div class="crows">${rows.map((r) => `
-            <a class="crow${isFew(r) ? " few" : ""}" href="#course" data-course="${esc(r.k)}">
-              <span class="crow-k">${esc(cname(r.k))}<span class="crow-l">${labels(r)}</span></span>
-              <span class="crow-p num">${r.p}<small>%</small></span>
-              <span class="crow-d">${r.n}走・平均${r.avg}%・単回${r.t}／複回${r.f}</span>
-            </a>`).join("")}</div>`;
+          ${courseRows(rows)}`;
       };
       facts = `<section class="card fx"><div class="card-h"><span class="tg f big">数字</span><h2>事実：5年間の成績</h2><span class="en">Data</span></div>
         <h4 class="sub" style="margin-top:0">距離ごとの複勝率</h4>
@@ -1207,9 +1209,28 @@
         ${table("苦", "来ていないコース", "")}
         <p class="note">複勝率＝3着以内に入った割合。単回・複回＝単勝・複勝の回収率（100%超で、買い続けたらプラス）。<a class="term" href="#lesson/8">レッスン8</a></p>
       </section>`;
-    } else {
+    } else if (!s.mf) {
       facts = `<section class="card fx"><div class="card-h"><span class="tg f big">数字</span><h2>事実</h2><span class="en">Data</span></div>
         <p class="note" style="margin:0">本人の産駒はいまほとんど走っていないので、成績は載せていない。子どもたちのページを見てほしい。</p></section>`;
+    }
+
+    // 母父に入ったとき（この馬が「母の父」にいる馬の成績）
+    let mfSec = "";
+    if (s.mf) {
+      const mt = (tag, title, note) => {
+        const sorter = { 得: (a, b) => b.p / b.avg - a.p / a.avg, 妙: (a, b) => b.f - a.f, 苦: (a, b) => a.p / a.avg - b.p / b.avg };
+        const rows = s.mf.rows.filter((r) => r.tag === tag).sort(sorter[tag]);
+        return rows.length ? `<h4 class="sub">${title}</h4>${note ? `<p class="note" style="margin:-4px 0 6px">${note}</p>` : ""}${courseRows(rows)}` : "";
+      };
+      mfSec = `<section class="card fx"><div class="card-h"><span class="tg f big">数字</span><h2>母父に入ったとき</h2><span class="en">As damsire</span></div>
+        <p class="note" style="margin:0 0 8px">出馬表の「母父」の欄にこの馬がいるときの成績（5年）${s.rows ? "" : "。父としての産駒はいまほとんど走っていないので、父の成績は載せていない"}</p>
+        ${s.mfNote ? `<div class="sn-l" style="margin:0 0 12px"><span class="tg w">理屈</span><span>${rich(s.mfNote, { terms: true })}</span></div>` : ""}
+        <h4 class="sub" style="margin-top:0">距離ごとの複勝率</h4>
+        <div class="bbands">${bandBars(s.mf.bands)}</div>
+        ${mt("得", "よく来るコース", "")}
+        ${mt("妙", "人気のわりに来たコース", "")}
+        ${mt("苦", "来ていないコース", "")}
+      </section>`;
     }
 
     const wet = s.wet || [];
@@ -1240,6 +1261,7 @@
         ${pedCard(s.name)}
         ${theory}
         ${facts}
+        ${mfSec}
         ${rain}
         <p class="foot">数字：スマート出馬表 5年集計（2021.11〜2026.11）。雨：同じ集計の重・不良<br>理屈は一般的な考え方と亀谷敬正さんの公開情報をもとにした自分用の解釈。「推定」は未確認</p>
       </div>`;

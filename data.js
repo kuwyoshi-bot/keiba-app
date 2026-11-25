@@ -10889,6 +10889,2576 @@ window.KEIBA_DATA = {
      }
     ]
    ]
+  },
+  "クロフネ": {
+   "g": [
+    [
+     {
+      "n": "フレンチデピュティ"
+     },
+     {
+      "n": "ブルーアヴェニュー"
+     }
+    ],
+    [
+     {
+      "n": "Deputy Minister",
+      "c": "加"
+     },
+     {
+      "n": "Mitterand",
+      "c": "米"
+     },
+     {
+      "n": "Classic Go Go",
+      "c": "米"
+     },
+     {
+      "n": "Eliza Blue",
+      "c": "米"
+     }
+    ],
+    [
+     {
+      "n": "Vice Regent"
+     },
+     {
+      "n": "Mint Copy",
+      "c": "加"
+     },
+     {
+      "n": "Hold Your Peace",
+      "c": "米"
+     },
+     {
+      "n": "Laredo Lass",
+      "c": "米"
+     },
+     {
+      "n": "Pago Pago",
+      "c": "豪"
+     },
+     {
+      "n": "Classic Perfection",
+      "c": "米"
+     },
+     {
+      "n": "Icecapade"
+     },
+     {
+      "n": "コレラ"
+     }
+    ],
+    [
+     {
+      "n": "Northern Dancer",
+      "c": "加"
+     },
+     {
+      "n": "Victoria Regina",
+      "c": "加"
+     },
+     {
+      "n": "Bunty's Flight",
+      "c": "加"
+     },
+     {
+      "n": "Shakney",
+      "c": "米"
+     },
+     {
+      "n": "Speak John",
+      "c": "米"
+     },
+     {
+      "n": "Blue Moon",
+      "c": "米"
+     },
+     {
+      "n": "Bold Ruler",
+      "c": "米"
+     },
+     {
+      "n": "Fortunate Isle",
+      "c": "米"
+     },
+     {
+      "n": "Matrice",
+      "c": "豪"
+     },
+     {
+      "n": "Pompilia",
+      "c": "豪"
+     },
+     {
+      "n": "Never Bend",
+      "c": "米"
+     },
+     {
+      "n": "Mira Femme",
+      "c": "米"
+     },
+     {
+      "n": "Nearctic",
+      "c": "加"
+     },
+     {
+      "n": "Shenanigans",
+      "c": "米"
+     },
+     {
+      "n": "Roberto",
+      "c": "米"
+     },
+     {
+      "n": "Catania",
+      "c": "新"
+     }
+    ]
+   ]
+  },
+  "アグネスタキオン": {
+   "g": [
+    [
+     {
+      "n": "サンデーサイレンス"
+     },
+     {
+      "n": "アグネスフローラ"
+     }
+    ],
+    [
+     {
+      "n": "Halo",
+      "c": "米"
+     },
+     {
+      "n": "Wishing Well",
+      "c": "米"
+     },
+     {
+      "n": "ロイヤルスキー"
+     },
+     {
+      "n": "アグネスレディー"
+     }
+    ],
+    [
+     {
+      "n": "Hail to Reason",
+      "c": "米"
+     },
+     {
+      "n": "Cosmah",
+      "c": "米"
+     },
+     {
+      "n": "Understanding",
+      "c": "米"
+     },
+     {
+      "n": "Mountain Flower",
+      "c": "米"
+     },
+     {
+      "n": "Raja Baba",
+      "c": "米"
+     },
+     {
+      "n": "Coz o'Nijinsky",
+      "c": "米"
+     },
+     {
+      "n": "リマンド"
+     },
+     {
+      "n": "イコマエイカン"
+     }
+    ],
+    [
+     {
+      "n": "Turn-to",
+      "c": "愛"
+     },
+     {
+      "n": "Nothirdchance",
+      "c": "米"
+     },
+     {
+      "n": "Cosmic Bomb",
+      "c": "米"
+     },
+     {
+      "n": "Almahmoud",
+      "c": "米"
+     },
+     {
+      "n": "Promised Land",
+      "c": "米"
+     },
+     {
+      "n": "Pretty Ways",
+      "c": "米"
+     },
+     {
+      "n": "Montparnasse",
+      "c": "亜"
+     },
+     {
+      "n": "Edelweiss",
+      "c": "米"
+     },
+     {
+      "n": "Bold Ruler",
+      "c": "米"
+     },
+     {
+      "n": "Missy Baba",
+      "c": "米"
+     },
+     {
+      "n": "Involvement",
+      "c": "米"
+     },
+     {
+      "n": "Gleam",
+      "c": "米"
+     },
+     {
+      "n": "Alcide",
+      "c": "英"
+     },
+     {
+      "n": "Admonish",
+      "c": "愛"
+     },
+     {
+      "n": "Sallymount",
+      "c": "英"
+     },
+     {
+      "n": "ヘザーランズ"
+     }
+    ]
+   ]
+  },
+  "マンハッタンカフェ": {
+   "g": [
+    [
+     {
+      "n": "サンデーサイレンス"
+     },
+     {
+      "n": "サトルチェンジ"
+     }
+    ],
+    [
+     {
+      "n": "Halo",
+      "c": "米"
+     },
+     {
+      "n": "Wishing Well",
+      "c": "米"
+     },
+     {
+      "n": "Law Society",
+      "c": "米"
+     },
+     {
+      "n": "Santa Luciana",
+      "c": "独"
+     }
+    ],
+    [
+     {
+      "n": "Hail to Reason",
+      "c": "米"
+     },
+     {
+      "n": "Cosmah",
+      "c": "米"
+     },
+     {
+      "n": "Understanding",
+      "c": "米"
+     },
+     {
+      "n": "Mountain Flower",
+      "c": "米"
+     },
+     {
+      "n": "Alleged",
+      "c": "米"
+     },
+     {
+      "n": "Bold Bikini",
+      "c": "米"
+     },
+     {
+      "n": "Luciano",
+      "c": "英"
+     },
+     {
+      "n": "Suleika",
+      "c": "独"
+     }
+    ],
+    [
+     {
+      "n": "Turn-to",
+      "c": "愛"
+     },
+     {
+      "n": "Nothirdchance",
+      "c": "米"
+     },
+     {
+      "n": "Cosmic Bomb",
+      "c": "米"
+     },
+     {
+      "n": "Almahmoud",
+      "c": "米"
+     },
+     {
+      "n": "Promised Land",
+      "c": "米"
+     },
+     {
+      "n": "Pretty Ways",
+      "c": "米"
+     },
+     {
+      "n": "Montparnasse",
+      "c": "亜"
+     },
+     {
+      "n": "Edelweiss",
+      "c": "米"
+     },
+     {
+      "n": "Hoist the Flag",
+      "c": "米"
+     },
+     {
+      "n": "Princess Pout",
+      "c": "米"
+     },
+     {
+      "n": "Boldnesian",
+      "c": "米"
+     },
+     {
+      "n": "Ran-Tan",
+      "c": "米"
+     },
+     {
+      "n": "Henry the Seventh",
+      "c": "英"
+     },
+     {
+      "n": "Light Arctic",
+      "c": "英"
+     },
+     {
+      "n": "Ticino",
+      "c": "独"
+     },
+     {
+      "n": "Schwarzblaurot",
+      "c": "独"
+     }
+    ]
+   ]
+  },
+  "フレンチデピュティ": {
+   "g": [
+    [
+     {
+      "n": "Deputy Minister",
+      "c": "加"
+     },
+     {
+      "n": "Mitterand",
+      "c": "米"
+     }
+    ],
+    [
+     {
+      "n": "Vice Regent"
+     },
+     {
+      "n": "Mint Copy",
+      "c": "加"
+     },
+     {
+      "n": "Hold Your Peace",
+      "c": "米"
+     },
+     {
+      "n": "Laredo Lass",
+      "c": "米"
+     }
+    ],
+    [
+     {
+      "n": "Northern Dancer",
+      "c": "加"
+     },
+     {
+      "n": "Victoria Regina",
+      "c": "加"
+     },
+     {
+      "n": "Bunty's Flight",
+      "c": "加"
+     },
+     {
+      "n": "Shakney",
+      "c": "米"
+     },
+     {
+      "n": "Speak John",
+      "c": "米"
+     },
+     {
+      "n": "Blue Moon",
+      "c": "米"
+     },
+     {
+      "n": "Bold Ruler",
+      "c": "米"
+     },
+     {
+      "n": "Fortunate Isle",
+      "c": "米"
+     }
+    ],
+    [
+     {
+      "n": "Nearctic",
+      "c": "加"
+     },
+     {
+      "n": "Natalma",
+      "c": "米"
+     },
+     {
+      "n": "Menetrier",
+      "c": "仏"
+     },
+     {
+      "n": "Victoriana",
+      "c": "加"
+     },
+     {
+      "n": "Bunty Lawless",
+      "c": "加"
+     },
+     {
+      "n": "Broomflight",
+      "c": "米"
+     },
+     {
+      "n": "Jabneh",
+      "c": "米"
+     },
+     {
+      "n": "Grass Shack",
+      "c": "米"
+     },
+     {
+      "n": "Prince John",
+      "c": "米"
+     },
+     {
+      "n": "Nuit de Folies",
+      "c": "仏"
+     },
+     {
+      "n": "Eight Thirty",
+      "c": "米"
+     },
+     {
+      "n": "Blue Grail",
+      "c": "米"
+     },
+     {
+      "n": "Nasrullah",
+      "c": "英"
+     },
+     {
+      "n": "Miss Disco",
+      "c": "米"
+     },
+     {
+      "n": "Ambiorix",
+      "c": "仏"
+     },
+     {
+      "n": "Slippy",
+      "c": "米"
+     }
+    ]
+   ]
+  },
+  "ゼンノロブロイ": {
+   "g": [
+    [
+     {
+      "n": "サンデーサイレンス"
+     },
+     {
+      "n": "ローミンレイチェル"
+     }
+    ],
+    [
+     {
+      "n": "Halo",
+      "c": "米"
+     },
+     {
+      "n": "Wishing Well",
+      "c": "米"
+     },
+     {
+      "n": "マイニング"
+     },
+     {
+      "n": "One Smart Lady",
+      "c": "米"
+     }
+    ],
+    [
+     {
+      "n": "Hail to Reason",
+      "c": "米"
+     },
+     {
+      "n": "Cosmah",
+      "c": "米"
+     },
+     {
+      "n": "Understanding",
+      "c": "米"
+     },
+     {
+      "n": "Mountain Flower",
+      "c": "米"
+     },
+     {
+      "n": "Mr. Prospector",
+      "c": "米"
+     },
+     {
+      "n": "I Pass",
+      "c": "米"
+     },
+     {
+      "n": "Clever Trick",
+      "c": "米"
+     },
+     {
+      "n": "Pia's Lady",
+      "c": "米"
+     }
+    ],
+    [
+     {
+      "n": "Turn-to",
+      "c": "愛"
+     },
+     {
+      "n": "Nothirdchance",
+      "c": "米"
+     },
+     {
+      "n": "Cosmic Bomb",
+      "c": "米"
+     },
+     {
+      "n": "Almahmoud",
+      "c": "米"
+     },
+     {
+      "n": "Promised Land",
+      "c": "米"
+     },
+     {
+      "n": "Pretty Ways",
+      "c": "米"
+     },
+     {
+      "n": "Montparnasse",
+      "c": "亜"
+     },
+     {
+      "n": "Edelweiss",
+      "c": "米"
+     },
+     {
+      "n": "Raise a Native",
+      "c": "米"
+     },
+     {
+      "n": "Gold Digger",
+      "c": "米"
+     },
+     {
+      "n": "Buckpasser",
+      "c": "米"
+     },
+     {
+      "n": "Impish",
+      "c": "米"
+     },
+     {
+      "n": "Icecapade"
+     },
+     {
+      "n": "Kankakee Miss",
+      "c": "米"
+     },
+     {
+      "n": "Pia Star",
+      "c": "米"
+     },
+     {
+      "n": "Plucky Roman",
+      "c": "米"
+     }
+    ]
+   ]
+  },
+  "スペシャルウィーク": {
+   "g": [
+    [
+     {
+      "n": "サンデーサイレンス"
+     },
+     {
+      "n": "キャンペンガール"
+     }
+    ],
+    [
+     {
+      "n": "Halo",
+      "c": "米"
+     },
+     {
+      "n": "Wishing Well",
+      "c": "米"
+     },
+     {
+      "n": "マルゼンスキー"
+     },
+     {
+      "n": "レディーシラオキ"
+     }
+    ],
+    [
+     {
+      "n": "Hail to Reason",
+      "c": "米"
+     },
+     {
+      "n": "Cosmah",
+      "c": "米"
+     },
+     {
+      "n": "Understanding",
+      "c": "米"
+     },
+     {
+      "n": "Mountain Flower",
+      "c": "米"
+     },
+     {
+      "n": "Nijinsky",
+      "c": "加"
+     },
+     {
+      "n": "シル"
+     },
+     {
+      "n": "セントクレスピン"
+     },
+     {
+      "n": "ミスアシヤガワ"
+     }
+    ],
+    [
+     {
+      "n": "Turn-to",
+      "c": "愛"
+     },
+     {
+      "n": "Nothirdchance",
+      "c": "米"
+     },
+     {
+      "n": "Cosmic Bomb",
+      "c": "米"
+     },
+     {
+      "n": "Almahmoud",
+      "c": "米"
+     },
+     {
+      "n": "Promised Land",
+      "c": "米"
+     },
+     {
+      "n": "Pretty Ways",
+      "c": "米"
+     },
+     {
+      "n": "Montparnasse",
+      "c": "亜"
+     },
+     {
+      "n": "Edelweiss",
+      "c": "米"
+     },
+     {
+      "n": "Northern Dancer",
+      "c": "加"
+     },
+     {
+      "n": "Flaming Page",
+      "c": "加"
+     },
+     {
+      "n": "Buckpasser",
+      "c": "米"
+     },
+     {
+      "n": "Quill",
+      "c": "米"
+     },
+     {
+      "n": "Aureole",
+      "c": "英"
+     },
+     {
+      "n": "Neocracy",
+      "c": "英"
+     },
+     {
+      "n": "ヒンドスタン"
+     },
+     {
+      "n": "シラオキ"
+     }
+    ]
+   ]
+  },
+  "ネオユニヴァース": {
+   "g": [
+    [
+     {
+      "n": "サンデーサイレンス"
+     },
+     {
+      "n": "ポインテッドパス"
+     }
+    ],
+    [
+     {
+      "n": "Halo",
+      "c": "米"
+     },
+     {
+      "n": "Wishing Well",
+      "c": "米"
+     },
+     {
+      "n": "Kris",
+      "c": "英"
+     },
+     {
+      "n": "Silken Way",
+      "c": "仏"
+     }
+    ],
+    [
+     {
+      "n": "Hail to Reason",
+      "c": "米"
+     },
+     {
+      "n": "Cosmah",
+      "c": "米"
+     },
+     {
+      "n": "Understanding",
+      "c": "米"
+     },
+     {
+      "n": "Mountain Flower",
+      "c": "米"
+     },
+     {
+      "n": "Sharpen Up",
+      "c": "英"
+     },
+     {
+      "n": "Doubly Sure",
+      "c": "英"
+     },
+     {
+      "n": "Shantung",
+      "c": "仏"
+     },
+     {
+      "n": "Boulevard",
+      "c": "愛"
+     }
+    ],
+    [
+     {
+      "n": "Turn-to",
+      "c": "愛"
+     },
+     {
+      "n": "Nothirdchance",
+      "c": "米"
+     },
+     {
+      "n": "Cosmic Bomb",
+      "c": "米"
+     },
+     {
+      "n": "Almahmoud",
+      "c": "米"
+     },
+     {
+      "n": "Promised Land",
+      "c": "米"
+     },
+     {
+      "n": "Pretty Ways",
+      "c": "米"
+     },
+     {
+      "n": "Montparnasse",
+      "c": "亜"
+     },
+     {
+      "n": "Edelweiss",
+      "c": "米"
+     },
+     {
+      "n": "エタン"
+     },
+     {
+      "n": "Rocchetta"
+     },
+     {
+      "n": "Reliance",
+      "c": "仏"
+     },
+     {
+      "n": "Soft Angels",
+      "c": "英"
+     },
+     {
+      "n": "Sicambre",
+      "c": "仏"
+     },
+     {
+      "n": "Barley Corn",
+      "c": "英"
+     },
+     {
+      "n": "Pall Mall",
+      "c": "愛"
+     },
+     {
+      "n": "Costa Sola",
+      "c": "愛"
+     }
+    ]
+   ]
+  },
+  "ダンスインザダーク": {
+   "g": [
+    [
+     {
+      "n": "サンデーサイレンス"
+     },
+     {
+      "n": "ダンシングキイ"
+     }
+    ],
+    [
+     {
+      "n": "Halo",
+      "c": "米"
+     },
+     {
+      "n": "Wishing Well",
+      "c": "米"
+     },
+     {
+      "n": "Nijinsky",
+      "c": "加"
+     },
+     {
+      "n": "Key Partner",
+      "c": "米"
+     }
+    ],
+    [
+     {
+      "n": "Hail to Reason",
+      "c": "米"
+     },
+     {
+      "n": "Cosmah",
+      "c": "米"
+     },
+     {
+      "n": "Understanding",
+      "c": "米"
+     },
+     {
+      "n": "Mountain Flower",
+      "c": "米"
+     },
+     {
+      "n": "Northern Dancer",
+      "c": "加"
+     },
+     {
+      "n": "Flaming Page",
+      "c": "加"
+     },
+     {
+      "n": "Key to the Mint",
+      "c": "米"
+     },
+     {
+      "n": "Native Partner",
+      "c": "米"
+     }
+    ],
+    [
+     {
+      "n": "Turn-to",
+      "c": "愛"
+     },
+     {
+      "n": "Nothirdchance",
+      "c": "米"
+     },
+     {
+      "n": "Cosmic Bomb",
+      "c": "米"
+     },
+     {
+      "n": "Almahmoud",
+      "c": "米"
+     },
+     {
+      "n": "Promised Land",
+      "c": "米"
+     },
+     {
+      "n": "Pretty Ways",
+      "c": "米"
+     },
+     {
+      "n": "Montparnasse",
+      "c": "亜"
+     },
+     {
+      "n": "Edelweiss",
+      "c": "米"
+     },
+     {
+      "n": "Nearctic",
+      "c": "加"
+     },
+     {
+      "n": "Natalma",
+      "c": "米"
+     },
+     {
+      "n": "Bull Page",
+      "c": "米"
+     },
+     {
+      "n": "Flaring Top",
+      "c": "米"
+     },
+     {
+      "n": "Graustark",
+      "c": "米"
+     },
+     {
+      "n": "Key Bridge",
+      "c": "米"
+     },
+     {
+      "n": "Raise a Native",
+      "c": "米"
+     },
+     {
+      "n": "Dinner Partner",
+      "c": "米"
+     }
+    ]
+   ]
+  },
+  "ゴールドアリュール": {
+   "g": [
+    [
+     {
+      "n": "サンデーサイレンス"
+     },
+     {
+      "n": "ニキーヤ"
+     }
+    ],
+    [
+     {
+      "n": "Halo",
+      "c": "米"
+     },
+     {
+      "n": "Wishing Well",
+      "c": "米"
+     },
+     {
+      "n": "Nureyev",
+      "c": "米"
+     },
+     {
+      "n": "Reluctant Guest",
+      "c": "米"
+     }
+    ],
+    [
+     {
+      "n": "Hail to Reason",
+      "c": "米"
+     },
+     {
+      "n": "Cosmah",
+      "c": "米"
+     },
+     {
+      "n": "Understanding",
+      "c": "米"
+     },
+     {
+      "n": "Mountain Flower",
+      "c": "米"
+     },
+     {
+      "n": "Northern Dancer",
+      "c": "加"
+     },
+     {
+      "n": "Special",
+      "c": "米"
+     },
+     {
+      "n": "Hostage",
+      "c": "米"
+     },
+     {
+      "n": "Vaguely Royal",
+      "c": "米"
+     }
+    ],
+    [
+     {
+      "n": "Turn-to",
+      "c": "愛"
+     },
+     {
+      "n": "Nothirdchance",
+      "c": "米"
+     },
+     {
+      "n": "Cosmic Bomb",
+      "c": "米"
+     },
+     {
+      "n": "Almahmoud",
+      "c": "米"
+     },
+     {
+      "n": "Promised Land",
+      "c": "米"
+     },
+     {
+      "n": "Pretty Ways",
+      "c": "米"
+     },
+     {
+      "n": "Montparnasse",
+      "c": "亜"
+     },
+     {
+      "n": "Edelweiss",
+      "c": "米"
+     },
+     {
+      "n": "Nearctic",
+      "c": "加"
+     },
+     {
+      "n": "Natalma",
+      "c": "米"
+     },
+     {
+      "n": "Forli",
+      "c": "亜"
+     },
+     {
+      "n": "Thong",
+      "c": "米"
+     },
+     {
+      "n": "Nijinsky",
+      "c": "加"
+     },
+     {
+      "n": "Entente",
+      "c": "仏"
+     },
+     {
+      "n": "Vaguely Noble",
+      "c": "英"
+     },
+     {
+      "n": "Shoshanna",
+      "c": "米"
+     }
+    ]
+   ]
+  },
+  "サクラバクシンオー": {
+   "g": [
+    [
+     {
+      "n": "サクラユタカオー"
+     },
+     {
+      "n": "サクラハゴロモ"
+     }
+    ],
+    [
+     {
+      "n": "テスコボーイ"
+     },
+     {
+      "n": "アンジェリカ"
+     },
+     {
+      "n": "ノーザンテースト"
+     },
+     {
+      "n": "クリアアンバー"
+     }
+    ],
+    [
+     {
+      "n": "Princely Gift",
+      "c": "英"
+     },
+     {
+      "n": "Suncourt",
+      "c": "英"
+     },
+     {
+      "n": "ネヴァービート"
+     },
+     {
+      "n": "スターハイネス"
+     },
+     {
+      "n": "Northern Dancer",
+      "c": "加"
+     },
+     {
+      "n": "Lady Victoria",
+      "c": "加"
+     },
+     {
+      "n": "Ambiopoise",
+      "c": "米"
+     },
+     {
+      "n": "One Clear Call",
+      "c": "米"
+     }
+    ],
+    [
+     {
+      "n": "Nasrullah",
+      "c": "英"
+     },
+     {
+      "n": "Blue Gem",
+      "c": "英"
+     },
+     {
+      "n": "Hyperion",
+      "c": "英"
+     },
+     {
+      "n": "Inquisition",
+      "c": "英"
+     },
+     {
+      "n": "Never Say Die",
+      "c": "米"
+     },
+     {
+      "n": "Bride Elect",
+      "c": "英"
+     },
+     {
+      "n": "ユアハイネス"
+     },
+     {
+      "n": "スターロツチ"
+     },
+     {
+      "n": "Nearctic",
+      "c": "加"
+     },
+     {
+      "n": "Natalma",
+      "c": "米"
+     },
+     {
+      "n": "Victoria Park",
+      "c": "加"
+     },
+     {
+      "n": "Lady Angela",
+      "c": "英"
+     },
+     {
+      "n": "Ambiorix",
+      "c": "仏"
+     },
+     {
+      "n": "Bull Poise",
+      "c": "米"
+     },
+     {
+      "n": "Gallant Man",
+      "c": "英"
+     },
+     {
+      "n": "Europa",
+      "c": "米"
+     }
+    ]
+   ]
+  },
+  "エンパイアメーカー": {
+   "g": [
+    [
+     {
+      "n": "Unbridled",
+      "c": "米"
+     },
+     {
+      "n": "Toussaud",
+      "c": "米"
+     }
+    ],
+    [
+     {
+      "n": "Fappiano",
+      "c": "米"
+     },
+     {
+      "n": "Gana Facil",
+      "c": "米"
+     },
+     {
+      "n": "El Gran Senor",
+      "c": "米"
+     },
+     {
+      "n": "Image of Reality",
+      "c": "米"
+     }
+    ],
+    [
+     {
+      "n": "Mr. Prospector",
+      "c": "米"
+     },
+     {
+      "n": "Killaloe",
+      "c": "米"
+     },
+     {
+      "n": "Le Fabuleux",
+      "c": "仏"
+     },
+     {
+      "n": "Charedi",
+      "c": "米"
+     },
+     {
+      "n": "Northern Dancer",
+      "c": "加"
+     },
+     {
+      "n": "Sex Appeal",
+      "c": "米"
+     },
+     {
+      "n": "In Reality",
+      "c": "米"
+     },
+     {
+      "n": "Edee's Image",
+      "c": "米"
+     }
+    ],
+    [
+     {
+      "n": "Raise a Native",
+      "c": "米"
+     },
+     {
+      "n": "Gold Digger",
+      "c": "米"
+     },
+     {
+      "n": "Dr. Fager",
+      "c": "米"
+     },
+     {
+      "n": "Grand Splendor",
+      "c": "米"
+     },
+     {
+      "n": "Wild Risk",
+      "c": "仏"
+     },
+     {
+      "n": "Anguar",
+      "c": "仏"
+     },
+     {
+      "n": "In Reality",
+      "c": "米"
+     },
+     {
+      "n": "Magic",
+      "c": "米"
+     },
+     {
+      "n": "Nearctic",
+      "c": "加"
+     },
+     {
+      "n": "Natalma",
+      "c": "米"
+     },
+     {
+      "n": "Buckpasser",
+      "c": "米"
+     },
+     {
+      "n": "Best in Show",
+      "c": "米"
+     },
+     {
+      "n": "Intentionally",
+      "c": "米"
+     },
+     {
+      "n": "My Dear Girl",
+      "c": "米"
+     },
+     {
+      "n": "Cornish Prince",
+      "c": "米"
+     },
+     {
+      "n": "Ortalan",
+      "c": "米"
+     }
+    ]
+   ]
+  },
+  "ブライアンズタイム": {
+   "g": [
+    [
+     {
+      "n": "Roberto",
+      "c": "米"
+     },
+     {
+      "n": "Kelley's Day",
+      "c": "米"
+     }
+    ],
+    [
+     {
+      "n": "Hail to Reason",
+      "c": "米"
+     },
+     {
+      "n": "Bramalea",
+      "c": "米"
+     },
+     {
+      "n": "Graustark",
+      "c": "米"
+     },
+     {
+      "n": "Golden Trail",
+      "c": "米"
+     }
+    ],
+    [
+     {
+      "n": "Turn-to",
+      "c": "愛"
+     },
+     {
+      "n": "Nothirdchance",
+      "c": "米"
+     },
+     {
+      "n": "Nashua",
+      "c": "米"
+     },
+     {
+      "n": "Rarelea",
+      "c": "米"
+     },
+     {
+      "n": "Ribot",
+      "c": "英"
+     },
+     {
+      "n": "Flower Bowl",
+      "c": "米"
+     },
+     {
+      "n": "Hasty Road",
+      "c": "米"
+     },
+     {
+      "n": "Sunny Vale",
+      "c": "米"
+     }
+    ],
+    [
+     {
+      "n": "Royal Charger",
+      "c": "英"
+     },
+     {
+      "n": "Source Sucree",
+      "c": "仏"
+     },
+     {
+      "n": "Blue Swords",
+      "c": "米"
+     },
+     {
+      "n": "Galla Colors",
+      "c": "米"
+     },
+     {
+      "n": "Nasrullah",
+      "c": "英"
+     },
+     {
+      "n": "Segula",
+      "c": "米"
+     },
+     {
+      "n": "Bull Lea",
+      "c": "米"
+     },
+     {
+      "n": "Bleebok",
+      "c": "米"
+     },
+     {
+      "n": "Tenerani",
+      "c": "伊"
+     },
+     {
+      "n": "Romanella",
+      "c": "伊"
+     },
+     {
+      "n": "Alibhai",
+      "c": "英"
+     },
+     {
+      "n": "Flower Bed",
+      "c": "米"
+     },
+     {
+      "n": "Roman",
+      "c": "米"
+     },
+     {
+      "n": "Traffic Court",
+      "c": "米"
+     },
+     {
+      "n": "Eight Thirty",
+      "c": "米"
+     },
+     {
+      "n": "Sun Mixa",
+      "c": "米"
+     }
+    ]
+   ]
+  },
+  "タイキシャトル": {
+   "g": [
+    [
+     {
+      "n": "Devil's Bag",
+      "c": "米"
+     },
+     {
+      "n": "ウェルシュマフィン"
+     }
+    ],
+    [
+     {
+      "n": "Halo",
+      "c": "米"
+     },
+     {
+      "n": "Ballade",
+      "c": "米"
+     },
+     {
+      "n": "Caerleon",
+      "c": "米"
+     },
+     {
+      "n": "Muffitys",
+      "c": "英"
+     }
+    ],
+    [
+     {
+      "n": "Hail to Reason",
+      "c": "米"
+     },
+     {
+      "n": "Cosmah",
+      "c": "米"
+     },
+     {
+      "n": "Herbager",
+      "c": "仏"
+     },
+     {
+      "n": "Miss Swapsco",
+      "c": "米"
+     },
+     {
+      "n": "Nijinsky",
+      "c": "加"
+     },
+     {
+      "n": "Foreseer",
+      "c": "米"
+     },
+     {
+      "n": "Thatch",
+      "c": "米"
+     },
+     {
+      "n": "Contrail",
+      "c": "英"
+     }
+    ],
+    [
+     {
+      "n": "Turn-to",
+      "c": "愛"
+     },
+     {
+      "n": "Nothirdchance",
+      "c": "米"
+     },
+     {
+      "n": "Cosmic Bomb",
+      "c": "米"
+     },
+     {
+      "n": "Almahmoud",
+      "c": "米"
+     },
+     {
+      "n": "Vandale",
+      "c": "仏"
+     },
+     {
+      "n": "Flagette",
+      "c": "仏"
+     },
+     {
+      "n": "Cohoes",
+      "c": "米"
+     },
+     {
+      "n": "Soaring",
+      "c": "米"
+     },
+     {
+      "n": "Northern Dancer",
+      "c": "加"
+     },
+     {
+      "n": "Flaming Page",
+      "c": "加"
+     },
+     {
+      "n": "Round Table",
+      "c": "米"
+     },
+     {
+      "n": "Regal Gleam",
+      "c": "米"
+     },
+     {
+      "n": "Forli",
+      "c": "亜"
+     },
+     {
+      "n": "Thong",
+      "c": "米"
+     },
+     {
+      "n": "Roan Rocket",
+      "c": "英"
+     },
+     {
+      "n": "Azurine",
+      "c": "英"
+     }
+    ]
+   ]
+  },
+  "ジャングルポケット": {
+   "g": [
+    [
+     {
+      "n": "トニービン"
+     },
+     {
+      "n": "ダンスチャーマー"
+     }
+    ],
+    [
+     {
+      "n": "カンパラ"
+     },
+     {
+      "n": "Severn Bridge",
+      "c": "英"
+     },
+     {
+      "n": "Nureyev",
+      "c": "米"
+     },
+     {
+      "n": "Skillful Joy",
+      "c": "米"
+     }
+    ],
+    [
+     {
+      "n": "Kalamoun",
+      "c": "英"
+     },
+     {
+      "n": "State Pension"
+     },
+     {
+      "n": "Hornbeam",
+      "c": "英"
+     },
+     {
+      "n": "Priddy Fair",
+      "c": "英"
+     },
+     {
+      "n": "Northern Dancer",
+      "c": "加"
+     },
+     {
+      "n": "Special",
+      "c": "米"
+     },
+     {
+      "n": "Nodouble",
+      "c": "米"
+     },
+     {
+      "n": "Skillful Miss",
+      "c": "米"
+     }
+    ],
+    [
+     {
+      "n": "ゼダーン"
+     },
+     {
+      "n": "Khairunissa",
+      "c": "英"
+     },
+     {
+      "n": "オンリーフォアライフ"
+     },
+     {
+      "n": "Lorelei",
+      "c": "英"
+     },
+     {
+      "n": "Hyperion",
+      "c": "英"
+     },
+     {
+      "n": "Thicket",
+      "c": "英"
+     },
+     {
+      "n": "Preciptic",
+      "c": "英"
+     },
+     {
+      "n": "Campanette",
+      "c": "英"
+     },
+     {
+      "n": "Nearctic",
+      "c": "加"
+     },
+     {
+      "n": "Natalma",
+      "c": "米"
+     },
+     {
+      "n": "Forli",
+      "c": "亜"
+     },
+     {
+      "n": "Thong",
+      "c": "米"
+     },
+     {
+      "n": "Noholme",
+      "c": "豪"
+     },
+     {
+      "n": "Abla-Jay",
+      "c": "米"
+     },
+     {
+      "n": "Daryl's Joy",
+      "c": "新"
+     },
+     {
+      "n": "Poliniss",
+      "c": "米"
+     }
+    ]
+   ]
+  },
+  "アドマイヤムーン": {
+   "g": [
+    [
+     {
+      "n": "エンドスウィープ"
+     },
+     {
+      "n": "マイケイティーズ"
+     }
+    ],
+    [
+     {
+      "n": "フォーティナイナー"
+     },
+     {
+      "n": "Broom Dance",
+      "c": "米"
+     },
+     {
+      "n": "サンデーサイレンス"
+     },
+     {
+      "n": "ケイティーズファースト"
+     }
+    ],
+    [
+     {
+      "n": "Mr. Prospector",
+      "c": "米"
+     },
+     {
+      "n": "File",
+      "c": "米"
+     },
+     {
+      "n": "Dance Spell",
+      "c": "米"
+     },
+     {
+      "n": "Witching Hour",
+      "c": "米"
+     },
+     {
+      "n": "Halo",
+      "c": "米"
+     },
+     {
+      "n": "Wishing Well",
+      "c": "米"
+     },
+     {
+      "n": "Kris",
+      "c": "英"
+     },
+     {
+      "n": "Katies",
+      "c": "愛"
+     }
+    ],
+    [
+     {
+      "n": "Raise a Native",
+      "c": "米"
+     },
+     {
+      "n": "Gold Digger",
+      "c": "米"
+     },
+     {
+      "n": "Tom Rolfe",
+      "c": "米"
+     },
+     {
+      "n": "Continue",
+      "c": "米"
+     },
+     {
+      "n": "Northern Dancer",
+      "c": "加"
+     },
+     {
+      "n": "Obeah",
+      "c": "米"
+     },
+     {
+      "n": "Thinking Cap",
+      "c": "米"
+     },
+     {
+      "n": "Enchanted Eve",
+      "c": "米"
+     },
+     {
+      "n": "Hail to Reason",
+      "c": "米"
+     },
+     {
+      "n": "Cosmah",
+      "c": "米"
+     },
+     {
+      "n": "Understanding",
+      "c": "米"
+     },
+     {
+      "n": "Mountain Flower",
+      "c": "米"
+     },
+     {
+      "n": "Sharpen Up",
+      "c": "英"
+     },
+     {
+      "n": "Doubly Sure",
+      "c": "英"
+     },
+     {
+      "n": "ノノアルコ"
+     },
+     {
+      "n": "Mortefontaine",
+      "c": "仏"
+     }
+    ]
+   ]
+  },
+  "サウスヴィグラス": {
+   "g": [
+    [
+     {
+      "n": "エンドスウィープ"
+     },
+     {
+      "n": "ダーケストスター"
+     }
+    ],
+    [
+     {
+      "n": "フォーティナイナー"
+     },
+     {
+      "n": "Broom Dance",
+      "c": "米"
+     },
+     {
+      "n": "Star de Naskra",
+      "c": "米"
+     },
+     {
+      "n": "Minnie Riperton",
+      "c": "米"
+     }
+    ],
+    [
+     {
+      "n": "Mr. Prospector",
+      "c": "米"
+     },
+     {
+      "n": "File",
+      "c": "米"
+     },
+     {
+      "n": "Dance Spell",
+      "c": "米"
+     },
+     {
+      "n": "Witching Hour",
+      "c": "米"
+     },
+     {
+      "n": "Naskra",
+      "c": "米"
+     },
+     {
+      "n": "Candle Star"
+     },
+     {
+      "n": "Cornish Prince",
+      "c": "米"
+     },
+     {
+      "n": "English Harbor",
+      "c": "米"
+     }
+    ],
+    [
+     {
+      "n": "Raise a Native",
+      "c": "米"
+     },
+     {
+      "n": "Gold Digger",
+      "c": "米"
+     },
+     {
+      "n": "Tom Rolfe",
+      "c": "米"
+     },
+     {
+      "n": "Continue",
+      "c": "米"
+     },
+     {
+      "n": "Northern Dancer",
+      "c": "加"
+     },
+     {
+      "n": "Obeah",
+      "c": "米"
+     },
+     {
+      "n": "Thinking Cap",
+      "c": "米"
+     },
+     {
+      "n": "Enchanted Eve",
+      "c": "米"
+     },
+     {
+      "n": "Nasram",
+      "c": "米"
+     },
+     {
+      "n": "Iskra",
+      "c": "仏"
+     },
+     {
+      "n": "Clandestine",
+      "c": "米"
+     },
+     {
+      "n": "Star Minstrel",
+      "c": "米"
+     },
+     {
+      "n": "Bold Ruler",
+      "c": "米"
+     },
+     {
+      "n": "Teleran",
+      "c": "米"
+     },
+     {
+      "n": "War Admiral",
+      "c": "米"
+     },
+     {
+      "n": "Level Sands",
+      "c": "米"
+     }
+    ]
+   ]
+  },
+  "ヴィクトワールピサ": {
+   "g": [
+    [
+     {
+      "n": "ネオユニヴァース"
+     },
+     {
+      "n": "ホワイトウォーターアフェア"
+     }
+    ],
+    [
+     {
+      "n": "サンデーサイレンス"
+     },
+     {
+      "n": "ポインテッドパス"
+     },
+     {
+      "n": "Machiavellian",
+      "c": "米"
+     },
+     {
+      "n": "Much Too Risky",
+      "c": "英"
+     }
+    ],
+    [
+     {
+      "n": "Halo",
+      "c": "米"
+     },
+     {
+      "n": "Wishing Well",
+      "c": "米"
+     },
+     {
+      "n": "Kris",
+      "c": "英"
+     },
+     {
+      "n": "Silken Way",
+      "c": "仏"
+     },
+     {
+      "n": "Mr. Prospector",
+      "c": "米"
+     },
+     {
+      "n": "Coup de Folie",
+      "c": "米"
+     },
+     {
+      "n": "Bustino",
+      "c": "英"
+     },
+     {
+      "n": "Short Rations",
+      "c": "英"
+     }
+    ],
+    [
+     {
+      "n": "Hail to Reason",
+      "c": "米"
+     },
+     {
+      "n": "Cosmah",
+      "c": "米"
+     },
+     {
+      "n": "Understanding",
+      "c": "米"
+     },
+     {
+      "n": "Mountain Flower",
+      "c": "米"
+     },
+     {
+      "n": "Sharpen Up",
+      "c": "英"
+     },
+     {
+      "n": "Doubly Sure",
+      "c": "英"
+     },
+     {
+      "n": "Shantung",
+      "c": "仏"
+     },
+     {
+      "n": "Boulevard",
+      "c": "愛"
+     },
+     {
+      "n": "Raise a Native",
+      "c": "米"
+     },
+     {
+      "n": "Gold Digger",
+      "c": "米"
+     },
+     {
+      "n": "Halo",
+      "c": "米"
+     },
+     {
+      "n": "Raise the Standard",
+      "c": "加"
+     },
+     {
+      "n": "Busted",
+      "c": "英"
+     },
+     {
+      "n": "Ship Yard",
+      "c": "英"
+     },
+     {
+      "n": "Lorenzaccio",
+      "c": "英"
+     },
+     {
+      "n": "Short Commons",
+      "c": "英"
+     }
+    ]
+   ]
+  },
+  "ロージズインメイ": {
+   "g": [
+    [
+     {
+      "n": "Devil His Due",
+      "c": "米"
+     },
+     {
+      "n": "Tell a Secret",
+      "c": "米"
+     }
+    ],
+    [
+     {
+      "n": "Devil's Bag",
+      "c": "米"
+     },
+     {
+      "n": "Plenty O'Toole",
+      "c": "米"
+     },
+     {
+      "n": "Speak John",
+      "c": "米"
+     },
+     {
+      "n": "Secret Retreat",
+      "c": "米"
+     }
+    ],
+    [
+     {
+      "n": "Halo",
+      "c": "米"
+     },
+     {
+      "n": "Ballade",
+      "c": "米"
+     },
+     {
+      "n": "Raise a Cup",
+      "c": "米"
+     },
+     {
+      "n": "Li'l Puss",
+      "c": "米"
+     },
+     {
+      "n": "Prince John",
+      "c": "米"
+     },
+     {
+      "n": "Nuit de Folies",
+      "c": "仏"
+     },
+     {
+      "n": "Clandestine",
+      "c": "米"
+     },
+     {
+      "n": "Retirement",
+      "c": "米"
+     }
+    ],
+    [
+     {
+      "n": "Hail to Reason",
+      "c": "米"
+     },
+     {
+      "n": "Cosmah",
+      "c": "米"
+     },
+     {
+      "n": "Herbager",
+      "c": "仏"
+     },
+     {
+      "n": "Miss Swapsco",
+      "c": "米"
+     },
+     {
+      "n": "Raise a Native",
+      "c": "米"
+     },
+     {
+      "n": "Spring Sunshine",
+      "c": "米"
+     },
+     {
+      "n": "Noble Jay",
+      "c": "米"
+     },
+     {
+      "n": "Li'l Sis",
+      "c": "米"
+     },
+     {
+      "n": "Princequillo",
+      "c": "仏"
+     },
+     {
+      "n": "Not Afraid",
+      "c": "米"
+     },
+     {
+      "n": "Tornado",
+      "c": "仏"
+     },
+     {
+      "n": "Folle Nuit",
+      "c": "仏"
+     },
+     {
+      "n": "Double Jay",
+      "c": "米"
+     },
+     {
+      "n": "Conniver",
+      "c": "米"
+     },
+     {
+      "n": "Royal Gem",
+      "c": "豪"
+     },
+     {
+      "n": "Marie J.",
+      "c": "米"
+     }
+    ]
+   ]
+  },
+  "アグネスデジタル": {
+   "g": [
+    [
+     {
+      "n": "Crafty Prospector",
+      "c": "米"
+     },
+     {
+      "n": "Chancey Squaw",
+      "c": "米"
+     }
+    ],
+    [
+     {
+      "n": "Mr. Prospector",
+      "c": "米"
+     },
+     {
+      "n": "Real Crafty Lady",
+      "c": "米"
+     },
+     {
+      "n": "Chief's Crown",
+      "c": "米"
+     },
+     {
+      "n": "Allicance",
+      "c": "米"
+     }
+    ],
+    [
+     {
+      "n": "Raise a Native",
+      "c": "米"
+     },
+     {
+      "n": "Gold Digger",
+      "c": "米"
+     },
+     {
+      "n": "In Reality",
+      "c": "米"
+     },
+     {
+      "n": "Princess Roycraft",
+      "c": "米"
+     },
+     {
+      "n": "Danzig",
+      "c": "米"
+     },
+     {
+      "n": "Six Crowns",
+      "c": "米"
+     },
+     {
+      "n": "Alleged",
+      "c": "米"
+     },
+     {
+      "n": "Runaway Bride",
+      "c": "英"
+     }
+    ],
+    [
+     {
+      "n": "Native Dancer",
+      "c": "米"
+     },
+     {
+      "n": "Raise You",
+      "c": "米"
+     },
+     {
+      "n": "Nashua",
+      "c": "米"
+     },
+     {
+      "n": "Sequence",
+      "c": "米"
+     },
+     {
+      "n": "Intentionally",
+      "c": "米"
+     },
+     {
+      "n": "My Dear Girl",
+      "c": "米"
+     },
+     {
+      "n": "Royal Note",
+      "c": "米"
+     },
+     {
+      "n": "Crafty Princess",
+      "c": "米"
+     },
+     {
+      "n": "Northern Dancer",
+      "c": "加"
+     },
+     {
+      "n": "Pas de Nom",
+      "c": "米"
+     },
+     {
+      "n": "Secretariat",
+      "c": "米"
+     },
+     {
+      "n": "Chris Evert",
+      "c": "米"
+     },
+     {
+      "n": "Hoist the Flag",
+      "c": "米"
+     },
+     {
+      "n": "Princess Pout",
+      "c": "米"
+     },
+     {
+      "n": "Wild Risk",
+      "c": "仏"
+     },
+     {
+      "n": "Aimee",
+      "c": "英"
+     }
+    ]
+   ]
+  },
+  "キングヘイロー": {
+   "g": [
+    [
+     {
+      "n": "ダンシングブレーヴ"
+     },
+     {
+      "n": "グッバイヘイロー"
+     }
+    ],
+    [
+     {
+      "n": "Lyphard",
+      "c": "米"
+     },
+     {
+      "n": "Navajo Princess",
+      "c": "米"
+     },
+     {
+      "n": "Halo",
+      "c": "米"
+     },
+     {
+      "n": "Pound Foolish",
+      "c": "米"
+     }
+    ],
+    [
+     {
+      "n": "Northern Dancer",
+      "c": "加"
+     },
+     {
+      "n": "Goofed",
+      "c": "米"
+     },
+     {
+      "n": "Drone"
+     },
+     {
+      "n": "Olmec",
+      "c": "米"
+     },
+     {
+      "n": "Hail to Reason",
+      "c": "米"
+     },
+     {
+      "n": "Cosmah",
+      "c": "米"
+     },
+     {
+      "n": "Sir Ivor",
+      "c": "米"
+     },
+     {
+      "n": "Squander",
+      "c": "米"
+     }
+    ],
+    [
+     {
+      "n": "Nearctic",
+      "c": "加"
+     },
+     {
+      "n": "Natalma",
+      "c": "米"
+     },
+     {
+      "n": "Court Martial",
+      "c": "英"
+     },
+     {
+      "n": "Barra",
+      "c": "仏"
+     },
+     {
+      "n": "Sir Gaylord",
+      "c": "米"
+     },
+     {
+      "n": "Cap and Bells",
+      "c": "米"
+     },
+     {
+      "n": "Pago Pago",
+      "c": "豪"
+     },
+     {
+      "n": "Chocolate Beau",
+      "c": "米"
+     },
+     {
+      "n": "Turn-to",
+      "c": "愛"
+     },
+     {
+      "n": "Nothirdchance",
+      "c": "米"
+     },
+     {
+      "n": "Cosmic Bomb",
+      "c": "米"
+     },
+     {
+      "n": "Almahmoud",
+      "c": "米"
+     },
+     {
+      "n": "Sir Gaylord",
+      "c": "米"
+     },
+     {
+      "n": "Attica",
+      "c": "米"
+     },
+     {
+      "n": "Buckpasser",
+      "c": "米"
+     },
+     {
+      "n": "Discipline",
+      "c": "米"
+     }
+    ]
+   ]
   }
  },
  "pedAlias": {},
@@ -18659,7 +21229,23 @@ window.KEIBA_DATA = {
   "シスキン": "欧",
   "インディチャンプ": "日",
   "ダノンプレミアム": "日",
-  "スピルバーグ": "日"
+  "スピルバーグ": "日",
+  "アグネスタキオン": "日",
+  "フレンチデピュティ": "米",
+  "ゼンノロブロイ": "日",
+  "スペシャルウィーク": "日",
+  "ネオユニヴァース": "日",
+  "ダンスインザダーク": "日",
+  "エンパイアメーカー": "米",
+  "ブライアンズタイム": "米",
+  "タイキシャトル": "米",
+  "ジャングルポケット": "欧",
+  "アドマイヤムーン": "米",
+  "サウスヴィグラス": "米",
+  "ヴィクトワールピサ": "日",
+  "ロージズインメイ": "米",
+  "アグネスデジタル": "米",
+  "キングヘイロー": "欧"
  },
  "heavyGlobal": [
   {
@@ -18740,8 +21326,190 @@ window.KEIBA_DATA = {
     "ハーツクライ",
     "ダイワメジャー",
     "ステイゴールド",
-    "フジキセキ"
-   ]
+    "フジキセキ",
+    "アグネスタキオン",
+    "マンハッタンカフェ",
+    "ゼンノロブロイ",
+    "スペシャルウィーク",
+    "ネオユニヴァース",
+    "ダンスインザダーク",
+    "ゴールドアリュール"
+   ],
+   "mf": {
+    "bands": {
+     "芝短": [
+      322,
+      7,
+      20,
+      62,
+      68
+     ],
+     "芝マ": [
+      469,
+      6,
+      23,
+      42,
+      80
+     ],
+     "芝中": [
+      259,
+      6,
+      19,
+      66,
+      60
+     ],
+     "芝長": [
+      117,
+      8,
+      23,
+      67,
+      66
+     ],
+     "ダ短": [
+      500,
+      5,
+      20,
+      71,
+      72
+     ],
+     "ダ中": [
+      754,
+      8,
+      23,
+      97,
+      82
+     ],
+     "ダ長": [
+      75,
+      3,
+      12,
+      16,
+      53
+     ]
+    },
+    "rows": [
+     {
+      "tag": "得",
+      "k": "中京|ダ1900",
+      "n": 29,
+      "w": 7,
+      "p": 38,
+      "avg": 23,
+      "t": 374,
+      "f": 156
+     },
+     {
+      "tag": "得",
+      "k": "阪神|芝1800外",
+      "n": 25,
+      "w": 16,
+      "p": 40,
+      "avg": 25,
+      "t": 108,
+      "f": 263
+     },
+     {
+      "tag": "得",
+      "k": "新潟|ダ1800",
+      "n": 60,
+      "w": 10,
+      "p": 33,
+      "avg": 22,
+      "t": 81,
+      "f": 129
+     },
+     {
+      "tag": "得",
+      "k": "中山|芝1600外",
+      "n": 45,
+      "w": 4,
+      "p": 31,
+      "avg": 21,
+      "t": 13,
+      "f": 99
+     },
+     {
+      "tag": "得",
+      "k": "阪神|芝1400",
+      "n": 43,
+      "w": 16,
+      "p": 30,
+      "avg": 21,
+      "t": 110,
+      "f": 90
+     },
+     {
+      "tag": "妙",
+      "k": "中山|芝1800",
+      "n": 32,
+      "w": 9,
+      "p": 31,
+      "avg": 22,
+      "t": 138,
+      "f": 147
+     },
+     {
+      "tag": "妙",
+      "k": "小倉|ダ1700",
+      "n": 84,
+      "w": 8,
+      "p": 23,
+      "avg": 21,
+      "t": 147,
+      "f": 111
+     },
+     {
+      "tag": "妙",
+      "k": "中山|ダ1800",
+      "n": 151,
+      "w": 11,
+      "p": 27,
+      "avg": 21,
+      "t": 158,
+      "f": 104
+     },
+     {
+      "tag": "妙",
+      "k": "福島|ダ1150",
+      "n": 26,
+      "w": 12,
+      "p": 23,
+      "avg": 20,
+      "t": 175,
+      "f": 75
+     },
+     {
+      "tag": "苦",
+      "k": "札幌|ダ1700",
+      "n": 41,
+      "w": 5,
+      "p": 10,
+      "avg": 23,
+      "t": 14,
+      "f": 14
+     },
+     {
+      "tag": "苦",
+      "k": "阪神|ダ1200",
+      "n": 44,
+      "w": 5,
+      "p": 11,
+      "avg": 20,
+      "t": 66,
+      "f": 65
+     },
+     {
+      "tag": "苦",
+      "k": "中京|ダ1400",
+      "n": 58,
+      "w": 2,
+      "p": 12,
+      "avg": 20,
+      "t": 15,
+      "f": 75
+     }
+    ]
+   }
   },
   {
    "name": "ディープインパクト",
@@ -19099,6 +21867,181 @@ window.KEIBA_DATA = {
      "f": 80
     }
    ],
+   "mf": {
+    "bands": {
+     "芝短": [
+      2003,
+      9,
+      23,
+      111,
+      82
+     ],
+     "芝マ": [
+      3399,
+      10,
+      28,
+      84,
+      77
+     ],
+     "芝中": [
+      2103,
+      10,
+      27,
+      92,
+      75
+     ],
+     "芝長": [
+      542,
+      8,
+      28,
+      50,
+      77
+     ],
+     "ダ短": [
+      1575,
+      6,
+      19,
+      61,
+      61
+     ],
+     "ダ中": [
+      2033,
+      7,
+      22,
+      78,
+      73
+     ],
+     "ダ長": [
+      148,
+      5,
+      20,
+      38,
+      58
+     ]
+    },
+    "rows": [
+     {
+      "tag": "得",
+      "k": "小倉|芝2600",
+      "n": 37,
+      "w": 14,
+      "p": 43,
+      "avg": 24,
+      "t": 178,
+      "f": 146
+     },
+     {
+      "tag": "得",
+      "k": "京都|芝1200",
+      "n": 102,
+      "w": 9,
+      "p": 31,
+      "avg": 20,
+      "t": 116,
+      "f": 101
+     },
+     {
+      "tag": "得",
+      "k": "函館|芝2600",
+      "n": 23,
+      "w": 4,
+      "p": 39,
+      "avg": 26,
+      "t": 56,
+      "f": 163
+     },
+     {
+      "tag": "得",
+      "k": "中京|芝1400",
+      "n": 171,
+      "w": 12,
+      "p": 31,
+      "avg": 21,
+      "t": 162,
+      "f": 136
+     },
+     {
+      "tag": "得",
+      "k": "東京|芝1600",
+      "n": 380,
+      "w": 12,
+      "p": 32,
+      "avg": 22,
+      "t": 127,
+      "f": 106
+     },
+     {
+      "tag": "妙",
+      "k": "函館|芝2000",
+      "n": 87,
+      "w": 6,
+      "p": 31,
+      "avg": 24,
+      "t": 206,
+      "f": 118
+     },
+     {
+      "tag": "妙",
+      "k": "函館|ダ1000",
+      "n": 32,
+      "w": 13,
+      "p": 31,
+      "avg": 27,
+      "t": 39,
+      "f": 113
+     },
+     {
+      "tag": "妙",
+      "k": "福島|ダ1700",
+      "n": 160,
+      "w": 11,
+      "p": 26,
+      "avg": 21,
+      "t": 237,
+      "f": 112
+     },
+     {
+      "tag": "妙",
+      "k": "札幌|芝1500",
+      "n": 91,
+      "w": 10,
+      "p": 33,
+      "avg": 24,
+      "t": 67,
+      "f": 107
+     },
+     {
+      "tag": "苦",
+      "k": "京都|ダ1900",
+      "n": 55,
+      "w": 4,
+      "p": 13,
+      "avg": 23,
+      "t": 41,
+      "f": 98
+     },
+     {
+      "tag": "苦",
+      "k": "新潟|芝2200",
+      "n": 50,
+      "w": 4,
+      "p": 14,
+      "avg": 22,
+      "t": 24,
+      "f": 28
+     },
+     {
+      "tag": "苦",
+      "k": "阪神|ダ2000",
+      "n": 43,
+      "w": 2,
+      "p": 16,
+      "avg": 24,
+      "t": 70,
+      "f": 60
+     }
+    ]
+   },
    "wet": [
     {
      "k": "阪神|芝1600外",
@@ -21582,7 +24525,118 @@ window.KEIBA_DATA = {
      "t": 34,
      "f": 28
     }
-   ]
+   ],
+   "mf": {
+    "bands": {
+     "芝短": [
+      166,
+      7,
+      22,
+      91,
+      110
+     ],
+     "芝マ": [
+      94,
+      6,
+      29,
+      46,
+      73
+     ],
+     "芝中": [
+      95,
+      8,
+      25,
+      52,
+      59
+     ],
+     "ダ短": [
+      300,
+      7,
+      21,
+      56,
+      73
+     ],
+     "ダ中": [
+      319,
+      6,
+      24,
+      55,
+      81
+     ]
+    },
+    "rows": [
+     {
+      "tag": "得",
+      "k": "福島|ダ1700",
+      "n": 32,
+      "w": 6,
+      "p": 34,
+      "avg": 21,
+      "t": 99,
+      "f": 134
+     },
+     {
+      "tag": "得",
+      "k": "東京|ダ1300",
+      "n": 26,
+      "w": 8,
+      "p": 27,
+      "avg": 19,
+      "t": 121,
+      "f": 73
+     },
+     {
+      "tag": "得",
+      "k": "小倉|芝1200",
+      "n": 38,
+      "w": 11,
+      "p": 26,
+      "avg": 19,
+      "t": 81,
+      "f": 79
+     },
+     {
+      "tag": "得",
+      "k": "中京|ダ1800",
+      "n": 27,
+      "w": 7,
+      "p": 30,
+      "avg": 23,
+      "t": 157,
+      "f": 102
+     },
+     {
+      "tag": "得",
+      "k": "東京|芝1400",
+      "n": 23,
+      "w": 0,
+      "p": 26,
+      "avg": 21,
+      "t": 0,
+      "f": 113
+     },
+     {
+      "tag": "妙",
+      "k": "阪神|ダ1800",
+      "n": 30,
+      "w": 7,
+      "p": 27,
+      "avg": 24,
+      "t": 19,
+      "f": 126
+     },
+     {
+      "tag": "苦",
+      "k": "東京|ダ1400",
+      "n": 51,
+      "w": 0,
+      "p": 14,
+      "avg": 19,
+      "t": 0,
+      "f": 142
+     }
+    ]
+   }
   },
   {
    "name": "ハーツクライ",
@@ -21854,6 +24908,181 @@ window.KEIBA_DATA = {
      "f": 67
     }
    ],
+   "mf": {
+    "bands": {
+     "芝短": [
+      808,
+      8,
+      24,
+      80,
+      70
+     ],
+     "芝マ": [
+      1044,
+      8,
+      23,
+      75,
+      66
+     ],
+     "芝中": [
+      680,
+      9,
+      23,
+      105,
+      68
+     ],
+     "芝長": [
+      155,
+      6,
+      19,
+      34,
+      73
+     ],
+     "ダ短": [
+      1044,
+      6,
+      18,
+      60,
+      55
+     ],
+     "ダ中": [
+      1441,
+      8,
+      22,
+      103,
+      77
+     ],
+     "ダ長": [
+      100,
+      12,
+      25,
+      37,
+      61
+     ]
+    },
+    "rows": [
+     {
+      "tag": "得",
+      "k": "札幌|芝1800",
+      "n": 39,
+      "w": 10,
+      "p": 51,
+      "avg": 28,
+      "t": 43,
+      "f": 127
+     },
+     {
+      "tag": "得",
+      "k": "新潟|芝1400",
+      "n": 48,
+      "w": 4,
+      "p": 31,
+      "avg": 19,
+      "t": 207,
+      "f": 139
+     },
+     {
+      "tag": "得",
+      "k": "阪神|芝2200",
+      "n": 22,
+      "w": 9,
+      "p": 36,
+      "avg": 23,
+      "t": 52,
+      "f": 104
+     },
+     {
+      "tag": "得",
+      "k": "阪神|芝1400",
+      "n": 37,
+      "w": 8,
+      "p": 32,
+      "avg": 21,
+      "t": 21,
+      "f": 52
+     },
+     {
+      "tag": "得",
+      "k": "京都|芝1400外",
+      "n": 39,
+      "w": 18,
+      "p": 33,
+      "avg": 22,
+      "t": 158,
+      "f": 84
+     },
+     {
+      "tag": "妙",
+      "k": "阪神|芝2000",
+      "n": 50,
+      "w": 8,
+      "p": 36,
+      "avg": 27,
+      "t": 507,
+      "f": 202
+     },
+     {
+      "tag": "妙",
+      "k": "阪神|芝1800外",
+      "n": 53,
+      "w": 15,
+      "p": 36,
+      "avg": 25,
+      "t": 151,
+      "f": 143
+     },
+     {
+      "tag": "妙",
+      "k": "中京|芝1600",
+      "n": 58,
+      "w": 7,
+      "p": 26,
+      "avg": 23,
+      "t": 339,
+      "f": 130
+     },
+     {
+      "tag": "妙",
+      "k": "札幌|芝1200",
+      "n": 32,
+      "w": 6,
+      "p": 28,
+      "avg": 22,
+      "t": 22,
+      "f": 123
+     },
+     {
+      "tag": "苦",
+      "k": "新潟|ダ1200",
+      "n": 64,
+      "w": 5,
+      "p": 8,
+      "avg": 21,
+      "t": 74,
+      "f": 22
+     },
+     {
+      "tag": "苦",
+      "k": "福島|芝1800",
+      "n": 57,
+      "w": 4,
+      "p": 11,
+      "avg": 21,
+      "t": 11,
+      "f": 38
+     },
+     {
+      "tag": "苦",
+      "k": "中山|ダ1200",
+      "n": 174,
+      "w": 3,
+      "p": 10,
+      "avg": 19,
+      "t": 98,
+      "f": 29
+     }
+    ]
+   },
    "wet": [
     {
      "k": "中山|芝2000",
@@ -22718,6 +25947,154 @@ window.KEIBA_DATA = {
      "f": 91
     }
    ],
+   "mf": {
+    "bands": {
+     "芝短": [
+      212,
+      10,
+      31,
+      52,
+      85
+     ],
+     "芝マ": [
+      232,
+      6,
+      32,
+      31,
+      96
+     ],
+     "芝中": [
+      141,
+      16,
+      41,
+      187,
+      119
+     ],
+     "芝長": [
+      35,
+      17,
+      40,
+      328,
+      123
+     ],
+     "ダ短": [
+      243,
+      7,
+      21,
+      63,
+      71
+     ],
+     "ダ中": [
+      231,
+      9,
+      32,
+      83,
+      112
+     ]
+    },
+    "rows": [
+     {
+      "tag": "得",
+      "k": "中京|芝1600",
+      "n": 21,
+      "w": 10,
+      "p": 52,
+      "avg": 23,
+      "t": 40,
+      "f": 156
+     },
+     {
+      "tag": "得",
+      "k": "小倉|芝1200",
+      "n": 31,
+      "w": 10,
+      "p": 39,
+      "avg": 19,
+      "t": 37,
+      "f": 131
+     },
+     {
+      "tag": "得",
+      "k": "中山|芝1200外",
+      "n": 21,
+      "w": 10,
+      "p": 43,
+      "avg": 21,
+      "t": 43,
+      "f": 100
+     },
+     {
+      "tag": "得",
+      "k": "新潟|芝1000",
+      "n": 26,
+      "w": 12,
+      "p": 31,
+      "avg": 18,
+      "t": 69,
+      "f": 69
+     },
+     {
+      "tag": "得",
+      "k": "福島|ダ1700",
+      "n": 22,
+      "w": 9,
+      "p": 36,
+      "avg": 21,
+      "t": 25,
+      "f": 93
+     },
+     {
+      "tag": "妙",
+      "k": "東京|ダ1600",
+      "n": 57,
+      "w": 5,
+      "p": 30,
+      "avg": 20,
+      "t": 129,
+      "f": 152
+     },
+     {
+      "tag": "妙",
+      "k": "東京|芝1800",
+      "n": 28,
+      "w": 11,
+      "p": 39,
+      "avg": 23,
+      "t": 46,
+      "f": 132
+     },
+     {
+      "tag": "妙",
+      "k": "中山|ダ1800",
+      "n": 54,
+      "w": 13,
+      "p": 33,
+      "avg": 21,
+      "t": 89,
+      "f": 129
+     },
+     {
+      "tag": "妙",
+      "k": "中山|ダ1200",
+      "n": 54,
+      "w": 6,
+      "p": 26,
+      "avg": 19,
+      "t": 38,
+      "f": 105
+     },
+     {
+      "tag": "苦",
+      "k": "東京|ダ1400",
+      "n": 41,
+      "w": 0,
+      "p": 10,
+      "avg": 19,
+      "t": 0,
+      "f": 53
+     }
+    ]
+   },
    "wet": [
     {
      "k": "阪神|ダ1800",
@@ -22950,6 +26327,181 @@ window.KEIBA_DATA = {
      "f": 60
     }
    ],
+   "mf": {
+    "bands": {
+     "芝短": [
+      1041,
+      8,
+      21,
+      123,
+      80
+     ],
+     "芝マ": [
+      896,
+      7,
+      24,
+      55,
+      69
+     ],
+     "芝中": [
+      422,
+      8,
+      23,
+      63,
+      64
+     ],
+     "芝長": [
+      92,
+      7,
+      26,
+      64,
+      83
+     ],
+     "ダ短": [
+      1465,
+      8,
+      20,
+      50,
+      63
+     ],
+     "ダ中": [
+      1227,
+      7,
+      21,
+      60,
+      62
+     ],
+     "ダ長": [
+      66,
+      9,
+      26,
+      71,
+      95
+     ]
+    },
+    "rows": [
+     {
+      "tag": "得",
+      "k": "中山|芝1800",
+      "n": 45,
+      "w": 13,
+      "p": 42,
+      "avg": 22,
+      "t": 188,
+      "f": 138
+     },
+     {
+      "tag": "得",
+      "k": "京都|芝1800外",
+      "n": 31,
+      "w": 6,
+      "p": 45,
+      "avg": 26,
+      "t": 28,
+      "f": 152
+     },
+     {
+      "tag": "得",
+      "k": "中山|芝2000",
+      "n": 83,
+      "w": 12,
+      "p": 34,
+      "avg": 21,
+      "t": 137,
+      "f": 117
+     },
+     {
+      "tag": "得",
+      "k": "札幌|芝1500",
+      "n": 40,
+      "w": 8,
+      "p": 38,
+      "avg": 24,
+      "t": 24,
+      "f": 87
+     },
+     {
+      "tag": "得",
+      "k": "函館|ダ1000",
+      "n": 30,
+      "w": 13,
+      "p": 37,
+      "avg": 27,
+      "t": 122,
+      "f": 82
+     },
+     {
+      "tag": "妙",
+      "k": "小倉|芝1200",
+      "n": 143,
+      "w": 8,
+      "p": 24,
+      "avg": 19,
+      "t": 318,
+      "f": 138
+     },
+     {
+      "tag": "妙",
+      "k": "中山|芝1200外",
+      "n": 98,
+      "w": 7,
+      "p": 22,
+      "avg": 21,
+      "t": 101,
+      "f": 115
+     },
+     {
+      "tag": "妙",
+      "k": "東京|芝1400",
+      "n": 118,
+      "w": 10,
+      "p": 23,
+      "avg": 21,
+      "t": 167,
+      "f": 98
+     },
+     {
+      "tag": "妙",
+      "k": "新潟|芝1000",
+      "n": 67,
+      "w": 12,
+      "p": 21,
+      "avg": 18,
+      "t": 235,
+      "f": 90
+     },
+     {
+      "tag": "苦",
+      "k": "京都|芝2000",
+      "n": 48,
+      "w": 6,
+      "p": 10,
+      "avg": 26,
+      "t": 29,
+      "f": 23
+     },
+     {
+      "tag": "苦",
+      "k": "阪神|ダ1800",
+      "n": 131,
+      "w": 7,
+      "p": 15,
+      "avg": 24,
+      "t": 46,
+      "f": 32
+     },
+     {
+      "tag": "苦",
+      "k": "京都|芝1600",
+      "n": 44,
+      "w": 0,
+      "p": 14,
+      "avg": 22,
+      "t": 0,
+      "f": 47
+     }
+    ]
+   },
    "wet": [
     {
      "k": "京都|芝1400",
@@ -23362,6 +26914,127 @@ window.KEIBA_DATA = {
      "f": 38
     }
    ],
+   "mf": {
+    "bands": {
+     "芝短": [
+      155,
+      5,
+      19,
+      33,
+      56
+     ],
+     "芝マ": [
+      124,
+      10,
+      21,
+      43,
+      76
+     ],
+     "芝中": [
+      33,
+      9,
+      33,
+      17,
+      153
+     ],
+     "ダ短": [
+      320,
+      8,
+      18,
+      70,
+      68
+     ],
+     "ダ中": [
+      127,
+      8,
+      21,
+      184,
+      107
+     ]
+    },
+    "rows": [
+     {
+      "tag": "得",
+      "k": "中京|芝1600",
+      "n": 21,
+      "w": 19,
+      "p": 33,
+      "avg": 23,
+      "t": 119,
+      "f": 167
+     },
+     {
+      "tag": "得",
+      "k": "中山|ダ1800",
+      "n": 70,
+      "w": 10,
+      "p": 26,
+      "avg": 21,
+      "t": 56,
+      "f": 50
+     },
+     {
+      "tag": "得",
+      "k": "小倉|芝1200",
+      "n": 35,
+      "w": 3,
+      "p": 23,
+      "avg": 19,
+      "t": 10,
+      "f": 92
+     },
+     {
+      "tag": "得",
+      "k": "新潟|ダ1200",
+      "n": 40,
+      "w": 13,
+      "p": 23,
+      "avg": 21,
+      "t": 175,
+      "f": 71
+     },
+     {
+      "tag": "得",
+      "k": "小倉|ダ1700",
+      "n": 23,
+      "w": 4,
+      "p": 22,
+      "avg": 21,
+      "t": 767,
+      "f": 226
+     },
+     {
+      "tag": "苦",
+      "k": "東京|ダ1400",
+      "n": 49,
+      "w": 4,
+      "p": 12,
+      "avg": 19,
+      "t": 34,
+      "f": 50
+     },
+     {
+      "tag": "苦",
+      "k": "京都|ダ1400",
+      "n": 43,
+      "w": 5,
+      "p": 14,
+      "avg": 21,
+      "t": 33,
+      "f": 134
+     },
+     {
+      "tag": "苦",
+      "k": "中山|ダ1200",
+      "n": 72,
+      "w": 4,
+      "p": 14,
+      "avg": 19,
+      "t": 15,
+      "f": 43
+     }
+    ]
+   },
    "wet": [
     {
      "k": "函館|芝1200",
@@ -23524,7 +27197,172 @@ window.KEIBA_DATA = {
     "ゴールドシップ",
     "オルフェーヴル",
     "インディチャンプ"
-   ]
+   ],
+   "mf": {
+    "bands": {
+     "芝短": [
+      397,
+      7,
+      19,
+      135,
+      70
+     ],
+     "芝マ": [
+      720,
+      5,
+      17,
+      71,
+      60
+     ],
+     "芝中": [
+      511,
+      5,
+      16,
+      31,
+      59
+     ],
+     "芝長": [
+      125,
+      6,
+      20,
+      144,
+      102
+     ],
+     "ダ短": [
+      395,
+      5,
+      19,
+      45,
+      54
+     ],
+     "ダ中": [
+      579,
+      6,
+      15,
+      72,
+      55
+     ],
+     "ダ長": [
+      62,
+      11,
+      16,
+      132,
+      49
+     ]
+    },
+    "rows": [
+     {
+      "tag": "得",
+      "k": "新潟|ダ1200",
+      "n": 44,
+      "w": 11,
+      "p": 34,
+      "avg": 21,
+      "t": 174,
+      "f": 123
+     },
+     {
+      "tag": "得",
+      "k": "中京|芝1400",
+      "n": 24,
+      "w": 13,
+      "p": 29,
+      "avg": 21,
+      "t": 149,
+      "f": 95
+     },
+     {
+      "tag": "得",
+      "k": "函館|芝1200",
+      "n": 29,
+      "w": 14,
+      "p": 31,
+      "avg": 24,
+      "t": 133,
+      "f": 105
+     },
+     {
+      "tag": "得",
+      "k": "阪神|芝1600外",
+      "n": 59,
+      "w": 8,
+      "p": 27,
+      "avg": 22,
+      "t": 73,
+      "f": 90
+     },
+     {
+      "tag": "得",
+      "k": "新潟|ダ1800",
+      "n": 56,
+      "w": 13,
+      "p": 27,
+      "avg": 22,
+      "t": 57,
+      "f": 70
+     },
+     {
+      "tag": "妙",
+      "k": "京都|ダ1800",
+      "n": 61,
+      "w": 13,
+      "p": 21,
+      "avg": 23,
+      "t": 224,
+      "f": 90
+     },
+     {
+      "tag": "妙",
+      "k": "新潟|芝1600外",
+      "n": 35,
+      "w": 17,
+      "p": 20,
+      "avg": 22,
+      "t": 296,
+      "f": 82
+     },
+     {
+      "tag": "妙",
+      "k": "東京|芝1800",
+      "n": 76,
+      "w": 12,
+      "p": 20,
+      "avg": 23,
+      "t": 178,
+      "f": 66
+     },
+     {
+      "tag": "苦",
+      "k": "阪神|芝1800外",
+      "n": 43,
+      "w": 0,
+      "p": 7,
+      "avg": 25,
+      "t": 0,
+      "f": 18
+     },
+     {
+      "tag": "苦",
+      "k": "中山|ダ1800",
+      "n": 83,
+      "w": 2,
+      "p": 8,
+      "avg": 21,
+      "t": 18,
+      "f": 16
+     },
+     {
+      "tag": "苦",
+      "k": "阪神|ダ1400",
+      "n": 48,
+      "w": 0,
+      "p": 8,
+      "avg": 20,
+      "t": 0,
+      "f": 26
+     }
+    ]
+   }
   },
   {
    "name": "フジキセキ",
@@ -23549,7 +27387,182 @@ window.KEIBA_DATA = {
    "children": [
     "イスラボニータ",
     "キンシャサノキセキ"
-   ]
+   ],
+   "mf": {
+    "bands": {
+     "芝短": [
+      610,
+      6,
+      22,
+      50,
+      80
+     ],
+     "芝マ": [
+      484,
+      6,
+      20,
+      79,
+      64
+     ],
+     "芝中": [
+      262,
+      7,
+      21,
+      70,
+      49
+     ],
+     "芝長": [
+      40,
+      5,
+      23,
+      41,
+      163
+     ],
+     "ダ短": [
+      1099,
+      6,
+      22,
+      68,
+      78
+     ],
+     "ダ中": [
+      1352,
+      9,
+      25,
+      71,
+      72
+     ],
+     "ダ長": [
+      73,
+      4,
+      12,
+      18,
+      26
+     ]
+    },
+    "rows": [
+     {
+      "tag": "得",
+      "k": "札幌|ダ1000",
+      "n": 21,
+      "w": 5,
+      "p": 43,
+      "avg": 26,
+      "t": 7,
+      "f": 78
+     },
+     {
+      "tag": "得",
+      "k": "札幌|ダ1700",
+      "n": 83,
+      "w": 17,
+      "p": 36,
+      "avg": 23,
+      "t": 131,
+      "f": 111
+     },
+     {
+      "tag": "得",
+      "k": "東京|ダ1400",
+      "n": 167,
+      "w": 10,
+      "p": 29,
+      "avg": 19,
+      "t": 91,
+      "f": 98
+     },
+     {
+      "tag": "得",
+      "k": "京都|ダ1900",
+      "n": 23,
+      "w": 9,
+      "p": 35,
+      "avg": 23,
+      "t": 15,
+      "f": 54
+     },
+     {
+      "tag": "得",
+      "k": "新潟|芝1000",
+      "n": 30,
+      "w": 13,
+      "p": 27,
+      "avg": 18,
+      "t": 208,
+      "f": 106
+     },
+     {
+      "tag": "妙",
+      "k": "中京|ダ1900",
+      "n": 26,
+      "w": 4,
+      "p": 27,
+      "avg": 23,
+      "t": 38,
+      "f": 158
+     },
+     {
+      "tag": "妙",
+      "k": "小倉|芝1200",
+      "n": 108,
+      "w": 5,
+      "p": 23,
+      "avg": 19,
+      "t": 36,
+      "f": 141
+     },
+     {
+      "tag": "妙",
+      "k": "福島|ダ1150",
+      "n": 69,
+      "w": 4,
+      "p": 28,
+      "avg": 20,
+      "t": 49,
+      "f": 125
+     },
+     {
+      "tag": "妙",
+      "k": "福島|芝1200",
+      "n": 50,
+      "w": 10,
+      "p": 24,
+      "avg": 21,
+      "t": 49,
+      "f": 117
+     },
+     {
+      "tag": "苦",
+      "k": "小倉|芝1800",
+      "n": 41,
+      "w": 7,
+      "p": 12,
+      "avg": 23,
+      "t": 38,
+      "f": 18
+     },
+     {
+      "tag": "苦",
+      "k": "東京|ダ2100",
+      "n": 48,
+      "w": 2,
+      "p": 13,
+      "avg": 21,
+      "t": 8,
+      "f": 27
+     },
+     {
+      "tag": "苦",
+      "k": "中京|芝1600",
+      "n": 48,
+      "w": 8,
+      "p": 17,
+      "avg": 23,
+      "t": 173,
+      "f": 64
+     }
+    ]
+   }
   },
   {
    "name": "キングカメハメハ",
@@ -23776,7 +27789,182 @@ window.KEIBA_DATA = {
      "t": 88,
      "f": 89
     }
-   ]
+   ],
+   "mf": {
+    "bands": {
+     "芝短": [
+      1290,
+      7,
+      21,
+      55,
+      69
+     ],
+     "芝マ": [
+      2190,
+      8,
+      25,
+      74,
+      69
+     ],
+     "芝中": [
+      1438,
+      10,
+      27,
+      84,
+      85
+     ],
+     "芝長": [
+      395,
+      9,
+      26,
+      59,
+      65
+     ],
+     "ダ短": [
+      1824,
+      8,
+      23,
+      103,
+      78
+     ],
+     "ダ中": [
+      2733,
+      9,
+      24,
+      76,
+      75
+     ],
+     "ダ長": [
+      263,
+      10,
+      26,
+      57,
+      69
+     ]
+    },
+    "rows": [
+     {
+      "tag": "得",
+      "k": "東京|ダ1300",
+      "n": 62,
+      "w": 8,
+      "p": 39,
+      "avg": 19,
+      "t": 41,
+      "f": 117
+     },
+     {
+      "tag": "得",
+      "k": "阪神|芝2200",
+      "n": 34,
+      "w": 15,
+      "p": 38,
+      "avg": 23,
+      "t": 172,
+      "f": 133
+     },
+     {
+      "tag": "得",
+      "k": "阪神|ダ1200",
+      "n": 149,
+      "w": 10,
+      "p": 30,
+      "avg": 20,
+      "t": 98,
+      "f": 78
+     },
+     {
+      "tag": "得",
+      "k": "中山|芝2200外",
+      "n": 74,
+      "w": 11,
+      "p": 31,
+      "avg": 21,
+      "t": 174,
+      "f": 81
+     },
+     {
+      "tag": "得",
+      "k": "福島|芝2000",
+      "n": 94,
+      "w": 13,
+      "p": 31,
+      "avg": 21,
+      "t": 95,
+      "f": 126
+     },
+     {
+      "tag": "妙",
+      "k": "新潟|芝2000",
+      "n": 45,
+      "w": 4,
+      "p": 20,
+      "avg": 21,
+      "t": 11,
+      "f": 226
+     },
+     {
+      "tag": "妙",
+      "k": "中京|ダ1200",
+      "n": 103,
+      "w": 11,
+      "p": 23,
+      "avg": 20,
+      "t": 338,
+      "f": 137
+     },
+     {
+      "tag": "妙",
+      "k": "札幌|芝1500",
+      "n": 46,
+      "w": 11,
+      "p": 26,
+      "avg": 24,
+      "t": 117,
+      "f": 127
+     },
+     {
+      "tag": "妙",
+      "k": "新潟|芝1000",
+      "n": 54,
+      "w": 7,
+      "p": 24,
+      "avg": 18,
+      "t": 35,
+      "f": 125
+     },
+     {
+      "tag": "苦",
+      "k": "札幌|芝1200",
+      "n": 49,
+      "w": 2,
+      "p": 8,
+      "avg": 22,
+      "t": 21,
+      "f": 24
+     },
+     {
+      "tag": "苦",
+      "k": "京都|芝1200",
+      "n": 46,
+      "w": 4,
+      "p": 11,
+      "avg": 20,
+      "t": 40,
+      "f": 38
+     },
+     {
+      "tag": "苦",
+      "k": "福島|芝1200",
+      "n": 113,
+      "w": 5,
+      "p": 14,
+      "avg": 21,
+      "t": 51,
+      "f": 57
+     }
+    ]
+   }
   },
   {
    "name": "ロードカナロア",
@@ -24158,7 +28346,165 @@ window.KEIBA_DATA = {
      "t": 121,
      "f": 65
     }
-   ]
+   ],
+   "mf": {
+    "bands": {
+     "芝短": [
+      402,
+      8,
+      22,
+      61,
+      77
+     ],
+     "芝マ": [
+      373,
+      8,
+      27,
+      41,
+      85
+     ],
+     "芝中": [
+      146,
+      8,
+      31,
+      33,
+      82
+     ],
+     "芝長": [
+      26,
+      15,
+      58,
+      39,
+      91
+     ],
+     "ダ短": [
+      448,
+      6,
+      19,
+      69,
+      68
+     ],
+     "ダ中": [
+      214,
+      9,
+      21,
+      76,
+      80
+     ]
+    },
+    "rows": [
+     {
+      "tag": "得",
+      "k": "阪神|芝1200",
+      "n": 22,
+      "w": 14,
+      "p": 59,
+      "avg": 23,
+      "t": 49,
+      "f": 117
+     },
+     {
+      "tag": "得",
+      "k": "京都|芝1800外",
+      "n": 22,
+      "w": 14,
+      "p": 45,
+      "avg": 26,
+      "t": 55,
+      "f": 87
+     },
+     {
+      "tag": "得",
+      "k": "中京|芝1600",
+      "n": 33,
+      "w": 6,
+      "p": 36,
+      "avg": 23,
+      "t": 25,
+      "f": 127
+     },
+     {
+      "tag": "得",
+      "k": "阪神|芝1800外",
+      "n": 20,
+      "w": 10,
+      "p": 35,
+      "avg": 25,
+      "t": 36,
+      "f": 76
+     },
+     {
+      "tag": "得",
+      "k": "阪神|ダ1400",
+      "n": 40,
+      "w": 8,
+      "p": 28,
+      "avg": 20,
+      "t": 52,
+      "f": 63
+     },
+     {
+      "tag": "妙",
+      "k": "中京|ダ1400",
+      "n": 30,
+      "w": 7,
+      "p": 27,
+      "avg": 20,
+      "t": 18,
+      "f": 152
+     },
+     {
+      "tag": "妙",
+      "k": "函館|芝1200",
+      "n": 43,
+      "w": 9,
+      "p": 30,
+      "avg": 24,
+      "t": 33,
+      "f": 141
+     },
+     {
+      "tag": "妙",
+      "k": "中山|ダ1800",
+      "n": 48,
+      "w": 6,
+      "p": 19,
+      "avg": 21,
+      "t": 78,
+      "f": 105
+     },
+     {
+      "tag": "苦",
+      "k": "東京|芝1600",
+      "n": 44,
+      "w": 5,
+      "p": 14,
+      "avg": 22,
+      "t": 13,
+      "f": 30
+     },
+     {
+      "tag": "苦",
+      "k": "中山|ダ1200",
+      "n": 94,
+      "w": 5,
+      "p": 13,
+      "avg": 19,
+      "t": 162,
+      "f": 93
+     },
+     {
+      "tag": "苦",
+      "k": "京都|ダ1800",
+      "n": 57,
+      "w": 9,
+      "p": 16,
+      "avg": 23,
+      "t": 53,
+      "f": 54
+     }
+    ]
+   }
   },
   {
    "name": "ドゥラメンテ",
@@ -24862,6 +29208,161 @@ window.KEIBA_DATA = {
      "f": 49
     }
    ],
+   "mf": {
+    "bands": {
+     "芝短": [
+      185,
+      10,
+      28,
+      120,
+      80
+     ],
+     "芝マ": [
+      438,
+      9,
+      29,
+      93,
+      86
+     ],
+     "芝中": [
+      287,
+      9,
+      27,
+      49,
+      78
+     ],
+     "芝長": [
+      47,
+      6,
+      30,
+      34,
+      68
+     ],
+     "ダ短": [
+      245,
+      10,
+      25,
+      106,
+      67
+     ],
+     "ダ中": [
+      343,
+      7,
+      22,
+      55,
+      70
+     ],
+     "ダ長": [
+      46,
+      7,
+      24,
+      98,
+      138
+     ]
+    },
+    "rows": [
+     {
+      "tag": "得",
+      "k": "東京|芝1800",
+      "n": 56,
+      "w": 13,
+      "p": 41,
+      "avg": 23,
+      "t": 45,
+      "f": 86
+     },
+     {
+      "tag": "得",
+      "k": "福島|芝2000",
+      "n": 34,
+      "w": 15,
+      "p": 35,
+      "avg": 21,
+      "t": 50,
+      "f": 176
+     },
+     {
+      "tag": "得",
+      "k": "中山|ダ1200",
+      "n": 58,
+      "w": 12,
+      "p": 31,
+      "avg": 19,
+      "t": 83,
+      "f": 68
+     },
+     {
+      "tag": "得",
+      "k": "中山|芝1600外",
+      "n": 55,
+      "w": 9,
+      "p": 31,
+      "avg": 21,
+      "t": 73,
+      "f": 60
+     },
+     {
+      "tag": "得",
+      "k": "中山|芝2000",
+      "n": 48,
+      "w": 6,
+      "p": 31,
+      "avg": 21,
+      "t": 35,
+      "f": 93
+     },
+     {
+      "tag": "妙",
+      "k": "福島|芝1800",
+      "n": 27,
+      "w": 4,
+      "p": 22,
+      "avg": 21,
+      "t": 44,
+      "f": 121
+     },
+     {
+      "tag": "妙",
+      "k": "新潟|芝1600外",
+      "n": 27,
+      "w": 4,
+      "p": 19,
+      "avg": 22,
+      "t": 12,
+      "f": 107
+     },
+     {
+      "tag": "妙",
+      "k": "中山|芝1800",
+      "n": 31,
+      "w": 13,
+      "p": 32,
+      "avg": 22,
+      "t": 193,
+      "f": 101
+     },
+     {
+      "tag": "妙",
+      "k": "阪神|芝1600外",
+      "n": 28,
+      "w": 11,
+      "p": 25,
+      "avg": 22,
+      "t": 221,
+      "f": 99
+     },
+     {
+      "tag": "苦",
+      "k": "中山|ダ1800",
+      "n": 63,
+      "w": 3,
+      "p": 13,
+      "avg": 21,
+      "t": 58,
+      "f": 73
+     }
+    ]
+   },
    "wet": [
     {
      "k": "東京|芝1600",
@@ -25729,7 +30230,182 @@ window.KEIBA_DATA = {
    "children": [
     "エピファネイア",
     "ルヴァンスレーヴ"
-   ]
+   ],
+   "mf": {
+    "bands": {
+     "芝短": [
+      632,
+      7,
+      22,
+      58,
+      90
+     ],
+     "芝マ": [
+      770,
+      8,
+      21,
+      91,
+      66
+     ],
+     "芝中": [
+      604,
+      8,
+      22,
+      66,
+      88
+     ],
+     "芝長": [
+      177,
+      9,
+      27,
+      54,
+      62
+     ],
+     "ダ短": [
+      855,
+      5,
+      16,
+      50,
+      66
+     ],
+     "ダ中": [
+      1610,
+      7,
+      22,
+      82,
+      77
+     ],
+     "ダ長": [
+      153,
+      5,
+      23,
+      58,
+      81
+     ]
+    },
+    "rows": [
+     {
+      "tag": "得",
+      "k": "京都|芝1200",
+      "n": 23,
+      "w": 22,
+      "p": 39,
+      "avg": 20,
+      "t": 152,
+      "f": 107
+     },
+     {
+      "tag": "得",
+      "k": "新潟|芝1400",
+      "n": 29,
+      "w": 10,
+      "p": 31,
+      "avg": 19,
+      "t": 148,
+      "f": 122
+     },
+     {
+      "tag": "得",
+      "k": "東京|芝2400",
+      "n": 52,
+      "w": 13,
+      "p": 38,
+      "avg": 24,
+      "t": 45,
+      "f": 90
+     },
+     {
+      "tag": "得",
+      "k": "中京|芝1200",
+      "n": 24,
+      "w": 8,
+      "p": 33,
+      "avg": 21,
+      "t": 97,
+      "f": 77
+     },
+     {
+      "tag": "得",
+      "k": "小倉|ダ1700",
+      "n": 129,
+      "w": 9,
+      "p": 32,
+      "avg": 21,
+      "t": 64,
+      "f": 119
+     },
+     {
+      "tag": "妙",
+      "k": "福島|芝1200",
+      "n": 75,
+      "w": 4,
+      "p": 20,
+      "avg": 21,
+      "t": 39,
+      "f": 172
+     },
+     {
+      "tag": "妙",
+      "k": "中京|芝2000",
+      "n": 66,
+      "w": 8,
+      "p": 27,
+      "avg": 25,
+      "t": 28,
+      "f": 160
+     },
+     {
+      "tag": "妙",
+      "k": "福島|芝1800",
+      "n": 40,
+      "w": 15,
+      "p": 28,
+      "avg": 21,
+      "t": 431,
+      "f": 141
+     },
+     {
+      "tag": "妙",
+      "k": "阪神|ダ1800",
+      "n": 225,
+      "w": 6,
+      "p": 27,
+      "avg": 24,
+      "t": 78,
+      "f": 136
+     },
+     {
+      "tag": "苦",
+      "k": "新潟|ダ1200",
+      "n": 58,
+      "w": 5,
+      "p": 10,
+      "avg": 21,
+      "t": 40,
+      "f": 26
+     },
+     {
+      "tag": "苦",
+      "k": "福島|ダ1150",
+      "n": 40,
+      "w": 0,
+      "p": 10,
+      "avg": 20,
+      "t": 0,
+      "f": 57
+     },
+     {
+      "tag": "苦",
+      "k": "中山|芝1600外",
+      "n": 92,
+      "w": 7,
+      "p": 13,
+      "avg": 21,
+      "t": 24,
+      "f": 39
+     }
+    ]
+   }
   },
   {
    "name": "エピファネイア",
@@ -26122,6 +30798,25 @@ window.KEIBA_DATA = {
      "f": 126
     }
    ],
+   "mf": {
+    "bands": {
+     "芝短": [
+      69,
+      12,
+      30,
+      194,
+      87
+     ],
+     "芝マ": [
+      60,
+      13,
+      30,
+      250,
+      91
+     ]
+    },
+    "rows": []
+   },
    "wet": [
     {
      "k": "東京|芝1400",
@@ -26750,6 +31445,57 @@ window.KEIBA_DATA = {
      "f": 57
     }
    ],
+   "mf": {
+    "bands": {
+     "芝短": [
+      66,
+      9,
+      35,
+      189,
+      145
+     ],
+     "芝マ": [
+      83,
+      14,
+      37,
+      169,
+      105
+     ],
+     "芝中": [
+      27,
+      7,
+      22,
+      118,
+      127
+     ],
+     "ダ短": [
+      45,
+      9,
+      24,
+      63,
+      83
+     ],
+     "ダ中": [
+      27,
+      11,
+      30,
+      103,
+      66
+     ]
+    },
+    "rows": [
+     {
+      "tag": "得",
+      "k": "東京|ダ1400",
+      "n": 30,
+      "w": 10,
+      "p": 20,
+      "avg": 19,
+      "t": 88,
+      "f": 80
+     }
+    ]
+   },
    "wet": [
     {
      "k": "中山|芝1800",
@@ -27394,6 +32140,181 @@ window.KEIBA_DATA = {
      "f": 59
     }
    ],
+   "mf": {
+    "bands": {
+     "芝短": [
+      409,
+      7,
+      22,
+      65,
+      68
+     ],
+     "芝マ": [
+      557,
+      9,
+      26,
+      53,
+      73
+     ],
+     "芝中": [
+      534,
+      10,
+      34,
+      69,
+      75
+     ],
+     "芝長": [
+      132,
+      8,
+      34,
+      168,
+      93
+     ],
+     "ダ短": [
+      262,
+      4,
+      14,
+      34,
+      58
+     ],
+     "ダ中": [
+      608,
+      8,
+      23,
+      83,
+      72
+     ],
+     "ダ長": [
+      44,
+      7,
+      20,
+      59,
+      48
+     ]
+    },
+    "rows": [
+     {
+      "tag": "得",
+      "k": "福島|芝2000",
+      "n": 35,
+      "w": 11,
+      "p": 57,
+      "avg": 21,
+      "t": 96,
+      "f": 146
+     },
+     {
+      "tag": "得",
+      "k": "中京|芝2200",
+      "n": 24,
+      "w": 13,
+      "p": 50,
+      "avg": 25,
+      "t": 38,
+      "f": 74
+     },
+     {
+      "tag": "得",
+      "k": "札幌|芝1800",
+      "n": 20,
+      "w": 20,
+      "p": 50,
+      "avg": 28,
+      "t": 127,
+      "f": 106
+     },
+     {
+      "tag": "得",
+      "k": "小倉|芝2000",
+      "n": 51,
+      "w": 8,
+      "p": 37,
+      "avg": 22,
+      "t": 30,
+      "f": 71
+     },
+     {
+      "tag": "得",
+      "k": "函館|ダ1700",
+      "n": 26,
+      "w": 15,
+      "p": 42,
+      "avg": 25,
+      "t": 95,
+      "f": 84
+     },
+     {
+      "tag": "妙",
+      "k": "阪神|ダ1800",
+      "n": 62,
+      "w": 5,
+      "p": 29,
+      "avg": 24,
+      "t": 21,
+      "f": 128
+     },
+     {
+      "tag": "妙",
+      "k": "函館|芝1200",
+      "n": 42,
+      "w": 2,
+      "p": 24,
+      "avg": 24,
+      "t": 7,
+      "f": 128
+     },
+     {
+      "tag": "妙",
+      "k": "阪神|芝1400",
+      "n": 28,
+      "w": 7,
+      "p": 32,
+      "avg": 21,
+      "t": 94,
+      "f": 105
+     },
+     {
+      "tag": "妙",
+      "k": "京都|ダ1800",
+      "n": 63,
+      "w": 8,
+      "p": 24,
+      "avg": 23,
+      "t": 421,
+      "f": 101
+     },
+     {
+      "tag": "苦",
+      "k": "小倉|芝1200",
+      "n": 49,
+      "w": 2,
+      "p": 8,
+      "avg": 19,
+      "t": 73,
+      "f": 33
+     },
+     {
+      "tag": "苦",
+      "k": "中山|ダ1200",
+      "n": 76,
+      "w": 1,
+      "p": 11,
+      "avg": 19,
+      "t": 3,
+      "f": 43
+     },
+     {
+      "tag": "苦",
+      "k": "小倉|ダ1700",
+      "n": 42,
+      "w": 10,
+      "p": 14,
+      "avg": 21,
+      "t": 51,
+      "f": 51
+     }
+    ]
+   },
    "wet": [
     {
      "k": "東京|芝1800",
@@ -28141,6 +33062,83 @@ window.KEIBA_DATA = {
      "f": 103
     }
    ],
+   "mf": {
+    "bands": {
+     "芝短": [
+      32,
+      3,
+      31,
+      23,
+      85
+     ],
+     "ダ短": [
+      171,
+      6,
+      22,
+      63,
+      92
+     ],
+     "ダ中": [
+      186,
+      9,
+      28,
+      84,
+      91
+     ]
+    },
+    "rows": [
+     {
+      "tag": "得",
+      "k": "福島|ダ1700",
+      "n": 21,
+      "w": 10,
+      "p": 43,
+      "avg": 21,
+      "t": 35,
+      "f": 85
+     },
+     {
+      "tag": "得",
+      "k": "新潟|ダ1800",
+      "n": 21,
+      "w": 14,
+      "p": 43,
+      "avg": 22,
+      "t": 55,
+      "f": 117
+     },
+     {
+      "tag": "得",
+      "k": "阪神|ダ1400",
+      "n": 29,
+      "w": 3,
+      "p": 28,
+      "avg": 20,
+      "t": 6,
+      "f": 103
+     },
+     {
+      "tag": "得",
+      "k": "中山|ダ1800",
+      "n": 51,
+      "w": 14,
+      "p": 27,
+      "avg": 21,
+      "t": 174,
+      "f": 78
+     },
+     {
+      "tag": "得",
+      "k": "東京|ダ1600",
+      "n": 36,
+      "w": 0,
+      "p": 22,
+      "avg": 20,
+      "t": 0,
+      "f": 37
+     }
+    ]
+   },
    "wet": [
     {
      "k": "福島|ダ1700",
@@ -28745,6 +33743,93 @@ window.KEIBA_DATA = {
      "f": 92
     }
    ],
+   "mf": {
+    "bands": {
+     "芝短": [
+      37,
+      11,
+      35,
+      64,
+      171
+     ],
+     "ダ短": [
+      298,
+      10,
+      29,
+      125,
+      113
+     ],
+     "ダ中": [
+      126,
+      13,
+      29,
+      91,
+      91
+     ]
+    },
+    "rows": [
+     {
+      "tag": "得",
+      "k": "新潟|ダ1200",
+      "n": 20,
+      "w": 20,
+      "p": 45,
+      "avg": 21,
+      "t": 257,
+      "f": 177
+     },
+     {
+      "tag": "得",
+      "k": "東京|ダ1400",
+      "n": 31,
+      "w": 6,
+      "p": 35,
+      "avg": 19,
+      "t": 15,
+      "f": 163
+     },
+     {
+      "tag": "得",
+      "k": "中山|ダ1200",
+      "n": 45,
+      "w": 11,
+      "p": 31,
+      "avg": 19,
+      "t": 171,
+      "f": 91
+     },
+     {
+      "tag": "得",
+      "k": "東京|ダ1600",
+      "n": 28,
+      "w": 7,
+      "p": 29,
+      "avg": 20,
+      "t": 14,
+      "f": 46
+     },
+     {
+      "tag": "得",
+      "k": "京都|ダ1200",
+      "n": 36,
+      "w": 8,
+      "p": 28,
+      "avg": 21,
+      "t": 212,
+      "f": 184
+     },
+     {
+      "tag": "妙",
+      "k": "阪神|ダ1400",
+      "n": 36,
+      "w": 6,
+      "p": 25,
+      "avg": 20,
+      "t": 106,
+      "f": 110
+     }
+    ]
+   },
    "wet": [
     {
      "k": "中山|ダ1200",
@@ -28936,6 +34021,107 @@ window.KEIBA_DATA = {
      "f": 86
     }
    ],
+   "mf": {
+    "bands": {
+     "芝短": [
+      70,
+      11,
+      24,
+      206,
+      106
+     ],
+     "芝マ": [
+      65,
+      15,
+      34,
+      88,
+      124
+     ],
+     "芝中": [
+      37,
+      8,
+      32,
+      82,
+      80
+     ],
+     "ダ短": [
+      322,
+      6,
+      20,
+      33,
+      68
+     ],
+     "ダ中": [
+      151,
+      7,
+      26,
+      45,
+      110
+     ]
+    },
+    "rows": [
+     {
+      "tag": "得",
+      "k": "福島|芝1200",
+      "n": 20,
+      "w": 10,
+      "p": 35,
+      "avg": 21,
+      "t": 209,
+      "f": 206
+     },
+     {
+      "tag": "得",
+      "k": "東京|ダ1600",
+      "n": 50,
+      "w": 10,
+      "p": 30,
+      "avg": 20,
+      "t": 84,
+      "f": 75
+     },
+     {
+      "tag": "得",
+      "k": "中京|ダ1200",
+      "n": 22,
+      "w": 9,
+      "p": 27,
+      "avg": 20,
+      "t": 60,
+      "f": 87
+     },
+     {
+      "tag": "得",
+      "k": "中山|ダ1200",
+      "n": 69,
+      "w": 7,
+      "p": 25,
+      "avg": 19,
+      "t": 31,
+      "f": 106
+     },
+     {
+      "tag": "得",
+      "k": "東京|ダ1400",
+      "n": 49,
+      "w": 6,
+      "p": 22,
+      "avg": 19,
+      "t": 35,
+      "f": 77
+     },
+     {
+      "tag": "妙",
+      "k": "中山|ダ1800",
+      "n": 54,
+      "w": 4,
+      "p": 24,
+      "avg": 21,
+      "t": 8,
+      "f": 192
+     }
+    ]
+   },
    "wet": [
     {
      "k": "京都|ダ1800",
@@ -34178,7 +39364,88 @@ window.KEIBA_DATA = {
      "t": 12,
      "f": 81
     }
-   ]
+   ],
+   "mf": {
+    "bands": {
+     "芝短": [
+      117,
+      9,
+      26,
+      47,
+      86
+     ],
+     "芝マ": [
+      183,
+      19,
+      37,
+      106,
+      75
+     ],
+     "芝中": [
+      86,
+      9,
+      43,
+      162,
+      159
+     ],
+     "ダ短": [
+      81,
+      11,
+      31,
+      119,
+      110
+     ],
+     "ダ中": [
+      30,
+      13,
+      37,
+      222,
+      87
+     ]
+    },
+    "rows": [
+     {
+      "tag": "得",
+      "k": "東京|芝1800",
+      "n": 27,
+      "w": 26,
+      "p": 59,
+      "avg": 23,
+      "t": 133,
+      "f": 151
+     },
+     {
+      "tag": "得",
+      "k": "東京|芝1600",
+      "n": 37,
+      "w": 19,
+      "p": 38,
+      "avg": 22,
+      "t": 47,
+      "f": 70
+     },
+     {
+      "tag": "得",
+      "k": "京都|ダ1200",
+      "n": 25,
+      "w": 12,
+      "p": 28,
+      "avg": 21,
+      "t": 41,
+      "f": 68
+     },
+     {
+      "tag": "得",
+      "k": "東京|芝1400",
+      "n": 33,
+      "w": 6,
+      "p": 27,
+      "avg": 21,
+      "t": 17,
+      "f": 45
+     }
+    ]
+   }
   },
   {
    "name": "イントゥミスチーフ",
@@ -35013,6 +40280,4291 @@ window.KEIBA_DATA = {
      "f": 128
     }
    ]
+  },
+  {
+   "name": "クロフネ",
+   "good": [
+    {
+     "cond": "東京芝2400（42%）、中山ダ2400（38%）",
+     "why": "長い距離で、最後までバテない馬力が生きる"
+    }
+   ],
+   "bad": [
+    {
+     "cond": "芝の短距離（〜1400で17%）、中京芝1600",
+     "why": "速い流れのスピード勝負は向かない"
+    }
+   ],
+   "notes": [
+    "母父として出走数がとても多いので、平均的な数字になりやすい。強みは長い距離"
+   ],
+   "type": "米",
+   "typeSure": false,
+   "line": "ヴァイスリージェント系",
+   "big": "ノーザンダンサー系",
+   "lineGuess": false,
+   "sire": "フレンチデピュティ",
+   "damsire": "Classic Go Go",
+   "tagline": "母父としていちばんよく見る名前。芝ダート兼用の馬力",
+   "kw": [
+    "母父の定番",
+    "馬力"
+   ],
+   "desc": "NHKマイルCと、ダートのジャパンカップダートを大差で勝った芦毛の馬。2021年に死亡。種牡馬としては芝・ダートの両方で走る子を出した。いまは母父としての出走が図鑑の馬の中でもトップクラスに多い（5年で約6,700走）。母父クロフネの名馬にクロノジェネシス、ノームコアがいる。",
+   "mfNote": "意外に**長い距離**で走る（芝2300m〜で29%、平均24%）。米国型の母父だが、スピードよりも馬力とスタミナを足すと読む",
+   "children": [],
+   "mf": {
+    "bands": {
+     "芝短": [
+      852,
+      6,
+      17,
+      59,
+      99
+     ],
+     "芝マ": [
+      948,
+      7,
+      20,
+      48,
+      59
+     ],
+     "芝中": [
+      676,
+      7,
+      22,
+      86,
+      83
+     ],
+     "芝長": [
+      172,
+      11,
+      29,
+      148,
+      97
+     ],
+     "ダ短": [
+      1619,
+      6,
+      20,
+      79,
+      73
+     ],
+     "ダ中": [
+      2279,
+      7,
+      23,
+      68,
+      71
+     ],
+     "ダ長": [
+      138,
+      11,
+      24,
+      170,
+      88
+     ]
+    },
+    "rows": [
+     {
+      "tag": "得",
+      "k": "中山|ダ2400",
+      "n": 24,
+      "w": 13,
+      "p": 38,
+      "avg": 21,
+      "t": 75,
+      "f": 206
+     },
+     {
+      "tag": "得",
+      "k": "東京|芝2400",
+      "n": 45,
+      "w": 16,
+      "p": 42,
+      "avg": 24,
+      "t": 224,
+      "f": 191
+     },
+     {
+      "tag": "得",
+      "k": "中山|芝2500",
+      "n": 20,
+      "w": 5,
+      "p": 35,
+      "avg": 24,
+      "t": 13,
+      "f": 64
+     },
+     {
+      "tag": "得",
+      "k": "京都|ダ1900",
+      "n": 59,
+      "w": 8,
+      "p": 31,
+      "avg": 23,
+      "t": 68,
+      "f": 108
+     },
+     {
+      "tag": "得",
+      "k": "函館|ダ1700",
+      "n": 78,
+      "w": 9,
+      "p": 33,
+      "avg": 25,
+      "t": 36,
+      "f": 106
+     },
+     {
+      "tag": "妙",
+      "k": "京都|芝1400外",
+      "n": 36,
+      "w": 11,
+      "p": 22,
+      "avg": 22,
+      "t": 173,
+      "f": 161
+     },
+     {
+      "tag": "妙",
+      "k": "小倉|ダ1000",
+      "n": 53,
+      "w": 8,
+      "p": 28,
+      "avg": 23,
+      "t": 123,
+      "f": 147
+     },
+     {
+      "tag": "妙",
+      "k": "福島|芝2000",
+      "n": 44,
+      "w": 2,
+      "p": 25,
+      "avg": 21,
+      "t": 8,
+      "f": 146
+     },
+     {
+      "tag": "妙",
+      "k": "小倉|芝1200",
+      "n": 138,
+      "w": 7,
+      "p": 20,
+      "avg": 19,
+      "t": 78,
+      "f": 133
+     },
+     {
+      "tag": "苦",
+      "k": "中京|芝1600",
+      "n": 69,
+      "w": 3,
+      "p": 13,
+      "avg": 23,
+      "t": 62,
+      "f": 103
+     },
+     {
+      "tag": "苦",
+      "k": "阪神|芝1400",
+      "n": 49,
+      "w": 4,
+      "p": 12,
+      "avg": 21,
+      "t": 74,
+      "f": 82
+     },
+     {
+      "tag": "苦",
+      "k": "小倉|芝2000",
+      "n": 54,
+      "w": 6,
+      "p": 13,
+      "avg": 22,
+      "t": 57,
+      "f": 62
+     }
+    ]
+   }
+  },
+  {
+   "name": "アグネスタキオン",
+   "good": [
+    {
+     "cond": "福島ダ1700（29%・101走）、京都芝1400外",
+     "why": "小回りや内回りで、先行してしぶとさを出す（推定）"
+    }
+   ],
+   "bad": [
+    {
+     "cond": "中京芝1400（9%）、新潟ダ1200",
+     "why": "短い距離のスピード勝負"
+    }
+   ],
+   "notes": [
+    "名前の大きさほど母父としての数字は高くない。母父タキオンだけで買う理由にはなりにくい"
+   ],
+   "type": "日",
+   "typeSure": false,
+   "line": "Pサンデー系",
+   "big": "サンデー系",
+   "lineGuess": true,
+   "sire": "サンデーサイレンス",
+   "damsire": "ロイヤルスキー",
+   "tagline": "無敗の皐月賞馬。母父としてはやや平凡",
+   "kw": [
+    "母父",
+    "平均的"
+   ],
+   "desc": "4戦4勝で皐月賞を勝って引退した。2008年のリーディングサイアー。2009年に死亡。いまは母父として約4,600走。",
+   "mfNote": "芝の中距離とダートの中距離がまずまず（24%・23%）。短い芝は平均より下",
+   "children": [],
+   "mf": {
+    "bands": {
+     "芝短": [
+      611,
+      5,
+      17,
+      65,
+      73
+     ],
+     "芝マ": [
+      842,
+      6,
+      20,
+      62,
+      60
+     ],
+     "芝中": [
+      539,
+      6,
+      24,
+      69,
+      81
+     ],
+     "芝長": [
+      107,
+      7,
+      17,
+      48,
+      68
+     ],
+     "ダ短": [
+      1067,
+      6,
+      20,
+      76,
+      67
+     ],
+     "ダ中": [
+      1342,
+      6,
+      23,
+      62,
+      76
+     ],
+     "ダ長": [
+      77,
+      5,
+      21,
+      25,
+      82
+     ]
+    },
+    "rows": [
+     {
+      "tag": "得",
+      "k": "新潟|芝2000",
+      "n": 25,
+      "w": 8,
+      "p": 36,
+      "avg": 21,
+      "t": 52,
+      "f": 111
+     },
+     {
+      "tag": "得",
+      "k": "京都|芝1400外",
+      "n": 22,
+      "w": 14,
+      "p": 36,
+      "avg": 22,
+      "t": 70,
+      "f": 115
+     },
+     {
+      "tag": "得",
+      "k": "函館|芝1800",
+      "n": 23,
+      "w": 9,
+      "p": 35,
+      "avg": 24,
+      "t": 58,
+      "f": 70
+     },
+     {
+      "tag": "得",
+      "k": "福島|ダ1700",
+      "n": 101,
+      "w": 10,
+      "p": 29,
+      "avg": 21,
+      "t": 87,
+      "f": 70
+     },
+     {
+      "tag": "得",
+      "k": "札幌|芝2000",
+      "n": 27,
+      "w": 0,
+      "p": 30,
+      "avg": 22,
+      "t": 0,
+      "f": 70
+     },
+     {
+      "tag": "妙",
+      "k": "函館|ダ1700",
+      "n": 53,
+      "w": 9,
+      "p": 32,
+      "avg": 25,
+      "t": 181,
+      "f": 143
+     },
+     {
+      "tag": "妙",
+      "k": "京都|芝2000",
+      "n": 34,
+      "w": 0,
+      "p": 29,
+      "avg": 26,
+      "t": 0,
+      "f": 140
+     },
+     {
+      "tag": "妙",
+      "k": "阪神|ダ1200",
+      "n": 84,
+      "w": 8,
+      "p": 24,
+      "avg": 20,
+      "t": 82,
+      "f": 121
+     },
+     {
+      "tag": "妙",
+      "k": "福島|芝2000",
+      "n": 44,
+      "w": 5,
+      "p": 27,
+      "avg": 21,
+      "t": 20,
+      "f": 116
+     },
+     {
+      "tag": "苦",
+      "k": "中京|芝1400",
+      "n": 54,
+      "w": 4,
+      "p": 9,
+      "avg": 21,
+      "t": 85,
+      "f": 52
+     },
+     {
+      "tag": "苦",
+      "k": "新潟|ダ1200",
+      "n": 58,
+      "w": 5,
+      "p": 10,
+      "avg": 21,
+      "t": 23,
+      "f": 39
+     },
+     {
+      "tag": "苦",
+      "k": "中京|芝1600",
+      "n": 55,
+      "w": 4,
+      "p": 11,
+      "avg": 23,
+      "t": 155,
+      "f": 50
+     }
+    ]
+   }
+  },
+  {
+   "name": "マンハッタンカフェ",
+   "good": [
+    {
+     "cond": "京都芝1600外（44%）、札幌芝1500（44%）、中京ダ1400（36%・72走）",
+     "why": "欧州の母系から来る馬力と、サンデーの瞬発力がマイルで合う（推定）"
+    }
+   ],
+   "bad": [
+    {
+     "cond": "阪神芝2000（13%）、小倉ダ1700、小倉芝2000",
+     "why": "小回りの中距離で、早めに動く流れが合わない（推定）"
+    }
+   ],
+   "notes": [],
+   "type": "日",
+   "typeSure": false,
+   "line": "Tサンデー系",
+   "big": "サンデー系",
+   "lineGuess": true,
+   "sire": "サンデーサイレンス",
+   "damsire": "Law Society（欧）",
+   "tagline": "菊花賞・有馬記念・天皇賞（春）の馬。母父では芝マイルとダート短距離",
+   "kw": [
+    "母父",
+    "芝マイル"
+   ],
+   "desc": "長距離のG1を3つ勝った。2009年のリーディングサイアー。2015年に死亡。母父として約4,400走。",
+   "mfNote": "芝のマイル（25%）とダートの短距離（23%）で平均より上。本人の長距離のイメージとは違う",
+   "children": [],
+   "mf": {
+    "bands": {
+     "芝短": [
+      502,
+      7,
+      22,
+      54,
+      75
+     ],
+     "芝マ": [
+      827,
+      10,
+      25,
+      76,
+      79
+     ],
+     "芝中": [
+      560,
+      9,
+      21,
+      115,
+      68
+     ],
+     "芝長": [
+      139,
+      8,
+      26,
+      37,
+      109
+     ],
+     "ダ短": [
+      915,
+      8,
+      23,
+      71,
+      76
+     ],
+     "ダ中": [
+      1335,
+      8,
+      22,
+      56,
+      63
+     ],
+     "ダ長": [
+      105,
+      10,
+      25,
+      60,
+      70
+     ]
+    },
+    "rows": [
+     {
+      "tag": "得",
+      "k": "京都|芝1600外",
+      "n": 27,
+      "w": 15,
+      "p": 44,
+      "avg": 23,
+      "t": 83,
+      "f": 87
+     },
+     {
+      "tag": "得",
+      "k": "京都|芝1200",
+      "n": 26,
+      "w": 23,
+      "p": 38,
+      "avg": 20,
+      "t": 133,
+      "f": 98
+     },
+     {
+      "tag": "得",
+      "k": "札幌|芝1500",
+      "n": 27,
+      "w": 15,
+      "p": 44,
+      "avg": 24,
+      "t": 30,
+      "f": 77
+     },
+     {
+      "tag": "得",
+      "k": "中京|ダ1400",
+      "n": 72,
+      "w": 11,
+      "p": 36,
+      "avg": 20,
+      "t": 48,
+      "f": 83
+     },
+     {
+      "tag": "得",
+      "k": "阪神|芝1200",
+      "n": 20,
+      "w": 15,
+      "p": 40,
+      "avg": 23,
+      "t": 59,
+      "f": 70
+     },
+     {
+      "tag": "妙",
+      "k": "東京|芝2400",
+      "n": 44,
+      "w": 18,
+      "p": 34,
+      "avg": 24,
+      "t": 88,
+      "f": 170
+     },
+     {
+      "tag": "妙",
+      "k": "中京|芝1400",
+      "n": 33,
+      "w": 3,
+      "p": 21,
+      "avg": 21,
+      "t": 23,
+      "f": 133
+     },
+     {
+      "tag": "妙",
+      "k": "阪神|芝1600外",
+      "n": 83,
+      "w": 8,
+      "p": 25,
+      "avg": 22,
+      "t": 38,
+      "f": 128
+     },
+     {
+      "tag": "妙",
+      "k": "福島|芝1200",
+      "n": 54,
+      "w": 6,
+      "p": 28,
+      "avg": 21,
+      "t": 19,
+      "f": 127
+     },
+     {
+      "tag": "苦",
+      "k": "阪神|芝2000",
+      "n": 48,
+      "w": 4,
+      "p": 13,
+      "avg": 27,
+      "t": 16,
+      "f": 29
+     },
+     {
+      "tag": "苦",
+      "k": "小倉|ダ1700",
+      "n": 108,
+      "w": 7,
+      "p": 12,
+      "avg": 21,
+      "t": 51,
+      "f": 39
+     },
+     {
+      "tag": "苦",
+      "k": "小倉|芝2000",
+      "n": 52,
+      "w": 4,
+      "p": 13,
+      "avg": 22,
+      "t": 32,
+      "f": 41
+     }
+    ]
+   }
+  },
+  {
+   "name": "フレンチデピュティ",
+   "good": [
+    {
+     "cond": "阪神芝1600外（33%・複回115）、中京芝2200（42%）、新潟ダ1200（妙味）",
+     "why": "米国型らしいスピードの持続力"
+    }
+   ],
+   "bad": [
+    {
+     "cond": "中山芝1200外（11%）、中京芝1600、中京ダ1900",
+     "why": ""
+    }
+   ],
+   "notes": [
+    "小倉芝1200・函館芝1200では人気のわりに来ている（妙味）"
+   ],
+   "type": "米",
+   "typeSure": false,
+   "line": "ヴァイスリージェント系",
+   "big": "ノーザンダンサー系",
+   "lineGuess": false,
+   "sire": "Deputy Minister",
+   "damsire": "Hold Your Peace",
+   "tagline": "クロフネの父。母父ではダートの安定感",
+   "kw": [
+    "母父",
+    "ダート"
+   ],
+   "desc": "アメリカから日本に来た種牡馬で、クロフネの父。芝・ダートの両方でG1馬を出した。母父として約3,700走。",
+   "mfNote": "ダートが短距離・中距離とも24%で平均より上。芝の中距離も27%",
+   "children": [
+    "クロフネ"
+   ],
+   "mf": {
+    "bands": {
+     "芝短": [
+      525,
+      6,
+      21,
+      57,
+      95
+     ],
+     "芝マ": [
+      428,
+      8,
+      21,
+      99,
+      71
+     ],
+     "芝中": [
+      320,
+      8,
+      27,
+      52,
+      89
+     ],
+     "芝長": [
+      85,
+      7,
+      24,
+      24,
+      39
+     ],
+     "ダ短": [
+      1139,
+      8,
+      24,
+      70,
+      74
+     ],
+     "ダ中": [
+      1128,
+      8,
+      24,
+      65,
+      66
+     ],
+     "ダ長": [
+      86,
+      5,
+      19,
+      27,
+      51
+     ]
+    },
+    "rows": [
+     {
+      "tag": "得",
+      "k": "札幌|ダ1000",
+      "n": 21,
+      "w": 29,
+      "p": 48,
+      "avg": 26,
+      "t": 164,
+      "f": 99
+     },
+     {
+      "tag": "得",
+      "k": "新潟|芝1400",
+      "n": 21,
+      "w": 14,
+      "p": 33,
+      "avg": 19,
+      "t": 71,
+      "f": 67
+     },
+     {
+      "tag": "得",
+      "k": "中京|芝2200",
+      "n": 31,
+      "w": 13,
+      "p": 42,
+      "avg": 25,
+      "t": 55,
+      "f": 144
+     },
+     {
+      "tag": "得",
+      "k": "阪神|芝1600外",
+      "n": 43,
+      "w": 9,
+      "p": 33,
+      "avg": 22,
+      "t": 251,
+      "f": 115
+     },
+     {
+      "tag": "得",
+      "k": "中京|芝1400",
+      "n": 36,
+      "w": 3,
+      "p": 31,
+      "avg": 21,
+      "t": 14,
+      "f": 163
+     },
+     {
+      "tag": "妙",
+      "k": "小倉|芝1200",
+      "n": 57,
+      "w": 11,
+      "p": 26,
+      "avg": 19,
+      "t": 125,
+      "f": 168
+     },
+     {
+      "tag": "妙",
+      "k": "新潟|ダ1200",
+      "n": 80,
+      "w": 10,
+      "p": 28,
+      "avg": 21,
+      "t": 57,
+      "f": 126
+     },
+     {
+      "tag": "妙",
+      "k": "函館|芝1200",
+      "n": 46,
+      "w": 13,
+      "p": 22,
+      "avg": 24,
+      "t": 130,
+      "f": 124
+     },
+     {
+      "tag": "妙",
+      "k": "函館|ダ1000",
+      "n": 32,
+      "w": 16,
+      "p": 31,
+      "avg": 27,
+      "t": 87,
+      "f": 106
+     },
+     {
+      "tag": "苦",
+      "k": "中山|芝1200外",
+      "n": 47,
+      "w": 2,
+      "p": 11,
+      "avg": 21,
+      "t": 7,
+      "f": 74
+     },
+     {
+      "tag": "苦",
+      "k": "中京|芝1600",
+      "n": 43,
+      "w": 2,
+      "p": 16,
+      "avg": 23,
+      "t": 11,
+      "f": 42
+     },
+     {
+      "tag": "苦",
+      "k": "中京|ダ1900",
+      "n": 44,
+      "w": 5,
+      "p": 16,
+      "avg": 23,
+      "t": 72,
+      "f": 58
+     }
+    ]
+   }
+  },
+  {
+   "name": "ゼンノロブロイ",
+   "good": [
+    {
+     "cond": "阪神芝1600外（32%）、京都芝1600外（36%）、阪神芝1800外",
+     "why": "外回りの長い直線で、持続力のある末脚を使う"
+    }
+   ],
+   "bad": [
+    {
+     "cond": "東京芝1600（11%）、中山芝1600外、阪神ダ1200",
+     "why": "ダートの短距離は特に割引"
+    }
+   ],
+   "notes": [
+    "中山ダ1800は複勝率は低いが、回収率は高い（妙味）"
+   ],
+   "type": "日",
+   "typeSure": false,
+   "line": "Tサンデー系",
+   "big": "サンデー系",
+   "lineGuess": true,
+   "sire": "サンデーサイレンス",
+   "damsire": "Mining（米）",
+   "tagline": "2004年秋の古馬3冠。母父では芝の外回りマイル",
+   "kw": [
+    "母父",
+    "芝向き"
+   ],
+   "desc": "天皇賞（秋）・ジャパンカップ・有馬記念を同じ年に勝った。母父として約3,400走。",
+   "mfNote": "芝の中長距離（25〜27%）で平均より上。**ダートの短距離は15%と大きく下**",
+   "children": [],
+   "mf": {
+    "bands": {
+     "芝短": [
+      584,
+      6,
+      18,
+      100,
+      74
+     ],
+     "芝マ": [
+      652,
+      6,
+      21,
+      24,
+      52
+     ],
+     "芝中": [
+      376,
+      9,
+      25,
+      78,
+      67
+     ],
+     "芝長": [
+      122,
+      10,
+      27,
+      62,
+      89
+     ],
+     "ダ短": [
+      724,
+      4,
+      15,
+      62,
+      66
+     ],
+     "ダ中": [
+      858,
+      6,
+      19,
+      89,
+      81
+     ],
+     "ダ長": [
+      63,
+      10,
+      24,
+      112,
+      66
+     ]
+    },
+    "rows": [
+     {
+      "tag": "得",
+      "k": "京都|芝1600外",
+      "n": 33,
+      "w": 15,
+      "p": 36,
+      "avg": 23,
+      "t": 79,
+      "f": 73
+     },
+     {
+      "tag": "得",
+      "k": "阪神|芝1600外",
+      "n": 63,
+      "w": 8,
+      "p": 32,
+      "avg": 22,
+      "t": 37,
+      "f": 89
+     },
+     {
+      "tag": "得",
+      "k": "阪神|芝1800外",
+      "n": 25,
+      "w": 4,
+      "p": 36,
+      "avg": 25,
+      "t": 9,
+      "f": 70
+     },
+     {
+      "tag": "得",
+      "k": "中京|芝1600",
+      "n": 57,
+      "w": 4,
+      "p": 32,
+      "avg": 23,
+      "t": 9,
+      "f": 72
+     },
+     {
+      "tag": "得",
+      "k": "中山|芝1200外",
+      "n": 40,
+      "w": 8,
+      "p": 28,
+      "avg": 21,
+      "t": 61,
+      "f": 91
+     },
+     {
+      "tag": "妙",
+      "k": "中京|芝1200",
+      "n": 28,
+      "w": 7,
+      "p": 25,
+      "avg": 21,
+      "t": 393,
+      "f": 164
+     },
+     {
+      "tag": "妙",
+      "k": "小倉|ダ1700",
+      "n": 66,
+      "w": 6,
+      "p": 21,
+      "avg": 21,
+      "t": 63,
+      "f": 140
+     },
+     {
+      "tag": "妙",
+      "k": "中山|ダ1800",
+      "n": 176,
+      "w": 4,
+      "p": 20,
+      "avg": 21,
+      "t": 127,
+      "f": 122
+     },
+     {
+      "tag": "妙",
+      "k": "福島|ダ1700",
+      "n": 66,
+      "w": 12,
+      "p": 21,
+      "avg": 21,
+      "t": 248,
+      "f": 98
+     },
+     {
+      "tag": "苦",
+      "k": "東京|芝1600",
+      "n": 73,
+      "w": 5,
+      "p": 11,
+      "avg": 22,
+      "t": 12,
+      "f": 20
+     },
+     {
+      "tag": "苦",
+      "k": "阪神|ダ1200",
+      "n": 68,
+      "w": 3,
+      "p": 10,
+      "avg": 20,
+      "t": 14,
+      "f": 59
+     },
+     {
+      "tag": "苦",
+      "k": "中山|芝1600外",
+      "n": 65,
+      "w": 5,
+      "p": 12,
+      "avg": 21,
+      "t": 28,
+      "f": 30
+     }
+    ]
+   }
+  },
+  {
+   "name": "スペシャルウィーク",
+   "good": [
+    {
+     "cond": "京都ダ1200（34%）、阪神芝2000（43%）、京都ダ1900",
+     "why": "京都と阪神で走る（推定：坂のある阪神でも、平坦な京都でも）"
+    }
+   ],
+   "bad": [
+    {
+     "cond": "京都ダ1400（10%）、東京芝1800、阪神ダ1400（101走で15%）",
+     "why": ""
+    }
+   ],
+   "notes": [],
+   "type": "日",
+   "typeSure": false,
+   "line": "Tサンデー系",
+   "big": "サンデー系",
+   "lineGuess": true,
+   "sire": "サンデーサイレンス",
+   "damsire": "マルゼンスキー",
+   "tagline": "ダービー馬。母父ではバランス型。エピファネイアの母父",
+   "kw": [
+    "母父",
+    "万能"
+   ],
+   "desc": "ダービー・天皇賞（春秋）・ジャパンカップを勝った。娘のシーザリオがエピファネイアを産んだので、エピファネイアの母父にあたる。2018年に死亡。母父として約3,300走。",
+   "mfNote": "どの距離もほぼ平均。芝の短距離（25%）が少し高い",
+   "children": [],
+   "mf": {
+    "bands": {
+     "芝短": [
+      443,
+      7,
+      25,
+      52,
+      84
+     ],
+     "芝マ": [
+      500,
+      6,
+      20,
+      61,
+      63
+     ],
+     "芝中": [
+      346,
+      9,
+      23,
+      72,
+      83
+     ],
+     "芝長": [
+      62,
+      10,
+      26,
+      46,
+      114
+     ],
+     "ダ短": [
+      793,
+      7,
+      20,
+      80,
+      66
+     ],
+     "ダ中": [
+      1077,
+      8,
+      23,
+      59,
+      76
+     ],
+     "ダ長": [
+      82,
+      6,
+      22,
+      33,
+      81
+     ]
+    },
+    "rows": [
+     {
+      "tag": "得",
+      "k": "阪神|芝1200",
+      "n": 20,
+      "w": 25,
+      "p": 45,
+      "avg": 23,
+      "t": 274,
+      "f": 121
+     },
+     {
+      "tag": "得",
+      "k": "京都|ダ1200",
+      "n": 56,
+      "w": 14,
+      "p": 34,
+      "avg": 21,
+      "t": 112,
+      "f": 131
+     },
+     {
+      "tag": "得",
+      "k": "阪神|芝2000",
+      "n": 30,
+      "w": 17,
+      "p": 43,
+      "avg": 27,
+      "t": 140,
+      "f": 153
+     },
+     {
+      "tag": "得",
+      "k": "京都|芝1400外",
+      "n": 26,
+      "w": 0,
+      "p": 35,
+      "avg": 22,
+      "t": 0,
+      "f": 87
+     },
+     {
+      "tag": "得",
+      "k": "京都|ダ1900",
+      "n": 37,
+      "w": 8,
+      "p": 35,
+      "avg": 23,
+      "t": 63,
+      "f": 180
+     },
+     {
+      "tag": "妙",
+      "k": "中山|芝1800",
+      "n": 39,
+      "w": 10,
+      "p": 23,
+      "avg": 22,
+      "t": 83,
+      "f": 144
+     },
+     {
+      "tag": "妙",
+      "k": "中山|芝2000",
+      "n": 52,
+      "w": 10,
+      "p": 21,
+      "avg": 21,
+      "t": 144,
+      "f": 129
+     },
+     {
+      "tag": "妙",
+      "k": "小倉|ダ1700",
+      "n": 97,
+      "w": 8,
+      "p": 23,
+      "avg": 21,
+      "t": 79,
+      "f": 121
+     },
+     {
+      "tag": "妙",
+      "k": "新潟|ダ1200",
+      "n": 65,
+      "w": 9,
+      "p": 26,
+      "avg": 21,
+      "t": 72,
+      "f": 112
+     },
+     {
+      "tag": "苦",
+      "k": "京都|ダ1400",
+      "n": 60,
+      "w": 7,
+      "p": 10,
+      "avg": 21,
+      "t": 371,
+      "f": 66
+     },
+     {
+      "tag": "苦",
+      "k": "東京|芝1800",
+      "n": 46,
+      "w": 2,
+      "p": 13,
+      "avg": 23,
+      "t": 4,
+      "f": 47
+     },
+     {
+      "tag": "苦",
+      "k": "阪神|ダ1400",
+      "n": 101,
+      "w": 5,
+      "p": 15,
+      "avg": 20,
+      "t": 43,
+      "f": 66
+     }
+    ]
+   }
+  },
+  {
+   "name": "ネオユニヴァース",
+   "good": [
+    {
+     "cond": "東京ダ1300（33%）、京都ダ1400（31%）、中京ダ1200",
+     "why": "ダートの短距離"
+    }
+   ],
+   "bad": [
+    {
+     "cond": "中山芝2000（7%）、福島ダ1150、福島ダ1700",
+     "why": "小回りで割引"
+    }
+   ],
+   "notes": [
+    "母父ネオユニヴァースは、芝ではまず割引と覚えてよい"
+   ],
+   "type": "日",
+   "typeSure": false,
+   "line": "Tサンデー系",
+   "big": "サンデー系",
+   "lineGuess": true,
+   "sire": "サンデーサイレンス",
+   "damsire": "Kris（欧）",
+   "tagline": "皐月賞・ダービーの馬。母父では全体に低め",
+   "kw": [
+    "母父",
+    "割引"
+   ],
+   "desc": "2003年の二冠馬。子にヴィクトワールピサ（皐月賞・ドバイワールドカップ）がいる。2021年に死亡。母父として約3,200走。",
+   "mfNote": "芝はどの距離も平均より下（芝短15%）。ダートの方がまし（20%前後）",
+   "children": [
+    "ヴィクトワールピサ"
+   ],
+   "mf": {
+    "bands": {
+     "芝短": [
+      449,
+      6,
+      15,
+      63,
+      54
+     ],
+     "芝マ": [
+      423,
+      5,
+      19,
+      31,
+      70
+     ],
+     "芝中": [
+      247,
+      6,
+      17,
+      29,
+      89
+     ],
+     "芝長": [
+      25,
+      20,
+      36,
+      91,
+      68
+     ],
+     "ダ短": [
+      887,
+      7,
+      20,
+      85,
+      77
+     ],
+     "ダ中": [
+      1094,
+      6,
+      19,
+      71,
+      79
+     ],
+     "ダ長": [
+      76,
+      4,
+      17,
+      44,
+      67
+     ]
+    },
+    "rows": [
+     {
+      "tag": "得",
+      "k": "東京|ダ1300",
+      "n": 30,
+      "w": 10,
+      "p": 33,
+      "avg": 19,
+      "t": 435,
+      "f": 125
+     },
+     {
+      "tag": "得",
+      "k": "京都|ダ1400",
+      "n": 55,
+      "w": 15,
+      "p": 31,
+      "avg": 21,
+      "t": 250,
+      "f": 96
+     },
+     {
+      "tag": "得",
+      "k": "中京|ダ1200",
+      "n": 41,
+      "w": 5,
+      "p": 29,
+      "avg": 20,
+      "t": 18,
+      "f": 141
+     },
+     {
+      "tag": "得",
+      "k": "福島|芝2000",
+      "n": 21,
+      "w": 10,
+      "p": 29,
+      "avg": 21,
+      "t": 35,
+      "f": 70
+     },
+     {
+      "tag": "得",
+      "k": "阪神|ダ1200",
+      "n": 61,
+      "w": 8,
+      "p": 26,
+      "avg": 20,
+      "t": 38,
+      "f": 60
+     },
+     {
+      "tag": "妙",
+      "k": "東京|芝1600",
+      "n": 64,
+      "w": 3,
+      "p": 20,
+      "avg": 22,
+      "t": 10,
+      "f": 127
+     },
+     {
+      "tag": "妙",
+      "k": "東京|ダ1400",
+      "n": 147,
+      "w": 7,
+      "p": 18,
+      "avg": 19,
+      "t": 60,
+      "f": 116
+     },
+     {
+      "tag": "妙",
+      "k": "新潟|ダ1200",
+      "n": 81,
+      "w": 4,
+      "p": 21,
+      "avg": 21,
+      "t": 139,
+      "f": 88
+     },
+     {
+      "tag": "妙",
+      "k": "札幌|ダ1700",
+      "n": 54,
+      "w": 11,
+      "p": 22,
+      "avg": 23,
+      "t": 257,
+      "f": 65
+     },
+     {
+      "tag": "苦",
+      "k": "中山|芝2000",
+      "n": 41,
+      "w": 5,
+      "p": 7,
+      "avg": 21,
+      "t": 14,
+      "f": 22
+     },
+     {
+      "tag": "苦",
+      "k": "福島|ダ1150",
+      "n": 64,
+      "w": 3,
+      "p": 9,
+      "avg": 20,
+      "t": 16,
+      "f": 20
+     },
+     {
+      "tag": "苦",
+      "k": "福島|ダ1700",
+      "n": 91,
+      "w": 4,
+      "p": 12,
+      "avg": 21,
+      "t": 43,
+      "f": 50
+     }
+    ]
+   }
+  },
+  {
+   "name": "ダンスインザダーク",
+   "good": [
+    {
+     "cond": "京都芝1200（36%）、小倉ダ1000、阪神ダ1800（妙味）",
+     "why": "はっきりした得意条件は少ない"
+    }
+   ],
+   "bad": [
+    {
+     "cond": "中京ダ1800（7%）、福島ダ1700（8%）、新潟芝1800外",
+     "why": ""
+    }
+   ],
+   "notes": [],
+   "type": "日",
+   "typeSure": false,
+   "line": "Tサンデー系",
+   "big": "サンデー系",
+   "lineGuess": true,
+   "sire": "サンデーサイレンス",
+   "damsire": "Nijinsky（欧）",
+   "tagline": "菊花賞馬。母父では全体に平均より下",
+   "kw": [
+    "母父",
+    "割引"
+   ],
+   "desc": "1996年の菊花賞馬。長距離の子を多く出した。2020年に死亡。母父として約3,100走。",
+   "mfNote": "どの距離も17〜21%で、平均を少し下回る",
+   "children": [],
+   "mf": {
+    "bands": {
+     "芝短": [
+      560,
+      6,
+      20,
+      62,
+      63
+     ],
+     "芝マ": [
+      563,
+      5,
+      17,
+      43,
+      66
+     ],
+     "芝中": [
+      298,
+      7,
+      21,
+      50,
+      59
+     ],
+     "芝長": [
+      88,
+      5,
+      17,
+      28,
+      46
+     ],
+     "ダ短": [
+      620,
+      4,
+      17,
+      50,
+      58
+     ],
+     "ダ中": [
+      910,
+      5,
+      19,
+      53,
+      77
+     ],
+     "ダ長": [
+      68,
+      4,
+      18,
+      90,
+      59
+     ]
+    },
+    "rows": [
+     {
+      "tag": "得",
+      "k": "京都|芝1200",
+      "n": 28,
+      "w": 11,
+      "p": 36,
+      "avg": 20,
+      "t": 94,
+      "f": 78
+     },
+     {
+      "tag": "得",
+      "k": "小倉|ダ1000",
+      "n": 32,
+      "w": 6,
+      "p": 31,
+      "avg": 23,
+      "t": 26,
+      "f": 106
+     },
+     {
+      "tag": "得",
+      "k": "阪神|芝1200",
+      "n": 27,
+      "w": 19,
+      "p": 30,
+      "avg": 23,
+      "t": 94,
+      "f": 56
+     },
+     {
+      "tag": "得",
+      "k": "新潟|芝1200",
+      "n": 25,
+      "w": 4,
+      "p": 24,
+      "avg": 19,
+      "t": 10,
+      "f": 82
+     },
+     {
+      "tag": "得",
+      "k": "阪神|ダ2000",
+      "n": 21,
+      "w": 5,
+      "p": 29,
+      "avg": 24,
+      "t": 34,
+      "f": 62
+     },
+     {
+      "tag": "妙",
+      "k": "阪神|ダ1800",
+      "n": 114,
+      "w": 9,
+      "p": 27,
+      "avg": 24,
+      "t": 147,
+      "f": 123
+     },
+     {
+      "tag": "妙",
+      "k": "中京|ダ1900",
+      "n": 32,
+      "w": 6,
+      "p": 25,
+      "avg": 23,
+      "t": 48,
+      "f": 121
+     },
+     {
+      "tag": "妙",
+      "k": "新潟|ダ1200",
+      "n": 44,
+      "w": 2,
+      "p": 25,
+      "avg": 21,
+      "t": 60,
+      "f": 108
+     },
+     {
+      "tag": "妙",
+      "k": "中京|芝1400",
+      "n": 46,
+      "w": 9,
+      "p": 24,
+      "avg": 21,
+      "t": 198,
+      "f": 97
+     },
+     {
+      "tag": "苦",
+      "k": "中京|ダ1800",
+      "n": 81,
+      "w": 2,
+      "p": 7,
+      "avg": 23,
+      "t": 34,
+      "f": 30
+     },
+     {
+      "tag": "苦",
+      "k": "福島|ダ1700",
+      "n": 48,
+      "w": 4,
+      "p": 8,
+      "avg": 21,
+      "t": 28,
+      "f": 18
+     },
+     {
+      "tag": "苦",
+      "k": "新潟|芝1800外",
+      "n": 43,
+      "w": 5,
+      "p": 9,
+      "avg": 22,
+      "t": 53,
+      "f": 27
+     }
+    ]
+   }
+  },
+  {
+   "name": "ゴールドアリュール",
+   "good": [
+    {
+     "cond": "阪神ダ1800（32%・202走）、中京ダ1400、福島ダ1700",
+     "why": "砂を押しのけるパワーと、サンデーの勝負根性"
+    }
+   ],
+   "bad": [
+    {
+     "cond": "阪神ダ1400（11%）、東京ダ1300、阪神ダ1200",
+     "why": "短いダートのスピード勝負は平凡"
+    }
+   ],
+   "notes": [],
+   "type": "日",
+   "typeSure": true,
+   "line": "Dサンデー系",
+   "big": "サンデー系",
+   "lineGuess": false,
+   "sire": "サンデーサイレンス",
+   "damsire": "Nureyev（欧）",
+   "tagline": "ダートのサンデー系の代表。母父でもダート",
+   "kw": [
+    "母父",
+    "ダート"
+   ],
+   "desc": "ダートのG1を4勝した。子にエスポワールシチー、ゴールドドリーム、クリソベリル（どれも図鑑にいる）。2017年に死亡。母父として約3,000走、ほぼ全部がダート。",
+   "mfNote": "ダートの中距離（24%）がいちばん。短距離は平均くらい",
+   "children": [
+    "コパノリッキー",
+    "エスポワールシチー",
+    "ゴールドドリーム",
+    "クリソベリル"
+   ],
+   "mf": {
+    "bands": {
+     "芝短": [
+      59,
+      3,
+      20,
+      56,
+      52
+     ],
+     "芝マ": [
+      41,
+      5,
+      29,
+      16,
+      91
+     ],
+     "ダ短": [
+      1301,
+      8,
+      21,
+      91,
+      73
+     ],
+     "ダ中": [
+      1476,
+      9,
+      24,
+      76,
+      73
+     ],
+     "ダ長": [
+      83,
+      6,
+      18,
+      142,
+      65
+     ]
+    },
+    "rows": [
+     {
+      "tag": "得",
+      "k": "中京|ダ1400",
+      "n": 97,
+      "w": 14,
+      "p": 28,
+      "avg": 20,
+      "t": 124,
+      "f": 71
+     },
+     {
+      "tag": "得",
+      "k": "阪神|ダ1800",
+      "n": 202,
+      "w": 10,
+      "p": 32,
+      "avg": 24,
+      "t": 140,
+      "f": 98
+     },
+     {
+      "tag": "得",
+      "k": "京都|ダ1200",
+      "n": 83,
+      "w": 6,
+      "p": 28,
+      "avg": 21,
+      "t": 74,
+      "f": 95
+     },
+     {
+      "tag": "得",
+      "k": "福島|ダ1700",
+      "n": 121,
+      "w": 11,
+      "p": 27,
+      "avg": 21,
+      "t": 113,
+      "f": 70
+     },
+     {
+      "tag": "得",
+      "k": "札幌|ダ1000",
+      "n": 30,
+      "w": 7,
+      "p": 33,
+      "avg": 26,
+      "t": 28,
+      "f": 88
+     },
+     {
+      "tag": "妙",
+      "k": "中京|ダ1200",
+      "n": 74,
+      "w": 9,
+      "p": 22,
+      "avg": 20,
+      "t": 427,
+      "f": 118
+     },
+     {
+      "tag": "妙",
+      "k": "中京|ダ1900",
+      "n": 32,
+      "w": 16,
+      "p": 28,
+      "avg": 23,
+      "t": 50,
+      "f": 111
+     },
+     {
+      "tag": "妙",
+      "k": "阪神|ダ2000",
+      "n": 33,
+      "w": 12,
+      "p": 24,
+      "avg": 24,
+      "t": 350,
+      "f": 108
+     },
+     {
+      "tag": "妙",
+      "k": "小倉|ダ1000",
+      "n": 47,
+      "w": 13,
+      "p": 21,
+      "avg": 23,
+      "t": 398,
+      "f": 103
+     },
+     {
+      "tag": "苦",
+      "k": "阪神|ダ1400",
+      "n": 90,
+      "w": 4,
+      "p": 11,
+      "avg": 20,
+      "t": 39,
+      "f": 32
+     },
+     {
+      "tag": "苦",
+      "k": "東京|ダ1300",
+      "n": 46,
+      "w": 2,
+      "p": 13,
+      "avg": 19,
+      "t": 9,
+      "f": 28
+     },
+     {
+      "tag": "苦",
+      "k": "阪神|ダ1200",
+      "n": 81,
+      "w": 5,
+      "p": 14,
+      "avg": 20,
+      "t": 24,
+      "f": 59
+     }
+    ]
+   }
+  },
+  {
+   "name": "サクラバクシンオー",
+   "good": [
+    {
+     "cond": "中京芝1200（32%・複回178）、阪神芝1200、中山芝2000",
+     "why": "スピードの底上げ"
+    }
+   ],
+   "bad": [
+    {
+     "cond": "東京ダ1600（9%）、京都ダ1200、中京ダ1400",
+     "why": "ダートは全体に割引"
+    }
+   ],
+   "notes": [
+    "札幌芝1200・京都芝1200では回収率が高い（妙味）"
+   ],
+   "type": "欧",
+   "typeSure": false,
+   "line": "プリンスリーギフト系",
+   "big": "ナスルーラ系",
+   "lineGuess": false,
+   "sire": "サクラユタカオー",
+   "damsire": "ノーザンテースト",
+   "tagline": "短距離の王者。でも母父では**距離がもつ**。キタサンブラックの母父",
+   "kw": [
+    "母父",
+    "意外な距離"
+   ],
+   "desc": "スプリンターズSを2連覇した短距離馬。2011年に死亡。キタサンブラックの母父として有名。母父として約2,800走。",
+   "mfNote": "芝の短距離は23%と平均より少し上だが、**芝の中距離（30%）と長距離（38%・37走）の方が高い**。短距離のスピードを足しながら、距離は母系や父から受け継ぐ（推定）",
+   "children": [
+    "ビッグアーサー"
+   ],
+   "mf": {
+    "bands": {
+     "芝短": [
+      910,
+      9,
+      23,
+      112,
+      87
+     ],
+     "芝マ": [
+      372,
+      6,
+      18,
+      61,
+      68
+     ],
+     "芝中": [
+      177,
+      9,
+      30,
+      67,
+      77
+     ],
+     "芝長": [
+      37,
+      22,
+      38,
+      162,
+      89
+     ],
+     "ダ短": [
+      893,
+      7,
+      19,
+      44,
+      64
+     ],
+     "ダ中": [
+      420,
+      5,
+      18,
+      55,
+      61
+     ],
+     "ダ長": [
+      31,
+      13,
+      32,
+      38,
+      86
+     ]
+    },
+    "rows": [
+     {
+      "tag": "得",
+      "k": "新潟|芝1200",
+      "n": 42,
+      "w": 14,
+      "p": 29,
+      "avg": 19,
+      "t": 173,
+      "f": 68
+     },
+     {
+      "tag": "得",
+      "k": "中山|芝2000",
+      "n": 28,
+      "w": 7,
+      "p": 32,
+      "avg": 21,
+      "t": 39,
+      "f": 76
+     },
+     {
+      "tag": "得",
+      "k": "中京|芝1200",
+      "n": 60,
+      "w": 7,
+      "p": 32,
+      "avg": 21,
+      "t": 74,
+      "f": 178
+     },
+     {
+      "tag": "得",
+      "k": "阪神|芝1200",
+      "n": 42,
+      "w": 10,
+      "p": 31,
+      "avg": 23,
+      "t": 210,
+      "f": 104
+     },
+     {
+      "tag": "得",
+      "k": "小倉|ダ1000",
+      "n": 60,
+      "w": 10,
+      "p": 30,
+      "avg": 23,
+      "t": 40,
+      "f": 65
+     },
+     {
+      "tag": "妙",
+      "k": "札幌|芝1200",
+      "n": 52,
+      "w": 15,
+      "p": 27,
+      "avg": 22,
+      "t": 95,
+      "f": 182
+     },
+     {
+      "tag": "妙",
+      "k": "京都|芝1200",
+      "n": 37,
+      "w": 11,
+      "p": 22,
+      "avg": 20,
+      "t": 253,
+      "f": 156
+     },
+     {
+      "tag": "妙",
+      "k": "小倉|ダ1700",
+      "n": 47,
+      "w": 4,
+      "p": 23,
+      "avg": 21,
+      "t": 73,
+      "f": 152
+     },
+     {
+      "tag": "妙",
+      "k": "阪神|ダ1200",
+      "n": 81,
+      "w": 6,
+      "p": 21,
+      "avg": 20,
+      "t": 58,
+      "f": 137
+     },
+     {
+      "tag": "苦",
+      "k": "東京|ダ1600",
+      "n": 54,
+      "w": 6,
+      "p": 9,
+      "avg": 20,
+      "t": 31,
+      "f": 29
+     },
+     {
+      "tag": "苦",
+      "k": "京都|ダ1200",
+      "n": 49,
+      "w": 4,
+      "p": 10,
+      "avg": 21,
+      "t": 35,
+      "f": 34
+     },
+     {
+      "tag": "苦",
+      "k": "中京|ダ1400",
+      "n": 65,
+      "w": 5,
+      "p": 11,
+      "avg": 20,
+      "t": 27,
+      "f": 31
+     }
+    ]
+   }
+  },
+  {
+   "name": "エンパイアメーカー",
+   "good": [
+    {
+     "cond": "福島ダ1700（35%）、中京ダ1800（33%・103走）、京都ダ1900",
+     "why": "米国型のスピードの持続力が、ダートの1700〜1900mに合う"
+    }
+   ],
+   "bad": [
+    {
+     "cond": "阪神ダ1200（14%）、中山ダ1200（14%）",
+     "why": "ダートの短距離は合わない"
+    }
+   ],
+   "notes": [],
+   "type": "米",
+   "typeSure": false,
+   "line": "ファピアノ系",
+   "big": "ミスプロ系",
+   "lineGuess": false,
+   "sire": "Unbridled",
+   "damsire": "El Gran Senor",
+   "tagline": "ベルモントSの勝ち馬。母父ではダートの中長距離",
+   "kw": [
+    "母父",
+    "ダート中距離"
+   ],
+   "desc": "アメリカのクラシック、ベルモントSの勝ち馬。日本でも種牡馬をした（のちにアメリカへ戻った）。母父として約2,600走。",
+   "mfNote": "ダートの中距離（26%）と長距離（35%）で平均より上",
+   "children": [],
+   "mf": {
+    "bands": {
+     "芝短": [
+      224,
+      6,
+      25,
+      31,
+      86
+     ],
+     "芝マ": [
+      329,
+      9,
+      24,
+      52,
+      63
+     ],
+     "芝中": [
+      172,
+      8,
+      27,
+      190,
+      130
+     ],
+     "芝長": [
+      46,
+      7,
+      20,
+      35,
+      84
+     ],
+     "ダ短": [
+      678,
+      8,
+      21,
+      46,
+      56
+     ],
+     "ダ中": [
+      1110,
+      9,
+      26,
+      87,
+      80
+     ],
+     "ダ長": [
+      46,
+      13,
+      35,
+      65,
+      69
+     ]
+    },
+    "rows": [
+     {
+      "tag": "得",
+      "k": "中山|芝2000",
+      "n": 30,
+      "w": 17,
+      "p": 43,
+      "avg": 21,
+      "t": 855,
+      "f": 467
+     },
+     {
+      "tag": "得",
+      "k": "福島|ダ1700",
+      "n": 74,
+      "w": 14,
+      "p": 35,
+      "avg": 21,
+      "t": 184,
+      "f": 117
+     },
+     {
+      "tag": "得",
+      "k": "京都|ダ1900",
+      "n": 42,
+      "w": 10,
+      "p": 38,
+      "avg": 23,
+      "t": 29,
+      "f": 83
+     },
+     {
+      "tag": "得",
+      "k": "函館|芝1200",
+      "n": 21,
+      "w": 10,
+      "p": 38,
+      "avg": 24,
+      "t": 53,
+      "f": 78
+     },
+     {
+      "tag": "得",
+      "k": "中京|ダ1800",
+      "n": 103,
+      "w": 10,
+      "p": 33,
+      "avg": 23,
+      "t": 46,
+      "f": 120
+     },
+     {
+      "tag": "妙",
+      "k": "札幌|ダ1700",
+      "n": 32,
+      "w": 3,
+      "p": 22,
+      "avg": 23,
+      "t": 24,
+      "f": 189
+     },
+     {
+      "tag": "妙",
+      "k": "中京|ダ1900",
+      "n": 27,
+      "w": 7,
+      "p": 26,
+      "avg": 23,
+      "t": 372,
+      "f": 143
+     },
+     {
+      "tag": "妙",
+      "k": "福島|芝1200",
+      "n": 45,
+      "w": 9,
+      "p": 29,
+      "avg": 21,
+      "t": 24,
+      "f": 138
+     },
+     {
+      "tag": "妙",
+      "k": "中山|ダ1800",
+      "n": 164,
+      "w": 12,
+      "p": 28,
+      "avg": 21,
+      "t": 132,
+      "f": 75
+     },
+     {
+      "tag": "苦",
+      "k": "阪神|ダ1200",
+      "n": 57,
+      "w": 4,
+      "p": 14,
+      "avg": 20,
+      "t": 43,
+      "f": 27
+     },
+     {
+      "tag": "苦",
+      "k": "中山|ダ1200",
+      "n": 86,
+      "w": 6,
+      "p": 14,
+      "avg": 19,
+      "t": 30,
+      "f": 32
+     }
+    ]
+   }
+  },
+  {
+   "name": "ブライアンズタイム",
+   "good": [
+    {
+     "cond": "京都ダ1900（41%）、福島ダ1150、小倉ダ1000（36%）",
+     "why": "ロベルト系の「バテない馬力」"
+    }
+   ],
+   "bad": [
+    {
+     "cond": "小倉芝1200（9%）、東京芝1400、東京ダ1400",
+     "why": "速い芝の短距離は割引"
+    }
+   ],
+   "notes": [
+    "阪神ダ1200 は人気のわりに来ている（妙味）"
+   ],
+   "type": "米",
+   "typeSure": false,
+   "line": "ロベルト系",
+   "big": "ターントゥ系",
+   "lineGuess": false,
+   "sire": "Roberto",
+   "damsire": "Graustark",
+   "tagline": "ナリタブライアンの父。母父ではダートの中距離",
+   "kw": [
+    "母父",
+    "ダート"
+   ],
+   "desc": "三冠馬ナリタブライアンなどを出した。2013年に死亡。母父として約2,500走。",
+   "mfNote": "ダートの中距離（25%）が平均より上。芝の短距離（16%）は下",
+   "children": [],
+   "mf": {
+    "bands": {
+     "芝短": [
+      279,
+      4,
+      16,
+      39,
+      49
+     ],
+     "芝マ": [
+      343,
+      8,
+      22,
+      93,
+      79
+     ],
+     "芝中": [
+      256,
+      5,
+      22,
+      66,
+      58
+     ],
+     "芝長": [
+      102,
+      9,
+      25,
+      40,
+      80
+     ],
+     "ダ短": [
+      699,
+      6,
+      20,
+      87,
+      71
+     ],
+     "ダ中": [
+      776,
+      8,
+      25,
+      58,
+      70
+     ],
+     "ダ長": [
+      57,
+      7,
+      23,
+      72,
+      69
+     ]
+    },
+    "rows": [
+     {
+      "tag": "得",
+      "k": "阪神|芝1400",
+      "n": 23,
+      "w": 17,
+      "p": 39,
+      "avg": 21,
+      "t": 217,
+      "f": 93
+     },
+     {
+      "tag": "得",
+      "k": "福島|ダ1150",
+      "n": 33,
+      "w": 9,
+      "p": 36,
+      "avg": 20,
+      "t": 65,
+      "f": 98
+     },
+     {
+      "tag": "得",
+      "k": "京都|ダ1900",
+      "n": 22,
+      "w": 23,
+      "p": 41,
+      "avg": 23,
+      "t": 280,
+      "f": 88
+     },
+     {
+      "tag": "得",
+      "k": "小倉|ダ1000",
+      "n": 33,
+      "w": 6,
+      "p": 36,
+      "avg": 23,
+      "t": 512,
+      "f": 156
+     },
+     {
+      "tag": "得",
+      "k": "中京|ダ1200",
+      "n": 49,
+      "w": 20,
+      "p": 31,
+      "avg": 20,
+      "t": 259,
+      "f": 92
+     },
+     {
+      "tag": "妙",
+      "k": "小倉|芝1800",
+      "n": 30,
+      "w": 0,
+      "p": 20,
+      "avg": 23,
+      "t": 0,
+      "f": 142
+     },
+     {
+      "tag": "妙",
+      "k": "阪神|ダ1200",
+      "n": 74,
+      "w": 11,
+      "p": 30,
+      "avg": 20,
+      "t": 143,
+      "f": 135
+     },
+     {
+      "tag": "妙",
+      "k": "中京|芝1600",
+      "n": 37,
+      "w": 16,
+      "p": 22,
+      "avg": 23,
+      "t": 434,
+      "f": 101
+     },
+     {
+      "tag": "妙",
+      "k": "小倉|芝2000",
+      "n": 31,
+      "w": 10,
+      "p": 23,
+      "avg": 22,
+      "t": 263,
+      "f": 100
+     },
+     {
+      "tag": "苦",
+      "k": "小倉|芝1200",
+      "n": 57,
+      "w": 0,
+      "p": 9,
+      "avg": 19,
+      "t": 0,
+      "f": 34
+     },
+     {
+      "tag": "苦",
+      "k": "東京|芝1400",
+      "n": 40,
+      "w": 3,
+      "p": 10,
+      "avg": 21,
+      "t": 10,
+      "f": 28
+     },
+     {
+      "tag": "苦",
+      "k": "東京|ダ1400",
+      "n": 101,
+      "w": 3,
+      "p": 11,
+      "avg": 19,
+      "t": 65,
+      "f": 61
+     }
+    ]
+   }
+  },
+  {
+   "name": "タイキシャトル",
+   "good": [
+    {
+     "cond": "函館芝1200（38%）、福島芝1200（28%）、中山芝1800",
+     "why": "小回りの芝で先行力を足す（推定）"
+    }
+   ],
+   "bad": [
+    {
+     "cond": "新潟ダ1800（9%）、中山ダ1800（10%）、東京芝1400",
+     "why": ""
+    }
+   ],
+   "notes": [],
+   "type": "米",
+   "typeSure": false,
+   "line": "ヘイルトゥリーズン系",
+   "big": "ターントゥ系",
+   "lineGuess": false,
+   "sire": "Devil's Bag",
+   "damsire": "Caerleon（欧）",
+   "tagline": "短距離・マイルの王者。母父では平均くらい",
+   "kw": [
+    "母父",
+    "芝短距離"
+   ],
+   "desc": "マイルCS・安田記念などを勝ち、フランスのG1も勝った。2022年に死亡。母父として約2,200走。",
+   "mfNote": "どの距離もほぼ平均（17〜21%）。ダートの中距離（17%）は下",
+   "children": [],
+   "mf": {
+    "bands": {
+     "芝短": [
+      372,
+      8,
+      20,
+      110,
+      80
+     ],
+     "芝マ": [
+      517,
+      5,
+      21,
+      84,
+      107
+     ],
+     "芝中": [
+      181,
+      4,
+      19,
+      78,
+      76
+     ],
+     "ダ短": [
+      593,
+      7,
+      19,
+      104,
+      71
+     ],
+     "ダ中": [
+      489,
+      5,
+      17,
+      115,
+      67
+     ],
+     "ダ長": [
+      37,
+      8,
+      30,
+      33,
+      73
+     ]
+    },
+    "rows": [
+     {
+      "tag": "得",
+      "k": "函館|芝1200",
+      "n": 29,
+      "w": 24,
+      "p": 38,
+      "avg": 24,
+      "t": 208,
+      "f": 86
+     },
+     {
+      "tag": "得",
+      "k": "中京|ダ1400",
+      "n": 39,
+      "w": 8,
+      "p": 28,
+      "avg": 20,
+      "t": 165,
+      "f": 85
+     },
+     {
+      "tag": "得",
+      "k": "福島|芝1200",
+      "n": 61,
+      "w": 10,
+      "p": 28,
+      "avg": 21,
+      "t": 76,
+      "f": 83
+     },
+     {
+      "tag": "得",
+      "k": "東京|ダ2100",
+      "n": 22,
+      "w": 5,
+      "p": 27,
+      "avg": 21,
+      "t": 6,
+      "f": 75
+     },
+     {
+      "tag": "得",
+      "k": "中山|芝1800",
+      "n": 40,
+      "w": 5,
+      "p": 28,
+      "avg": 22,
+      "t": 164,
+      "f": 118
+     },
+     {
+      "tag": "妙",
+      "k": "小倉|芝1200",
+      "n": 65,
+      "w": 6,
+      "p": 17,
+      "avg": 19,
+      "t": 67,
+      "f": 125
+     },
+     {
+      "tag": "妙",
+      "k": "新潟|芝1800外",
+      "n": 36,
+      "w": 6,
+      "p": 19,
+      "avg": 22,
+      "t": 81,
+      "f": 122
+     },
+     {
+      "tag": "妙",
+      "k": "福島|ダ1700",
+      "n": 37,
+      "w": 8,
+      "p": 22,
+      "avg": 21,
+      "t": 455,
+      "f": 121
+     },
+     {
+      "tag": "妙",
+      "k": "阪神|ダ1400",
+      "n": 50,
+      "w": 6,
+      "p": 20,
+      "avg": 20,
+      "t": 524,
+      "f": 110
+     },
+     {
+      "tag": "苦",
+      "k": "新潟|ダ1800",
+      "n": 43,
+      "w": 5,
+      "p": 9,
+      "avg": 22,
+      "t": 20,
+      "f": 43
+     },
+     {
+      "tag": "苦",
+      "k": "中山|ダ1800",
+      "n": 78,
+      "w": 3,
+      "p": 10,
+      "avg": 21,
+      "t": 117,
+      "f": 36
+     },
+     {
+      "tag": "苦",
+      "k": "東京|芝1400",
+      "n": 71,
+      "w": 4,
+      "p": 13,
+      "avg": 21,
+      "t": 125,
+      "f": 49
+     }
+    ]
+   }
+  },
+  {
+   "name": "ジャングルポケット",
+   "good": [
+    {
+     "cond": "東京芝1400（33%・複回195）、新潟芝1800外（32%）、福島ダ1150",
+     "why": "長い直線で持続する末脚（推定：トニービンの血）"
+    }
+   ],
+   "bad": [
+    {
+     "cond": "中山ダ1200（8%）、阪神芝1600外、東京芝1800",
+     "why": ""
+    }
+   ],
+   "notes": [
+    "父としてはもうほとんど走っていない"
+   ],
+   "type": "欧",
+   "typeSure": false,
+   "line": "グレイソヴリン系",
+   "big": "ナスルーラ系",
+   "lineGuess": false,
+   "sire": "トニービン",
+   "damsire": "Nureyev（欧）",
+   "tagline": "ダービー・ジャパンカップの馬。母父では芝のマイル前後",
+   "kw": [
+    "母父",
+    "芝"
+   ],
+   "desc": "2001年のダービーとジャパンカップを勝った。父トニービンはハーツクライの母父でもある。2021年に死亡。母父として約2,300走。",
+   "mfNote": "芝の短距離・マイル（21%）が平均くらい。芝の中距離（18%）とダートの短距離（16%）は下",
+   "children": [],
+   "mf": {
+    "bands": {
+     "芝短": [
+      376,
+      6,
+      21,
+      44,
+      83
+     ],
+     "芝マ": [
+      560,
+      7,
+      21,
+      105,
+      76
+     ],
+     "芝中": [
+      390,
+      7,
+      18,
+      47,
+      63
+     ],
+     "芝長": [
+      112,
+      8,
+      21,
+      92,
+      55
+     ],
+     "ダ短": [
+      323,
+      5,
+      16,
+      66,
+      72
+     ],
+     "ダ中": [
+      485,
+      7,
+      22,
+      95,
+      78
+     ]
+    },
+    "rows": [
+     {
+      "tag": "得",
+      "k": "福島|ダ1150",
+      "n": 40,
+      "w": 15,
+      "p": 40,
+      "avg": 20,
+      "t": 100,
+      "f": 129
+     },
+     {
+      "tag": "得",
+      "k": "東京|芝1400",
+      "n": 46,
+      "w": 11,
+      "p": 33,
+      "avg": 21,
+      "t": 76,
+      "f": 195
+     },
+     {
+      "tag": "得",
+      "k": "新潟|芝1800外",
+      "n": 38,
+      "w": 13,
+      "p": 32,
+      "avg": 22,
+      "t": 171,
+      "f": 135
+     },
+     {
+      "tag": "得",
+      "k": "京都|芝1600外",
+      "n": 22,
+      "w": 9,
+      "p": 32,
+      "avg": 23,
+      "t": 29,
+      "f": 104
+     },
+     {
+      "tag": "得",
+      "k": "新潟|芝1400",
+      "n": 21,
+      "w": 10,
+      "p": 24,
+      "avg": 19,
+      "t": 95,
+      "f": 61
+     },
+     {
+      "tag": "妙",
+      "k": "中山|芝1800",
+      "n": 38,
+      "w": 11,
+      "p": 24,
+      "avg": 22,
+      "t": 517,
+      "f": 167
+     },
+     {
+      "tag": "妙",
+      "k": "小倉|芝1200",
+      "n": 64,
+      "w": 5,
+      "p": 20,
+      "avg": 19,
+      "t": 24,
+      "f": 134
+     },
+     {
+      "tag": "妙",
+      "k": "新潟|ダ1800",
+      "n": 65,
+      "w": 5,
+      "p": 26,
+      "avg": 22,
+      "t": 118,
+      "f": 119
+     },
+     {
+      "tag": "妙",
+      "k": "福島|ダ1700",
+      "n": 42,
+      "w": 5,
+      "p": 26,
+      "avg": 21,
+      "t": 138,
+      "f": 100
+     },
+     {
+      "tag": "苦",
+      "k": "中山|ダ1200",
+      "n": 84,
+      "w": 5,
+      "p": 8,
+      "avg": 19,
+      "t": 146,
+      "f": 63
+     },
+     {
+      "tag": "苦",
+      "k": "阪神|芝1600外",
+      "n": 60,
+      "w": 5,
+      "p": 12,
+      "avg": 22,
+      "t": 19,
+      "f": 67
+     },
+     {
+      "tag": "苦",
+      "k": "東京|芝1800",
+      "n": 56,
+      "w": 4,
+      "p": 16,
+      "avg": 23,
+      "t": 66,
+      "f": 43
+     }
+    ]
+   }
+  },
+  {
+   "name": "アドマイヤムーン",
+   "good": [
+    {
+     "cond": "福島芝1200（30%）、札幌芝1200（36%）",
+     "why": "小回りの芝の短距離で、ミスプロ系のスピード"
+    }
+   ],
+   "bad": [
+    {
+     "cond": "中山ダ1200（11%・102走）、東京ダ1600、小倉ダ1700",
+     "why": "ダートは割引"
+    }
+   ],
+   "notes": [
+    "京都ダ1200 で単回1136％の大穴がある。まぐれなので気にしない"
+   ],
+   "type": "米",
+   "typeSure": false,
+   "line": "フォーティナイナー系",
+   "big": "ミスプロ系",
+   "lineGuess": false,
+   "sire": "エンドスウィープ",
+   "damsire": "サンデーサイレンス",
+   "tagline": "ジャパンカップ・ドバイの勝ち馬。父でも母父でも芝の短距離",
+   "kw": [
+    "芝短距離",
+    "母父"
+   ],
+   "desc": "ジャパンカップとドバイデューティーフリーを勝った。子に短距離のG1馬（ファインニードルなど）。父としても母父としても走っている（父約760走、母父約2,100走）。",
+   "mfNote": "芝の短距離・マイル（20〜21%）が平均くらい。**ダートは14〜18%で大きく下**",
+   "children": [
+    "ファインニードル"
+   ],
+   "bands": {
+    "芝短": [
+     382,
+     5,
+     19,
+     59,
+     86
+    ],
+    "芝マ": [
+     112,
+     4,
+     19,
+     31,
+     87
+    ],
+    "芝中": [
+     30,
+     7,
+     17,
+     27,
+     99
+    ],
+    "ダ短": [
+     216,
+     2,
+     17,
+     48,
+     72
+    ]
+   },
+   "rows": [
+    {
+     "tag": "得",
+     "k": "中山|芝1200外",
+     "n": 42,
+     "w": 10,
+     "p": 31,
+     "avg": 21,
+     "t": 55,
+     "f": 70
+    },
+    {
+     "tag": "得",
+     "k": "中山|芝1600外",
+     "n": 32,
+     "w": 0,
+     "p": 28,
+     "avg": 21,
+     "t": 0,
+     "f": 102
+    },
+    {
+     "tag": "得",
+     "k": "新潟|芝1000",
+     "n": 36,
+     "w": 3,
+     "p": 22,
+     "avg": 18,
+     "t": 12,
+     "f": 121
+    },
+    {
+     "tag": "得",
+     "k": "福島|ダ1150",
+     "n": 24,
+     "w": 8,
+     "p": 21,
+     "avg": 20,
+     "t": 373,
+     "f": 89
+    },
+    {
+     "tag": "妙",
+     "k": "小倉|芝1200",
+     "n": 60,
+     "w": 10,
+     "p": 17,
+     "avg": 19,
+     "t": 240,
+     "f": 55
+    },
+    {
+     "tag": "苦",
+     "k": "東京|芝1400",
+     "n": 43,
+     "w": 0,
+     "p": 9,
+     "avg": 21,
+     "t": 0,
+     "f": 79
+    },
+    {
+     "tag": "苦",
+     "k": "中山|ダ1200",
+     "n": 88,
+     "w": 0,
+     "p": 10,
+     "avg": 19,
+     "t": 0,
+     "f": 27
+    }
+   ],
+   "mf": {
+    "bands": {
+     "芝短": [
+      471,
+      7,
+      20,
+      55,
+      61
+     ],
+     "芝マ": [
+      328,
+      5,
+      21,
+      20,
+      70
+     ],
+     "芝中": [
+      218,
+      9,
+      18,
+      63,
+      41
+     ],
+     "芝長": [
+      45,
+      2,
+      31,
+      13,
+      98
+     ],
+     "ダ短": [
+      553,
+      4,
+      14,
+      93,
+      55
+     ],
+     "ダ中": [
+      457,
+      4,
+      18,
+      25,
+      60
+     ]
+    },
+    "rows": [
+     {
+      "tag": "得",
+      "k": "札幌|芝1200",
+      "n": 22,
+      "w": 14,
+      "p": 36,
+      "avg": 22,
+      "t": 236,
+      "f": 105
+     },
+     {
+      "tag": "得",
+      "k": "福島|芝1200",
+      "n": 60,
+      "w": 2,
+      "p": 30,
+      "avg": 21,
+      "t": 8,
+      "f": 109
+     },
+     {
+      "tag": "得",
+      "k": "中京|芝1400",
+      "n": 27,
+      "w": 4,
+      "p": 26,
+      "avg": 21,
+      "t": 13,
+      "f": 55
+     },
+     {
+      "tag": "得",
+      "k": "阪神|芝1800外",
+      "n": 23,
+      "w": 0,
+      "p": 30,
+      "avg": 25,
+      "t": 0,
+      "f": 67
+     },
+     {
+      "tag": "得",
+      "k": "函館|ダ1000",
+      "n": 22,
+      "w": 9,
+      "p": 32,
+      "avg": 27,
+      "t": 30,
+      "f": 64
+     },
+     {
+      "tag": "妙",
+      "k": "京都|ダ1200",
+      "n": 30,
+      "w": 10,
+      "p": 20,
+      "avg": 21,
+      "t": 1136,
+      "f": 232
+     },
+     {
+      "tag": "妙",
+      "k": "福島|芝1800",
+      "n": 25,
+      "w": 8,
+      "p": 24,
+      "avg": 21,
+      "t": 27,
+      "f": 128
+     },
+     {
+      "tag": "妙",
+      "k": "東京|芝1800",
+      "n": 45,
+      "w": 9,
+      "p": 24,
+      "avg": 23,
+      "t": 36,
+      "f": 110
+     },
+     {
+      "tag": "妙",
+      "k": "中山|芝1200外",
+      "n": 32,
+      "w": 13,
+      "p": 22,
+      "avg": 21,
+      "t": 138,
+      "f": 62
+     },
+     {
+      "tag": "苦",
+      "k": "小倉|ダ1700",
+      "n": 50,
+      "w": 2,
+      "p": 10,
+      "avg": 21,
+      "t": 9,
+      "f": 39
+     },
+     {
+      "tag": "苦",
+      "k": "中山|ダ1200",
+      "n": 102,
+      "w": 3,
+      "p": 11,
+      "avg": 19,
+      "t": 10,
+      "f": 28
+     },
+     {
+      "tag": "苦",
+      "k": "東京|ダ1600",
+      "n": 70,
+      "w": 1,
+      "p": 13,
+      "avg": 20,
+      "t": 3,
+      "f": 33
+     }
+    ]
+   }
+  },
+  {
+   "name": "サウスヴィグラス",
+   "good": [
+    {
+     "cond": "函館ダ1000（40%）、新潟ダ1800、中京ダ1400",
+     "why": "ダートのスピード"
+    }
+   ],
+   "bad": [
+    {
+     "cond": "京都ダ1400（15%）",
+     "why": ""
+    }
+   ],
+   "notes": [],
+   "type": "米",
+   "typeSure": false,
+   "line": "フォーティナイナー系",
+   "big": "ミスプロ系",
+   "lineGuess": false,
+   "sire": "End Sweep",
+   "damsire": "Star de Naskra",
+   "tagline": "ダートの短距離の名種牡馬。母父でもダート",
+   "kw": [
+    "ダート短距離",
+    "母父"
+   ],
+   "desc": "ダートのJBCスプリントの勝ち馬。地方競馬で特に強い子を多く出した。2018年に死亡。父として約300走、母父として約1,700走。",
+   "mfNote": "ダートの短距離・中距離とも平均より上（22〜23%）",
+   "children": [],
+   "bands": {
+    "ダ短": [
+     306,
+     4,
+     19,
+     42,
+     86
+    ]
+   },
+   "rows": [
+    {
+     "tag": "得",
+     "k": "福島|ダ1150",
+     "n": 28,
+     "w": 7,
+     "p": 29,
+     "avg": 20,
+     "t": 51,
+     "f": 88
+    },
+    {
+     "tag": "得",
+     "k": "中京|ダ1200",
+     "n": 45,
+     "w": 4,
+     "p": 24,
+     "avg": 20,
+     "t": 160,
+     "f": 112
+    },
+    {
+     "tag": "苦",
+     "k": "阪神|ダ1200",
+     "n": 56,
+     "w": 2,
+     "p": 7,
+     "avg": 20,
+     "t": 21,
+     "f": 42
+    },
+    {
+     "tag": "苦",
+     "k": "中山|ダ1200",
+     "n": 77,
+     "w": 3,
+     "p": 14,
+     "avg": 19,
+     "t": 11,
+     "f": 102
+    }
+   ],
+   "mf": {
+    "bands": {
+     "芝短": [
+      57,
+      4,
+      23,
+      32,
+      156
+     ],
+     "芝マ": [
+      28,
+      4,
+      21,
+      65,
+      131
+     ],
+     "ダ短": [
+      996,
+      8,
+      22,
+      88,
+      64
+     ],
+     "ダ中": [
+      590,
+      7,
+      23,
+      53,
+      79
+     ],
+     "ダ長": [
+      26,
+      0,
+      27,
+      0,
+      73
+     ]
+    },
+    "rows": [
+     {
+      "tag": "得",
+      "k": "函館|ダ1000",
+      "n": 53,
+      "w": 19,
+      "p": 40,
+      "avg": 27,
+      "t": 179,
+      "f": 117
+     },
+     {
+      "tag": "得",
+      "k": "新潟|ダ1800",
+      "n": 50,
+      "w": 16,
+      "p": 32,
+      "avg": 22,
+      "t": 181,
+      "f": 85
+     },
+     {
+      "tag": "得",
+      "k": "中京|ダ1400",
+      "n": 65,
+      "w": 5,
+      "p": 29,
+      "avg": 20,
+      "t": 82,
+      "f": 96
+     },
+     {
+      "tag": "得",
+      "k": "中山|ダ1800",
+      "n": 100,
+      "w": 12,
+      "p": 30,
+      "avg": 21,
+      "t": 68,
+      "f": 76
+     },
+     {
+      "tag": "得",
+      "k": "阪神|ダ1200",
+      "n": 71,
+      "w": 10,
+      "p": 27,
+      "avg": 20,
+      "t": 84,
+      "f": 67
+     },
+     {
+      "tag": "妙",
+      "k": "東京|ダ1600",
+      "n": 90,
+      "w": 4,
+      "p": 17,
+      "avg": 20,
+      "t": 34,
+      "f": 141
+     },
+     {
+      "tag": "妙",
+      "k": "札幌|ダ1000",
+      "n": 34,
+      "w": 9,
+      "p": 24,
+      "avg": 26,
+      "t": 216,
+      "f": 107
+     },
+     {
+      "tag": "妙",
+      "k": "函館|ダ1700",
+      "n": 40,
+      "w": 10,
+      "p": 23,
+      "avg": 25,
+      "t": 31,
+      "f": 106
+     },
+     {
+      "tag": "妙",
+      "k": "京都|ダ1200",
+      "n": 71,
+      "w": 10,
+      "p": 28,
+      "avg": 21,
+      "t": 137,
+      "f": 68
+     },
+     {
+      "tag": "苦",
+      "k": "京都|ダ1400",
+      "n": 71,
+      "w": 4,
+      "p": 15,
+      "avg": 21,
+      "t": 24,
+      "f": 43
+     }
+    ]
+   }
+  },
+  {
+   "name": "ヴィクトワールピサ",
+   "good": [
+    {
+     "cond": "東京芝2000（44%）、阪神芝1600外（36%）、京都ダ1400（複回195）",
+     "why": "芝の中距離でしぶとい"
+    }
+   ],
+   "bad": [],
+   "notes": [
+    "父としては東京芝1600が5%と苦手"
+   ],
+   "type": "日",
+   "typeSure": false,
+   "line": "Tサンデー系",
+   "big": "サンデー系",
+   "lineGuess": true,
+   "sire": "ネオユニヴァース",
+   "damsire": "Machiavellian（米）",
+   "tagline": "皐月賞とドバイワールドカップの馬。母父では芝の中距離",
+   "kw": [
+    "母父",
+    "芝中距離"
+   ],
+   "desc": "2011年にドバイワールドカップを勝った。種牡馬の後半はトルコへ。父として約900走、母父として約1,400走。",
+   "mfNote": "**芝の中距離（31%）で高い**。父のネオユニヴァースより母父の数字はずっといい",
+   "children": [],
+   "bands": {
+    "芝短": [
+     260,
+     6,
+     23,
+     42,
+     78
+    ],
+    "芝マ": [
+     337,
+     8,
+     17,
+     110,
+     79
+    ],
+    "芝中": [
+     111,
+     7,
+     23,
+     97,
+     117
+    ],
+    "芝長": [
+     26,
+     4,
+     23,
+     12,
+     118
+    ],
+    "ダ短": [
+     54,
+     7,
+     22,
+     73,
+     51
+    ],
+    "ダ中": [
+     79,
+     9,
+     19,
+     37,
+     39
+    ],
+    "ダ長": [
+     24,
+     0,
+     17,
+     0,
+     163
+    ]
+   },
+   "rows": [
+    {
+     "tag": "得",
+     "k": "東京|芝1400",
+     "n": 36,
+     "w": 8,
+     "p": 33,
+     "avg": 21,
+     "t": 45,
+     "f": 70
+    },
+    {
+     "tag": "得",
+     "k": "中京|芝1400",
+     "n": 21,
+     "w": 0,
+     "p": 29,
+     "avg": 21,
+     "t": 0,
+     "f": 114
+    },
+    {
+     "tag": "得",
+     "k": "中山|ダ1200",
+     "n": 31,
+     "w": 6,
+     "p": 26,
+     "avg": 19,
+     "t": 32,
+     "f": 48
+    },
+    {
+     "tag": "得",
+     "k": "新潟|芝1800外",
+     "n": 20,
+     "w": 10,
+     "p": 25,
+     "avg": 22,
+     "t": 75,
+     "f": 70
+    },
+    {
+     "tag": "得",
+     "k": "福島|芝1200",
+     "n": 30,
+     "w": 7,
+     "p": 23,
+     "avg": 21,
+     "t": 41,
+     "f": 52
+    },
+    {
+     "tag": "妙",
+     "k": "中京|芝1600",
+     "n": 30,
+     "w": 13,
+     "p": 20,
+     "avg": 23,
+     "t": 198,
+     "f": 83
+    },
+    {
+     "tag": "苦",
+     "k": "東京|芝1600",
+     "n": 42,
+     "w": 2,
+     "p": 5,
+     "avg": 22,
+     "t": 15,
+     "f": 157
+    },
+    {
+     "tag": "苦",
+     "k": "小倉|芝1200",
+     "n": 52,
+     "w": 6,
+     "p": 13,
+     "avg": 19,
+     "t": 36,
+     "f": 48
+    }
+   ],
+   "mf": {
+    "bands": {
+     "芝短": [
+      119,
+      8,
+      21,
+      60,
+      49
+     ],
+     "芝マ": [
+      377,
+      8,
+      24,
+      82,
+      87
+     ],
+     "芝中": [
+      237,
+      9,
+      31,
+      81,
+      107
+     ],
+     "芝長": [
+      33,
+      9,
+      24,
+      54,
+      47
+     ],
+     "ダ短": [
+      226,
+      7,
+      22,
+      103,
+      95
+     ],
+     "ダ中": [
+      347,
+      7,
+      20,
+      56,
+      75
+     ]
+    },
+    "rows": [
+     {
+      "tag": "得",
+      "k": "東京|芝2000",
+      "n": 25,
+      "w": 12,
+      "p": 44,
+      "avg": 26,
+      "t": 20,
+      "f": 96
+     },
+     {
+      "tag": "得",
+      "k": "阪神|芝1600外",
+      "n": 36,
+      "w": 11,
+      "p": 36,
+      "avg": 22,
+      "t": 49,
+      "f": 95
+     },
+     {
+      "tag": "得",
+      "k": "京都|ダ1400",
+      "n": 35,
+      "w": 9,
+      "p": 31,
+      "avg": 21,
+      "t": 76,
+      "f": 195
+     },
+     {
+      "tag": "得",
+      "k": "中京|芝1600",
+      "n": 27,
+      "w": 7,
+      "p": 33,
+      "avg": 23,
+      "t": 194,
+      "f": 197
+     },
+     {
+      "tag": "得",
+      "k": "札幌|ダ1700",
+      "n": 24,
+      "w": 8,
+      "p": 33,
+      "avg": 23,
+      "t": 38,
+      "f": 106
+     },
+     {
+      "tag": "妙",
+      "k": "小倉|芝2000",
+      "n": 27,
+      "w": 7,
+      "p": 22,
+      "avg": 22,
+      "t": 426,
+      "f": 206
+     },
+     {
+      "tag": "妙",
+      "k": "中京|ダ1400",
+      "n": 32,
+      "w": 13,
+      "p": 22,
+      "avg": 20,
+      "t": 513,
+      "f": 114
+     }
+    ]
+   }
+  },
+  {
+   "name": "ロージズインメイ",
+   "good": [
+    {
+     "cond": "中山ダ1200（38%・複回167）、函館芝1800、福島芝1800、阪神ダ1800（妙味）",
+     "why": "米国型のスピードと、しぶとさ"
+    }
+   ],
+   "bad": [],
+   "notes": [
+    "母父ロージズインメイは人気になりにくく、狙い目になりやすい"
+   ],
+   "type": "米",
+   "typeSure": false,
+   "line": "ヘイルトゥリーズン系",
+   "big": "ターントゥ系",
+   "lineGuess": false,
+   "sire": "Devil His Due（父 Devil's Bag）",
+   "damsire": "Speak John",
+   "tagline": "ドバイワールドカップの勝ち馬。母父では**どこでも平均より上**",
+   "kw": [
+    "母父",
+    "妙味"
+   ],
+   "desc": "2005年のドバイワールドカップの勝ち馬。日本で種牡馬をした。父として約500走、母父として約1,100走。",
+   "mfNote": "芝のマイル（29%）、ダートの短距離（38%・117走）など、どの距離も平均より上。回収率も高め",
+   "children": [],
+   "bands": {
+    "ダ短": [
+     193,
+     6,
+     21,
+     54,
+     82
+    ],
+    "ダ中": [
+     218,
+     7,
+     21,
+     75,
+     149
+    ],
+    "ダ長": [
+     36,
+     3,
+     8,
+     65,
+     45
+    ]
+   },
+   "rows": [
+    {
+     "tag": "得",
+     "k": "新潟|ダ1800",
+     "n": 31,
+     "w": 6,
+     "p": 32,
+     "avg": 22,
+     "t": 56,
+     "f": 92
+    },
+    {
+     "tag": "得",
+     "k": "中山|ダ1200",
+     "n": 74,
+     "w": 8,
+     "p": 24,
+     "avg": 19,
+     "t": 102,
+     "f": 65
+    },
+    {
+     "tag": "妙",
+     "k": "小倉|ダ1700",
+     "n": 27,
+     "w": 4,
+     "p": 19,
+     "avg": 21,
+     "t": 22,
+     "f": 150
+    },
+    {
+     "tag": "妙",
+     "k": "東京|ダ1600",
+     "n": 32,
+     "w": 3,
+     "p": 19,
+     "avg": 20,
+     "t": 9,
+     "f": 114
+    },
+    {
+     "tag": "苦",
+     "k": "東京|ダ1400",
+     "n": 45,
+     "w": 0,
+     "p": 11,
+     "avg": 19,
+     "t": 0,
+     "f": 50
+    }
+   ],
+   "mf": {
+    "bands": {
+     "芝短": [
+      92,
+      9,
+      26,
+      91,
+      81
+     ],
+     "芝マ": [
+      255,
+      8,
+      29,
+      91,
+      101
+     ],
+     "芝中": [
+      295,
+      8,
+      26,
+      49,
+      78
+     ],
+     "芝長": [
+      84,
+      5,
+      20,
+      25,
+      58
+     ],
+     "ダ短": [
+      117,
+      9,
+      38,
+      37,
+      136
+     ],
+     "ダ中": [
+      211,
+      9,
+      27,
+      96,
+      100
+     ]
+    },
+    "rows": [
+     {
+      "tag": "得",
+      "k": "中山|ダ1200",
+      "n": 47,
+      "w": 11,
+      "p": 38,
+      "avg": 19,
+      "t": 41,
+      "f": 167
+     },
+     {
+      "tag": "得",
+      "k": "函館|芝1800",
+      "n": 23,
+      "w": 17,
+      "p": 43,
+      "avg": 24,
+      "t": 99,
+      "f": 116
+     },
+     {
+      "tag": "得",
+      "k": "福島|芝1800",
+      "n": 27,
+      "w": 15,
+      "p": 33,
+      "avg": 21,
+      "t": 205,
+      "f": 138
+     },
+     {
+      "tag": "得",
+      "k": "小倉|ダ1700",
+      "n": 33,
+      "w": 12,
+      "p": 33,
+      "avg": 21,
+      "t": 109,
+      "f": 117
+     },
+     {
+      "tag": "得",
+      "k": "札幌|芝2000",
+      "n": 29,
+      "w": 3,
+      "p": 34,
+      "avg": 22,
+      "t": 8,
+      "f": 100
+     },
+     {
+      "tag": "妙",
+      "k": "阪神|ダ1800",
+      "n": 36,
+      "w": 8,
+      "p": 36,
+      "avg": 24,
+      "t": 235,
+      "f": 164
+     },
+     {
+      "tag": "妙",
+      "k": "新潟|芝1800外",
+      "n": 26,
+      "w": 0,
+      "p": 31,
+      "avg": 22,
+      "t": 0,
+      "f": 150
+     },
+     {
+      "tag": "妙",
+      "k": "中京|ダ1800",
+      "n": 34,
+      "w": 12,
+      "p": 32,
+      "avg": 23,
+      "t": 41,
+      "f": 121
+     },
+     {
+      "tag": "妙",
+      "k": "小倉|芝1800",
+      "n": 28,
+      "w": 11,
+      "p": 25,
+      "avg": 23,
+      "t": 189,
+      "f": 108
+     }
+    ]
+   }
+  },
+  {
+   "name": "アグネスデジタル",
+   "good": [
+    {
+     "cond": "福島ダ1700（40%）、小倉ダ1700、中山芝1800",
+     "why": "小回りのダート1700"
+    }
+   ],
+   "bad": [
+    {
+     "cond": "中山ダ1200（12%）、東京芝1800、阪神ダ1800",
+     "why": ""
+    }
+   ],
+   "notes": [],
+   "type": "米",
+   "typeSure": false,
+   "line": "ミスプロ系",
+   "big": "",
+   "lineGuess": false,
+   "sire": "Crafty Prospector",
+   "damsire": "Chief's Crown",
+   "tagline": "芝ダート兼用のG1馬。母父では平均くらい",
+   "kw": [
+    "母父",
+    "兼用"
+   ],
+   "desc": "天皇賞（秋）・フェブラリーSなど、芝とダートの両方でG1を勝った。2021年に死亡。母父として約1,800走。",
+   "mfNote": "芝の短距離・マイル（22〜23%）が平均くらい。ダートの短距離（18%）は下",
+   "children": [],
+   "mf": {
+    "bands": {
+     "芝短": [
+      247,
+      9,
+      23,
+      100,
+      86
+     ],
+     "芝マ": [
+      273,
+      7,
+      22,
+      138,
+      108
+     ],
+     "芝中": [
+      278,
+      6,
+      20,
+      229,
+      92
+     ],
+     "芝長": [
+      29,
+      7,
+      17,
+      155,
+      57
+     ],
+     "ダ短": [
+      467,
+      6,
+      18,
+      30,
+      62
+     ],
+     "ダ中": [
+      464,
+      6,
+      20,
+      105,
+      62
+     ],
+     "ダ長": [
+      24,
+      8,
+      25,
+      97,
+      79
+     ]
+    },
+    "rows": [
+     {
+      "tag": "得",
+      "k": "福島|ダ1700",
+      "n": 35,
+      "w": 9,
+      "p": 40,
+      "avg": 21,
+      "t": 26,
+      "f": 119
+     },
+     {
+      "tag": "得",
+      "k": "小倉|ダ1700",
+      "n": 42,
+      "w": 12,
+      "p": 33,
+      "avg": 21,
+      "t": 82,
+      "f": 94
+     },
+     {
+      "tag": "得",
+      "k": "福島|芝1200",
+      "n": 31,
+      "w": 16,
+      "p": 32,
+      "avg": 21,
+      "t": 64,
+      "f": 84
+     },
+     {
+      "tag": "得",
+      "k": "中山|芝1800",
+      "n": 27,
+      "w": 11,
+      "p": 33,
+      "avg": 22,
+      "t": 68,
+      "f": 174
+     },
+     {
+      "tag": "得",
+      "k": "阪神|ダ1200",
+      "n": 35,
+      "w": 17,
+      "p": 26,
+      "avg": 20,
+      "t": 81,
+      "f": 45
+     },
+     {
+      "tag": "妙",
+      "k": "札幌|ダ1700",
+      "n": 28,
+      "w": 14,
+      "p": 21,
+      "avg": 23,
+      "t": 269,
+      "f": 88
+     },
+     {
+      "tag": "苦",
+      "k": "東京|芝1800",
+      "n": 40,
+      "w": 0,
+      "p": 10,
+      "avg": 23,
+      "t": 0,
+      "f": 76
+     },
+     {
+      "tag": "苦",
+      "k": "阪神|ダ1800",
+      "n": 55,
+      "w": 2,
+      "p": 13,
+      "avg": 24,
+      "t": 3,
+      "f": 39
+     },
+     {
+      "tag": "苦",
+      "k": "中山|ダ1200",
+      "n": 94,
+      "w": 0,
+      "p": 12,
+      "avg": 19,
+      "t": 0,
+      "f": 78
+     }
+    ]
+   }
+  },
+  {
+   "name": "キングヘイロー",
+   "good": [
+    {
+     "cond": "東京ダ2100（48%）、東京ダ1600（36%）、中山芝2000（40%）",
+     "why": "欧州型の馬力とスタミナ"
+    }
+   ],
+   "bad": [
+    {
+     "cond": "東京ダ1400（11%）",
+     "why": ""
+    }
+   ],
+   "notes": [
+    "名前の印象より母父としての数字が良く、人気になりにくい"
+   ],
+   "type": "欧",
+   "typeSure": false,
+   "line": "リファール系",
+   "big": "ノーザンダンサー系",
+   "lineGuess": false,
+   "sire": "Dancing Brave",
+   "damsire": "Halo",
+   "tagline": "高松宮記念の馬。母父では**芝もダートもよく来る**",
+   "kw": [
+    "母父",
+    "妙味"
+   ],
+   "desc": "高松宮記念を勝った。父は欧州の名馬ダンシングブレーヴ。2019年に死亡。母父キングヘイローの名馬にピクシーナイト（スプリンターズS）。母父として約1,500走。",
+   "mfNote": "どの距離も平均より上で、特に距離が延びるほどいい（芝中32%、芝長40%、ダ長45%）。回収率も100%前後が多い",
+   "children": [],
+   "mf": {
+    "bands": {
+     "芝短": [
+      356,
+      7,
+      23,
+      100,
+      105
+     ],
+     "芝マ": [
+      236,
+      10,
+      26,
+      135,
+      89
+     ],
+     "芝中": [
+      111,
+      15,
+      32,
+      119,
+      77
+     ],
+     "芝長": [
+      58,
+      16,
+      40,
+      60,
+      87
+     ],
+     "ダ短": [
+      343,
+      8,
+      23,
+      53,
+      63
+     ],
+     "ダ中": [
+      386,
+      8,
+      25,
+      105,
+      82
+     ],
+     "ダ長": [
+      29,
+      21,
+      45,
+      142,
+      103
+     ]
+    },
+    "rows": [
+     {
+      "tag": "得",
+      "k": "東京|ダ2100",
+      "n": 27,
+      "w": 22,
+      "p": 48,
+      "avg": 21,
+      "t": 152,
+      "f": 111
+     },
+     {
+      "tag": "得",
+      "k": "中山|芝2000",
+      "n": 20,
+      "w": 15,
+      "p": 40,
+      "avg": 21,
+      "t": 56,
+      "f": 87
+     },
+     {
+      "tag": "得",
+      "k": "東京|ダ1600",
+      "n": 70,
+      "w": 6,
+      "p": 36,
+      "avg": 20,
+      "t": 112,
+      "f": 97
+     },
+     {
+      "tag": "得",
+      "k": "中京|芝1200",
+      "n": 25,
+      "w": 16,
+      "p": 32,
+      "avg": 21,
+      "t": 107,
+      "f": 139
+     },
+     {
+      "tag": "得",
+      "k": "福島|芝1200",
+      "n": 38,
+      "w": 8,
+      "p": 32,
+      "avg": 21,
+      "t": 48,
+      "f": 111
+     },
+     {
+      "tag": "妙",
+      "k": "中京|ダ1400",
+      "n": 37,
+      "w": 11,
+      "p": 22,
+      "avg": 20,
+      "t": 172,
+      "f": 128
+     },
+     {
+      "tag": "妙",
+      "k": "中山|芝1600外",
+      "n": 27,
+      "w": 7,
+      "p": 30,
+      "avg": 21,
+      "t": 146,
+      "f": 125
+     },
+     {
+      "tag": "妙",
+      "k": "京都|ダ1800",
+      "n": 53,
+      "w": 9,
+      "p": 25,
+      "avg": 23,
+      "t": 64,
+      "f": 105
+     },
+     {
+      "tag": "妙",
+      "k": "中京|ダ1800",
+      "n": 39,
+      "w": 8,
+      "p": 23,
+      "avg": 23,
+      "t": 253,
+      "f": 89
+     },
+     {
+      "tag": "苦",
+      "k": "東京|ダ1400",
+      "n": 55,
+      "w": 4,
+      "p": 11,
+      "avg": 19,
+      "t": 22,
+      "f": 29
+     }
+    ]
+   }
   }
  ],
  "courseAvg": {
