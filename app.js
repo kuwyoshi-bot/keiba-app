@@ -1030,11 +1030,12 @@
       if (share >= 0.7) tags.push("芝の厩舎"); else if (share <= 0.3) tags.push("ダートの厩舎");
       else if (s[1] >= d[1] + 5) tags.push("芝で走る"); else if (d[1] >= s[1] + 5) tags.push("ダートで走る");
     }
-    const a = tAway(t);
-    if (a && a.away && a.away.n >= 60 && a.away.p >= a.home.p * 1.15) tags.push("遠征で走る");
+    const cd = tCond(t);
+    if (cd) { for (const x of cd.good.filter((x) => !VEN.includes(x.k)).slice(0, 3)) tags.push(cShort(x) + "が得意"); }
+    else { const a = tAway(t); if (a && a.away && a.away.n >= 60 && a.away.p >= a.home.p * 1.15) tags.push("遠征で走る"); }
     if (t.f >= 95 || t.t >= 120) tags.push("人気薄で来る");
     const pk = tPatterns(t);
-    for (const k of ["中穴で来る", "人気で危ない", "2・3歳戦で走る", "古馬で走る"]) if ([...pk.buy, ...pk.avoid].some((x) => x.k === k)) tags.push(k);
+    for (const k of cd ? ["中穴で来る", "人気で危ない"] : ["中穴で来る", "人気で危ない", "2・3歳戦で走る", "古馬で走る"]) if ([...pk.buy, ...pk.avoid].some((x) => x.k === k)) tags.push(k);
     return [...new Set(tags)];
   }
   function trainerCourses(i) {
@@ -1061,6 +1062,63 @@
       <p class="note" style="margin:0 0 8px">20走以上の厩舎から、複勝率の高い所・走数の多い所（常連）・ふだんよりこのコースで走る所を選んだ。コース平均は <b class="num">${tc.avg}%</b>。</p>
       <div class="srows">${rows}</div>
       <p class="note">「ふだん」はその厩舎の5年間・88コース合計の複勝率。強い馬を多く預かる厩舎は高く出るので、<b>ふだんより何倍走るか</b>も見る。</p>
+    </section>`;
+  }
+  // 得意条件：区分ごとの期待比（そのコースのふつうの3着内率と比べて）を、厩舎全体の期待比で割った「ふだんの何倍」
+  const CLAB = { 芝: "芝", ダ: "ダート", 芝短: "芝の短距離", 芝マ: "芝のマイル", 芝中: "芝の中距離", 芝長: "芝の長距離", ダ短: "ダートの短距離", ダ中: "ダートの中距離", ダ長: "ダートの長距離", 若駒: "2・3歳戦", 古馬: "古馬のレース", 遠征: "遠征" };
+  const CSUB = { 芝短: "〜1400m", 芝マ: "1500〜1800m", 芝中: "1900〜2200m", 芝長: "2300m〜", ダ短: "〜1400m", ダ中: "1500〜1900m", ダ長: "2000m〜", 若駒: "2歳戦・3歳限定戦", 古馬: "3歳以上・4歳以上" };
+  function tCond(t) {
+    const c = t.cond;
+    if (!c || !c.all) return null;
+    const base = c.all[1];
+    const rows = {};
+    for (const [k, [n, r]] of Object.entries(c)) if (k !== "all") rows[k] = { k, n, r, rel: r / base };
+    // 遠征：美浦なら関西、栗東なら関東で走ったとき。地元と比べる（北海道は除く）
+    if (t.aff) {
+      const grp = (vs) => vs.reduce((a, v) => { const x = c[v]; if (x) { a.n += x[0]; a.s += x[0] * x[1]; } return a; }, { n: 0, s: 0 });
+      const home = grp(t.aff === "美浦" ? KANTO : KANSAI), away = grp(t.aff === "美浦" ? KANSAI : KANTO);
+      if (home.n && away.n >= 40) rows["遠征"] = { k: "遠征", n: away.n, r: away.s / away.n, rel: (away.s / away.n) / (home.s / home.n), home: home.n, awayName: t.aff === "美浦" ? "関西" : "関東" };
+    }
+    const GOOD = 1.12, BAD = 0.88;
+    const judge = (x, isVen) => {
+      const min = isVen ? 80 : 100, hi = isVen ? 1.15 : GOOD, lo = isVen ? 0.85 : BAD;
+      return x.n >= min ? (x.rel >= hi ? "good" : x.rel <= lo ? "bad" : "") : "";
+    };
+    const all = Object.values(rows).map((x) => ({ ...x, j: judge(x, VEN.includes(x.k)) }));
+    const good = all.filter((x) => x.j === "good").sort((a, b) => b.rel - a.rel);
+    const bad = all.filter((x) => x.j === "bad").sort((a, b) => a.rel - b.rel);
+    return { rows, good, bad, base };
+  }
+  const cShort = (x) => x.k === "遠征" ? `遠征（${x.awayName}）` : VEN.includes(x.k) ? x.k : CLAB[x.k] || x.k;
+  function tCondCard(t) {
+    const cd = tCond(t);
+    if (!cd) return tVenueCard(t);
+    const R = cd.rows;
+    const bar = (k, label, sub) => {
+      const x = R[k];
+      if (!x) return "";
+      const cls = x.rel >= 1.12 ? "hi" : x.rel <= 0.88 ? "lo" : "";
+      return `<div class="bband cband ${cls}${x.n < 100 ? " few" : ""}">
+        <span class="bn">${label || cShort(x)}</span>
+        <div class="btrack"><div class="bfill" style="width:${Math.min(x.rel / 2, 1) * 100}%"></div><i class="bavg" style="left:50%"></i></div>
+        <span class="bv num">${x.rel.toFixed(2)}倍</span>
+        <span class="bd">${sub ? sub + "・" : ""}${x.n}走</span>
+      </div>`;
+    };
+    const chips = (arr, cls) => arr.slice(0, 5).map((x) => `<span class="pill ${cls}">${esc(cShort(x))}<small class="num"> ${x.rel.toFixed(2)}倍</small></span>`).join("");
+    const g = chips(cd.good, "cgood"), b = chips(cd.bad, "cbad");
+    const a = R["遠征"];
+    return `<section class="card fx"><div class="card-h"><span class="tg f big">数字</span><h2>得意条件</h2><span class="en">Strengths</span></div>
+      <p class="note" style="margin:0 0 8px">同じコースのふつうの馬と比べて3着以内に来た数を、この厩舎の<b>ふだん</b>（全体）と比べたもの。1.00倍＝ふだん通り、縦線が1.0倍。強い厩舎も弱い厩舎も「その中で何が得意か」が見える</p>
+      ${g ? `<h4 class="sub good" style="margin-top:0">得意</h4><div class="pills">${g}</div>` : ""}
+      ${b ? `<h4 class="sub bad">苦手</h4><div class="pills">${b}</div>` : ""}
+      ${!g && !b ? '<p class="note">ふだんと大きく違う条件はない（どこでも同じくらい走る厩舎）。</p>' : ""}
+      <h4 class="sub">芝・ダート</h4><div class="bbands">${bar("芝")}${bar("ダ")}</div>
+      <h4 class="sub">距離</h4><div class="bbands">${["芝短", "芝マ", "芝中", "芝長", "ダ短", "ダ中", "ダ長"].map((k) => bar(k, CLAB[k], CSUB[k])).join("")}</div>
+      <h4 class="sub">年齢</h4><div class="bbands">${bar("若駒", null, CSUB["若駒"])}${bar("古馬", null, CSUB["古馬"])}</div>
+      ${a ? `<h4 class="sub">遠征</h4><div class="bbands">${bar("遠征", null, "地元と比べて")}</div><p class="note" style="margin:4px 0 0">遠征だけは<b>地元（${t.aff === "美浦" ? "関東" : "関西"}）と比べて</b>何倍か。わざわざ遠くへ連れて行くときは勝負気配、と言われる。北海道は除いた。</p>` : ""}
+      <h4 class="sub">競馬場</h4><div class="bbands">${VEN.map((k) => bar(k)).join("")}</div>
+      <p class="note">得意・苦手に出すのは100走以上で ふだんの1.12倍以上／0.88倍以下（競馬場は80走以上で1.15倍／0.85倍）。40走未満は出さず、100走未満は薄く表示。スマート出馬表は1コース上位100厩舎までなので、小さい厩舎は数がもれることがある。</p>
     </section>`;
   }
   function tVenueCard(t) {
@@ -1135,7 +1193,7 @@
   const tTagLine = (t) => [
     t.lead ? `<span class="jlead t-${t.lead.tier}">${t.lead.tier}・今年${t.lead.rank}位</span>` : "",
     t.aff || "",
-    tTags(t).join("・"),
+    tTags(t).filter((x) => !x.endsWith("が得意")).join("・"),
   ].filter(Boolean).join("／");
 
   function renderTrainers() {
@@ -1149,7 +1207,7 @@
         <span class="zc-line">${t.n}走・複勝率 ${t.p}%</span>
         <span class="zc-name">${esc(t.name)}</span>
         <span class="jtagline">${tTagLine(t)}</span>
-        <span class="zc-kw">${best ? `<span class="kw">得意 ${esc(cname(best.k))}</span>` : ""}</span>
+        <span class="zc-kw">${(() => { const cd = tCond(t); const g = cd ? cd.good.slice(0, 3) : []; return g.length ? g.map((x) => `<span class="kw">得意 ${esc(cShort(x))}</span>`).join("") : best ? `<span class="kw">得意 ${esc(cname(best.k))}</span>` : ""; })()}</span>
       </a>`).join("");
     $view.innerHTML = `
       <div class="fade">
@@ -1218,11 +1276,11 @@
           </div>
           <p class="note" style="margin:8px 0 0">5年間・88コースの合計＝この厩舎の「ふだん」</p>
         </section>
+        ${tCondCard(t)}
         ${memo ? `<section class="card"><div class="card-h"><span class="tg rep big">メモ</span><h2>どんな厩舎か</h2><span class="en">Profile</span></div><div class="jrep">${memo}</div>
           <p class="note">数字ではなく、言われていること。下の数字と比べて確かめる。${p["調教"] ? "調教の形は、追い切りの時計（競馬新聞やJRA-VANなど）と見比べて使う。" : ""}</p></section>` : ""}
         ${tPatternCard(t)}
         ${comboCard((D.combos || []).filter((c) => c.t === t.name), "trainer")}
-        ${tVenueCard(t)}
         <section class="card fx"><div class="card-h"><span class="tg f big">数字</span><h2>コースごとの成績</h2><span class="en">Data</span></div>
           ${sec("ふだんより走るコース", "この厩舎のふだんの複勝率と比べて、何倍走っているか", lift)}
           ${sec("常連のコース", "そのコースで走数が多い（上位2つ）。よく使う＝得意と見ているコース", regular)}

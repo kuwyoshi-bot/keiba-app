@@ -758,3 +758,8 @@ details.more[open] > summary { color: var(--muted); }
 .combo-d { margin-top: 4px; font-size: 12px; line-height: 1.6; color: var(--muted); }
 
 .sn-l.few { opacity: .7; }
+.pill.cgood { border-color: var(--accent); color: var(--accent); font-weight: 700; }
+.pill.cbad { border-color: var(--red); color: var(--red); font-weight: 700; }
+.pill.cgood small, .pill.cbad small { font-weight: 400; opacity: .8; }
+.bband .bn small { font-size: 10px; }
+.bband.cband { grid-template-columns: 92px 1fr 50px; }
