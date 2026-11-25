@@ -3,6 +3,18 @@
   const $view = document.getElementById("view");
   const TYPE_COLOR = { 日: "var(--jp)", 米: "var(--us)", 欧: "var(--eu)" };
   const TYPE_NAME = { 日: "日本型", 米: "米国型", 欧: "欧州型" };
+  // 大系統：netkeibaの血統表と同じ分け方・同じ色。小系統（s.line）から決める
+  const BIG_LINES = [
+    { name: "サンデーサイレンス系", short: "サンデー", bg: "#c8f0f8", fg: "#0b4a57", re: /サンデー|ディープ/ },
+    { name: "ターントゥ系", short: "ターントゥ", bg: "#ccf5a6", fg: "#2c4a0c", re: /ロベルト|ターントゥ|ヘイルトゥリーズン/ },
+    { name: "ノーザンダンサー系", short: "ノーザンダンサー", bg: "#e0c6f8", fg: "#432066", re: /ノーザンダンサー|ダンチヒ|サドラー|ストームバード|ヴァイスリージェント|ニジンスキー|リファール|ヌレイエフ/ },
+    { name: "ナスルーラ系", short: "ナスルーラ", bg: "#f8a8d8", fg: "#5e1240", re: /ナスルーラ|プリンスリーギフト|エーピーインディ|グレイソヴリン|ネヴァーベンド|ボールドルーラー/ },
+    { name: "ネイティヴダンサー系", short: "ネイティヴダンサー", bg: "#f8d098", fg: "#5c3a08", re: /ミスプロ|キングマンボ|フォーティナイナー|ファピアノ|ゴーンウェスト|ネイティヴ/ },
+    { name: "ハンプトン系", short: "ハンプトン", bg: "#e8c4a8", fg: "#5a3214", re: /ハンプトン/ },
+    { name: "セントサイモン系", short: "セントサイモン", bg: "#fafa98", fg: "#55550a", re: /セントサイモン/ },
+    { name: "その他", short: "その他", bg: "#dddddd", fg: "#333333", re: /./ },
+  ];
+  const bigLine = (s) => BIG_LINES.find((b) => b.re.test(s.line || "")) || BIG_LINES[BIG_LINES.length - 1];
 
   // ---------- state ----------
   const store = {
@@ -1008,7 +1020,7 @@
     // カード：名前・系統・キーワード2つだけ。文章は図鑑のページに任せる
     const card = (s) => `
       <a class="zcard" href="${sireHref(s.name)}" data-q="${esc(s.name)}" style="--c:${TYPE_COLOR[s.type]}">
-        <span class="zc-line">${esc(s.line)}${s.rows ? "" : "・祖先"}</span>
+        <span class="zc-line"><i class="bdot" style="background:${bigLine(s).bg}" title="${bigLine(s).name}"></i>${esc(s.line)}${s.rows ? "" : "・祖先"}</span>
         <span class="zc-name">${esc(s.name)}</span>
         <span class="zc-kw">${kwChips(s)}</span>
       </a>`;
@@ -1043,7 +1055,8 @@
           <button data-zv="tree" class="${view === "tree" ? "is-active" : ""}">系統図</button>
         </div>
       </div>
-      ${view === "card" ? `<div class="seg zseg">${filters}</div>` : ""}
+      ${view === "card" ? `<div class="seg zseg">${filters}</div>
+      <div class="blegend">${BIG_LINES.filter((b) => D.sires.some((s) => bigLine(s) === b)).map((b) => `<span><i style="background:${b.bg}"></i>${b.short}</span>`).join("")}</div>` : ""}
       <p class="empty znone" hidden>見つからない。図鑑にない種牡馬かもしれない</p>
       ${body}`;
     $view.innerHTML = `
@@ -1219,8 +1232,8 @@
           <h1>${esc(s.name)}</h1>
           <div class="pills">
             <a class="pill ptype" href="#lesson/2">${TYPE_NAME[s.type]}${s.typeSure ? "" : "（推定）"}</a>
-            <a class="pill" href="#lesson/3">${esc(s.line)}${s.lineGuess ? "（推定）" : ""}</a>
-            ${s.big && s.big !== s.line ? `<span class="pill">${esc(s.big)}</span>` : ""}
+            <span class="pill pbig" style="--pb:${bigLine(s).bg};--pf:${bigLine(s).fg}">${bigLine(s).name}</span>
+            ${s.line !== bigLine(s).name ? `<a class="pill" href="#lesson/3">${esc(s.line)}${s.lineGuess ? "（推定）" : ""}</a>` : ""}
           </div>
           <p class="tagline">${rich(s.tagline)}</p>
         </section>
