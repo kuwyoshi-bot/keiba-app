@@ -1033,7 +1033,9 @@
     const a = tAway(t);
     if (a && a.away && a.away.n >= 60 && a.away.p >= a.home.p * 1.15) tags.push("遠征で走る");
     if (t.f >= 95 || t.t >= 120) tags.push("人気薄で来る");
-    return tags;
+    const pk = tPatterns(t);
+    for (const k of ["中穴で来る", "人気で危ない", "2・3歳戦で走る", "古馬で走る"]) if ([...pk.buy, ...pk.avoid].some((x) => x.k === k)) tags.push(k);
+    return [...new Set(tags)];
   }
   function trainerCourses(i) {
     const out = [];
@@ -1086,6 +1088,43 @@
       ${awayHtml}
       <h4 class="sub">競馬場</h4><div class="bbands">${VEN.map((k) => bar(k, g[k])).join("")}</div>
       <p class="note">40走未満の競馬場は出していない。100走未満は薄く表示。</p>
+    </section>`;
+  }
+  // 買い・消し（数字から）：人気ランク別・年齢別の「期待比」（実際の3着内÷ふつうなら来る数）で判定
+  function tPatterns(t) {
+    const p = t.pat, buy = [], avoid = [];
+    if (!p) return { buy, avoid };
+    const x = (v) => v.toFixed(2);
+    const [abn, ab] = p.ab, [cdn, cd] = p.cd, [en, e] = p.e, [yn, y] = p.y, [on, o] = p.o;
+    if (abn >= 80 && ab >= 1.12) buy.push({ k: "人気でも堅い", d: `人気（ランクA・B）のとき、ふつうの${x(ab)}倍 3着以内に来ている（${abn}走）` });
+    if (abn >= 80 && ab <= 0.9) avoid.push({ k: "人気で危ない", d: `人気（ランクA・B）のとき、ふつうの${x(ab)}倍しか来ていない（${abn}走）。人気なら疑う` });
+    if (cdn >= 300 && cd >= 1.2) buy.push({ k: "中穴で来る", d: `中位〜人気薄（ランクC・D）のとき、ふつうの${x(cd)}倍来ている（${cdn}走）。ヒモに入れたい` });
+    if (cdn >= 300 && cd <= 0.92) avoid.push({ k: "中穴は来にくい", d: `中位〜人気薄（ランクC・D）のとき、ふつうの${x(cd)}倍（${cdn}走）。人気がないときは軽視` });
+    if (en >= 200 && e >= 2) buy.push({ k: "大穴あり", d: `大穴（ランクE）でも、ふつうの${x(e)}倍来ている（${en}走）。もとの確率が低いので参考` });
+    if (en >= 200 && e <= 0.6) avoid.push({ k: "大穴は来ない", d: `大穴（ランクE）はふつうの${x(e)}倍（${en}走）。人気薄は消してよい` });
+    if (yn >= 200 && on >= 200) {
+      const r = y / o;
+      if (r >= 1.25) buy.push({ k: "2・3歳戦で走る", d: `2歳戦・3歳限定戦の走りが、古馬のレースの${r.toFixed(1)}倍（若駒${yn}走・古馬${on}走）` });
+      if (r <= 0.8) { buy.push({ k: "古馬で走る", d: `古馬のレースの走りが、2・3歳戦の${(1 / r).toFixed(1)}倍（古馬${on}走・若駒${yn}走）` }); avoid.push({ k: "2・3歳戦は割引", d: "若駒のうちは走りきれていない。上と同じ数字" }); }
+    }
+    const a = tAway(t);
+    if (a && a.away && a.away.n >= 60) {
+      if (a.away.p >= a.home.p * 1.15) buy.push({ k: "遠征で走る", d: `${a.awayName}への遠征で複勝率${a.away.p}%（地元${a.home.p}%、遠征${a.away.n}走）` });
+      if (a.away.p <= a.home.p * 0.8) avoid.push({ k: "遠征は割引", d: `${a.awayName}への遠征で複勝率${a.away.p}%（地元${a.home.p}%、遠征${a.away.n}走）` });
+    }
+    return { buy, avoid };
+  }
+  function tPatternCard(t) {
+    const { buy, avoid } = tPatterns(t);
+    const p = t.prof || {};
+    const said = (arr, cls) => (arr || []).map((x) => `<div class="sn-l"><span class="tg rep">記事</span><span>${esc(x.text)}${x.src ? `<span class="muted small">（${esc(x.src)}）</span>` : ""}</span></div>`).join("");
+    const num = (arr) => arr.map((x) => `<div class="sn-l"><span class="tg f">数字</span><span><b>${esc(x.k)}</b>：${esc(x.d)}</span></div>`).join("");
+    const b = num(buy) + said(p["買い"]), v = num(avoid) + said(p["消し"]);
+    if (!b && !v) return "";
+    return `<section class="card"><div class="card-h"><span class="ico" style="background:var(--accent-soft);color:var(--accent)">買</span><h2>買い・消しのパターン</h2><span class="en">Patterns</span></div>
+      ${b ? `<h4 class="sub good" style="margin-top:0">買い</h4>${b}` : ""}
+      ${v ? `<h4 class="sub bad">消し</h4>${v}` : ""}
+      <p class="note">「数字」はスマート出馬表の5年集計から自動で判定（人気ランクA＝断然人気〜E＝大穴。ふつう＝同じコース・同じ人気ランクの馬の平均）。「記事」は他サイトの記事で言われていることで、コースや騎手を限った話が多い。</p>
     </section>`;
   }
   const tTagLine = (t) => [
@@ -1176,6 +1215,7 @@
         </section>
         ${memo ? `<section class="card"><div class="card-h"><span class="tg rep big">メモ</span><h2>どんな厩舎か</h2><span class="en">Profile</span></div><div class="jrep">${memo}</div>
           <p class="note">数字ではなく、言われていること。下の数字と比べて確かめる。${p["調教"] ? "調教の形は、追い切りの時計（競馬新聞やJRA-VANなど）と見比べて使う。" : ""}</p></section>` : ""}
+        ${tPatternCard(t)}
         ${comboCard((D.combos || []).filter((c) => c.t === t.name), "trainer")}
         ${tVenueCard(t)}
         <section class="card fx"><div class="card-h"><span class="tg f big">数字</span><h2>コースごとの成績</h2><span class="en">Data</span></div>
