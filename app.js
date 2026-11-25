@@ -1120,9 +1120,14 @@
     const said = (arr, cls) => (arr || []).map((x) => `<div class="sn-l"><span class="tg rep">記事</span><span>${esc(x.text)}${x.src ? `<span class="muted small">（${esc(x.src)}）</span>` : ""}</span></div>`).join("");
     const num = (arr) => arr.map((x) => `<div class="sn-l"><span class="tg f">数字</span><span><b>${esc(x.k)}</b>：${esc(x.d)}</span></div>`).join("");
     const b = num(buy) + said(p["買い"]), v = num(avoid) + said(p["消し"]);
-    if (!b && !v) return "";
+    // 妙味（回収率が高い条件）：100走以上を先に、複勝回収率の高い順
+    const VNAME = { 人気: "人気（ランクA・B）のとき", 中穴: "中位〜人気薄（ランクC・D）のとき", 大穴: "大穴（ランクE）のとき", 芝: "芝", ダ: "ダート", 若駒: "2歳戦・3歳限定戦", 古馬: "古馬のレース", 遠征: "遠征（ふだんと逆の地域）" };
+    const vals = (t.val || []).slice().sort((a, b2) => (b2[1] >= 100) - (a[1] >= 100) || b2[3] - a[3]).slice(0, 6);
+    const vHtml = vals.map(([k, n, tn, fu]) => `<div class="sn-l${n < 100 ? " few" : ""}"><span class="tg ${n >= 100 ? "f" : "rep"}">${n >= 100 ? "妙味" : "参考"}</span><span><b>${esc(VNAME[k] || k)}</b>：複回<b class="num">${fu}</b>・単回${tn}（${n}走）</span></div>`).join("");
+    if (!b && !v && !vHtml) return "";
     return `<section class="card"><div class="card-h"><span class="ico" style="background:var(--accent-soft);color:var(--accent)">買</span><h2>買い・消しのパターン</h2><span class="en">Patterns</span></div>
-      ${b ? `<h4 class="sub good" style="margin-top:0">買い</h4>${b}` : ""}
+      ${vHtml ? `<h4 class="sub good" style="margin-top:0">妙味（回収率が高い条件）</h4>${vHtml}<p class="note" style="margin:4px 0 8px">複勝回収率100%以上、または単勝回収率130%以上。100走未満は「参考」。単勝は1頭の大穴で跳ねるので、複勝の数字を重く見る。コースごとの妙味は下の「人気のわりに来たコース」</p>` : ""}
+      ${b ? `<h4 class="sub good">買い</h4>${b}` : ""}
       ${v ? `<h4 class="sub bad">消し</h4>${v}` : ""}
       <p class="note">「数字」はスマート出馬表の5年集計から自動で判定（人気ランクA＝断然人気〜E＝大穴。ふつう＝同じコース・同じ人気ランクの馬の平均）。「記事」は他サイトの記事で言われていることで、コースや騎手を限った話が多い。</p>
     </section>`;
