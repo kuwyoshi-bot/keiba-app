@@ -1,7 +1,7 @@
 ﻿// オフラインでも開けるように、アプリのファイルを保存しておく
-const CACHE = "turfnote-v41";
+const CACHE = "turfnote-v42";
 const FILES = [
-  "./", "index.html", "style.css", "app.js", "data.js", "manifest.webmanifest", "icon-180.png", "icon-192.png", "icon-512.png", "img/tab-course.png", "img/tab-blood.png", "img/tab-jockey.png",
+  "./", "index.html", "style.css", "app.js", "data.js", "manifest.webmanifest", "icon-180.png", "icon-192.png", "icon-512.png", "img/tab-course.png", "img/tab-blood.png", "img/tab-jockey.png", "img/tab-stable.png",
   "img/tokyo-3d.jpg", "img/nakayama-3d.jpg", "img/hanshin-3d.jpg", "img/kyoto-3d.jpg", "img/chukyo-3d.jpg",
   "img/niigata-3d.jpg", "img/sapporo-3d.jpg", "img/hakodate-3d.jpg", "img/fukushima-3d.jpg", "img/kokura-3d.jpg",
 ];

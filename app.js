@@ -254,6 +254,7 @@
         ${renderTypes(c)}
         ${renderRace(c)}
         ${renderJockeyCard(c)}
+        ${renderTrainerCard(c)}
         ${renderPeople(c)}
         ${wet ? "" : renderRain(c)}
         ${renderTrack(v, c)}
@@ -299,7 +300,7 @@
     $view.querySelectorAll("[data-label]").forEach((b) => b.onclick = () => { state.label = b.dataset.label; save(); renderCourse(); });
     // 見出しボタン：画面にあるカードの見出しから作る
     const SEC = [["重・不良のとき", "☂ 雨"], ["スタートからゴールまで", "構図"], ["注目ポイント", "注目"], ["このコースの種牡馬", "種牡馬"],
-      ["父の型と複勝率", "父の型"], ["枠・人気・展開", "枠・展開"], ["このコースの騎手", "騎手"], ["母父（このコース）", "母父"], ["雨の日（重・不良）", "雨の日"], ["競馬場のクセ", "競馬場"]];
+      ["父の型と複勝率", "父の型"], ["枠・人気・展開", "枠・展開"], ["このコースの騎手", "騎手"], ["このコースの厩舎", "厩舎"], ["母父（このコース）", "母父"], ["雨の日（重・不良）", "雨の日"], ["競馬場のクセ", "競馬場"]];
     const secs = [];
     const bs = $view.querySelector("#course > .bs");
     $view.querySelectorAll("#course > section.card, #course > .bs").forEach((el, i) => {
@@ -977,6 +978,194 @@
       </div>`;
   }
 
+  // ---------- 厩舎（調教師） ----------
+  const TR = D.trainers || [];
+  const TBY = Object.fromEntries(TR.map((t, i) => [t.name, i]));
+  const trHref = (n) => "#trainer/" + n;
+  const tLift = (r) => (TR[r.j] && TR[r.j].p ? r.p / TR[r.j].p : 0);
+  const tLabels = (r, avg, regular) => [
+    r.n >= 20 && r.p >= avg * 1.2 ? '<span class="lab good">よく来る</span>' : "",
+    r.n >= 20 && tLift(r) >= 1.3 ? `<span class="lab lift">ふだんの${tLift(r).toFixed(1)}倍</span>` : "",
+    regular ? '<span class="lab reg">常連</span>' : "",
+    isValue({ ...r, avg }) ? '<span class="lab value">妙味</span>' : "",
+    isFew(r) ? `<span class="lab few">参考・${r.n}走</span>` : "",
+  ].join("");
+  const KANTO = ["東京", "中山", "新潟", "福島"], KANSAI = ["阪神", "京都", "中京", "小倉"];
+  // 遠征：美浦の厩舎が関西（阪神・京都・中京・小倉）で、栗東の厩舎が関東（東京・中山・新潟・福島）で走ったとき。北海道は除く
+  function tAway(t) {
+    if (!t.venue || !t.aff) return null;
+    const sum = (vs) => vs.reduce((a, v) => { const x = t.venue[v]; if (x) { a.n += x[0]; a.r += x[0] * x[1] / 100; } return a; }, { n: 0, r: 0 });
+    const home = sum(t.aff === "美浦" ? KANTO : KANSAI), away = sum(t.aff === "美浦" ? KANSAI : KANTO);
+    if (!home.n) return null;
+    return { home: { n: home.n, p: Math.round(home.r / home.n * 100) }, away: away.n >= 40 ? { n: away.n, p: Math.round(away.r / away.n * 100) } : null, awayName: t.aff === "美浦" ? "関西" : "関東" };
+  }
+  // 厩舎の色：数字から自動で付ける短い札
+  function tTags(t) {
+    const v = t.venue || {}, tags = [];
+    const s = v["芝"], d = v["ダ"];
+    if (s && d) {
+      const share = s[0] / (s[0] + d[0]);
+      if (share >= 0.7) tags.push("芝の厩舎"); else if (share <= 0.3) tags.push("ダートの厩舎");
+      else if (s[1] >= d[1] + 5) tags.push("芝で走る"); else if (d[1] >= s[1] + 5) tags.push("ダートで走る");
+    }
+    const a = tAway(t);
+    if (a && a.away && a.away.n >= 60 && a.away.p >= a.home.p * 1.15) tags.push("遠征で走る");
+    if (t.f >= 95 || t.t >= 120) tags.push("人気薄で来る");
+    return tags;
+  }
+  function trainerCourses(i) {
+    const out = [];
+    for (const [k, tc] of Object.entries(D.trainerCourse || {})) {
+      const r = tc.rows.find((x) => x.j === i);
+      if (r) out.push({ ...r, k, avg: tc.avg, regular: tc.rows.slice().sort((a, b) => b.n - a.n).slice(0, 2).some((x) => x.j === i) });
+    }
+    return out;
+  }
+  function renderTrainerCard(c) {
+    const tc = (D.trainerCourse || {})[ckey(c)];
+    if (!tc || !tc.rows.length) return "";
+    const regulars = new Set(tc.rows.slice().sort((a, b) => b.n - a.n).slice(0, 2).map((r) => r.j));
+    const rows = tc.rows.map((r) => {
+      const t = TR[r.j];
+      return `<a class="srow${isFew(r) ? " few" : ""}" href="${trHref(t.name)}">
+        <span class="srow-n"><b>${esc(t.name)}</b>${t.aff ? `<span class="lab reg">${t.aff}</span>` : ""}<span class="srow-l">${tLabels(r, tc.avg, regulars.has(r.j))}</span></span>
+        <span class="srow-p num">${r.p}<small>%</small></span>
+        <span class="srow-d">${r.n}走・ふだん${t.p}%・単回${r.t}／複回${r.f}</span>
+      </a>`;
+    }).join("");
+    return `<section class="card"><div class="card-h"><span class="ico" style="background:var(--accent-soft);color:var(--accent)">厩</span><h2>このコースの厩舎</h2><span class="en">Trainers</span></div>
+      <p class="note" style="margin:0 0 8px">20走以上の厩舎から、複勝率の高い所・走数の多い所（常連）・ふだんよりこのコースで走る所を選んだ。コース平均は <b class="num">${tc.avg}%</b>。</p>
+      <div class="srows">${rows}</div>
+      <p class="note">「ふだん」はその厩舎の5年間・88コース合計の複勝率。強い馬を多く預かる厩舎は高く出るので、<b>ふだんより何倍走るか</b>も見る。</p>
+    </section>`;
+  }
+  function tVenueCard(t) {
+    const g = t.venue;
+    if (!g) return "";
+    const bar = (key, v, label) => {
+      if (!v) return "";
+      const [n, p] = v;
+      const lift = t.p ? p / t.p : 0;
+      const cls = lift >= 1.15 ? "hi" : lift <= 0.85 ? "lo" : "";
+      return `<div class="bband ${cls}${n < 100 ? " few" : ""}">
+        <span class="bn">${label || (key === "芝" ? "芝" : key === "ダ" ? "ダート" : key)}</span>
+        <div class="btrack"><div class="bfill" style="width:${Math.min(lift / 2, 1) * 100}%"></div><i class="bavg" style="left:50%"></i></div>
+        <span class="bv num">${lift.toFixed(1)}倍</span>
+        <span class="bd">${n}走・複勝率${p}%</span>
+      </div>`;
+    };
+    const a = tAway(t);
+    const awayHtml = a ? `<h4 class="sub">遠征</h4>
+      <div class="bbands">${bar("", [a.home.n, a.home.p], `地元（${t.aff === "美浦" ? "関東" : "関西"}）`)}${a.away ? bar("", [a.away.n, a.away.p], `遠征（${a.awayName}）`) : ""}</div>
+      <p class="note" style="margin:4px 0 0">${a.away ? `わざわざ遠くへ連れて行くときは勝負気配、と言われる。${a.away.p >= a.home.p * 1.15 ? "この厩舎は遠征の方が走っている。" : a.away.p <= a.home.p * 0.85 ? "この厩舎は遠征だと成績が落ちる。" : "この厩舎は地元と遠征で大きな差はない。"}` : `${a.awayName}への遠征は40走未満で少ない。`}北海道（札幌・函館）は除いた。</p>` : "";
+    return `<section class="card fx"><div class="card-h"><span class="tg f big">数字</span><h2>競馬場別・芝ダート別</h2><span class="en">By course</span></div>
+      <p class="note" style="margin:0 0 8px">ふだん（複勝率${t.p}%）の何倍走っているか。縦線が1.0倍</p>
+      <h4 class="sub" style="margin-top:0">芝・ダート</h4><div class="bbands">${bar("芝", g["芝"])}${bar("ダ", g["ダ"])}</div>
+      ${awayHtml}
+      <h4 class="sub">競馬場</h4><div class="bbands">${VEN.map((k) => bar(k, g[k])).join("")}</div>
+      <p class="note">40走未満の競馬場は出していない。100走未満は薄く表示。</p>
+    </section>`;
+  }
+  const tTagLine = (t) => [
+    t.lead ? `<span class="jlead t-${t.lead.tier}">${t.lead.tier}・今年${t.lead.rank}位</span>` : "",
+    t.aff || "",
+    tTags(t).join("・"),
+  ].filter(Boolean).join("／");
+
+  function renderTrainers() {
+    const sort = ["n", "p", "r"].includes(state.tsort) ? state.tsort : "r";
+    const aff = state.taff || "all";
+    const list = TR.map((t, i) => ({ t, i, best: trainerCourses(i).filter((r) => r.n >= 30).sort((a, b) => tLift(b) - tLift(a))[0] }))
+      .filter(({ t }) => aff === "all" || t.aff === aff)
+      .sort((a, b) => sort === "p" ? b.t.p - a.t.p : sort === "n" ? b.t.n - a.t.n : (a.t.lead ? a.t.lead.rank : 999) - (b.t.lead ? b.t.lead.rank : 999));
+    const cards = list.map(({ t, best }) => `
+      <a class="zcard jcard" href="${trHref(t.name)}" data-q="${esc(t.name)}" style="--c:var(--accent)">
+        <span class="zc-line">${t.n}走・複勝率 ${t.p}%</span>
+        <span class="zc-name">${esc(t.name)}</span>
+        <span class="jtagline">${tTagLine(t)}</span>
+        <span class="zc-kw">${best ? `<span class="kw">得意 ${esc(cname(best.k))}</span>` : ""}</span>
+      </a>`).join("");
+    $view.innerHTML = `
+      <div class="fade">
+        <div class="page-h"><h1>厩舎</h1></div>
+        <section class="card">
+          <div class="zbar">
+            <div class="zsearch"><input id="tq" type="search" placeholder="名前で探す" autocomplete="off"></div>
+            <div class="seg zview">
+              <button data-ts="r" class="${sort === "r" ? "is-active" : ""}">今年</button>
+              <button data-ts="n" class="${sort === "n" ? "is-active" : ""}">走数</button>
+              <button data-ts="p" class="${sort === "p" ? "is-active" : ""}">複勝率</button>
+            </div>
+          </div>
+          <div class="seg zseg">${[["all", "全部"], ["美浦", "美浦"], ["栗東", "栗東"]].map(([id, nm]) => `<button data-ta="${id}" class="${aff === id ? "is-active" : ""}">${nm}</button>`).join("")}</div>
+          <div class="zgrid">${cards}</div>
+          <p class="empty jnone" hidden>見つからない</p>
+        </section>
+        <p class="foot">数字：スマート出馬表 5年集計（2021.11〜2026.11）。5年で300走以上の、今も厩舎を開いている調教師<br>今年の順位・所属：JRA 調教師リーディング（2026年11月23日現在）</p>
+      </div>`;
+    $view.querySelectorAll("[data-ts]").forEach((b) => b.onclick = () => { state.tsort = b.dataset.ts; save(); renderTrainers(); });
+    $view.querySelectorAll("[data-ta]").forEach((b) => b.onclick = () => { state.taff = b.dataset.ta; save(); renderTrainers(); });
+    const qi = $view.querySelector("#tq");
+    qi.value = ui.tq || "";
+    const apply = () => {
+      ui.tq = qi.value; const q = qi.value.trim(); let hits = 0;
+      $view.querySelectorAll(".jcard").forEach((el) => { const ok = !q || el.dataset.q.includes(q); el.hidden = !ok; if (ok) hits++; });
+      $view.querySelector(".jnone").hidden = hits > 0;
+    };
+    qi.oninput = apply; if (qi.value) apply();
+  }
+
+  function renderTrainer(name) {
+    const i = TBY[name];
+    const t = TR[i];
+    if (!t) { $view.innerHTML = `<div class="fade"><p class="empty">「${esc(name)}」はまだ載っていない。</p></div>`; return; }
+    const cs = trainerCourses(i);
+    const row = (r) => `
+      <a class="crow${isFew(r) ? " few" : ""}" href="#course" data-course="${esc(r.k)}">
+        <span class="crow-k">${esc(cname(r.k))}<span class="crow-l">${tLabels(r, r.avg, r.regular)}</span></span>
+        <span class="crow-p num">${r.p}<small>%</small></span>
+        <span class="crow-d">${r.n}走・平均${r.avg}%・単回${r.t}／複回${r.f}</span>
+      </a>`;
+    const lift = cs.filter((r) => r.n >= 20 && tLift(r) >= 1.15).sort((a, b) => tLift(b) - tLift(a)).slice(0, 8);
+    const regular = cs.filter((r) => r.regular).sort((a, b) => b.n - a.n);
+    const value = cs.filter((r) => isValue(r)).sort((a, b) => b.f - a.f).slice(0, 6);
+    const sec = (title, note, arr) => arr.length ? `<h4 class="sub">${title}</h4>${note ? `<p class="note" style="margin:-4px 0 6px">${note}</p>` : ""}<div class="crows">${arr.map(row).join("")}</div>` : "";
+    const p = t.prof || {};
+    const block = (title, arr) => arr && arr.length ? `<h4 class="sub">${title}</h4>${arr.map((x) => `<div class="sn-l"><span class="tg rep">メモ</span><span>${esc(x.text)}${x.src ? `<span class="muted small">（${esc(x.src)}）</span>` : ""}</span></div>`).join("")}` : "";
+    const memo = block("代表馬", p["代表馬"]) + block("特徴", p["メモ"]);
+    const tags = tTags(t);
+    $view.innerHTML = `
+      <div class="fade">
+        <section class="shero" style="--c:var(--accent)">
+          <div class="shero-en">TRAINER</div>
+          <h1>${esc(t.name)}</h1>
+          <div class="pills" style="margin:0 0 10px">
+            ${t.lead ? `<span class="pill jlead-pill t-${t.lead.tier}">${t.lead.tier}：${t.lead.year}年 ${t.lead.rank}位（${t.lead.wins}勝）</span>` : ""}
+            ${t.aff ? `<span class="pill">${t.aff}</span>` : ""}
+            ${tags.map((x) => `<span class="pill">${esc(x)}</span>`).join("")}
+          </div>
+          <div class="jstats">
+            <div><span>出走</span><b class="num">${t.n}</b></div>
+            <div><span>勝率</span><b class="num">${t.w}%</b></div>
+            <div><span>複勝率</span><b class="num">${t.p}%</b></div>
+            <div><span>単回／複回</span><b class="num">${t.t}／${t.f}</b></div>
+          </div>
+          <p class="note" style="margin:8px 0 0">5年間・88コースの合計＝この厩舎の「ふだん」</p>
+        </section>
+        ${memo ? `<section class="card"><div class="card-h"><span class="tg rep big">メモ</span><h2>どんな厩舎か</h2><span class="en">Profile</span></div><div class="jrep">${memo}</div>
+          <p class="note">数字ではなく、言われていること。下の数字と比べて確かめる。</p></section>` : ""}
+        ${tVenueCard(t)}
+        <section class="card fx"><div class="card-h"><span class="tg f big">数字</span><h2>コースごとの成績</h2><span class="en">Data</span></div>
+          ${sec("ふだんより走るコース", "この厩舎のふだんの複勝率と比べて、何倍走っているか", lift)}
+          ${sec("常連のコース", "そのコースで走数が多い（上位2つ）。よく使う＝得意と見ているコース", regular)}
+          ${sec("人気のわりに来たコース", "過去の回収率が高い（＝妙味）。今日のオッズの妙味ではない", value)}
+          ${!lift.length && !regular.length && !value.length ? '<p class="note">目立つコースはまだない。</p>' : ""}
+          <p class="note">各コースで「複勝率の高い所・常連・ふだんより走る所」に選ばれたコースだけが出る。</p>
+        </section>
+        <p class="foot">数字：スマート出馬表 5年集計（2021.11〜2026.11）／順位・所属：JRA</p>
+      </div>`;
+  }
+
   function renderRain(c) {
     if (!c.heavy) return "";
     return `<section class="card rain"><div class="card-h"><span class="ico">☂</span><h2>雨の日（重・不良）</h2><span class="en">Wet track</span></div>
@@ -1339,21 +1528,23 @@
   }
   function back() {
     if (depth > 0) { depth--; history.back(); }
-    else go(/^#sire|^#lesson/.test(curHash()) ? "#blood" : /^#jockey\//.test(curHash()) ? "#jockeys" : "#course");
+    else go(/^#sire|^#lesson/.test(curHash()) ? "#blood" : /^#jockey\//.test(curHash()) ? "#jockeys" : /^#trainer\//.test(curHash()) ? "#trainers" : "#course");
   }
 
   function render() {
     const h = curHash().slice(1);
     const [r, arg] = [h.split("/")[0], h.slice(h.indexOf("/") + 1)];
-    const tab = r === "jockeys" || r === "jockey" ? "jockeys" : r === "course" || !r ? "course" : "blood";
+    const tab = r === "jockeys" || r === "jockey" ? "jockeys" : r === "trainers" || r === "trainer" ? "trainers" : r === "course" || !r ? "course" : "blood";
     document.querySelectorAll(".tab").forEach((t) => t.classList.toggle("is-active", t.dataset.tab === tab));
-    // 図鑑・レッスン・騎手のページでは、上の帯に「戻る」を出す
-    document.querySelector(".topbar")?.classList.toggle("sub", r === "sire" || r === "lesson" || r === "jockey");
+    // 図鑑・レッスン・騎手・厩舎のページでは、上の帯に「戻る」を出す
+    document.querySelector(".topbar")?.classList.toggle("sub", r === "sire" || r === "lesson" || r === "jockey" || r === "trainer");
     if (r === "sire") renderSire(arg);
     else if (r === "lesson") renderLesson(+arg);
     else if (r === "blood") renderBlood();
     else if (r === "jockeys") renderJockeys();
     else if (r === "jockey") renderJockey(arg);
+    else if (r === "trainers") renderTrainers();
+    else if (r === "trainer") renderTrainer(arg);
     else renderCourse();
     state.route = h || "course"; save();
     restoreScroll(scrollMem[curHash()] || 0);
