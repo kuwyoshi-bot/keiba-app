@@ -863,11 +863,14 @@
     return (chips ? `<div class="pills" style="margin:0 0 10px">${chips}</div>` : "") + fam;
   };
   // エピソード（有名な話）：騎手・厩舎共通。出典つき
-  function epiCard(arr) {
-    if (!arr || !arr.length) return "";
-    const rows = arr.map((x) => `<div class="epi"><span class="epi-i">★</span><span>${esc(x.text)}${x.src ? `<span class="muted small">（${esc(x.src)}）</span>` : ""}</span></div>`).join("");
+  function epiCard(p) {
+    const rows = (arr, ico) => (arr || []).map((x) => `<div class="epi"><span class="epi-i">${ico}</span><span>${esc(x.text)}${x.src ? `<span class="muted small">（${esc(x.src)}）</span>` : ""}</span></div>`).join("");
+    const a = rows(p["人柄"], "●"), b = rows(p["話"], "★");
+    if (!a && !b) return "";
     return `<section class="card"><div class="card-h"><span class="ico" style="background:var(--gold-soft, rgba(212,175,55,.15));color:var(--gold)">★</span><h2>エピソード</h2><span class="en">Story</span></div>
-      <div class="epis">${rows}</div></section>`;
+      ${a ? `<h4 class="sub" style="margin-top:0">人となり</h4><div class="epis">${a}</div>` : ""}
+      ${b ? `<h4 class="sub"${a ? "" : ' style="margin-top:0"'}>名場面・記録</h4><div class="epis">${b}</div>` : ""}
+    </section>`;
   }
   function jRepCard(j, notes) {
     const p = pf(j);
@@ -972,7 +975,7 @@
           </div>
           <p class="note" style="margin:8px 0 0">5年間・88コースの合計＝この騎手の「ふだん」</p>
         </section>
-        ${epiCard(pf(j)["話"])}
+        ${epiCard(pf(j))}
         ${jRepCard(j, notes)}
         ${comboCard((D.combos || []).filter((c) => c.j === j.name), "jockey")}
         ${jVenueCard(j)}
@@ -1284,7 +1287,7 @@
           </div>
           <p class="note" style="margin:8px 0 0">5年間・88コースの合計＝この厩舎の「ふだん」</p>
         </section>
-        ${epiCard(p["話"])}
+        ${epiCard(p)}
         ${tCondCard(t)}
         ${memo ? `<section class="card"><div class="card-h"><span class="tg rep big">メモ</span><h2>どんな厩舎か</h2><span class="en">Profile</span></div><div class="jrep">${memo}</div>
           <p class="note">数字ではなく、言われていること。下の数字と比べて確かめる。${p["調教"] ? "調教の形は、追い切りの時計（競馬新聞やJRA-VANなど）と見比べて使う。" : ""}</p></section>` : ""}
