@@ -763,3 +763,6 @@ details.more[open] > summary { color: var(--muted); }
 .pill.cgood small, .pill.cbad small { font-weight: 400; opacity: .8; }
 .bband .bn small { font-size: 10px; }
 .bband.cband { grid-template-columns: 92px 1fr 50px; }
+.epis { display: grid; gap: 10px; }
+.epi { display: flex; gap: 8px; align-items: flex-start; font-size: 13.5px; line-height: 1.65; color: var(--text2); }
+.epi-i { color: var(--gold); font-size: 12px; margin-top: 3px; flex: none; }
