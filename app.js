@@ -966,6 +966,7 @@
           <p class="note" style="margin:8px 0 0">5年間・88コースの合計＝この騎手の「ふだん」</p>
         </section>
         ${jRepCard(j, notes)}
+        ${comboCard((D.combos || []).filter((c) => c.j === j.name), "jockey")}
         ${jVenueCard(j)}
         <section class="card fx"><div class="card-h"><span class="tg f big">数字</span><h2>コースごとの成績</h2><span class="en">Data</span></div>
           ${sec("ふだんより走るコース", "この騎手のふだんの複勝率と比べて、何倍走っているか（＝そのコースが上手い可能性）", lift)}
@@ -976,6 +977,27 @@
         </section>
         <p class="foot">数字：スマート出馬表 5年集計（2021.11〜2026.11）</p>
       </div>`;
+  }
+
+  // ---------- 勝負コンビ（厩舎×騎手。他サイトの集計の引用） ----------
+  const COND_ORDER = { 総合: 0, 芝: 1, ダート: 2, 新馬戦: 3, 重賞: 4 };
+  function comboCard(list, side) {
+    if (!list.length) return "";
+    const rows = list.slice().sort((a, b) => (COND_ORDER[a.cond] ?? 9) - (COND_ORDER[b.cond] ?? 9) || (b.w || 0) - (a.w || 0)).map((c) => {
+      const other = side === "trainer" ? c.j : c.t;
+      const href = side === "trainer" ? (JBY[c.j] !== undefined ? jockHref(c.j) : "") : trHref(c.t);
+      const few = c.n && c.n < 30;
+      return `<div class="combo${few ? " few" : ""}">
+        <div class="combo-h">${href ? `<a class="jname" href="${href}">${esc(other)}</a>` : `<b>${esc(other)}</b>`}<span class="lab reg">${esc(c.cond)}</span>${few ? `<span class="lab few">参考・${c.n}走</span>` : ""}
+          ${c.w != null ? `<span class="combo-n num">勝率${c.w}%・複勝率${c.p}%</span>` : ""}</div>
+        <div class="combo-d">${c.n ? `${esc(c.rec)}　` : ""}${esc(c.note)}<span class="muted small">（${esc(c.src)}）</span></div>
+      </div>`;
+    }).join("");
+    return `<section class="card"><div class="card-h"><span class="tg rep big">引用</span><h2>勝負コンビ</h2><span class="en">${side === "trainer" ? "Jockeys" : "Trainers"}</span></div>
+      <p class="note" style="margin:0 0 8px">${side === "trainer" ? "この厩舎がよく結果を出している騎手" : "この騎手がよく結果を出している厩舎"}。他サイトの集計を出典付きで写したもの（総合・芝・ダートは単勝20倍以下の馬だけ）。</p>
+      <div class="combos">${rows}</div>
+      <p class="note">回収率は載っていない。強い馬ほど上手い騎手に頼むので、数字が高い＝妙味、ではない。<b>この組み合わせで出てきたら陣営は本気</b>、の目安として使う。</p>
+    </section>`;
   }
 
   // ---------- 厩舎（調教師） ----------
@@ -1132,7 +1154,7 @@
     const sec = (title, note, arr) => arr.length ? `<h4 class="sub">${title}</h4>${note ? `<p class="note" style="margin:-4px 0 6px">${note}</p>` : ""}<div class="crows">${arr.map(row).join("")}</div>` : "";
     const p = t.prof || {};
     const block = (title, arr) => arr && arr.length ? `<h4 class="sub">${title}</h4>${arr.map((x) => `<div class="sn-l"><span class="tg rep">メモ</span><span>${esc(x.text)}${x.src ? `<span class="muted small">（${esc(x.src)}）</span>` : ""}</span></div>`).join("")}` : "";
-    const memo = block("代表馬", p["代表馬"]) + block("特徴", p["メモ"]);
+    const memo = block("代表馬", p["代表馬"]) + block("特徴", p["メモ"]) + block("調教（勝ったときの追い切りの形）", p["調教"]);
     const tags = tTags(t);
     $view.innerHTML = `
       <div class="fade">
@@ -1153,7 +1175,8 @@
           <p class="note" style="margin:8px 0 0">5年間・88コースの合計＝この厩舎の「ふだん」</p>
         </section>
         ${memo ? `<section class="card"><div class="card-h"><span class="tg rep big">メモ</span><h2>どんな厩舎か</h2><span class="en">Profile</span></div><div class="jrep">${memo}</div>
-          <p class="note">数字ではなく、言われていること。下の数字と比べて確かめる。</p></section>` : ""}
+          <p class="note">数字ではなく、言われていること。下の数字と比べて確かめる。${p["調教"] ? "調教の形は、追い切りの時計（競馬新聞やJRA-VANなど）と見比べて使う。" : ""}</p></section>` : ""}
+        ${comboCard((D.combos || []).filter((c) => c.t === t.name), "trainer")}
         ${tVenueCard(t)}
         <section class="card fx"><div class="card-h"><span class="tg f big">数字</span><h2>コースごとの成績</h2><span class="en">Data</span></div>
           ${sec("ふだんより走るコース", "この厩舎のふだんの複勝率と比べて、何倍走っているか", lift)}
